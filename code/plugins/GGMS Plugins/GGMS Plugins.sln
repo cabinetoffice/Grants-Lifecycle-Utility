@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36127.28 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGMS Plugins", "GGMS Plugins\GGMS Plugins.csproj", "{60017E34-8C29-4923-A911-F0BFC51B9C08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60017E34-8C29-4923-A911-F0BFC51B9C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60017E34-8C29-4923-A911-F0BFC51B9C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60017E34-8C29-4923-A911-F0BFC51B9C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60017E34-8C29-4923-A911-F0BFC51B9C08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98EC4803-C814-4549-835F-AEBC69B4EB18}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+/bin
+/obj
+/Properties
+ProcessPDFSigning.snk
+/.vs
+ProcessGfaPdf.dll
+ProcessGfaPdf.dll.config
+ProcessGfaPdf.pdb
+ProcessGfaPdfMerged.dll
+ProcessGfaPdfMerged.dll.config
+ProcessGfaPdfMerged.pdb
