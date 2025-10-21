@@ -1,0 +1,16 @@
+<root>
+    <data name="COMPONENT_NAME_KEY" xml:space="preserve">
+        <value>Inline Frame</value>
+    </data>
+    <data name="COMPONENT_DESC_KEY" xml:space="preserve">
+        <value>A PCF component which allows an external site to be embedded within the current application (using an iFrame).</value>
+    </data>
+
+    <data name="URL_NAME_KEY" xml:space="preserve">
+        <value>URL</value>
+    </data>
+    <data name="URL_DESC_KEY" xml:space="preserve">
+        <value>A URL which belongs to an external site.</value>
+    </data>
+
+</root>
