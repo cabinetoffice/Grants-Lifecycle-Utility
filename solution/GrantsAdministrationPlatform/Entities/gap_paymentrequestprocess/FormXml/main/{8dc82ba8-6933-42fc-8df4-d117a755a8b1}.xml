@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{8dc82ba8-6933-42fc-8df4-d117a755a8b1}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{9c7ceb37-ff69-4911-b2b2-60136fcaa476}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{551b754c-4fa1-4ac8-82e8-1f3637572a3a}">
+          <labels>
+            <label description="Process Payment Request" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{f7bf2919-d645-102a-17b1-d8523202834c}" name="StageStep3_section1" labelid="{606223c6-6f26-4365-8587-29a1c66a5f49}">
+                  <labels>
+                    <label description="Process Payment Request" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d3123f90-442c-4cb2-a51d-e3d3da992f12}" showlabel="true" visible="true" labelid="{994ccf94-824b-4822-bbf7-282c87160bf4}">
+                        <labels>
+                          <label description="Submission Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_submissionreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_submissionreviewcompletedon" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{4ee115fa-2887-4236-ac8d-93bb4ff9f4dd}" name="StageStep7" locklevel="0" expanded="true" visible="false" labelid="{976ffe27-3c3c-4866-bbd4-2508354aa421}">
+          <labels>
+            <label description="Payment Request Due Diligence" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{7f4e1843-440a-2c0e-4e09-015e2f9c67ac}" name="StageStep7_section1" labelid="{61c729c6-b585-4102-9893-63bb06d5a53f}">
+                  <labels>
+                    <label description="Payment Request Due Diligence" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8ddb28be-041d-472a-9f12-24cd6b2b2ccf}" showlabel="true" visible="true" labelid="{ae35a0c0-7bd9-4bca-975e-c2781a67a653}">
+                        <labels>
+                          <label description="Due Diligence Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_duediligencecompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_duediligencecompletedon" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{40fbaa63-502c-486f-b7e6-02c2300daaf1}" name="StageStep11" locklevel="0" expanded="true" visible="false" labelid="{7514e15f-da04-431c-b204-586dd3feeff6}">
+          <labels>
+            <label description="Payment Request Quality Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{9c17c570-ebe3-135b-7591-806a6e98f905}" name="StageStep11_section1" labelid="{32cb434e-b232-4433-997c-995f6569b934}">
+                  <labels>
+                    <label description="Payment Request Quality Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0b511bf1-8bfb-4668-ac12-b1a31fc48c9a}" showlabel="true" visible="true" labelid="{b6958c3d-7c40-457b-abd8-238011406d9b}">
+                        <labels>
+                          <label description="Quality Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_qualityreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_qualityreviewcompletedon" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{6ae0e55c-380c-429c-a90e-1d6a8158dd9e}" name="StageStep15" locklevel="0" expanded="true" visible="false" labelid="{a99b9b1e-2de5-49fb-b98c-ef6dd48eb70a}">
+          <labels>
+            <label description="Outcome" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{8b4e24bb-a26e-cf1a-10aa-e2c10bdcbf9f}" name="StageStep15_section1" labelid="{f4a2abf1-36d0-46e4-9ee2-80267ca128fc}">
+                  <labels>
+                    <label description="Outcome" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{21ff6dff-7d0c-4067-8090-42d1391b224f}" showlabel="true" visible="true" labelid="{74963f22-dced-4904-8d37-2c450c779df3}">
+                        <labels>
+                          <label description="Department Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_departmentoutcome" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_departmentoutcome" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

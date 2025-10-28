@@ -1,0 +1,41 @@
+function hideSectionsScheme(executionContext){
+    var formContext = executionContext.getFormContext(); // get the Form Context
+    var schemeStage = formContext.getAttribute("gap_stage").getValue();// Get Application Stage
+    var stageTab = formContext.ui.tabs.get("Stage Actions")  
+
+    switch (schemeStage)
+    {
+    case 803260006: //Front Door
+        stageTab.sections.get("MSection").setVisible(false);
+        stageTab.sections.get("PMSection").setVisible(false);
+        break;
+    case 803260007: //Unsuitable for GGMS
+        stageTab.sections.get("MSection").setVisible(false);
+        stageTab.sections.get("PMSection").setVisible(false);
+        break;
+    case 803260000: //Pre-Mobilisation
+        stageTab.sections.get("MSection").setVisible(false);
+        stageTab.sections.get("PMSection").setVisible(true);
+        break;
+    case 803260001: //Mobilisation
+        stageTab.sections.get("MSection").setVisible(true);
+        stageTab.sections.get("PMSection").setVisible(true);
+        break;
+    case 803260002:  //Awaiting Launch
+        stageTab.sections.get("MSection").setVisible(true);
+        stageTab.sections.get("PMSection").setVisible(true);
+        break;
+    case 803260008: //Monitoring
+        stageTab.sections.get("MSection").setVisible(true);
+        stageTab.sections.get("PMSection").setVisible(true);
+        break;
+    case 803260003: //Assessment
+        stageTab.sections.get("MSection").setVisible(true);
+        stageTab.sections.get("PMSection").setVisible(true);
+        break;
+    case 803260009: //Pending
+        stageTab.sections.get("MSection").setVisible(false);
+        stageTab.sections.get("PMSection").setVisible(false);
+        break;
+    }
+    }

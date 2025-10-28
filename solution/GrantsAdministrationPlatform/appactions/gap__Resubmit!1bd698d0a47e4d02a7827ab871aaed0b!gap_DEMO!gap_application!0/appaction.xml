@@ -1,0 +1,43 @@
+<appaction uniquename="gap__Resubmit!1bd698d0a47e4d02a7827ab871aaed0b!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Resubmit">
+    <label description="Resubmit" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Resubmit the active application for the Notification Letter draft review">
+    <label description="Resubmit the active application for the Notification Letter draft review" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Resubmit">
+    <label description="Resubmit" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Refresh</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>Resubmit!1bd698d0a47e4d02a7827ab871aaed0b</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>432f630093b24502bf9a94882ffe8702</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100375007.5000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>432f630093b24502bf9a94882ffe8702</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

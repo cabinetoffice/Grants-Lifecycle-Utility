@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{6acc7b4f-c801-4259-98d6-3c001412a51b}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{fd576ed0-cc34-4575-9519-4769926c5fad}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{fe2981f4-6c52-44fa-91ab-2004120fa1e7}">
+          <labels>
+            <label description="GFA Letter Generation" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{30a58b02-9d7a-26a2-d2a0-03f20595eaa8}" name="StageStep3_section1" labelid="{8cc2c4c0-4e91-49a2-89ef-33cb6571ed08}">
+                  <labels>
+                    <label description="GFA Letter Generation" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{35b6d36b-e0cc-4eef-966e-a261b6ee5661}" showlabel="true" visible="true" labelid="{88b704d0-9099-4e22-8f33-0f27137abdb6}">
+                        <labels>
+                          <label description="GFA Initial Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_gfainitialreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_gfainitialreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{94936888-aec6-4bdd-9e4d-2c0b70eb5415}" name="StageStep7" locklevel="0" expanded="true" visible="false" labelid="{10f5e869-0bbf-416b-96ce-b313ef82ef7b}">
+          <labels>
+            <label description="GFA Quality Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{fc25e1d2-43f3-8a79-53a4-453da914af9a}" name="StageStep7_section1" labelid="{0007b81d-0e34-404f-a294-c2a20cd74900}">
+                  <labels>
+                    <label description="GFA Quality Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{498fb7f6-2507-444b-916a-8577da91fcdf}" showlabel="true" visible="true" labelid="{1403d94a-74fd-4e3d-bf8d-ab32fbd68427}">
+                        <labels>
+                          <label description="GFA Quality Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_gfaunsignedqualityreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_gfaunsignedqualityreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{7f3766d5-7a80-4deb-91ab-1453af35e09d}" name="StageStep11" locklevel="0" expanded="true" visible="false" labelid="{872bca2f-afb3-460a-bee6-094cc2f2add6}">
+          <labels>
+            <label description="GFA Signing" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{4dc8deb9-4950-4189-8765-3ddf964d3859}" name="StageStep11_section1" labelid="{d0c93cf6-9a22-4517-81a9-69071e3629d9}">
+                  <labels>
+                    <label description="GFA Signing" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6ba127f8-3c38-4b0b-9dac-ee0744e6216e}" showlabel="true" visible="true" labelid="{3e7f2ac3-cb82-498f-8907-d0c55708f4dd}">
+                        <labels>
+                          <label description="GFA Signed &amp; Received On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_gfasignedreceivedon" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="gap_gfasignedreceivedon" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{c1e2a5b3-05c4-4598-86f3-2dc1c3b340ee}" name="StageStep15" locklevel="0" expanded="true" visible="false" labelid="{d3a325cd-589b-4009-88f3-5bb721c57d62}">
+          <labels>
+            <label description="Review GFA Completeness" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{697faf4d-f65f-db0a-8061-d5a9062c5ea9}" name="StageStep15_section1" labelid="{afb5e1f9-84fd-4fd9-9672-d8586738349a}">
+                  <labels>
+                    <label description="Review GFA Completeness" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{528a9fa3-55a8-453c-a3d5-dba4f797b621}" showlabel="true" visible="true" labelid="{9376084d-8847-4cdf-86ff-b3f5c910e762}">
+                        <labels>
+                          <label description="GFA Completeness Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_gfacompletenessreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_gfacompletenessreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{fa2d0328-f8d1-4838-807f-bcdf2948a07e}" name="StageStep19" locklevel="0" expanded="true" visible="false" labelid="{e4ea60e1-ed6d-427f-b980-173e3e498ff9}">
+          <labels>
+            <label description="Signed GFA Email Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{0ff90df8-d06f-f117-57ed-2c930dfb7e71}" name="StageStep19_section1" labelid="{c97a440e-830d-4dfa-9f40-6cfa75d6d4e4}">
+                  <labels>
+                    <label description="Signed GFA Email Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f73bdcf5-c752-4f1d-a31a-af8cb93301ec}" showlabel="true" visible="true" labelid="{10faa405-066f-46fb-a601-44be737410ac}">
+                        <labels>
+                          <label description="Signed GFA Email Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_signedgfaemailqualityreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_signedgfaemailqualityreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{f99d82f2-f1d0-4827-b470-92145ee61f7f}" name="StageStep23" locklevel="0" expanded="true" visible="false" labelid="{02f310a6-a985-4a43-a152-bd20d6631bb9}">
+          <labels>
+            <label description="Signed GFA Email Quality Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{4deec206-5209-8a87-3632-ba357414321d}" name="StageStep23_section1" labelid="{0142639d-6932-4490-ae2b-0d3ac5fdadf0}">
+                  <labels>
+                    <label description="Signed GFA Email Quality Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8b966347-7160-4e05-81d3-36c3db71556f}" showlabel="true" visible="true" labelid="{6eb55e89-36a6-4d95-ba96-995ad4d35bc5}">
+                        <labels>
+                          <label description="Signed GFA Email Quality Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_signedgfaemailqualityreviewcompletedon" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="gap_signedgfaemailqualityreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{23c53ccc-7763-404e-b838-8326b4fff2be}" name="StageStep27" locklevel="0" expanded="true" visible="false" labelid="{cfb17d3d-b142-406f-9af4-cd37c2103023}">
+          <labels>
+            <label description="Send Final GFA" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{38c43930-e177-8f3e-1ecf-0d833c1eb42b}" name="StageStep27_section1" labelid="{4ebc0a23-dbb2-4407-83f6-adc706b88486}">
+                  <labels>
+                    <label description="Send Final GFA" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{429f0f01-6b5c-4d1f-86f1-3ec6847d6134}" showlabel="true" visible="true" labelid="{b33c908f-d2eb-401c-9516-7f797e7eee17}">
+                        <labels>
+                          <label description="Final GFA Sent On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_finalgfasenton" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_finalgfasenton" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{96f1d80c-6a9a-49f0-9282-eb9070bceccf}" name="StageStep31" locklevel="0" expanded="true" visible="false" labelid="{411436b7-be43-476a-ab54-a13b756f5d22}">
+          <labels>
+            <label description="Define Monitoring Structure" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{93b9b7fe-bbff-fb51-4e4c-6591c4cabab8}" name="StageStep31_section1" labelid="{5fc4f2c3-97e1-476e-8294-ac491b52f746}">
+                  <labels>
+                    <label description="Define Monitoring Structure" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{887cf2be-2e7f-4fb5-9cf9-cba0efec21c0}" showlabel="true" visible="true" labelid="{ee529561-13ef-4cf6-bd3e-2bde0a78b31e}">
+                        <labels>
+                          <label description="Define Structure Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_definepaymentstructurecompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_definepaymentstructurecompletedon" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{79173492-be0b-470f-a788-8def85d9da9f}" name="StageStep35" locklevel="0" expanded="true" visible="false" labelid="{d9a8cbab-bff6-466c-b6e6-6fd574da9804}">
+          <labels>
+            <label description="Monitoring" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{d2ac6370-41fc-fb4e-ec04-89d9e48dc7c3}" name="StageStep35_section1" labelid="{6ab217a9-3817-4012-8f0a-8b42c84aab7e}">
+                  <labels>
+                    <label description="Monitoring" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{51f8b76d-8b3a-4c2a-84d0-1d11b36238d2}" showlabel="true" visible="true" labelid="{d3f764a6-cb18-4940-8079-c63fc8fb0304}">
+                        <labels>
+                          <label description="Payment Started On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_awardprocess:gap_stage" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_stage" disabled="false" relationship="bpf_gap_application_gap_awardprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

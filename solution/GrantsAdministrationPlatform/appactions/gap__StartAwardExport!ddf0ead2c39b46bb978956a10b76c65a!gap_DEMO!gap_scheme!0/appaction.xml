@@ -1,0 +1,41 @@
+<appaction uniquename="gap__StartAwardExport!ddf0ead2c39b46bb978956a10b76c65a!gap_DEMO!gap_scheme!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Start GFA Award Export button">
+    <label description="Start GFA Award Export button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Start Award Export">
+    <label description="Start Award Export" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to start the GFA Award Export process">
+    <label description="Button to start the GFA Award Export process" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Start GFA Award Export button">
+    <label description="Start GFA Award Export button" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_scheme</logicalname>
+  </contextentity>
+  <contextvalue>gap_scheme</contextvalue>
+  <fonticon>CloudUpload</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>StartAwardExport!ddf0ead2c39b46bb978956a10b76c65a</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>e671482ec8ff4fd19aa58451e2ad0780</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100044.5312500000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilitytype>0</visibilitytype>
+</appaction>

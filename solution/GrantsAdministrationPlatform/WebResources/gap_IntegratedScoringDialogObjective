@@ -1,0 +1,42 @@
+function openCustomPageDialog(primaryControl) {
+  // Fetch the GUID of the current record
+  var recordId = primaryControl.data.entity.getId();
+
+  // Log the GUID to verify it's being fetched correctly
+  console.log("Opening custom page with record GUID:", recordId);
+
+  var pageInput = {
+    pageType: "custom",
+    name: "gap_scoringchecklistv2_d0366", // Unique name of your custom page
+    entityName: "Objective", // CHANGE By Tommy: Added the entity name attribute, not to pass the entity name but to pass if the button pressed is for subjective/objective scoring
+    recordId: recordId, // Pass the correct record GUID
+  };
+
+  var navigationOptions = {
+    target: 2, // Open in a dialog
+    position: 1, // Use position 1 for centered
+    height: {
+      value: 90,
+      unit: "%", // Set to 90% height of the viewport
+    },
+    width: {
+      value: 90,
+      unit: "%", // Set to 90% width of the viewport
+    },
+    title: "Integrated Scoring Dialog", // Change title if necessary
+  };
+
+  // Log before navigation to verify the process
+  console.log("Navigating to custom page with options:", navigationOptions);
+
+  Xrm.Navigation.navigateTo(pageInput, navigationOptions)
+    .then(function () {
+      // Refresh the form when dialog closes
+      console.log("Dialog closed. Refreshing form.");
+      primaryControl.data.refresh();
+    })
+    .catch(function (error) {
+      // Log errors
+      console.log("Error navigating to custom page:", error.message);
+    });
+}

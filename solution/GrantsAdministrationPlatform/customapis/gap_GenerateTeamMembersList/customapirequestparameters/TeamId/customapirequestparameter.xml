@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="TeamId">
+  <description default="TeamId">
+    <label description="TeamId" languagecode="1033" />
+  </description>
+  <displayname default="TeamId">
+    <label description="TeamId" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>TeamId</name>
+  <type>12</type>
+</customapirequestparameter>

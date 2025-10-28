@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7dbdabd1-6d97-4695-b0f9-696723993d99}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{93dca377-5300-4dca-84cb-5c1686a47b1c}" IsUserDefined="1" name="General">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{25c8ed15-d633-4145-ac9c-07ee22f5a146}" columns="1" name="gap_specifications">
+                  <labels>
+                    <label description="Specifications" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0c84f391-ea01-4c23-83b1-89dd1548ee5a}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e4cce8c9-abb2-41a2-9c6e-f3a76754a272}" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aed4a0d7-4f50-4d4f-93a7-add684985b49}">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_type" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_type" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a71b33f7-5d3c-4935-82ad-cf7e4823598f}">
+                        <labels>
+                          <label description="Amount" languagecode="1033" />
+                        </labels>
+                        <control id="gap_amount" classid="{533b9e00-756b-4312-95a0-dc888637ac78}" datafieldname="gap_amount" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e4c286fc-471b-4d24-bf45-fdf7ff5df154}" visible="false">
+                        <labels>
+                          <label description="Expected Payment Structure" languagecode="1033" />
+                        </labels>
+                        <control id="gap_expectedpaymentstructure" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="gap_expectedpaymentstructure" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7304fbfb-6beb-4912-be67-0e08b677a846}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deadline for Evidence" languagecode="1033" />
+                        </labels>
+                        <control id="gap_deadlineforevidence" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_deadlineforevidence" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5feb2d15-9e27-4f37-b7d3-97ddcb720180}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Deadline for Payment Request" languagecode="1033" />
+                        </labels>
+                        <control id="gap_deadlineforpaymentrequest" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_deadlineforpaymentrequest" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="gap_monitorstartedsection" id="33b6e529-2445-4bb0-85ca-93e47e38c5b6" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Monitoring Started" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{51e7b303-9585-4eb9-b7ba-1265560e4f60}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Monitor Stage Started" languagecode="1033" />
+                        </labels>
+                        <control id="gap_monitorstagestarted" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_monitorstagestarted" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bcce677c-ab20-4d3b-bdbc-6620281d0e69}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Payment Request Sent On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_senton" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_senton" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{36582326-c43b-4147-8c14-857a67b81df9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Evidence Received On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_receivedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_receivedon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8d75837e-1280-418e-8e5e-010926efc997}" locklevel="0" colspan="1" rowspan="1" visible="true">
+                        <labels>
+                          <label description="Department Request Submitted On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_requestsubmittedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_requestsubmittedon" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{34512efc-cd8c-4003-8bbc-de8c6e13565d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{c561927c-8bbe-4065-ac0d-1f1b11979931}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ace9676a-1d70-41b9-b505-4bd535a8f55b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6e6cb424-4ae5-4ead-ba8b-535021c17d57}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{e4210b8a-4fad-481a-91a2-0ace372f1e6b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{e4026322-1b11-405a-aeaa-366c9c45e1ba}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{828812d2-73f5-4121-b583-9a68246e5969}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{dff09ef7-791b-4e29-968c-8588e56900f9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="cr48e_SetPaymentBPF" libraryUniqueId="{f4e0242f-2536-454e-951d-c8367afd4798}" />
+        <Library name="gap_lockFields.js" libraryUniqueId="{33cbca6a-a83b-42fb-964c-e2ac2622c8e4}" />
+        <Library name="gap_LockRequestFields" libraryUniqueId="{b1801858-d493-45d0-b731-251badb083fb}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="setPaymentBPF" libraryName="cr48e_SetPaymentBPF" handlerUniqueId="{1dc0a888-c62f-46be-a187-619c23fc2f2f}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="lockFields" libraryName="gap_lockFields.js" handlerUniqueId="{49e73464-252b-4597-956b-8bbe70f92ba8}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="LockRequestFields" libraryName="gap_LockRequestFields" handlerUniqueId="{ed5434f1-1754-4523-9640-b26af2346949}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

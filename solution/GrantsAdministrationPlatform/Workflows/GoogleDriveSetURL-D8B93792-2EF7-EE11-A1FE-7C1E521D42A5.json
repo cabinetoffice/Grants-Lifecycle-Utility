@@ -1,0 +1,225 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Trigger": {
+          "metadata": {
+            "operationMetadataId": "17a9ac16-629e-4460-a25f-e06985d1655a"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "gap_document",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_type"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "actions": {
+            "Type": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "9e0b51d8-0e1e-45a5-a6bc-e3165f1b2f99"
+              },
+              "type": "Compose",
+              "inputs": "@triggerBody()?['_gap_type_label']"
+            },
+            "Switch_|_On_Path": {
+              "runAfter": {
+                "Type": [
+                  "Succeeded"
+                ]
+              },
+              "cases": {
+                "Case_|_Document": {
+                  "case": "Document",
+                  "actions": {
+                    "Variable_|_Document": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "3cfc050d-b3ec-49da-ad16-04ee622abcb1"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "URL",
+                        "value": "https://docs.google.com/document/d/@{triggerBody()?['gap_fileid']}/edit"
+                      }
+                    }
+                  }
+                },
+                "Case_|_Spreadsheet": {
+                  "case": "Spreadsheet",
+                  "actions": {
+                    "Variable_|_Spreadsheet": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "a3ea9a01-c836-473a-bd87-8ee6a6d1603d"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "URL",
+                        "value": "https://docs.google.com/spreadsheets/d/@{triggerBody()?['gap_fileid']}/edit"
+                      }
+                    }
+                  }
+                },
+                "Case_|_Powerpoint": {
+                  "case": "Powerpoint",
+                  "actions": {
+                    "Variable_|_Powerpoint": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "a87e7466-9c91-4f6a-a2a5-5ced2d451acc"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "URL",
+                        "value": "https://docs.google.com/presentation/d/@{triggerBody()?['gap_fileid']}/edit"
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {
+                  "Variable_|_Default": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "e65aa44c-43b2-485f-bb68-1eefe0f34bc1"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "URL",
+                      "value": "https://drive.google.com/file/d/@{triggerBody()?['gap_fileid']}/preview"
+                    }
+                  }
+                }
+              },
+              "expression": "@coalesce(outputs('Type'), 'default')",
+              "metadata": {
+                "operationMetadataId": "a93573fb-6a85-43aa-bf31-2a835207e346"
+              },
+              "type": "Switch"
+            },
+            "Update_Document": {
+              "runAfter": {
+                "Switch_|_On_Path": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b3e462d0-a4c3-4cbd-9035-63dbee54877b"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_documents",
+                  "recordId": "@triggerBody()?['gap_documentid']",
+                  "item/gap_url": "@variables('URL')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "URL": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "816de2b1-9175-41a4-aa73-2936ef6779e9"
+          },
+          "type": "Scope"
+        },
+        "URL": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "5ed7a720-012d-4fae-a578-1474e92fa7c8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "URL",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Scope_|_Error_Handling": {
+          "actions": {
+            "Create_Log": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "704cfe03-899b-4c11-b256-7c50f7843ea9"
+              },
+              "type": "Workflow",
+              "inputs": {
+                "host": {
+                  "workflowReferenceName": "1b684e2c-81d1-ee11-9079-0022480043c2"
+                },
+                "body": {
+                  "text": "Error",
+                  "text_1": "An error occurred when setting a URL.",
+                  "text_3": "Other",
+                  "text_2": "@workflow()"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e7b4eb02-9778-4f90-a22b-c9fe1a7d483c"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

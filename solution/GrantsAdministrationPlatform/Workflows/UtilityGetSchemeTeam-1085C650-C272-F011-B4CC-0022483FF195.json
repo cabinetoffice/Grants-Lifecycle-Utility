@@ -1,0 +1,260 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "faeb7f7d-cc05-4196-a66e-02e3104ebe96"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Scheme",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please provide a scheme ID.",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Variable_|_Initialize_Team": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "b0d40d34-842c-4592-b597-a65708115f8e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Team",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Dataverse_|_Get_Scheme": {
+          "runAfter": {
+            "Variable_|_Initialize_QC": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "381cb585-6daf-4b4b-8422-4454a8d2389c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "recordId": "@triggerBody()['text']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Dataverse_|_Get_Members": {
+          "runAfter": {
+            "Variable_|_Set_Team_(Quality_Controllers)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e6dabf66-cbbb-4eac-983b-ed90ec96c63c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teammemberships",
+              "$filter": "teamid eq '@{variables('Team')}' or teamid eq '@{variables('Reviewers')}' or teamid eq '@{variables('QC')}'"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Data_|_Select_Team_Members": {
+          "runAfter": {
+            "Dataverse_|_Get_Members": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "91f7fa5b-ef38-448c-9549-9b0b31a8cbf5"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Dataverse_|_Get_Members')?['body/value']",
+            "select": {
+              "user": "@item()?['systemuserid']"
+            }
+          }
+        },
+        "Respond_to_PowerApps_(V2)": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d7472534-5707-4f59-90a2-d1749aef05f6"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "users": "@string(body('Data_|_Select_Team_Members'))"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "users": {
+                  "title": "users",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Variable_|_Initialize_Reviewers": {
+          "runAfter": {
+            "Variable_|_Initialize_Team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b0d40d34-842c-4592-b597-a65708115f8e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Reviewers",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Variable_|_Initialize_QC": {
+          "runAfter": {
+            "Variable_|_Initialize_Reviewers": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b0d40d34-842c-4592-b597-a65708115f8e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "QC",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Variable_|_Set_Team_(Administrators)": {
+          "runAfter": {
+            "Dataverse_|_Get_Scheme": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "11382207-fcc3-4936-9596-eb85ec2eb2f5"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "Team",
+            "value": "@outputs('Dataverse_|_Get_Scheme')?['body/_ownerid_value']"
+          }
+        },
+        "Variable_|_Set_Team_(Reviewers)": {
+          "runAfter": {
+            "Variable_|_Set_Team_(Administrators)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "73c3600e-ae46-4b50-9e1e-01fa33919914"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "Reviewers",
+            "value": "@outputs('Dataverse_|_Get_Scheme')?['body/_gap_reviewers_value']"
+          }
+        },
+        "Variable_|_Set_Team_(Quality_Controllers)": {
+          "runAfter": {
+            "Variable_|_Set_Team_(Reviewers)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cd163dad-bc36-4e0d-82c7-2b3a8d6a5727"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "QC",
+            "value": "@outputs('Dataverse_|_Get_Scheme')?['body/_gap_qualitycontrollers_value']"
+          }
+        },
+        "Compose": {
+          "runAfter": {
+            "Data_|_Select_Team_Members": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "df60240c-9376-432b-bf89-5aca5f95d8c2"
+          },
+          "type": "Compose",
+          "inputs": "@union(body('Data_|_Select_Team_Members'),body('Data_|_Select_Team_Members'))"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,46 @@
+<appaction uniquename="gap__FinalGFASent!459d4f16758a43cf953c0c910ca2264e!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Final GFA Sent button">
+    <label description="Final GFA Sent button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Final GFA Sent">
+    <label description="Final GFA Sent" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to confirm that the Final GFA has been sent">
+    <label description="Button to confirm that the Final GFA has been sent" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Final GFA Sent ">
+    <label description="Final GFA Sent " languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Completed</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>FinalGFASent!459d4f16758a43cf953c0c910ca2264e</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>036b7cdbda114a4185ffde156211a4b2</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100032.3437500000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>036b7cdbda114a4185ffde156211a4b2</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

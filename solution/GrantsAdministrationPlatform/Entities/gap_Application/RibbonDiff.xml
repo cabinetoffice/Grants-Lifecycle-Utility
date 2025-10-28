@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="gap.AIBuilder.gap_application.Flyout.Dummy.Hide" Location="AIBuilder.gap_application.Flyout.Dummy" />
+    <HideCustomAction HideActionId="gap.AIBuilder.gap_application.Flyout.Hide" Location="AIBuilder.gap_application.Flyout" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Activate.Hide" Location="Mscrm.Form.gap_application.Activate" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddAppointment.Hide" Location="Mscrm.Form.gap_application.AddAppointment" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddCampaignResponse.Hide" Location="Mscrm.Form.gap_application.AddCampaignResponse" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddConnection.Hide" Location="Mscrm.Form.gap_application.AddConnection" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddEmail.Hide" Location="Mscrm.Form.gap_application.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddFax.Hide" Location="Mscrm.Form.gap_application.AddFax" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddFile.Hide" Location="Mscrm.Form.gap_application.AddFile" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddLetter.Hide" Location="Mscrm.Form.gap_application.AddLetter" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddNote.Hide" Location="Mscrm.Form.gap_application.AddNote" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddOtherActivities.Hide" Location="Mscrm.Form.gap_application.AddOtherActivities" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddPhone.Hide" Location="Mscrm.Form.gap_application.AddPhone" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddRecurringAppointment.Hide" Location="Mscrm.Form.gap_application.AddRecurringAppointment" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddServiceActivity.Hide" Location="Mscrm.Form.gap_application.AddServiceActivity" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddTask.Hide" Location="Mscrm.Form.gap_application.AddTask" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.AddToQueue.Hide" Location="Mscrm.Form.gap_application.AddToQueue" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Assign.Hide" Location="Mscrm.Form.gap_application.Assign" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Convert.Case.Hide" Location="Mscrm.Form.gap_application.Convert.Case" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Convert.Opportunity.Hide" Location="Mscrm.Form.gap_application.Convert.Opportunity" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.CopySelected.Hide" Location="Mscrm.Form.gap_application.CopySelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.CustomizeEntity.Hide" Location="Mscrm.Form.gap_application.CustomizeEntity" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Deactivate.Hide" Location="Mscrm.Form.gap_application.Deactivate" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Flows.RefreshCommandBar.Flows.Hide" Location="Mscrm.Form.gap_application.Flows.RefreshCommandBar.Flows" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Flows.RefreshCommandBar.Hide" Location="Mscrm.Form.gap_application.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.FormDesign.Hide" Location="Mscrm.Form.gap_application.FormDesign" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.MailMerge.Hide" Location="Mscrm.Form.gap_application.MailMerge" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.NewRecordForBPFEntity.Hide" Location="Mscrm.Form.gap_application.NewRecordForBPFEntity" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.OpenActiveStage.Hide" Location="Mscrm.Form.gap_application.OpenActiveStage" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.PDFButtonId.Hide" Location="Mscrm.Form.gap_application.PDFButtonId" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Permissions.Grant.Hide" Location="Mscrm.Form.gap_application.Permissions.Grant" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Permissions.GrantUCI.Hide" Location="Mscrm.Form.gap_application.Permissions.GrantUCI" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Permissions.Hide" Location="Mscrm.Form.gap_application.Permissions" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Permissions.Sharing.Hide" Location="Mscrm.Form.gap_application.Permissions.Sharing" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.PromoteToResponse.Hide" Location="Mscrm.Form.gap_application.PromoteToResponse" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.PublishAll.Hide" Location="Mscrm.Form.gap_application.PublishAll" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.PublishEntity.Hide" Location="Mscrm.Form.gap_application.PublishEntity" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.QueueItemDetail.Hide" Location="Mscrm.Form.gap_application.QueueItemDetail" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.Reports.Hide" Location="Mscrm.Form.gap_application.Reports" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.RunScript.Hide" Location="Mscrm.Form.gap_application.RunScript" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.RunWorkflow.Hide" Location="Mscrm.Form.gap_application.RunWorkflow" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.SaveAsComplete.Hide" Location="Mscrm.Form.gap_application.SaveAsComplete" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.SendSelected.Hide" Location="Mscrm.Form.gap_application.SendSelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.SuggestProduct.Hide" Location="Mscrm.Form.gap_application.SuggestProduct" />
+    <HideCustomAction HideActionId="gap.Mscrm.Form.gap_application.ViewHierarchy.Hide" Location="Mscrm.Form.gap_application.ViewHierarchy" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Activate.Hide" Location="Mscrm.HomepageGrid.gap_application.Activate" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.AddConnection.Hide" Location="Mscrm.HomepageGrid.gap_application.AddConnection" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.AddToQueue.Hide" Location="Mscrm.HomepageGrid.gap_application.AddToQueue" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.AdvancedFind.Hide" Location="Mscrm.HomepageGrid.gap_application.AdvancedFind" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Assign.Hide" Location="Mscrm.HomepageGrid.gap_application.Assign" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.ChangeDataSetControlButton.Hide" Location="Mscrm.HomepageGrid.gap_application.ChangeDataSetControlButton" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Copy.Hide" Location="Mscrm.HomepageGrid.gap_application.Copy" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Deactivate.Hide" Location="Mscrm.HomepageGrid.gap_application.Deactivate" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Detect.Hide" Location="Mscrm.HomepageGrid.gap_application.Detect" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.DocumentTemplate.Hide" Location="Mscrm.HomepageGrid.gap_application.DocumentTemplate" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.ExportSelectedToExcel.Hide" Location="Mscrm.HomepageGrid.gap_application.ExportSelectedToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.ExportToExcel.Hide" Location="Mscrm.HomepageGrid.gap_application.ExportToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Flows.RefreshCommandBar.Flows.Hide" Location="Mscrm.HomepageGrid.gap_application.Flows.RefreshCommandBar.Flows" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Flows.RefreshCommandBar.Hide" Location="Mscrm.HomepageGrid.gap_application.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Help.Hide" Location="Mscrm.HomepageGrid.gap_application.Help" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Import.Hide" Location="Mscrm.HomepageGrid.gap_application.Import" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.ImportDataFromExcel.Hide" Location="Mscrm.HomepageGrid.gap_application.ImportDataFromExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.MainFilters.Hide" Location="Mscrm.HomepageGrid.gap_application.MainFilters" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.MainTab.QuickPowerBI.Button.Hide" Location="Mscrm.HomepageGrid.gap_application.MainTab.QuickPowerBI.Button" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.MBPF.ConvertTo.Hide" Location="Mscrm.HomepageGrid.gap_application.MBPF.ConvertTo" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Meqf.Hide" Location="Mscrm.HomepageGrid.gap_application.Meqf" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.modern.SendDirectEmail.Hide" Location="Mscrm.HomepageGrid.gap_application.modern.SendDirectEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.NewRecordForBPFEntity.Hide" Location="Mscrm.HomepageGrid.gap_application.NewRecordForBPFEntity" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.OpenActiveStage.Hide" Location="Mscrm.HomepageGrid.gap_application.OpenActiveStage" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.OpenRecordInSidePane.Hide" Location="Mscrm.HomepageGrid.gap_application.OpenRecordInSidePane" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.RunReport.Hide" Location="Mscrm.HomepageGrid.gap_application.RunReport" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.RunScript.Hide" Location="Mscrm.HomepageGrid.gap_application.RunScript" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.RunWorkflow.Hide" Location="Mscrm.HomepageGrid.gap_application.RunWorkflow" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Send.Hide" Location="Mscrm.HomepageGrid.gap_application.Send" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.SendDirectEmail.Hide" Location="Mscrm.HomepageGrid.gap_application.SendDirectEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.Sharing.Hide" Location="Mscrm.HomepageGrid.gap_application.Sharing" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.ViewHierarchy.Hide" Location="Mscrm.HomepageGrid.gap_application.ViewHierarchy" />
+    <HideCustomAction HideActionId="gap.Mscrm.HomepageGrid.gap_application.WordTemplate.Hide" Location="Mscrm.HomepageGrid.gap_application.WordTemplate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Activate.Hide" Location="Mscrm.SubGrid.gap_application.Activate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AddConnection.Hide" Location="Mscrm.SubGrid.gap_application.AddConnection" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AddEmail.Hide" Location="Mscrm.SubGrid.gap_application.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.gap_application.AddExistingAssoc" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AddExistingStandard.Hide" Location="Mscrm.SubGrid.gap_application.AddExistingStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AddNewStandard.Hide" Location="Mscrm.SubGrid.gap_application.AddNewStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AddToQueue.Hide" Location="Mscrm.SubGrid.gap_application.AddToQueue" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AdvMergeRecords.Hide" Location="Mscrm.SubGrid.gap_application.AdvMergeRecords" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Assign.Hide" Location="Mscrm.SubGrid.gap_application.Assign" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.AssociateParentChildCase.Hide" Location="Mscrm.SubGrid.gap_application.AssociateParentChildCase" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.BulkDelete.Hide" Location="Mscrm.SubGrid.gap_application.BulkDelete" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.ChangeDataSetControlButton.Hide" Location="Mscrm.SubGrid.gap_application.ChangeDataSetControlButton" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Charts.Hide" Location="Mscrm.SubGrid.gap_application.Charts" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.CopySelected.Hide" Location="Mscrm.SubGrid.gap_application.CopySelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Deactivate.Hide" Location="Mscrm.SubGrid.gap_application.Deactivate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Detect.Hide" Location="Mscrm.SubGrid.gap_application.Detect" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.DocumentTemplate.Hide" Location="Mscrm.SubGrid.gap_application.DocumentTemplate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.ExportSelectedToExcel.Hide" Location="Mscrm.SubGrid.gap_application.ExportSelectedToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.ExportToExcel.Hide" Location="Mscrm.SubGrid.gap_application.ExportToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Flows.RefreshCommandBar.Hide" Location="Mscrm.SubGrid.gap_application.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.FolderTracking.Hide" Location="Mscrm.SubGrid.gap_application.FolderTracking" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.MailMerge.Hide" Location="Mscrm.SubGrid.gap_application.MailMerge" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.modern.AddEmail.Hide" Location="Mscrm.SubGrid.gap_application.modern.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.NewRecord.Hide" Location="Mscrm.SubGrid.gap_application.NewRecord" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.OpenAssociatedGridViewStandard.Hide" Location="Mscrm.SubGrid.gap_application.OpenAssociatedGridViewStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Remove.Hide" Location="Mscrm.SubGrid.gap_application.Remove" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.RunReport.Hide" Location="Mscrm.SubGrid.gap_application.RunReport" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.RunScript.Hide" Location="Mscrm.SubGrid.gap_application.RunScript" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.RunWorkflow.Hide" Location="Mscrm.SubGrid.gap_application.RunWorkflow" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.SaveAsDefaultGridView.Hide" Location="Mscrm.SubGrid.gap_application.SaveAsDefaultGridView" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.SaveAsNew.Hide" Location="Mscrm.SubGrid.gap_application.SaveAsNew" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.SaveToCurrent.Hide" Location="Mscrm.SubGrid.gap_application.SaveToCurrent" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.SendSelected.Hide" Location="Mscrm.SubGrid.gap_application.SendSelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_application.Sharing.Hide" Location="Mscrm.SubGrid.gap_application.Sharing" />
+    <HideCustomAction HideActionId="gap.msdyn_Mscrm.Form.Copilot.Summarize.Hide" Location="msdyn_Mscrm.Form.Copilot.Summarize" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.CopyShortcutSelected.EnabledInIEBrowser">
+      <EnableRules>
+        <EnableRule Id="Mscrm.EnableInIEBrowser" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.HideOnModern" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.Utilities.sendSelectedRecordsUrl" Library="/_common/global.ashx">
+          <BoolParameter Value="false" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.HideOnModern">
+        <CommandClientTypeRule Type="Modern" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.EnableInIEBrowser">
+        <CustomRule FunctionName="Mscrm.IsIEBrowser_0" Library="$Webresource:Ribbon_main_system_library.js" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

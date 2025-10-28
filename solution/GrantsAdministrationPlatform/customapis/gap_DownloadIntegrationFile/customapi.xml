@@ -1,0 +1,19 @@
+<customapi uniquename="gap_DownloadIntegrationFile">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>1</bindingtype>
+  <boundentitylogicalname>gap_integrationfile</boundentitylogicalname>
+  <description default="DownloadIntegrationFile">
+    <label description="DownloadIntegrationFile" languagecode="1033" />
+  </description>
+  <displayname default="DownloadIntegrationFile">
+    <label description="DownloadIntegrationFile" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>DownloadIntegrationFile</name>
+  <plugintypeid>
+    <plugintypeexportkey>e8658457-e4f4-4772-bc85-38070b59a842</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{694d5f60-da50-46fb-8fb5-7e40b3eb2fa1}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{bdb4a1a7-80e2-454e-9d20-7d2ee21f8b63}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{dc31d787-81fe-4f4d-9b52-499d61c0cc86}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ea378e5d-d5ba-450d-b1a2-ae7089cf0a10}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_name" />
+                      </cell>
+                      <cell id="{8295ddb1-3ac0-435a-bedc-61f2cb8d2b21}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Quality Review Risk Threshold" languagecode="1033" />
+                        </labels>
+                        <control id="gap_qualityreviewriskthreshold" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="gap_qualityreviewriskthreshold" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{407f0313-d8e4-4b56-97f0-3864cc394a82}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Expected Total Amount" languagecode="1033" />
+                        </labels>
+                        <control id="gap_expectedtotalamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_expectedtotalamount" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{d1a1d6fb-dd91-4302-b383-3ad494eadbee}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="7b042a3e-a6d5-4dc5-b059-12dbab358500" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Monitoring Activity Templates" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{2e8b4da5-3015-4345-8331-ba7c133cc92a}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Monitoring Activity Template Subgrid" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>gap_monitoringactivitytemplate_MonitoringStructureTemplate_gap_monitoringstructuretemplate</RelationshipName>
+                            <TargetEntityType>gap_monitoringactivitytemplate</TargetEntityType>
+                            <ViewId>{F800AADC-D1C9-42F2-B71C-5E7CA053199F}</ViewId>
+                            <ViewIds>{F800AADC-D1C9-42F2-B71C-5E7CA053199F}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{027f84f0-8728-414d-8f11-ab9392e26d4b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{69db2e1b-be82-44ba-bf2d-9ffe6cc7e08a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fbef0ccc-5a8c-4070-98b1-c896c59a40dc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2a12363d-5e79-4993-9f57-eec3278de251}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{412ad915-6236-44ba-a335-a6e6a44dc39f}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{092096de-daf4-4de4-b4c0-4aa1a638d3ef}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{d0eaa908-3fde-4dcc-ac9f-0cb85cd5e303}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3cc71df2-40ec-4e2a-825c-55ecec0c43e3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e8cff385-8375-4d57-856a-ce328cf20329}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

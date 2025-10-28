@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{23b7a4e9-13a5-f011-bbd2-6045bd13df5f}</WebResourceId>
+  <Name>gap_MonitoringChecklistDialog</Name>
+  <DisplayName>Monitoring Checklist Dialog</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>4.1.1.7</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_MonitoringChecklistDialog23B7A4E9-13A5-F011-BBD2-6045BD13DF5F</FileName>
+</WebResource>

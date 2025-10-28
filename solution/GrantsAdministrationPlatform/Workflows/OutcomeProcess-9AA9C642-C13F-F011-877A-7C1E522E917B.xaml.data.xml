@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{9aa9c642-c13f-f011-877a-7c1e522e917b}" Name="Outcome Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/OutcomeProcess-9AA9C642-C13F-F011-877A-7C1E522E917B.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>1</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_outcomeprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.39</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_Application</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Outcome Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{67c89487-e3df-46a1-8e8a-8fa0aff77978}">
+      <label languagecode="1033" description="Notification Letter Generation" />
+    </steplabels>
+    <steplabels id="{4f641082-e118-49f7-8d44-13763a8d9285}">
+      <label languagecode="1033" description="Completed On" />
+    </steplabels>
+    <steplabels id="{358e65cc-fdd5-4e6c-b37a-042df38a4962}">
+      <label languagecode="1033" description="Notification Letter Quality Review" />
+    </steplabels>
+    <steplabels id="{449eb3f8-b646-4d16-bd97-ad07d54ac2b1}">
+      <label languagecode="1033" description="Completed On" />
+    </steplabels>
+    <steplabels id="{336b2241-b041-4529-851c-68db0acdb042}">
+      <label languagecode="1033" description="Notification Letter Confirmation" />
+    </steplabels>
+    <steplabels id="{6ba3584b-6402-44c3-8fa7-44a569db3dc2}">
+      <label languagecode="1033" description="Completed On" />
+    </steplabels>
+  </labels>
+</Workflow>

@@ -1,0 +1,1 @@
+gap_isdocument: =Left(gap_answer, 5)="https"

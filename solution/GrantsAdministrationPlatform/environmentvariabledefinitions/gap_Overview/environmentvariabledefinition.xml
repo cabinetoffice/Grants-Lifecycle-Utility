@@ -1,0 +1,10 @@
+<environmentvariabledefinition schemaname="gap_Overview">
+  <displayname default="Power BI Dashboard">
+    <label description="Power BI Dashboard" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.1.6</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000003</type>
+</environmentvariabledefinition>

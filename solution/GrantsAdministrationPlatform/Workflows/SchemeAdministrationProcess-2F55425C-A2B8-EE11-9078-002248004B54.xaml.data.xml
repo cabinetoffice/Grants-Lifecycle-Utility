@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{2f55425c-a2b8-ee11-9078-002248004b54}" Name="Scheme Administration Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/SchemeAdministrationProcess-2F55425C-A2B8-EE11-9078-002248004B54.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_schemeadministrationprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_Scheme</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Scheme Administration Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{4264a452-b48a-464f-9278-f7a610f474bd}">
+      <label languagecode="1033" description="Front Door" />
+    </steplabels>
+    <steplabels id="{3b38038a-5545-4313-ba5a-62e514461e0a}">
+      <label languagecode="1033" description="Stage Completed On" />
+    </steplabels>
+    <steplabels id="{1f0be8b7-0c6c-4d26-928c-5ece616166d5}">
+      <label languagecode="1033" description="Pre-Mobilisation" />
+    </steplabels>
+    <steplabels id="{efa99a3a-656c-43b6-bbb8-285350c8b35a}">
+      <label languagecode="1033" description="Stage Completed On" />
+    </steplabels>
+    <steplabels id="{699cf74e-917f-404e-a3ee-29f27a42166a}">
+      <label languagecode="1033" description="Mobilisation" />
+    </steplabels>
+    <steplabels id="{2b8a31f0-4d1d-49af-a509-1c99bd510c52}">
+      <label languagecode="1033" description="Stage Completed On" />
+    </steplabels>
+    <steplabels id="{d941e431-1834-4d41-8c74-791cb31befe3}">
+      <label languagecode="1033" description="Awaiting Launch" />
+    </steplabels>
+    <steplabels id="{5de9b741-8f7f-4d6c-a339-bf16d41db417}">
+      <label languagecode="1033" description="Stage Completed On" />
+    </steplabels>
+    <steplabels id="{de433ffb-7394-4922-b9fe-f46c66a3adbb}">
+      <label languagecode="1033" description="Monitoring" />
+    </steplabels>
+    <steplabels id="{a911d780-7b7c-4f91-a2e6-e0e3f33917da}">
+      <label languagecode="1033" description="Stage Completed On" />
+    </steplabels>
+    <steplabels id="{9c11d768-a621-4381-aac9-5de489e2b916}">
+      <label languagecode="1033" description="Assessment" />
+    </steplabels>
+    <steplabels id="{47bb4f25-903a-48d0-86ac-0c39bc8b8e69}">
+      <label languagecode="1033" description="Stage Completed On" />
+    </steplabels>
+  </labels>
+</Workflow>

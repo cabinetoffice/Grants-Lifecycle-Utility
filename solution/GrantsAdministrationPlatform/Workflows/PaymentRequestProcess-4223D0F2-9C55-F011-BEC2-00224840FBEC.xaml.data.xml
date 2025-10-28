@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{4223d0f2-9c55-f011-bec2-00224840fbec}" Name="Payment Request Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/PaymentRequestProcess-4223D0F2-9C55-F011-BEC2-00224840FBEC.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_paymentrequestprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.39</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_MonitoringActivity</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Payment Request Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{9c7ceb37-ff69-4911-b2b2-60136fcaa476}">
+      <label languagecode="1033" description="Process Payment Request" />
+    </steplabels>
+    <steplabels id="{d3123f90-442c-4cb2-a51d-e3d3da992f12}">
+      <label languagecode="1033" description="Submission Review Completed On" />
+    </steplabels>
+    <steplabels id="{4ee115fa-2887-4236-ac8d-93bb4ff9f4dd}">
+      <label languagecode="1033" description="Payment Request Due Diligence" />
+    </steplabels>
+    <steplabels id="{8ddb28be-041d-472a-9f12-24cd6b2b2ccf}">
+      <label languagecode="1033" description="Due Diligence Completed On" />
+    </steplabels>
+    <steplabels id="{40fbaa63-502c-486f-b7e6-02c2300daaf1}">
+      <label languagecode="1033" description="Payment Request Quality Review" />
+    </steplabels>
+    <steplabels id="{0b511bf1-8bfb-4668-ac12-b1a31fc48c9a}">
+      <label languagecode="1033" description="Quality Review Completed On" />
+    </steplabels>
+    <steplabels id="{6ae0e55c-380c-429c-a90e-1d6a8158dd9e}">
+      <label languagecode="1033" description="Outcome" />
+    </steplabels>
+    <steplabels id="{21ff6dff-7d0c-4067-8090-42d1391b224f}">
+      <label languagecode="1033" description="Department Outcome" />
+    </steplabels>
+  </labels>
+</Workflow>

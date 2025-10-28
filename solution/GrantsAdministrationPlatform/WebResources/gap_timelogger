@@ -1,0 +1,70 @@
+function onLoad(executionContext) {
+    var formContext = executionContext.getFormContext();
+    var userSettings = Xrm.Utility.getGlobalContext().userSettings;
+
+    var userId = userSettings.userId.slice(1,-1);
+    var username = userSettings.userName;
+
+    var applicationId = formContext.data.entity.getId().slice(1,-1);
+    var stage = formContext.getAttribute("gap_currentstage")?.getValue();
+
+    var formLoadTime = new Date();
+
+    // Extract scheme name from lookup
+    var schemeValue = formContext.getAttribute("gap_scheme")?.getValue();
+    var schemeName = null;
+
+    if (schemeValue && schemeValue.length > 0) {
+        schemeName = schemeValue[0].name;
+    }
+
+    window.addEventListener("unload", function () {
+        var endTime = new Date();
+        var diffInMinutes = (endTime - formLoadTime) / (1000 * 60);
+
+        var log = {
+            pwc_startdatetime: formLoadTime,
+            pwc_enddatetime: endTime,
+            pwc_applicationid: applicationId,
+            pwc_stage: stage,
+            pwc_timeworking: diffInMinutes,
+            pwc_userid: userId,
+            pwc_username: username,
+            pwc_scheme: schemeName 
+        };
+
+        localStorage.setItem("pwc_pending_log", JSON.stringify(log));
+    });
+
+    // Try to send any pending log from previous session
+    sendPendingLog();
+}
+
+function sendPendingLog() {
+    var stored = localStorage.getItem("pwc_pending_log");
+
+    if (stored) {
+        var logData = JSON.parse(stored);
+
+        var record = {
+            "gap_starttime": logData.pwc_startdatetime,
+            "gap_endtime": logData.pwc_enddatetime,
+            "gap_name": logData.pwc_applicationid,
+            "gap_substage": logData.pwc_stage,
+            "gap_timeworking": logData.pwc_timeworking,
+            "gap_username": logData.pwc_username,
+            "gap_userid": logData.pwc_userid,
+            "gap_scheme": logData.pwc_scheme // âœ… plain text name
+        };
+
+        Xrm.WebApi.createRecord("gap_timelogging", record).then(
+            function success(result) {
+                console.log("Recovered log sent:", result.id);
+                localStorage.removeItem("pwc_pending_log");
+            },
+            function error(err) {
+                console.error("Error sending stored log:", err.message);
+            }
+        );
+    }
+}

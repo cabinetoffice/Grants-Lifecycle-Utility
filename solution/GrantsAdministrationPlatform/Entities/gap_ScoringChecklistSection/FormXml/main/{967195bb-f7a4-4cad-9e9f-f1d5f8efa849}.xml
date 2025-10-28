@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{967195bb-f7a4-4cad-9e9f-f1d5f8efa849}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{26c95e5d-173f-417d-b73a-71ca0cb31fea}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{859e9abf-9d41-4e05-a900-b4d313bd4b4e}" columns="1" locklevel="1">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{d802453e-6d1d-4fcc-b186-0033bf24ce99}">
+                        <labels>
+                          <label description="Scoring Checklist Section Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_scoringchecklistsectionname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_scoringchecklistsectionname" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8226b461-3b27-4cf4-b0f5-0af08d27bb9e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Order" languagecode="1033" />
+                        </labels>
+                        <control id="gap_order" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="gap_order" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a0fa05f1-dcf4-410e-b4b3-976df281a58f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Checklist" languagecode="1033" />
+                        </labels>
+                        <control id="gap_checklist" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_checklist" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{5f113388-f468-4186-add5-edebce2b200a}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="Scoring Checklist Questions" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>gap_scoringchecklistquestion_Section_gap_scoringchecklistsection</RelationshipName>
+                            <TargetEntityType>gap_scoringchecklistquestion</TargetEntityType>
+                            <ViewId>{17f96099-eb32-4a7f-b9e3-3249552cd106}</ViewId>
+                            <ViewIds>{17f96099-eb32-4a7f-b9e3-3249552cd106}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{dcffdcd6-bb09-4f60-a237-a3c72d4f2cf7}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{c2e81a6b-9ae7-48f4-80dd-28e63a3c7009}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5476393b-b4e6-4796-8f9f-ddb8691b4387}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c7cc6c24-6fb4-4d0e-8172-def911e89d92}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{911cdc94-1f5c-4619-9bb8-1a2cd07f16be}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{212e73ca-819f-4a85-80d7-3dffa694c810}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{50def361-646c-4459-8845-9ef717e0313e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2e649e8f-4b0c-4cb8-b320-0e1db537d649}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1df54d13-ed26-4498-adb1-4b60b7a5af89}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

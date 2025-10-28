@@ -1,0 +1,156 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "6b6c5b12-5249-42a3-8873-4529ee9fa9e5"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "description": "Please provide an application",
+                  "title": "Application",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_1": {
+                  "description": "Please provide a key",
+                  "title": "Key",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "required": [
+                "text",
+                "text_1"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Flow_|_Response_(Success)": {
+          "runAfter": {
+            "Data_|_Extract_Answer": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2924ef72-28a2-4799-b0f6-a346465c14f6"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "title": "Value",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "value": "@outputs('Data_|_Extract_Answer')"
+            }
+          }
+        },
+        "Dataverse_|_Get_Responses": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "fd6b569a-f556-44b0-aba5-41ebd3729fd9"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_responses",
+              "$filter": "_gap_application_value eq @{triggerBody()?['text']} and gap_id eq '@{triggerBody()?['text_1']}'"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps-2"
+            }
+          }
+        },
+        "Data_|_Extract_Answer": {
+          "runAfter": {
+            "Dataverse_|_Get_Responses": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d1839a5f-1c11-46ba-b1d0-0ef07b95aabb"
+          },
+          "type": "Compose",
+          "inputs": "@first(outputs('Dataverse_|_Get_Responses')?['body/value'])['gap_answer']"
+        },
+        "Flow_|_Response_(Default)": {
+          "runAfter": {
+            "Data_|_Extract_Answer": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2924ef72-28a2-4799-b0f6-a346465c14f6"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "title": "Value",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "value": "@null"
+            }
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

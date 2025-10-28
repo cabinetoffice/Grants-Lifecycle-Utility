@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0f0d8009-2622-4bcf-a2ee-2baf4f308419}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{cb19069a-dec4-4d11-820d-8baada5bd3f3}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{917e1b0f-2eed-406c-9a89-212669a82b18}" columns="1">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{08486da2-5acc-4011-82b9-de758d8b05b4}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_question" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_question" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{34498254-2c9a-484a-a142-11e809626829}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_type" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{affd53a6-eedc-47eb-9409-435358c6c056}" locklevel="0" colspan="1" rowspan="4">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="gap_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{61b0b98a-38a4-49f1-9bb0-8b616bf5ee62}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Order" languagecode="1033" />
+                        </labels>
+                        <control id="gap_order" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="gap_order" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0b780609-f91a-4c30-9f85-2936a89db250}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Monitoring Checklist Section Template" languagecode="1033" />
+                        </labels>
+                        <control id="gap_monitoringchecklistsectiontemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_monitoringchecklistsectiontemplate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="c1b73eb2-6215-42bb-9517-0eddc03fc091" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="Choice Question Configuration" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{926fddf7-5a72-4568-a4e4-f97d42b20fac}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_question" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_question" uniqueid="{3cb7a1d9-553d-4e9f-a8e4-34ae2f1a2c8c}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4c5ac0f8-abee-42eb-a6bb-1d3e2ef92534}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Choice Options" languagecode="1033" />
+                        </labels>
+                        <control id="gap_choiceoptions" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_choiceoptions" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{24a87a5b-98bf-4625-abc2-efa0790adf53}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{8ca6e12d-4f35-41ea-8142-dde903eb4c4f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0bd76746-b115-40ff-b88d-8433719321bd}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{971f9c15-977b-46eb-a802-410a8df7ab1d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5d9d1441-ee77-441b-9bc7-d046e9d9d0ac}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{a9bcfb1d-8ae0-4414-811e-fbc2c7e9bec4}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{41b40f30-4fe1-4509-8c07-96207462636e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f7ae62fe-9c95-4098-9189-a17e5435ba6c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a0e57691-9bcd-462e-9df1-265f2bd5acfc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{3cb7a1d9-553d-4e9f-a8e4-34ae2f1a2c8c}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_question</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_question</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_question</primary>
+              <labelText type="SingleLine.Text" static="true">Choice Options should be separated by a comma</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_question</primary>
+              <labelText type="SingleLine.Text" static="true">Choice Options should be separated by a comma</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_question</primary>
+              <labelText type="SingleLine.Text" static="true">Choice Options should be separated by a comma</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{5c6dff52-c6f3-490d-99e6-4fa770340841}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{c0155ba3-54f3-4914-9e79-b0da900e2819}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{16d154ee-1a80-43a5-aa57-ff7616bbb960}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{20c991c5-bb7c-47f9-bb59-2e567c3e5efb}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Title" languagecode="1033" />
+                        </labels>
+                        <control id="gap_title" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_title" uniqueid="{2a74f738-09ee-4331-8230-fc3a9d142600}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{740d89ba-9dfe-4f03-93ec-99c112f9655e}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Title" languagecode="1033" />
+                        </labels>
+                        <control id="gap_title" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_title" uniqueid="{3fa76416-0868-406c-9c65-71b766dc05ef}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7944b45e-7828-40f7-b794-da2005f15b00}" locklevel="0">
+                        <labels>
+                          <label description="File Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_title" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_title" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{afefc619-0bb7-4828-bebb-d02ff52c4be3}" showlabel="false" rowspan="6" colspan="1" visible="false">
+                        <labels>
+                          <label description="New Iframe control 1705598745872" languagecode="1033" />
+                        </labels>
+                        <control id="IFRAME_window" classid="{FD2A7985-3187-444E-908D-6624B21F69C0}">
+                          <parameters>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <Url>https://www.google.com</Url>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false" active="false" />
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{80a0a76d-1521-47f6-99b9-76ca191851b5}" locklevel="1" colspan="1" rowspan="1" showlabel="false" availableforphone="true" visible="false">
+                        <labels>
+                          <label description="URL" languagecode="1033" />
+                        </labels>
+                        <control id="gap_url" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_url" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d7cd1f1b-0d13-4c1b-a299-8ed433a8f336}" locklevel="1" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="URL" languagecode="1033" />
+                        </labels>
+                        <control id="gap_url" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_url" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3776b730-04d6-4a94-9f0e-bae757509b1c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Upload Document" languagecode="1033" />
+                        </labels>
+                        <control id="gap_documentupload" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="gap_documentupload" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{f0ace4e0-8069-489c-9d8a-15d0e10dea6f}" showlabel="false" rowspan="14" colspan="1">
+                        <labels>
+                          <label description="Doc IFrame" languagecode="1033" />
+                        </labels>
+                        <control id="IFRAME_DOC" classid="{FD2A7985-3187-444E-908D-6624B21F69C0}">
+                          <parameters>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <Url>https://www.google.com</Url>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false" active="false" />
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{9983e3f7-975b-46d8-97b2-9090e9d7e236}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Folder ID" languagecode="1033" />
+                        </labels>
+                        <control id="gap_folderid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_folderid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fb9dc916-bc1e-4bd5-b4c3-3f73b0562271}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="File ID" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fileid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_fileid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{254b52c3-1eeb-4464-9416-97582484f0ce}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
+                        <labels>
+                          <label description="File Content" languagecode="1033" />
+                        </labels>
+                        <control id="gap_filecontent" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="gap_filecontent" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25d651e7-2054-4e45-9f70-846aa8ede629}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_type" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{adaa683a-814f-4a98-9bb8-6e5a85640e95}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{d951c64d-22dd-4a80-af40-e2c6b86f3ff5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d502216c-ac90-4ea8-b124-f6f689f7e1ff}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2fc2bf3e-2cf8-4dd0-941d-d6e83af23c15}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{117ce3c5-f052-4b26-87c4-b8ab5753ad79}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{42312f2b-ba26-4ae8-a24d-e641f8c57a3c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{76ca2a2a-8b26-4918-8537-5933a8defa95}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ec41233e-e7e4-4d5c-abfc-c83102fe5f1b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ed0c6c7b-2e8f-4f75-9f3c-f4dd744b85f6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="gap_setIFrameSource" libraryUniqueId="{935c0970-a6d8-4d59-8a27-c8bf0d41cc6e}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="setFrameSource" libraryName="gap_setIFrameSource" handlerUniqueId="{7b5e6677-50f7-4093-80d1-7cc45ed883f7}" enabled="true" parameters="&quot;IFRAME_DOC&quot;,&quot;gap_url&quot;, false" passExecutionContext="true" />
+          </Handlers>
+          <dependencies>
+            <dependency id="gap_url" />
+          </dependencies>
+        </event>
+      </events>
+      <controlDescriptions>
+        <controlDescription forControl="{3fa76416-0868-406c-9c65-71b766dc05ef}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">Maximum file size is 32MB</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">Maximum file size is 32MB</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">Maximum file size is 32MB</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{2a74f738-09ee-4331-8230-fc3a9d142600}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">Accepted File Formats: PDF, DOC, XLS, JPEG, PNG, CSV</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">Accepted File Formats: PDF, DOC, XLS, JPEG, PNG, CSV</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">Accepted File Formats: PDF, DOC, XLS, JPEG, PNG, CSV</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

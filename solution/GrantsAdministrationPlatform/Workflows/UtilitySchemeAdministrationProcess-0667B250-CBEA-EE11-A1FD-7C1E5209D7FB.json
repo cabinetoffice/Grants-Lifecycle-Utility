@@ -1,0 +1,99 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "metadata": {
+            "operationMetadataId": "74f6d1ae-1ae5-475c-9f8b-07b0f3eefd0a"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "gap_schemeadministrationprocess",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "activestageid"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Dataverse_|_Get_Stage": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "618e81e8-c391-43b5-97b4-aff352f5434f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "processstages",
+              "recordId": "@triggerOutputs()?['body/_activestageid_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Dataverse_|_Update_Scheme_Process": {
+          "runAfter": {
+            "Dataverse_|_Get_Stage": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "64407769-f80a-4613-82dc-5e3185cb8718"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemeadministrationprocesses",
+              "recordId": "@triggerOutputs()?['body/businessprocessflowinstanceid']",
+              "item/gap_activestagename": "@outputs('Dataverse_|_Get_Stage')?['body/stagename']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,26 @@
+function setCustomView(executionContext) {
+    var viewId = "{00000000-0000-0000-0000-000006102020}";
+    var formContext = executionContext.getFormContext();
+    var team = formContext.getAttribute("gap_assignedteam").getValue();
+    console.log(team[0].id.slice(1,-1));
+    var fetchXml = [
+        "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='true'>",
+        "  <entity name='systemuser'>",
+        "    <attribute name='fullname' />",
+        "    <link-entity name='teammembership' from='userid' to='userid' alias='tm'>",
+        "      <filter type='and'>",
+        "        <condition attribute='teamid' operator='eq' value=",team," />",
+        "      </filter>",
+        "    </link-entity>",
+        "  </entity>",
+        "</fetch>"
+    ].join("");
+
+    var layoutXml = "<grid name='resultset' object='10287' jump='fullname' select='1' icon='1' preview='1'>"+
+    "<row name='result' id='fullname'>"+
+    "</row> </grid>";
+
+    var viewId = "{00000000-0000-0000-0000-000006102020}";
+    var viewDisplayName = "show many-to-many";
+   formContext.getControl("gap_reassignreviewer").addCustomView(viewId, "gap_reassignreviewer", viewDisplayName, fetchXml, layoutXml, true);
+}

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_components_4d806</Name>
+  <AppVersion>2025-05-30T09:48:22Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.24014.14.0</CreatedByClientVersion>
+  <MinClientVersion>3.24014.14.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"640","primaryDeviceHeight":"640","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Phone","showStatusBar":"false","publisherVersion":"3.24014.14","minimumRequiredApiVersion":"2.2.0","hasComponent":"true","hasUnlockedComponent":"true","isUnifiedRootApp":"false","offlineLargeFilesSupport":"false"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(251,101,60,1)</BackgroundColor>
+  <DisplayName>Components</DisplayName>
+  <Description></Description>
+  <CommitMessage></CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[{"appComponentName":"c49933b6509340759a758b10c686e45c","displayName":"Component1","appVersion":"2024-02-02T13:42:01Z","appComponentLibraryLogicalName":"gap_components_4d806","environmentName":"6dc50716-387e-e8ec-8b0b-3446ee8be8a6","allowCustomization":true,"createdOn":"2024-02-02T13:41:58.951Z","lastModifiedOn":"2024-02-02T13:41:58.951Z","connectionReferences":{},"databaseReferences":{}}]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>1</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_components_4d806_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_components_4d806_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/gap_components_4d806_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>

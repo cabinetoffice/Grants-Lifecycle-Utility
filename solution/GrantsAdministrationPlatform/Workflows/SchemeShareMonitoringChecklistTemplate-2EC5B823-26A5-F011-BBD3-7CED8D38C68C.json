@@ -1,0 +1,259 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_monitoringactivitytemplate",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_monitoringchecklisttemplate",
+              "subscriptionRequest/filterexpression": "_gap_monitoringchecklisttemplate_value ne null"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "35b4fb72-40b9-44e1-9823-969dcfdb1f41"
+          }
+        }
+      },
+      "actions": {
+        "Get_Scheme": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_schemes",
+              "$filter": "_gap_monitoringstructuretemplate_value eq @{outputs('Get_a_row_by_ID')?['body/gap_monitoringstructuretemplateid']}",
+              "$top": 1
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "Get_a_row_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cb32102e-a092-4a82-acbd-e882be256105"
+          }
+        },
+        "Apply_to_each": {
+          "type": "Foreach",
+          "foreach": "@outputs('Get_Scheme')?['body/value']",
+          "actions": {
+            "Get_Administrator_Team": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "teams",
+                  "recordId": "@items('Apply_to_each')?['_ownerid_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "d651c288-ffaf-4e40-aba0-7e85a7f5775f"
+              }
+            },
+            "Get_Reviewers_Team": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "teams",
+                  "recordId": "@items('Apply_to_each')?['_gap_reviewers_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Get_Administrator_Team": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "228d3e18-308b-4e85-912c-b2a5b49ff9c2"
+              }
+            },
+            "Get_Quality_Controllers_Team": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "teams",
+                  "recordId": "@items('Apply_to_each')?['_gap_qualitycontrollers_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Get_Reviewers_Team": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "37fdd03c-f720-465f-8c85-22c863e14b4d"
+              }
+            },
+            "Grant_Access_to_Administrators": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "actionName": "GrantAccess",
+                  "item/Target": "gap_monitoringchecklisttemplates(@{triggerOutputs()?['body/_gap_monitoringchecklisttemplate_value']})",
+                  "item/PrincipalAccess": {
+                    "Principal": {
+                      "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                      "teamid": "@{outputs('Get_Administrator_Team')?['body/teamid']}"
+                    },
+                    "AccessMask": "WriteAccess,ReadAccess,AppendAccess,AppendToAccess"
+                  }
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "PerformUnboundAction",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Get_Quality_Controllers_Team": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+              }
+            },
+            "Grant_Access_to_Reviewers": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "actionName": "GrantAccess",
+                  "item/Target": "gap_monitoringchecklisttemplates(@{triggerOutputs()?['body/_gap_monitoringchecklisttemplate_value']})",
+                  "item/PrincipalAccess": {
+                    "Principal": {
+                      "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                      "teamid": "@{outputs('Get_Reviewers_Team')?['body/teamid']}"
+                    },
+                    "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                  }
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "PerformUnboundAction",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Grant_Access_to_Administrators": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7d5674f4-c87c-40b2-be42-cd5784159357"
+              }
+            },
+            "Perform_an_unbound_action": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "actionName": "GrantAccess",
+                  "item/Target": "gap_monitoringchecklisttemplates(@{triggerOutputs()?['body/_gap_monitoringchecklisttemplate_value']})",
+                  "item/PrincipalAccess": {
+                    "Principal": {
+                      "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                      "teamid": "@{outputs('Get_Quality_Controllers_Team')?['body/teamid']}"
+                    },
+                    "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                  }
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "PerformUnboundAction",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Grant_Access_to_Reviewers": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f1c0ae76-dee7-4188-bf6c-a4027fb3b5a0"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Scheme": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9c47c830-7472-46f2-9334-b35c24b3218a"
+          }
+        },
+        "Get_a_row_by_ID": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_monitoringstructuretemplates",
+              "recordId": "@triggerOutputs()?['body/_gap_monitoringstructuretemplate_value']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "715327a1-ad5c-436a-831a-852aab1d9bec"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

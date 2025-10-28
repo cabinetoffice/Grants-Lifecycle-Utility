@@ -1,0 +1,46 @@
+<appaction uniquename="gap__GenerateLongGFA!11fd05a255fb49fd961337b5d4774d2f!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Generate Long GFA button">
+    <label description="Generate Long GFA button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Generate DIIF GFA">
+    <label description="Generate DIIF GFA" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to generate Long GFA">
+    <label description="Button to generate Long GFA" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Generate Long GFA">
+    <label description="Generate Long GFA" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>Letter</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>GenerateLongGFA!11fd05a255fb49fd961337b5d4774d2f</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>2ad51584ef5540438ad95e75e942d332</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100031.5820312500</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>2ad51584ef5540438ad95e75e942d332</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

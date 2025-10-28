@@ -1,0 +1,49 @@
+<appaction uniquename="gap__SubmitObjectiveSc!028dc49d460d490f9c44d9b43678702b!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Submit Initial Objective Scoring">
+    <label description="Submit Initial Objective Scoring" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Submit (Initial) Objective Scoring">
+    <label description="Submit (Initial) Objective Scoring" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to submit initial objective scoring">
+    <label description="Button to submit initial objective scoring" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Submit Initial Objective Scoring">
+    <label description="Submit Initial Objective Scoring" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Accept</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>SubmitObjectiveSc!028dc49d460d490f9c44d9b43678702b</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>83d50ae1c43e43139a504c127b189e2f</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!16007fcd8bc145dc8e65ef7e8b696df1!gap_DEMO!gap_application!0</uniquename>
+  </parentappactionid>
+  <sequence>10000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>83d50ae1c43e43139a504c127b189e2f</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

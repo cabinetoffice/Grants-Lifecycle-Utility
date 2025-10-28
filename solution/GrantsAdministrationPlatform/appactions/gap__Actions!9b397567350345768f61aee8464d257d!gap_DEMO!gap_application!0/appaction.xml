@@ -1,0 +1,32 @@
+<appaction uniquename="gap__Actions!9b397567350345768f61aee8464d257d!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Actions">
+    <label description="Actions" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>ListIcon</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>Actions!9b397567350345768f61aee8464d257d</name>
+  <onclickeventtype>0</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100030.9191894500</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>1</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>497e702e35784c9384048057e60c48c9</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

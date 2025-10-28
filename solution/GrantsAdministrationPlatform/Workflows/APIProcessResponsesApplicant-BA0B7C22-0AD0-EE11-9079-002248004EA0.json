@@ -1,0 +1,223 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-2": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_importcompletedon",
+              "subscriptionRequest/filterexpression": "gap_importcompletedon ne null and _gap_applicant_value eq null"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-2"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "2781ea76-0b59-4a5d-be70-8e602c5e903d"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "type": "Scope",
+          "actions": {
+            "Dataverse_|_Get_Contacts": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "contacts",
+                  "$filter": "emailaddress1 eq '@{first(outputs('Get_Email')?['body/value'])['gap_answer']}'"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps-2"
+                }
+              },
+              "runAfter": {
+                "Get_Email": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "21eff0e4-9e25-4f4a-9fdb-833210e4c6f8"
+              }
+            },
+            "Switch_|_On_Match": {
+              "type": "Switch",
+              "expression": "@length(outputs('Dataverse_|_Get_Contacts')?['body/value'])",
+              "default": {
+                "actions": {
+                  "Dataverse_|_Update_Application_(Existing)_1": {
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "entityName": "gap_applications",
+                        "recordId": "@triggerBody()?['gap_applicationid']",
+                        "item/gap_Applicant@odata.bind": "contacts(@{first(outputs('Dataverse_|_Get_Contacts')?['body/value'])['contactid']})"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "operationId": "UpdateRecord",
+                        "connectionName": "shared_commondataserviceforapps-2"
+                      }
+                    },
+                    "metadata": {
+                      "operationMetadataId": "8da6e37a-c5af-4bc4-a627-f1510f3f8549"
+                    }
+                  }
+                }
+              },
+              "cases": {
+                "Case_|_No_Match": {
+                  "actions": {
+                    "Dataverse_|_Create_Contact": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "contacts",
+                          "item/lastname": "@first(outputs('Get_Email')?['body/value'])['gap_answer']",
+                          "item/emailaddress1": "@first(outputs('Get_Email')?['body/value'])['gap_answer']"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "connectionName": "shared_commondataserviceforapps-2"
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "e5af69eb-45ef-4cac-af2d-5dd9146ec4fc"
+                      }
+                    },
+                    "Dataverse_|_Update_Application_(New)": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "gap_applications",
+                          "recordId": "@triggerBody()?['gap_applicationid']",
+                          "item/gap_Applicant@odata.bind": "contacts(@{body('Dataverse_|_Create_Contact')?['contactid']})"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "connectionName": "shared_commondataserviceforapps-2"
+                        }
+                      },
+                      "runAfter": {
+                        "Dataverse_|_Create_Contact": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "319077c4-21aa-43cb-8b32-e1e8a7c52355"
+                      }
+                    }
+                  },
+                  "case": 0
+                },
+                "Case_|_Single_Match": {
+                  "actions": {
+                    "Dataverse_|_Update_Application_(Existing)": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "gap_applications",
+                          "recordId": "@triggerBody()?['gap_applicationid']",
+                          "item/gap_Applicant@odata.bind": "contacts(@{first(outputs('Dataverse_|_Get_Contacts')?['body/value'])['contactid']})"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "connectionName": "shared_commondataserviceforapps-2"
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "8da6e37a-c5af-4bc4-a627-f1510f3f8549"
+                      }
+                    }
+                  },
+                  "case": 1
+                }
+              },
+              "runAfter": {
+                "Dataverse_|_Get_Contacts": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "9ce8c122-c5ef-4d14-a304-ae34846f8a88"
+              }
+            },
+            "Get_Email": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_responses",
+                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_EMAIL_ADDRESS'"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps-2"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "336adcc9-d4dd-409d-9d29-c9798a0f58f9"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "47f69558-38e3-430b-8771-3b6d08d42749"
+          }
+        },
+        "Scope_|_Error_Handling": {
+          "type": "Scope",
+          "actions": {},
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "547489c9-a3e3-45f3-8977-62144eb82816"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

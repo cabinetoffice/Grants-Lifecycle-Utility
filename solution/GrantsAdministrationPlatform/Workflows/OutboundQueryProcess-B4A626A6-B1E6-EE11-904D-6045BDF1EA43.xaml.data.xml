@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{b4a626a6-b1e6-ee11-904d-6045bdf1ea43}" Name="Outbound Query Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/OutboundQueryProcess-B4A626A6-B1E6-EE11-904D-6045BDF1EA43.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_outboundqueryprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.7</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_OutboundQuery</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Outbound Query Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{9d392f10-2c2e-45d3-9529-2acfa51348e1}">
+      <label languagecode="1033" description="Document Query" />
+    </steplabels>
+    <steplabels id="{277d33c0-4020-4a95-84d4-dc2d705b11a8}">
+      <label languagecode="1033" description="Query Theme" />
+    </steplabels>
+    <steplabels id="{5b1d1924-3b97-4034-8c59-480b381bda4e}">
+      <label languagecode="1033" description="Quality Review Required" />
+    </steplabels>
+    <steplabels id="{d47d4a3f-baf8-4092-8172-f72bbad3db70}">
+      <label languagecode="1033" description="Quality Review" />
+    </steplabels>
+    <steplabels id="{c66f2364-84c3-4125-ae40-8dc6f8538ca5}">
+      <label languagecode="1033" description="Quality Review " />
+    </steplabels>
+    <steplabels id="{0ed89eb1-35b8-4e17-8348-216107edc96f}">
+      <label languagecode="1033" description="Send Email" />
+    </steplabels>
+    <steplabels id="{d1c5ed84-7b22-4fa9-8e43-a1c1e2e42104}">
+      <label languagecode="1033" description="Email Sent On" />
+    </steplabels>
+    <steplabels id="{13e09993-7414-4084-b27e-8fcb79b8c67a}">
+      <label languagecode="1033" description="Send Email" />
+    </steplabels>
+    <steplabels id="{d878b4e0-4153-420d-826e-4309c20d1751}">
+      <label languagecode="1033" description="Email Sent On" />
+    </steplabels>
+  </labels>
+</Workflow>

@@ -1,0 +1,46 @@
+<appaction uniquename="gap__WithdrawApplicati!5fd235d08b314c1d89e37add792cbe55!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Withdraw Application button">
+    <label description="Withdraw Application button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Withdraw Application">
+    <label description="Withdraw Application" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to withdraw application and mark application as inactive">
+    <label description="Button to withdraw application and mark application as inactive" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Withdraw Application">
+    <label description="Withdraw Application" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:DeactivateOrders</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>WithdrawApplicati!5fd235d08b314c1d89e37add792cbe55</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>0b5efdd422a6474d9035e94e9a40ae42</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100030.4687500000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>0b5efdd422a6474d9035e94e9a40ae42</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

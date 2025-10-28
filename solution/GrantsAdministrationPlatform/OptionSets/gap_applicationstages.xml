@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="gap_applicationstages" localizedName="Application Stages" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Application Stages" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="803260000" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Scoring" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260002" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Peer Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260006" IsHidden="0">
+      <labels>
+        <label description="Sample Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260003" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Quality Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260005" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Due Diligence" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260007" IsHidden="0">
+      <labels>
+        <label description="Pre-Panel" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260008" IsHidden="0">
+      <labels>
+        <label description="Pre-Panel Rejected" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260009" IsHidden="0">
+      <labels>
+        <label description="Panel Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260010" IsHidden="0">
+      <labels>
+        <label description="Post-Panel" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260011" IsHidden="0">
+      <labels>
+        <label description="Outcome Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260012" IsHidden="0">
+      <labels>
+        <label description="Post-Panel Rejected" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260013" IsHidden="0">
+      <labels>
+        <label description="GFA" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260014" IsHidden="0">
+      <labels>
+        <label description="GFA Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260015" IsHidden="0">
+      <labels>
+        <label description="Pending" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260016" IsHidden="0">
+      <labels>
+        <label description="Panel Decision" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260017" IsHidden="0">
+      <labels>
+        <label description="Offer" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260018" IsHidden="0">
+      <labels>
+        <label description="Department Confirmation" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260019" IsHidden="0">
+      <labels>
+        <label description="Notification Letter Generation" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260020" IsHidden="0">
+      <labels>
+        <label description="Notification Letter Quality Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260021" IsHidden="0">
+      <labels>
+        <label description="Notification Letter Confirmation" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260022" IsHidden="0">
+      <labels>
+        <label description="GFA Letter Generation" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260023" IsHidden="0">
+      <labels>
+        <label description="GFA Quality Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260024" IsHidden="0">
+      <labels>
+        <label description="GFA Signing" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260025" IsHidden="0">
+      <labels>
+        <label description="Review GFA Completeness" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260026" IsHidden="0">
+      <labels>
+        <label description="Signed GFA Email Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260027" IsHidden="0">
+      <labels>
+        <label description="Signed GFA Email Quality Review" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260028" IsHidden="0">
+      <labels>
+        <label description="Send Final GFA" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260029" IsHidden="0">
+      <labels>
+        <label description="Define Monitoring Structure" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260030" IsHidden="0">
+      <labels>
+        <label description="Monitoring" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260031" IsHidden="0">
+      <labels>
+        <label description="Withdrawn" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260032" IsHidden="0">
+      <labels>
+        <label description="Rejected by Applicant" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="803260033" IsHidden="0">
+      <labels>
+        <label description="Rejected" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

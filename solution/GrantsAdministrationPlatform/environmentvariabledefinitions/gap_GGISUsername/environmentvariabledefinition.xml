@@ -1,0 +1,10 @@
+<environmentvariabledefinition schemaname="gap_GGISUsername">
+  <displayname default="GGIS Username">
+    <label description="GGIS Username" languagecode="1033" />
+  </displayname>
+  <introducedversion>3.0.0.27</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

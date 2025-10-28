@@ -1,0 +1,114 @@
+async function setButtonsVisibility(executionContext) {
+    const formContext = executionContext.getFormContext();
+    const userId = Xrm.Utility.getGlobalContext().userSettings.userId;
+
+    // Retrieve choice field values
+    const reviewStatusValue = formContext.getAttribute("gap_reviewstatus").getValue();
+    const typeValue = formContext.getAttribute("gap_type").getValue();
+    const ownerId = formContext.getAttribute("ownerid").getValue();
+    const schemeOwnerId = await getSchemeOwnerId(formContext);
+
+    // Define the valid choice option values
+    const pendingReviewStatusValue = 803260000; // Example value for 'pending'
+    const alertTypeValue = 803260005;          // Example value for 'alert'
+    const panelTypeValue = 803260003;          // Example value for 'panel'
+
+    // Button groups
+    const buttonsGroup1 = [
+        "Approve!64f085217c5c43a3b157e1ee0abb7b4d",
+        "RequestChanges!54ba044febb14f6d8e8cb72843e7bd6a"
+    ];
+    const buttonsGroup2 = [
+        "AcceptWithRisk!d33f18f7981f4c128d8bbaf75889eeda",
+        "InformationReques!e54badf2ba274d678f313f553fe67efc"
+    ];
+    const buttonsGroup3 = [
+        "ApprovedWithCondi!501fe4d13ce6452f8a237c7928cc3dd4",
+        "Reject!54e30d89bd7e4059bbca10ba236ea0a9"
+    ];
+
+    const validTypeValuesGroup1 = [
+        803260000, // Example value for 'peer'
+        803260002, // Example value for 'quality'
+        803260006, // Example value for 'outcome'
+        803260007, // Example value for 'gfa'
+        803260008, // Example value for 'appeal'
+        803260004, // Example value for 'outbound query'
+        803260013, // Example value for 'notification letter'
+        803260015, // Example value for 'evidence'
+        803260014  // Example value for 'payment request'
+    ];
+
+    // Logic to determine button visibility
+    const isOwnerOrTeamMember = (ownerId === userId || await isUserTeamMember(userId, schemeOwnerId));
+
+    buttonsGroup1.forEach(buttonId => {
+        const isButtonVisible = reviewStatusValue === pendingReviewStatusValue &&
+                                validTypeValuesGroup1.includes(typeValue) &&
+                                typeValue !== alertTypeValue &&
+                                isOwnerOrTeamMember;
+        setButtonVisibility(formContext, buttonId, isButtonVisible);
+    });
+
+    buttonsGroup2.forEach(buttonId => {
+        const isButtonVisible = reviewStatusValue === pendingReviewStatusValue &&
+                                typeValue === alertTypeValue &&
+                                isOwnerOrTeamMember;
+        setButtonVisibility(formContext, buttonId, isButtonVisible);
+    });
+
+    buttonsGroup3.forEach(buttonId => {
+        const isButtonVisible = reviewStatusValue === pendingReviewStatusValue &&
+                                typeValue === panelTypeValue &&
+                                isOwnerOrTeamMember;
+        setButtonVisibility(formContext, buttonId, isButtonVisible);
+    });
+}
+
+// Function to check if user is a member of a team which is the owner of the related scheme record
+async function isUserTeamMember(userId, schemeOwnerId) {
+    if (!schemeOwnerId || schemeOwnerId.entityType !== "team") {
+        return false;
+    }
+
+    const teamMembershipQuery = `/teammembership?$filter=teamid eq ${schemeOwnerId.id} and systemuserid eq ${userId}&$select=systemuserid`;
+    const response = await Xrm.WebApi.retrieveMultipleRecords("teammembership", teamMembershipQuery);
+    return response.entities && response.entities.length > 0;
+}
+
+// Function to retrieve the scheme owner ID
+async function getSchemeOwnerId(formContext) {
+    const schemeAttr = formContext.getAttribute("gap_scheme");
+
+    if (!schemeAttr) {
+        console.error('Scheme attribute not found.');
+        return null;
+    }
+
+    const schemeLookup = schemeAttr.getValue();
+
+    if (!schemeLookup || schemeLookup.length === 0) {
+        console.error('No scheme lookup value found.');
+        return null;
+    }
+
+    const schemeRecordId = schemeLookup[0].id;
+
+    try {
+        const schemeRecord = await Xrm.WebApi.retrieveRecord("gap_scheme", schemeRecordId, "?$select=ownerid");
+        return schemeRecord ? schemeRecord.ownerid : null;
+    } catch (error) {
+        console.error(`Failed to retrieve scheme owner: ${error.message}`);
+        return null;
+    }
+}
+
+// Function to set button visibility
+function setButtonVisibility(formContext, buttonId, isVisible) {
+    const commandBarButton = formContext.ui.controls.get(buttonId);
+    if (commandBarButton) {
+        commandBarButton.setVisible(isVisible);
+    } else {
+        console.warn(`Button with ID "${buttonId}" not found.`);
+    }
+}

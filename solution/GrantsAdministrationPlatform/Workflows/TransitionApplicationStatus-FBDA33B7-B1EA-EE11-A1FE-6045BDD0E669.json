@@ -1,0 +1,152 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2024-03-25T00:15:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "c27ac631-0121-4af1-a26b-fe2e46b617b5"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_rows_-_Awaiting_Launch": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "cdc091a6-6e80-4dd6-b394-7820ad95ec7b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "$filter": "gap_stage eq 803260002 and gap_applicationopeningdate lt @{utcNow()}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "List_rows_-_Monitoring": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "37c9ca7d-612a-452a-9a78-6c8c04ea82b7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "$filter": "gap_stage eq 803260008 and gap_applicationclosingdate lt @{utcNow()}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Loop_Schemes_-_Awaiting_Launch": {
+          "foreach": "@outputs('List_rows_-_Awaiting_Launch')?['body/value']",
+          "actions": {
+            "Update_Scheme_-_Awaiting_Launch": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "7ea457cb-8905-46ac-9fa1-90af7e699cf6"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@items('Loop_Schemes_-_Awaiting_Launch')?['gap_schemeid']",
+                  "item/gap_awaitinglaunchcompletedon": "@utcNow()"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "List_rows_-_Awaiting_Launch": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bfb75f8a-1a8f-4fe0-9351-d65038a462b6"
+          },
+          "type": "Foreach"
+        },
+        "Loop_Schemes_-_Monitoring": {
+          "foreach": "@outputs('List_rows_-_Monitoring')?['body/value']",
+          "actions": {
+            "Update_Scheme": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "bf6692d8-ec87-4b5b-a6e7-0fb62d9f0a10"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@items('Loop_Schemes_-_Monitoring')?['gap_schemeid']",
+                  "item/gap_monitoringcompletedon": "@utcNow()"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "List_rows_-_Monitoring": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7d9bc902-29e2-4258-a8cb-901e72c2c06c"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

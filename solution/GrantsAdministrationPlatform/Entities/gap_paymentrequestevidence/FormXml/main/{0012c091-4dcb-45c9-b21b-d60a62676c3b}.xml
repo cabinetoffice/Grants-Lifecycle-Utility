@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0012c091-4dcb-45c9-b21b-d60a62676c3b}</formid>
+    <IntroducedVersion>1.0.1.39</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{a7c26175-3521-40d4-af37-080c5221b904}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{077c616f-c5d2-4a22-9e13-b9a85e2fe60b}">
+          <labels>
+            <label description="Evidence" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{931796e7-5ca7-2786-267a-a3f84f54f91e}" name="StageStep3_section1" labelid="{ec4b40f2-2ce1-4b0b-b679-82ab95f0a9a8}">
+                  <labels>
+                    <label description="Evidence" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8cddbe7a-56c6-48f7-89b5-4ec6f084445b}" showlabel="true" visible="true" labelid="{0029bdb8-4dfc-471e-b51f-909500883eb6}">
+                        <labels>
+                          <label description="Received On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_expectedpaymentrequest_gap_paymentrequestevidence:gap_receivedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_receivedon" disabled="false" relationship="bpf_gap_expectedpaymentrequest_gap_paymentrequestevidence" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{946b1227-92b2-42a7-bfed-7f2611e2601c}" name="StageStep7" locklevel="0" expanded="true" visible="false" labelid="{348ab7eb-e8ed-41cc-8deb-618f12648a36}">
+          <labels>
+            <label description="Payment Request" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{d9dac58e-743f-c2c5-369c-70865b717f8b}" name="StageStep7_section1" labelid="{6cded0fb-421d-4e60-b3cd-e5f92f01e7a7}">
+                  <labels>
+                    <label description="Payment Request" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{efa49c04-fc0c-414b-bf77-54a0fbb33170}" showlabel="true" visible="true" labelid="{257d8d7c-bcf6-488c-9553-a20bad84cb52}">
+                        <labels>
+                          <label description="Received On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_expectedpaymentrequest_gap_paymentrequestevidence:gap_senton" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_senton" disabled="false" relationship="bpf_gap_expectedpaymentrequest_gap_paymentrequestevidence" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{20b15ff9-cd83-48b1-9e7e-f34f95c9d057}" name="StageStep11" locklevel="0" expanded="true" visible="false" labelid="{2329ad85-3798-4486-973b-c4945988f390}">
+          <labels>
+            <label description="Payment Request Submission" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{f2e3124c-9105-2630-bc01-20e220e2edb7}" name="StageStep11_section1" labelid="{7e74aa5e-e96b-4ced-b69e-847192ffab65}">
+                  <labels>
+                    <label description="Payment Request Submission" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{732a2788-579e-4f7e-92ed-a18c1fa33a1d}" showlabel="true" visible="true" labelid="{5a9fda1e-2d12-4652-97b8-d1826d9da74c}">
+                        <labels>
+                          <label description="Request Submitted On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_expectedpaymentrequest_gap_paymentrequestevidence:gap_requestsubmittedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_requestsubmittedon" disabled="false" relationship="bpf_gap_expectedpaymentrequest_gap_paymentrequestevidence" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

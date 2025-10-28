@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{a25886cc-479f-4676-a001-79f630ba8787}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{ec827ad7-8f6e-4ec7-ac63-d71fe0093849}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="30%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{f7814824-1d03-40fa-8b22-c05f6791dd0c}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{012da1b8-24c0-4de7-81ca-70a84d4a4620}" visible="false">
+                        <labels>
+                          <label description="ID" languagecode="1033" />
+                        </labels>
+                        <control id="gap_id" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_id" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{de38ae93-b5af-4509-a537-f393c0a94558}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6c5b7bd2-6580-443d-ac97-a4ea5d265c3c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Query Theme" languagecode="1033" />
+                        </labels>
+                        <control id="gap_querytheme" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_querytheme" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{31e6a191-c3be-468e-8c41-21d71eb46777}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Covered by FAQ" languagecode="1033" />
+                        </labels>
+                        <control id="gap_coveredbyfaq" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_coveredbyfaq" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aa0f5c50-1a9b-413c-ad3b-a04bbb048403}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Response Sent On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_responsesenton" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_responsesenton" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{60f50750-731a-474d-aa22-d1f4bc878e4d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="FAQ Updated" languagecode="1033" />
+                        </labels>
+                        <control id="gap_faqupdated" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_faqupdated" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7f13acf3-f231-4c09-8385-f2e60ae8ec52}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Button Trigger" languagecode="1033" />
+                        </labels>
+                        <control id="gap_buttontrigger" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_buttontrigger" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba97b81d-e896-4fd4-8f98-cc43e065843f}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Document Query | Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_documentquerycompletedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_documentquerycompletedon" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="70%">
+              <sections>
+                <section name="_section_849" id="d034663a-1458-4084-97ea-046833a4e193" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Messages" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{d730a17a-f9ed-4c05-9f2b-4b5b038e7731}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1710929290596" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>gap_message</TargetEntityType>
+                            <ViewId>{D6AC4D5C-F142-45D8-A218-2A703F58DADF}</ViewId>
+                            <ViewIds>{AB1E130C-C069-4AD2-BB9E-15F42B2C185E},{D6AC4D5C-F142-45D8-A218-2A703F58DADF}</ViewIds>
+                            <RelationshipName>gap_inboundquery_gap_Messages</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_3" id="c96adb18-4fbf-4b65-bf2d-a42485f92919" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="FAQs" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_3_section_3" id="4140f623-44d2-47e8-ba2b-5d3e97763569" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{dfcca34b-c49b-4a9e-83a0-35e794846df0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Document Source" languagecode="1033" />
+                        </labels>
+                        <control id="gap_documentsfaq" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_documentsfaq" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_3_section_1" id="78fca424-3878-4e95-a03d-7e05b75f1f61" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="FAQ Document" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{5e9e1660-852b-4190-b2ad-bddb2e6a1a96}" showlabel="false" rowspan="25" colspan="1" auto="true">
+                        <labels>
+                          <label description="New Iframe control 1711451887533" languagecode="1033" />
+                        </labels>
+                        <control id="IFRAME_FAQ" classid="{FD2A7985-3187-444E-908D-6624B21F69C0}">
+                          <parameters>
+                            <PassParameters>false</PassParameters>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <Url>https://www.google.com</Url>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false" active="false" />
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+          <events>
+            <event name="tabstatechange" application="false" active="false">
+              <Handlers>
+                <Handler functionName="setFrameSource" libraryName="gap_setIFrameSource" handlerUniqueId="{fd6d34f7-29b9-4197-81b5-b1f0e22ce1ba}" enabled="true" parameters="&quot;IFRAME_FAQ&quot;,&quot;gap_documentsfaq&quot;, true" passExecutionContext="true" />
+              </Handlers>
+              <dependencies>
+                <dependency id="gap_documentsfaq" />
+              </dependencies>
+            </event>
+          </events>
+        </tab>
+        <tab name="tab_2" id="dbbc8c71-0b65-487d-a305-fc5678613b3c" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Reviews" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="30%">
+              <sections>
+                <section name="tab_2_section_1" id="c814d2d2-8e01-4604-8e9d-9a2247d169cd" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Review Outcomes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{679b56fb-042b-498e-927c-88249e438d09}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Escalation Review" languagecode="1033" />
+                        </labels>
+                        <control id="gap_escalationreview" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_escalationreview" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a0607f15-1a0e-4523-bc46-d3a6c6d3dcb3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Escalation Review Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_escalationreviewcompletedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_escalationreviewcompletedon" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="70%">
+              <sections>
+                <section name="tab_2_section_2" id="d9b6d466-cafd-4f50-9da9-da7a75f834c8" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Reviews" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{7882e870-7f21-4fcc-a09e-0e2b6a488ba4}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1711111736378" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_2" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>gap_review</TargetEntityType>
+                            <ViewId>{AA8094A7-EBBF-4DA9-93DE-E6B74670A825}</ViewId>
+                            <ViewIds>{334B8846-0E2E-484F-B991-A296A315318F},{AA8094A7-EBBF-4DA9-93DE-E6B74670A825}</ViewIds>
+                            <RelationshipName>gap_inboundquery_gap_Reviews</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{cc6a39e8-641e-4405-8a4e-8fda9a806849}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{b41cccca-f437-44f4-8ff2-505b5f28d22e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a925e8f9-b1f6-4654-a4c0-06df8e6a3c3d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{01934749-f81f-4db9-be4a-f91929a3120c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{5145d962-1956-4ee4-87dc-04d52e3a0e7a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{dd54d770-71b6-44c4-905c-02dd5174f8d4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d54d0853-b7c8-4467-bbd1-b08125bea51d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2539ce35-6a87-4d8c-899a-324619e19e66}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="gap_setIFrameSource" libraryUniqueId="{45577d7b-a4e2-4db1-b43b-fcefefbc49e5}" />
+        <Library name="gap_lockFields.js" libraryUniqueId="{bc2c8a3f-0815-47f1-aa47-881406772807}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="lockFields" libraryName="gap_lockFields.js" handlerUniqueId="{148c30f0-c6f8-421f-8247-d758ae9d487b}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

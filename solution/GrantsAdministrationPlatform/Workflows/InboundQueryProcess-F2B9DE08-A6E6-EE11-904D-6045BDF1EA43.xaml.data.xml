@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{f2b9de08-a6e6-ee11-904d-6045bdf1ea43}" Name="Inbound Query Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/InboundQueryProcess-F2B9DE08-A6E6-EE11-904D-6045BDF1EA43.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_inboundqueryprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.7</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_InboundQuery</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Inbound Query Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{175609fa-78f2-423a-b04a-13027fd52220}">
+      <label languagecode="1033" description="Document Query" />
+    </steplabels>
+    <steplabels id="{6b900dd0-35c9-4386-99ff-f3c5898ed1e9}">
+      <label languagecode="1033" description="Document Query | Completed On" />
+    </steplabels>
+    <steplabels id="{99c40a5d-3446-416e-8e03-8d8bd7e691c4}">
+      <label languagecode="1033" description="Covered by FAQ" />
+    </steplabels>
+    <steplabels id="{bdf67cd2-c677-4aa0-9942-50a4536cf40d}">
+      <label languagecode="1033" description="Send Response" />
+    </steplabels>
+    <steplabels id="{75428312-8ff0-40f6-a371-334617d70baa}">
+      <label languagecode="1033" description="Response Sent On" />
+    </steplabels>
+    <steplabels id="{7cbff539-213d-4189-8160-cae33468034d}">
+      <label languagecode="1033" description="Escalation Review" />
+    </steplabels>
+    <steplabels id="{95c5cae4-807e-48d4-8675-31c44e1b1068}">
+      <label languagecode="1033" description="Escalation Review" />
+    </steplabels>
+    <steplabels id="{c645dbf7-27c6-45bb-9f30-b2e15cd9e675}">
+      <label languagecode="1033" description="Send Response" />
+    </steplabels>
+    <steplabels id="{2eefbf76-be1e-4d9e-8d1e-0c98981bb438}">
+      <label languagecode="1033" description="Response Sent On" />
+    </steplabels>
+  </labels>
+</Workflow>

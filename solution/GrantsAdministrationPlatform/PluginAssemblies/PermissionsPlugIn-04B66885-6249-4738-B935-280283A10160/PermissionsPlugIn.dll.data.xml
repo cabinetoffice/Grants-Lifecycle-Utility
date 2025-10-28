@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="PermissionsPlugIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95e9344454fa6856" PluginAssemblyId="04b66885-6249-4738-b935-280283a10160" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/PermissionsPlugIn-04B66885-6249-4738-B935-280283A10160/PermissionsPlugIn.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="PermissionsPlugin, PermissionsPlugIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95e9344454fa6856" PluginTypeId="83fd67c6-21b8-49d9-8010-840f6e52f346" Name="PermissionsPlugin">
+      <FriendlyName>39c896a5-4bb0-49c5-a7f6-d13f9fac4a2f</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

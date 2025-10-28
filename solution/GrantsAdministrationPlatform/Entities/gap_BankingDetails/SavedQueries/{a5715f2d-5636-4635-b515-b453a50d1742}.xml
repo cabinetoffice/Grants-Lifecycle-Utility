@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a5715f2d-5636-4635-b515-b453a50d1742}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_title" select="1" icon="1" preview="1">
+        <row name="result" id="gap_bankingdetailsid">
+          <cell name="gap_title" width="300" />
+          <cell name="gap_nameofmaingrantholder" width="150" />
+          <cell name="gap_addressofgrantholder" width="150" />
+          <cell name="gap_contacttelephonenumber" width="150" />
+          <cell name="gap_grantname" width="150" />
+          <cell name="gap_grantdeterminationnumber" width="150" />
+          <cell name="gap_bankorbuildingsocietyname" width="150" />
+          <cell name="gap_branchname" width="150" />
+          <cell name="gap_branchaddress" width="150" />
+          <cell name="gap_accountname" width="150" />
+          <cell name="gap_accountnumber" width="150" />
+          <cell name="gap_banksortcode" width="150" />
+          <cell name="gap_buildingsocietyrollnumber" width="150" />
+          <cell name="gap_accounttype" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_bankingdetails">
+          <attribute name="gap_bankingdetailsid" />
+          <attribute name="gap_title" />
+          <attribute name="createdon" />
+          <order attribute="gap_title" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_nameofmaingrantholder" />
+          <attribute name="gap_addressofgrantholder" />
+          <attribute name="gap_contacttelephonenumber" />
+          <attribute name="gap_grantname" />
+          <attribute name="gap_grantdeterminationnumber" />
+          <attribute name="gap_bankorbuildingsocietyname" />
+          <attribute name="gap_branchname" />
+          <attribute name="gap_branchaddress" />
+          <attribute name="gap_accountname" />
+          <attribute name="gap_accountnumber" />
+          <attribute name="gap_banksortcode" />
+          <attribute name="gap_buildingsocietyrollnumber" />
+          <attribute name="gap_accounttype" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Banking Details" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

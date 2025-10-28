@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="GGMS Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e2aa61dae6d0e200" PluginAssemblyId="74aa7f5f-908e-4362-b927-0ec808aba5c4" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/GGMSPlugins-74AA7F5F-908E-4362-B927-0EC808ABA5C4/GGMSPlugins.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="DownloadIntegrationFile, GGMS Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e2aa61dae6d0e200" PluginTypeId="e8658457-e4f4-4772-bc85-38070b59a842" Name="DownloadIntegrationFile">
+      <FriendlyName>df9ff713-117d-4e38-8124-22f1f255e80a</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

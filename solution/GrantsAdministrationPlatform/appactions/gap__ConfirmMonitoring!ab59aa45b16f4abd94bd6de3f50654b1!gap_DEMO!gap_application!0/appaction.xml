@@ -1,0 +1,46 @@
+<appaction uniquename="gap__ConfirmMonitoring!ab59aa45b16f4abd94bd6de3f50654b1!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Confirm Monitoring Template button">
+    <label description="Confirm Monitoring Template button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Confirm Monitoring Template">
+    <label description="Confirm Monitoring Template" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to confirm monitoring template">
+    <label description="Button to confirm monitoring template" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Confirm Monitoring Template">
+    <label description="Confirm Monitoring Template" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Completed</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>ConfirmMonitoring!ab59aa45b16f4abd94bd6de3f50654b1</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>543ee081bc8d4322952321cd0662060e</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100399225.7656250000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>543ee081bc8d4322952321cd0662060e</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

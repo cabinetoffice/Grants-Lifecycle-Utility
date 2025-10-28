@@ -1,0 +1,40 @@
+<appaction uniquename="gap__SubmitFinalOutcom!49a461b2b8bc441f89c55ce1308bbd2e!gap_DEMO!gap_monitoringactivity!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Submit Final Outcome">
+    <label description="Submit Final Outcome" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_monitoringactivity</logicalname>
+  </contextentity>
+  <contextvalue>gap_monitoringactivity</contextvalue>
+  <fonticon>$clientsvg:Accept</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>SubmitFinalOutcom!49a461b2b8bc441f89c55ce1308bbd2e</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>8d4c11f9fe2e416f9603273605d75e5b</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!feb6ae077215492ab7852098fe9569ed!gap_DEMO!gap_monitoringactivity!0</uniquename>
+  </parentappactionid>
+  <sequence>30000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>8d4c11f9fe2e416f9603273605d75e5b</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

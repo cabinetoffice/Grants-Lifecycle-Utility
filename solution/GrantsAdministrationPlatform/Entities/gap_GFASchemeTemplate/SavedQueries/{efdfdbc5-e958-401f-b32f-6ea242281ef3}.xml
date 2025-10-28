@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{efdfdbc5-e958-401f-b32f-6ea242281ef3}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_title" select="1" icon="1" preview="1">
+        <row name="result" id="gap_gfaschemetemplateid">
+          <cell name="gap_title" width="300" />
+          <cell name="gap_templatetype" width="150" />
+          <cell name="gap_authorityaddress" width="150" />
+          <cell name="gap_authoritycontactname" width="150" />
+          <cell name="gap_authoritycontactemail" width="150" />
+          <cell name="gap_authoritycontactphonenumber" width="150" />
+          <cell name="gap_authorityname" width="150" />
+          <cell name="gap_nameofproject" width="150" />
+          <cell name="gap_fundingstartdate" width="150" />
+          <cell name="gap_fundingenddate" width="150" />
+          <cell name="gap_statutoryprovision" width="150" />
+          <cell name="gap_grantrecipientreportingfrequency" width="150" />
+          <cell name="gap_projectrepresentativeinformation" width="150" />
+          <cell name="gap_grantescalationcontactinformation" width="150" />
+          <cell name="gap_grantclaimworkingdaysubmission" width="150" />
+          <cell name="gap_governinglawcountry" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_gfaschemetemplate">
+          <attribute name="gap_gfaschemetemplateid" />
+          <attribute name="gap_title" />
+          <attribute name="createdon" />
+          <order attribute="gap_title" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_templatetype" />
+          <attribute name="gap_authorityaddress" />
+          <attribute name="gap_authoritycontactname" />
+          <attribute name="gap_authoritycontactemail" />
+          <attribute name="gap_authoritycontactphonenumber" />
+          <attribute name="gap_authorityname" />
+          <attribute name="gap_nameofproject" />
+          <attribute name="gap_fundingstartdate" />
+          <attribute name="gap_fundingenddate" />
+          <attribute name="gap_statutoryprovision" />
+          <attribute name="gap_grantrecipientreportingfrequency" />
+          <attribute name="gap_projectrepresentativeinformation" />
+          <attribute name="gap_grantescalationcontactinformation" />
+          <attribute name="gap_grantclaimworkingdaysubmission" />
+          <attribute name="gap_governinglawcountry" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active GFA Scheme Templates" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

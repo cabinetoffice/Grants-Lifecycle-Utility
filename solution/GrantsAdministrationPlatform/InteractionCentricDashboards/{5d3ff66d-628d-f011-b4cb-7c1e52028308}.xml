@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<InteractionCentricDashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="My Work Items (v3)" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{5d3ff66d-628d-f011-b4cb-7c1e52028308}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>1</IsDefault>
+  <FormXml>
+    <forms type="interactioncentricdashboard">
+      <form>
+        <tabs filterby="modifiedon" timeframe="5" primaryentitylogicalname="gap_application" entityview="{DC32F705-D28C-F011-B4CB-000D3AD60BB2}" dashboardCategory="1_1" tilespresent="false">
+          <tab showlabel="true" verticallayout="true" collapsible="true" id="{7f8bdfd3-6aa0-4a5d-8a4f-1ddc9ff0da39}" expanded="false">
+            <labels>
+              <label description="Visual Filters" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section name="VisualFilters" showlabel="false" showbar="false" columns="1111" id="{e1669bef-403a-4c0d-b978-6f1dd269f0b7}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="1" rowspan="12" showlabel="false" ispreviewcell="true" ischartcell="true" id="{03c172d0-f2ed-4f5e-a79f-d5fdfabb9224}">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell colspan="2" rowspan="12" showlabel="false" ispreviewcell="true" ischartcell="true" id="{9b7242aa-7c93-4ca0-8b10-d4fa0d699e29}">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" ispreviewcell="true" ischartcell="true" id="{ab09cce1-e405-4bea-b6fb-9e5b31c6f271}">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+          <tab name="StreamsContainer" showlabel="true" verticallayout="true" collapsible="false" id="{aff5fb47-7fac-4027-b18d-6fbd968296db}" expanded="false">
+            <labels>
+              <label description="Streams" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section name="Streams" showlabel="false" showbar="false" columns="1111" id="{385eb2b1-c5c7-4176-86fd-1550f2b1702c}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="4" rowspan="12" showlabel="false" isstreamcell="true" id="{5f69d570-f668-4aa8-8cc0-a2f36ac0dfbe}">
+                          <labels>
+                            <label description="" languagecode="1033" />
+                          </labels>
+                          <control id="Component{566a0e39-2a5e-0b42-4439-0181ab6c6d55}" classid="{EE9078C8-6946-4E2C-B8F8-35E65F4BE6A8}">
+                            <parameters>
+                              <StreamObjects>
+                                <ShowAsTiles>false</ShowAsTiles>
+                                <StreamObject id="{600b8872-5009-7b84-81dd-e3496194ae33}" type="1">
+                                  <LogicalEntityName>gap_application</LogicalEntityName>
+                                  <EntityViewId>{90EC2C1D-D28C-F011-B4CB-7C1E52028308}</EntityViewId>
+                                </StreamObject>
+                                <StreamObject id="{b72da62b-064a-12d1-3ae7-210061c7ce70}" type="1">
+                                  <LogicalEntityName>gap_application</LogicalEntityName>
+                                  <EntityViewId>{C86C3A53-D28C-F011-B4CB-7C1E52028308}</EntityViewId>
+                                </StreamObject>
+                                <StreamObject id="{b3c00aa6-94b3-0e8c-0339-e642830d5827}" type="1">
+                                  <LogicalEntityName>gap_application</LogicalEntityName>
+                                  <EntityViewId>{E4DDB86D-D28C-F011-B4CB-000D3AD60BB2}</EntityViewId>
+                                </StreamObject>
+                              </StreamObjects>
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>3.1.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</InteractionCentricDashboard>

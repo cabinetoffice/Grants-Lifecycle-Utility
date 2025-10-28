@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FieldSecurityProfiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FieldSecurityProfile name="CO Payments Admin" description="Profile provides access to security sensitive payment fields" fieldsecurityprofileid="{624d5a5c-76bb-ee11-a569-0022480042fd}">
+    <FieldPermissions>
+      <FieldPermission>
+        <EntityName>gap_payment</EntityName>
+        <AttributeName>gap_detailssortcode</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
+      <FieldPermission>
+        <EntityName>gap_payment</EntityName>
+        <AttributeName>gap_detailsaccountnumber</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
+    </FieldPermissions>
+  </FieldSecurityProfile>
+</FieldSecurityProfiles>

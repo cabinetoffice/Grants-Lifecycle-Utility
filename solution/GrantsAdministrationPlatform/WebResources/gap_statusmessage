@@ -1,0 +1,13 @@
+<div id="statusMessage"
+aria-live="polite"
+aria-atomic="true"
+style=" position:absolute; left: -9999px;">
+
+</div>
+
+<script>
+function updateStatusMessage(message) {
+const status = document.getElementById("statusMessage");
+status.textContent = message;
+}
+</script>

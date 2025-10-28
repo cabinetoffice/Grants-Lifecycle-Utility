@@ -1,0 +1,136 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "107f4a41-10e9-4505-997c-d5cd0e331bc9"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Stage Name",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Dataverse_|_Get_Records": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "9ee5d9ba-d1b3-49aa-9271-9d82e1933c31"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "processstages",
+              "$filter": "stagename eq '@{triggerBody()['text']}'",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Condition:_Results": {
+          "actions": {
+            "Respond_|_Success": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5b13e9b6-0740-4039-aad2-3fb48c9ddaeb"
+              },
+              "type": "Response",
+              "kind": "PowerApp",
+              "inputs": {
+                "statusCode": 200,
+                "body": {
+                  "stage": "@{first(outputs('Dataverse_|_Get_Records')?['body/value'])['processstageid']}"
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "stage": {
+                      "title": "Stage",
+                      "x-ms-dynamically-added": true,
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Dataverse_|_Get_Records": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Terminate_|_Failure": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "82f01830-e0ab-40ef-90b9-b5be1ff2e45e"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@length(outputs('Dataverse_|_Get_Records')?['body/value'])",
+              1
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1ee00ac7-1183-4fa4-b6c7-9441f9f91579"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

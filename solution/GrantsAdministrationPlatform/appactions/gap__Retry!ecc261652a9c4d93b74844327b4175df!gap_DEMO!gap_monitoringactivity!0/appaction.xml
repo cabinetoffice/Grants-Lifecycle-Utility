@@ -1,0 +1,40 @@
+<appaction uniquename="gap__Retry!ecc261652a9c4d93b74844327b4175df!gap_DEMO!gap_monitoringactivity!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Retry">
+    <label description="Retry" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_monitoringactivity</logicalname>
+  </contextentity>
+  <contextvalue>gap_monitoringactivity</contextvalue>
+  <fonticon>$clientsvg:Refresh</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>Retry!ecc261652a9c4d93b74844327b4175df</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>cd3c3d7ead1f456d9fffd570a2d45a1f</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!feb6ae077215492ab7852098fe9569ed!gap_DEMO!gap_monitoringactivity!0</uniquename>
+  </parentappactionid>
+  <sequence>90000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>cd3c3d7ead1f456d9fffd570a2d45a1f</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

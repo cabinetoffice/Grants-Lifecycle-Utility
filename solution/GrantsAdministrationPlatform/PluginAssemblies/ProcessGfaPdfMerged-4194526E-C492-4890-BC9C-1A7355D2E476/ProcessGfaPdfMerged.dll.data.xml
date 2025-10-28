@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="ProcessGfaPdfMerged, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5d610c3e41c6fcc9" PluginAssemblyId="4194526e-c492-4890-bc9c-1a7355d2e476" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/ProcessGfaPdfMerged-4194526E-C492-4890-BC9C-1A7355D2E476/ProcessGfaPdfMerged.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="ProcessGfaPdf, ProcessGfaPdfMerged, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5d610c3e41c6fcc9" PluginTypeId="d414a1c1-43ed-4ef0-9f95-4022103948a1" Name="ProcessGfaPdf">
+      <FriendlyName>687182aa-9aa3-40ba-8b0f-c5538f7d993c</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

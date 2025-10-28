@@ -1,0 +1,49 @@
+<appaction uniquename="gap__SubmitInitialSubj!750c5a3858b345a3b515a5e23a944d13!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Submit Initial Subjective Scoring">
+    <label description="Submit Initial Subjective Scoring" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Submit (Initial) Subjective Scoring">
+    <label description="Submit (Initial) Subjective Scoring" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to submit Initial Subjective Scoring">
+    <label description="Button to submit Initial Subjective Scoring" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Submit Initial Subjective Scoring">
+    <label description="Submit Initial Subjective Scoring" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Accept</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>SubmitInitialSubj!750c5a3858b345a3b515a5e23a944d13</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>443b1a8d9bcc4b5abdb3269e94303126</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!16007fcd8bc145dc8e65ef7e8b696df1!gap_DEMO!gap_application!0</uniquename>
+  </parentappactionid>
+  <sequence>50000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>443b1a8d9bcc4b5abdb3269e94303126</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

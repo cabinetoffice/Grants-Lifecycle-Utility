@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a4f2be77-85bd-4dd0-bdd1-4e9920d4d4b5}</savedqueryid>
+    <layoutxml>
+      <grid name="gap_monitoringchecklisttemplates" jump="gap_name" select="1" icon="1" preview="0">
+        <row name="gap_monitoringchecklisttemplate" id="gap_monitoringchecklisttemplateid">
+          <cell name="gap_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_monitoringchecklisttemplate">
+          <attribute name="gap_monitoringchecklisttemplateid" />
+          <attribute name="gap_name" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Monitoring Checklist Template Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

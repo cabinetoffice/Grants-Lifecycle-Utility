@@ -1,0 +1,28 @@
+<appaction uniquename="gap__NewGroup!16007fcd8bc145dc8e65ef7e8b696df1!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <grouptitle default="NewGroup">
+    <label description="NewGroup" languagecode="1033" />
+  </grouptitle>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>1</isgrouptitlehidden>
+  <location>0</location>
+  <name>NewGroup!16007fcd8bc145dc8e65ef7e8b696df1</name>
+  <onclickeventtype>0</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__Actions!cb69278050bd444b8ae3e2ba2d83d026!gap_DEMO!gap_application!0</uniquename>
+  </parentappactionid>
+  <sequence>10000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>3</type>
+</appaction>

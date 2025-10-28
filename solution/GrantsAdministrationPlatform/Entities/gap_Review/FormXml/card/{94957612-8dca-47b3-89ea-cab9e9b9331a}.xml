@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{94957612-8dca-47b3-89ea-cab9e9b9331a}</formid>
+    <IntroducedVersion>1.0.1.7</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form maxWidth="400">
+      <tabs>
+        <tab IsUserDefined="0" id="{2942d410-047b-438f-980c-cf4dc34bf337}">
+          <labels>
+            <label description="Card" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="25%">
+              <sections>
+                <section name="Color Strip" showlabel="false" showbar="false" IsUserDefined="0" columns="1" id="{57f430d2-1092-4cd6-af8c-eda2ece1b3c1}">
+                  <labels>
+                    <label description="Color Strip" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{01ce5169-985b-4bc0-9a50-573140410afb}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="75%">
+              <sections>
+                <section name="CardHeader" showlabel="false" showbar="false" IsUserDefined="0" columns="111" id="{ddb5c82f-eb36-4009-9731-4e6e43014bbe}">
+                  <labels>
+                    <label description="Header" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4e094e81-6819-4b37-4547-3c3de324a135}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Subject" languagecode="1033" />
+                        </labels>
+                        <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="false" />
+                      </cell>
+                      <cell id="{d0ae6e62-70c5-1e51-79ea-a5e31007ea6e}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                      </cell>
+                      <cell id="{128cacc7-abc0-5d6c-1c39-87174531c2cd}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="CardDetails" showlabel="false" showbar="false" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" id="{21813829-fcfd-4757-b3e8-fe0548c52c12}">
+                  <labels>
+                    <label description="Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{809153d4-5db6-05cc-502d-0d7384b57199}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="gap_outcome" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="gap_outcome" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e7309a60-294d-3115-5c33-d31934515901}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Commentary" languagecode="1033" />
+                        </labels>
+                        <control id="gap_commentary" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="gap_commentary" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e1636641-3213-2d17-bc00-ad7c83234367}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_completedon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="gap_completedon" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="CardFooter" showlabel="false" showbar="false" IsUserDefined="0" columns="1111" id="{966f675a-1956-470a-a666-1b72af0b7da1}">
+                  <labels>
+                    <label description="Footer" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{679fa7fe-adc4-4739-9c2a-93ec60a2ecf5}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{ccb370fe-b033-4c60-9939-da058232b6ae}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{1ed6a974-8012-4d05-b8c2-9e1c8bcf1eef}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{a0100649-67de-42f6-81fb-47b54b0fc48d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="4">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Summary Card Form" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

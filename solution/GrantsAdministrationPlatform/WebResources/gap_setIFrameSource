@@ -1,0 +1,34 @@
+function setFrameSource(executionContext,iframename,fieldname,isLookup) {
+
+var formContext = executionContext.getFormContext();
+var iframe = formContext.getControl(iframename);
+var fieldValue = formContext.getAttribute(fieldname).getValue();
+if (fieldValue != null) {
+
+if (Boolean(isLookup) == true) {
+	var id = fieldValue[0].id;
+	Xrm.WebApi.retrieveRecord("gap_document", id.slice(1, -1), "").then(
+		function success(result) {
+			var url = result.gap_url;
+			iframe.setSrc(url);
+		},
+		function (error) {
+			console.log(error);
+			iframe.setVisible(false);
+		}
+	);
+}
+else {
+	iframe.setSrc(fieldValue);
+}
+
+
+}
+else {
+console.log("error");
+iframe.setVisible(false);
+}
+
+
+}
+setFrameSource

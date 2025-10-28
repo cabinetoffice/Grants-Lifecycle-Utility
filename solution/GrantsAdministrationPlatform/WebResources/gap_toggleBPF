@@ -1,0 +1,58 @@
+function toggleBPF(executionContext) {
+  var formContext = executionContext.getFormContext();
+  var deptOutcome = formContext
+    .getAttribute("gap_departmentoutcome")
+    .getValue();
+  var outcomeProcessCompletedOn = formContext
+    .getAttribute("gap_outcomeprocesscompletedon")
+    .getValue();
+  var notificationLetterApplicantResponse = formContext
+    .getAttribute("gap_notificationletterapplicantresponse")
+    .getValue();
+
+  console.log("Dept Outcome:", deptOutcome);
+  console.log("Outcome Process Completed On:", outcomeProcessCompletedOn);
+  console.log(
+    "Notification Letter Applicant Response:",
+    notificationLetterApplicantResponse
+  );
+
+  var processIdToSwitch = null;
+
+  // Determine process ID based on the corrected rules.
+  if (deptOutcome === null && outcomeProcessCompletedOn === null) {
+    processIdToSwitch = "A5D2246D-C33F-F011-877A-7C1E522E917B"; // Case 1
+  } else if (deptOutcome !== null && outcomeProcessCompletedOn === null) {
+    processIdToSwitch = "9AA9C642-C13F-F011-877A-7C1E522E917B"; // Case 2
+  } else if (
+    deptOutcome === 803260001 &&
+    notificationLetterApplicantResponse === 803260000 &&
+    outcomeProcessCompletedOn !== null
+  ) {
+    processIdToSwitch = "F81D20B9-B342-F011-877A-7C1E522E8518"; // Case 3
+  }
+
+  console.log("Process ID to switch:", processIdToSwitch);
+
+  var activeProcess = formContext.data.process.getActiveProcess();
+  if (activeProcess && processIdToSwitch) {
+    var activeProcessID = activeProcess.getId();
+
+    if (activeProcessID.toUpperCase() !== processIdToSwitch.toUpperCase()) {
+      formContext.data.process.setActiveProcess(
+        processIdToSwitch,
+        function (error) {
+          if (error) {
+            console.log("Error while switching BPF:", error.message);
+          } else {
+            console.log("Process switched successfully.");
+          }
+        }
+      );
+    }
+  } else {
+    console.log(
+      "Error: No active process found or no valid process ID to switch."
+    );
+  }
+}

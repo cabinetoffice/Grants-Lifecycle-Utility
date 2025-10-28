@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d03cbec4-7bc4-4248-a6a4-fe4e21dc34e3}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_id" select="1" icon="1" preview="1">
+        <row name="result" id="gap_paymentid">
+          <cell name="gap_id" width="119" />
+          <cell name="gap_applicationid" width="125" />
+          <cell name="gap_amount" width="100" />
+          <cell name="gap_status" width="100" />
+          <cell name="gap_dateofpayment" width="135" />
+          <cell name="gap_bank" width="100" />
+          <cell name="gap_detailspayeename" width="160" />
+          <cell name="gap_detailsaccountnumber" width="187" />
+          <cell name="gap_detailssortcode" width="146" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_payment">
+          <attribute name="gap_paymentid" />
+          <attribute name="gap_id" />
+          <order attribute="gap_id" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_detailspayeename" />
+          <attribute name="gap_detailsaccountnumber" />
+          <attribute name="gap_detailssortcode" />
+          <attribute name="gap_bank" />
+          <attribute name="gap_applicationid" />
+          <attribute name="gap_dateofpayment" />
+          <attribute name="gap_status" />
+          <attribute name="gap_amount" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Payments" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

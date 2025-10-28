@@ -1,0 +1,416 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      },
+      "shared_googledrive-1": {
+        "api": {
+          "name": "shared_googledrive"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_GoogleDrive"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "Google Drive Root Configuration (gap_GoogleDriveRootConfiguration)": {
+          "defaultValue": {
+            "id": "1kNFocFTfbuOfOMv6Ks89G56AjdxkH3y3",
+            "path": "GLU - Document Library (DEV)",
+            "dummy": "/GLU - Document Library (DEV)/README.txt"
+          },
+          "type": "Object",
+          "metadata": {
+            "schemaName": "gap_GoogleDriveRootConfiguration"
+          }
+        }
+      },
+      "triggers": {
+        "Trigger": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_documentslastsync",
+              "subscriptionRequest/filterexpression": "gap_documentslastsync ne null"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps_1"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "bc34cc60-c5cf-4520-9663-47969e74233d"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "type": "Scope",
+          "actions": {
+            "Google_Drive_Root_Configuration": {
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@parameters('Google Drive Root Configuration (gap_GoogleDriveRootConfiguration)')",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "dummy": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "28df6716-5858-4b9f-8f25-c3e3d35ac743"
+              }
+            },
+            "Get_Files": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "id": "@triggerOutputs()?['body/gap_googledrivefolderid']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
+                  "operationId": "ListFolder",
+                  "connectionName": "shared_googledrive-1"
+                }
+              },
+              "runAfter": {
+                "Google_Drive_Root_Configuration": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7974d782-1ca2-460d-9ce9-9e3eab4d07d0"
+              }
+            },
+            "Filter_Files": {
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Get_Files')",
+                "where": "@equals(item()?['IsFolder'], false)"
+              },
+              "runAfter": {
+                "Get_Files": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "85f715de-71e8-48a8-a620-c24bc4a9e40a"
+              }
+            },
+            "Select_Files": {
+              "type": "Select",
+              "inputs": {
+                "from": "@body('Filter_Files')",
+                "select": "@item()?['Id']"
+              },
+              "runAfter": {
+                "Filter_Files": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "840e0dce-fcc4-4db6-ab13-5bafda80ed56"
+              }
+            },
+            "Get_Documents": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_documents",
+                  "$filter": "_cr982_scheme_value eq @{triggerBody()?['gap_schemeid']}"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps_1"
+                }
+              },
+              "runAfter": {
+                "Select_Files": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "beac04cb-e93f-4db9-a13d-eccaabdb896f"
+              }
+            },
+            "Select_Documents": {
+              "type": "Select",
+              "inputs": {
+                "from": "@outputs('Get_Documents')?['body/value']",
+                "select": "@item()?['gap_fileid']"
+              },
+              "runAfter": {
+                "Get_Documents": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "11418b97-bb12-4b67-8113-3b9596fc08bb"
+              }
+            },
+            "Scope_|_New_Files": {
+              "type": "Scope",
+              "actions": {
+                "Filter_New_Files": {
+                  "type": "Query",
+                  "inputs": {
+                    "from": "@body('Filter_Files')",
+                    "where": "@not(contains(body('Select_Documents'),item()?['Id']))"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "e2a310e3-b2aa-47de-9754-afcc34620414"
+                  }
+                },
+                "Iterate_Per_New_File": {
+                  "type": "Foreach",
+                  "foreach": "@body('Filter_New_Files')",
+                  "actions": {
+                    "Create_New_Document": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "gap_documents",
+                          "item/gap_title": "@items('Iterate_Per_New_File')?['Name']",
+                          "item/gap_fileid": "@items('Iterate_Per_New_File')?['Id']",
+                          "item/cr982_Scheme@odata.bind": "gap_schemes(@{triggerBody()?['gap_schemeid']})"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "connectionName": "shared_commondataserviceforapps_1"
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "edf84e72-a304-4e53-968f-bdcbee3e6c9b"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Filter_New_Files": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "874c8b24-f8e2-4e60-9318-bf21a710938a"
+                  }
+                }
+              },
+              "runAfter": {
+                "Select_Documents": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "df4d890a-944d-40e9-abca-49aa9918437d"
+              }
+            },
+            "Scope_|_Deleted_Files": {
+              "type": "Scope",
+              "actions": {
+                "Filter_Deleted_Files": {
+                  "type": "Query",
+                  "inputs": {
+                    "from": "@outputs('Get_Documents')?['body/value']",
+                    "where": "@not(contains(body('Select_Files'), item()?['gap_fileid']))"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6fb9c790-11ba-4ea8-88f8-52407c612a4c"
+                  }
+                },
+                "Iterate_Per_Deleted_File": {
+                  "type": "Foreach",
+                  "foreach": "@body('Filter_Deleted_Files')",
+                  "actions": {
+                    "Delete_a_row": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "gap_documents",
+                          "recordId": "@items('Iterate_Per_Deleted_File')?['gap_documentid']"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "DeleteRecord",
+                          "connectionName": "shared_commondataserviceforapps_1"
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "499c07a2-72b0-422a-be71-fc6fcdded959"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Filter_Deleted_Files": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "185045b2-df69-46eb-8877-3277d09232aa"
+                  }
+                }
+              },
+              "runAfter": {
+                "Scope_|_New_Files": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d54ea3cd-dccf-4b6b-b300-8fc1733ae92b"
+              }
+            },
+            "Scope_|_Existing_Files": {
+              "type": "Scope",
+              "actions": {
+                "Filter_Existing_Files": {
+                  "type": "Query",
+                  "inputs": {
+                    "from": "@body('Filter_Files')",
+                    "where": "@contains(body('Select_Documents'),item()?['Id'])"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "51fe7b11-1a73-436a-82e0-a6daf962fddd"
+                  }
+                },
+                "Iterate_Per_Existing_File": {
+                  "type": "Foreach",
+                  "foreach": "@body('Filter_Existing_Files')",
+                  "actions": {
+                    "Get_Document": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "gap_documents",
+                          "$filter": "gap_fileid eq '@{items('Iterate_Per_Existing_File')?['Id']}'",
+                          "$top": 1
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "ListRecords",
+                          "connectionName": "shared_commondataserviceforapps_1"
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "cb0108f3-0ec1-469a-85d1-7dbcd1faa761"
+                      }
+                    },
+                    "Update_Document": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "gap_documents",
+                          "recordId": "@first(outputs('Get_Document')?['body/value'])['gap_documentid']"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "connectionName": "shared_commondataserviceforapps_1"
+                        }
+                      },
+                      "runAfter": {
+                        "Get_Document": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "f5f3c713-6eb9-4f3d-bd15-528b33221058"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Filter_Existing_Files": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "27345efb-7476-4505-a41f-84be6ece0e64"
+                  }
+                }
+              },
+              "runAfter": {
+                "Scope_|_Deleted_Files": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "6991c365-230f-4f85-a39b-57c8b7951c5e"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "38569c68-d605-4312-ac67-8a9a160ec524"
+          }
+        },
+        "Scope_|_Error_Handling": {
+          "type": "Scope",
+          "actions": {
+            "Create_Log": {
+              "type": "Workflow",
+              "inputs": {
+                "host": {
+                  "workflowReferenceName": "1b684e2c-81d1-ee11-9079-0022480043c2"
+                },
+                "body": {
+                  "text": "Error",
+                  "text_1": "An error occurred when refreshing a scheme.",
+                  "text_3": "Scheme",
+                  "text_2": "@{workflow()}",
+                  "text_4": "@triggerBody()?['gap_schemeid']"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "aae79321-b442-4e73-b883-774d57339fdf"
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "TimedOut",
+              "Skipped",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "61c56f48-8e04-4a57-8fa2-fe5abe322b04"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

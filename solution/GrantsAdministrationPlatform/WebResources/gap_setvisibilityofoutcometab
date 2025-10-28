@@ -1,0 +1,33 @@
+function setOutcomeTabVisibility(executionContext) {
+    try {
+        var formContext = executionContext.getFormContext();
+        var activeBPF = formContext.data.process.getActiveProcess();
+
+        if (activeBPF) {
+            var activeBPFId = activeBPF.getId().toUpperCase();
+
+            // Log the active BPF ID for verification
+            console.log("Active BPF ID:", activeBPFId);
+
+            const visibleBPFs = [
+                "9AA9C642-C13F-F011-877A-7C1E522E917B",
+                "F81D20B9-B342-F011-877A-7C1E522E8518"
+            ];
+
+            // Check if the active BPF ID is in the list of visible BPFs
+            if (visibleBPFs.includes(activeBPFId)) {
+                console.log("Setting tab_8 visible");
+                formContext.ui.tabs.get("tab_8").setVisible(true);
+            } else if (activeBPFId === "A5D2246D-C33F-F011-877A-7C1E522E917B") {
+                console.log("Setting tab_8 invisible");
+                formContext.ui.tabs.get("tab_8").setVisible(false);
+            } else {
+                console.log("Active BPF ID does not match specified values.");
+            }
+        } else {
+            console.log("No active BPF found.");
+        }
+    } catch (error) {
+        console.error("An error occurred while setting tab visibility:", error);
+    }
+}

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{5d785fff-78e7-ee11-904d-6045bdd2c716}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_id" select="1" icon="1" preview="1">
+        <row name="result" id="gap_applicationid">
+          <cell name="gap_id" width="200" />
+          <cell name="gap_departmentoutcome" width="161" />
+          <cell name="gap_scoringresponse" width="141" />
+          <cell name="gap_scoringresponsenumeric" width="203" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="gap_application">
+          <attribute name="gap_id" />
+          <attribute name="gap_applicationid" />
+          <attribute name="gap_scoringresponse" />
+          <attribute name="gap_scoringresponsenumeric" />
+          <attribute name="gap_departmentoutcome" />
+          <filter type="and">
+            <condition attribute="gap_stage" operator="in">
+              <value>803260018</value>
+              <value>803260019</value>
+            </condition>
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.1.7</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Panel View " languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

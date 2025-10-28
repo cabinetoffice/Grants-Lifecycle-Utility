@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{72fd42d1-29e6-41d8-b1b9-ef1ca016171e}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{c6e05aff-4da2-4879-be4f-35dead4b6190}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{4495820f-ae9b-4662-8f26-d5f2394a1c5d}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{773c91dc-7443-486b-96ce-930457e066ec}" visible="false">
+                        <labels>
+                          <label description="New Document Title" languagecode="1033" />
+                        </labels>
+                        <control id="gap_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e3b46cd1-3b4d-4eda-89ca-8d5c54ae1ed9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="New Document Link " languagecode="1033" />
+                        </labels>
+                        <control id="gap_newdocumentlink2" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_newdocumentlink2" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d5d69453-ce0b-456d-9bb4-f3353fd853f1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Old Document Link" languagecode="1033" />
+                        </labels>
+                        <control id="gap_olddocument" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_olddocument" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9f65921c-9bc9-4b98-b4dc-7a2de5cd49e1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Replaced By" languagecode="1033" />
+                        </labels>
+                        <control id="gap_replacedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_replacedby" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1f017b1d-6099-44f8-83e7-9f64a34b8d87}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Replaced On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_replacedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_replacedon" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5ff1f24e-5c70-47d4-aaa2-be1318b89715}" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{b790da61-c038-4b49-aef0-1aaaaebf55d0}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{ff1095a4-2475-4438-80d8-a214352d6084}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5d201205-f726-4b78-be98-e65e12f9a0e9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a4357358-98da-4ab8-84e2-c6e207840fbb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{a1a1e9ba-7788-4b5b-9c60-f94bc013c1dd}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6f3e6c42-b112-4554-b4c0-f4f92eb410c1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2a745b79-d34a-44c0-831e-ac1bba65d9ff}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5fe38126-4865-47c0-bf14-c7eee306c7b6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

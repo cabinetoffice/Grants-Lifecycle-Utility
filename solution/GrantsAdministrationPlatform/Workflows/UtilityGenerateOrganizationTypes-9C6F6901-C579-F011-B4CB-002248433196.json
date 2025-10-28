@@ -1,0 +1,200 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "metadata": {
+            "operationMetadataId": "2781ea76-0b59-4a5d-be70-8e602c5e903d"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps-2",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_importcompletedon",
+              "subscriptionRequest/filterexpression": "gap_importcompletedon ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Error_Handling": {
+          "actions": {},
+          "runAfter": {
+            "App_Loop": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "903ccf33-9f0e-4a46-9d41-5304856b8ddb"
+          },
+          "type": "Scope"
+        },
+        "All_Applications": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "78f1ab36-185a-47cb-98ae-3fd906b58005"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps-2",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "$filter": "_gap_organization_value ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "App_Loop": {
+          "foreach": "@outputs('All_Applications')?['body/value']",
+          "actions": {
+            "Scope_|_Core_Process": {
+              "actions": {
+                "Dataverse_|_Get_Accounts": {
+                  "runAfter": {
+                    "Get_Name": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "55d70a57-f101-4115-ae3f-a021e3fdf2eb"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-2",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "accounts",
+                      "$filter": "name eq '@{first(outputs('Get_Name')?['body/value'])['gap_answer']}'"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Get_Name": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-2",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_responses",
+                      "$filter": "_gap_application_value eq @{items('App_Loop')?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_NAME'"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Update_Organization_Type": {
+                  "runAfter": {
+                    "Get_Application_Type_2": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "1c1ae67f-57a5-4a02-9c41-0d683b8b2d47"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-2",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "accounts",
+                      "recordId": "@outputs('Dataverse_|_Get_Accounts')?['body/value']?[0]?['accountid']",
+                      "item/gap_subtype": "@first(outputs('Get_Application_Type_2')?['body/value'])['gap_answer']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Get_Application_Type_2": {
+                  "runAfter": {
+                    "Dataverse_|_Get_Accounts": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-2",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_responses",
+                      "$filter": "_gap_application_value eq @{items('App_Loop')?['gap_applicationid']} and gap_id eq 'APPLICANT_TYPE'"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "0cbfc8ba-46c0-4309-b42e-b5b62e8a0594"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "All_Applications": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b0e87405-45df-4e60-b6e3-5b603da4744f"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

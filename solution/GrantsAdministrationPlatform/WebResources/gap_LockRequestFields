@@ -1,0 +1,40 @@
+function LockRequestFields(executionContext) {
+  formContext = executionContext.getFormContext();
+  // Specification Fields
+  var requestName = formContext.getControl("gap_name");
+  var requestType = formContext.getControl("gap_type");
+  var requestAmount = formContext.getControl("gap_amount");
+  var requestEvidenceDeadline = formContext.getControl(
+    "gap_deadlineforevidence"
+  );
+  var requestPaymentDeadline = formContext.getControl(
+    "gap_deadlineforpaymentrequest"
+  );
+
+  // Monitoring Fields
+  var requestSent = formContext.getControl("gap_senton");
+  var requestReceived = formContext.getControl("gap_receivedon");
+  var monitoringStarted = formContext.getControl("gap_monitorstagestarted");
+  var tab = formContext.ui.tabs.get("General");
+  var section = tab.sections.get("gap_monitorstartedsection");
+
+  var bpf = formContext.data.process.getActiveStage();
+  var currentStage = bpf._stageStep.steps.list[0].$1R_0.description;
+  if (monitoringStarted.getValue() == "Yes") {
+    requestAmount.setDisabled(true);
+    requestName.setDisabled(true);
+    requestType.setDisabled(true);
+    requestEvidenceDeadline.setDisabled(true);
+    requestPaymentDeadline.setDisabled(true);
+    section.setVisible(true);
+    if (currentStage == "Evidence") {
+      requestSent.setDisabled(true);
+      requestReceived.setDisabled(false);
+    } else if (currentStage == "Payment Request") {
+      requestSent.setDisabled(false);
+      requestReceived.setDisabled(true);
+    }
+  } else {
+    section.setVisible(false);
+  }
+}

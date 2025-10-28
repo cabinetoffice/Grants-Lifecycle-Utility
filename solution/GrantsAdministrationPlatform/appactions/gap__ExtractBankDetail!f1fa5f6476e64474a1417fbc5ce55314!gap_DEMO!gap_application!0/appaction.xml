@@ -1,0 +1,46 @@
+<appaction uniquename="gap__ExtractBankDetail!f1fa5f6476e64474a1417fbc5ce55314!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Generate Long GFA button">
+    <label description="Generate Long GFA button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Extract Bank Details">
+    <label description="Extract Bank Details" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to generate Long GFA">
+    <label description="Button to generate Long GFA" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Generate Long GFA">
+    <label description="Generate Long GFA" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>IncreaseIndent</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>ExtractBankDetail!f1fa5f6476e64474a1417fbc5ce55314</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>f3b0cb15ae3145d89d9df0868ddb7aef</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100031.6113281300</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>f3b0cb15ae3145d89d9df0868ddb7aef</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

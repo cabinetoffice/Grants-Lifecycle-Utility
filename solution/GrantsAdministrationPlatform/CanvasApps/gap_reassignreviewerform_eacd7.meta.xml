@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_reassignreviewerform_eacd7</Name>
+  <AppVersion>2025-08-15T10:16:23Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.25081.9.0</CreatedByClientVersion>
+  <MinClientVersion>3.25081.9.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"500","primaryDeviceHeight":"167","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25081.9","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20250806T153251Z-3.25054.3.0","coauthoringEnabled":"true","multipleWritersEnabled":"true","acceptedCoauthoringTerms":"true"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Reassign Reviewer Form</DisplayName>
+  <Description>Form to reassign a review</Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"6ff9b358-9356-47cc-b615-3d3d47476bc1":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1766/1.0.1766.4330/logicflows/icon.png","dataSources":["Review|ReassignOwner|RefreshOptions"],"dependencies":["c1bee028-5f4c-464c-b699-7292b0a5057f"],"dependents":[],"parameterHints":{"workflowName":{"value":"78665465-60fb-4e17-bd20-0bcb9eb3d0bd"},"workflowEntityId":{"value":"6bde2ef0-2578-f011-b4cb-0022483ff195"},"workflowDisplayName":{"value":"Review | Reassign Owner | Refresh Options"},"c1bee028-5f4c-464c-b699-7292b0a5057f":{"value":"shared_commondataserviceforapps"}},"parameterHintsV2":{"workflowName":{"value":"78665465-60fb-4e17-bd20-0bcb9eb3d0bd"},"workflowEntityId":{"value":"6bde2ef0-2578-f011-b4cb-0022483ff195"},"workflowDisplayName":{"value":"Review | Reassign Owner | Refresh Options"},"shared_commondataserviceforapps":{"value":"c1bee028-5f4c-464c-b699-7292b0a5057f"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"c1bee028-5f4c-464c-b699-7292b0a5057f":{"id":"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps","displayName":"Microsoft Dataverse","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1767/1.0.1767.4337/commondataserviceforapps/icon.png","dataSources":[],"dependencies":[],"dependents":["6ff9b358-9356-47cc-b615-3d3d47476bc1"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium"}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Reviews":{"entitySetName":"gap_reviews","logicalName":"gap_review"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>2</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"dependencyid":"6bde2ef0-2578-f011-b4cb-0022483ff195","componenttype":29,"componenttypeplatformname":"Workflow"},{"logicalname":"gap_review","componenttype":1},{"logicalname":"systemuser","componenttype":1}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_reassignreviewerform_eacd7_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_reassignreviewerform_eacd7_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/gap_reassignreviewerform_eacd7_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>

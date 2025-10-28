@@ -1,0 +1,35 @@
+function setPaymentBPF(executionContext) {
+  var formContext = executionContext.getFormContext();
+  var requestType = formContext.getAttribute("gap_type").getValue();
+
+  var processIdToSwitch = null;
+
+  // Determine process ID based on the conditions.
+  if (requestType === 803260000) {
+    processIdToSwitch = "BFDB01E5-5F48-F011-877A-000D3AD545F3";
+  } else if (requestType === 803260001) {
+    processIdToSwitch = "A17E1C53-6648-F011-877A-000D3AD545F3";
+  }
+
+  var activeProcess = formContext.data.process.getActiveProcess();
+  if (activeProcess && processIdToSwitch) {
+    var activeProcessID = activeProcess.getId();
+
+    if (activeProcessID.toUpperCase() !== processIdToSwitch.toUpperCase()) {
+      formContext.data.process.setActiveProcess(
+        processIdToSwitch,
+        function (error) {
+          if (error) {
+            console.log("Error while switching BPF:", error.message);
+          } else {
+            console.log("Process switched successfully.");
+          }
+        }
+      );
+    }
+  } else {
+    console.log(
+      "Error: No active process found or no valid process ID to switch."
+    );
+  }
+}

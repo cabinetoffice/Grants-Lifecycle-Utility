@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{4bde4a5e-8e73-4614-af79-4906f9cb70d2}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{3b4e2ba6-4615-4d74-93a7-ece66d7621a5}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{6bfa5a49-4f07-4bad-bce2-dab33b70be63}" name="FileNameLabel2" locklevel="0">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{9215aaca-8735-4d28-9ceb-95196624b233}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="File Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_filename" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_filename" uniqueid="{d56fad10-b632-4ef8-aa49-5abd2c6891ff}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{3ea42900-55ed-4b14-ba20-29b3c08915fd}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="File Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_filename" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_filename" uniqueid="{576c7ed0-8379-4ffa-a99c-7a1924f07be8}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{94da4781-6052-4410-b2e3-0dc62402b83c}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="File Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_filename" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_filename" uniqueid="{e52a9fc0-e04a-4ce9-871f-70206dedf6ae}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6c6bcf6e-6302-4113-a373-b1974f3b659a}">
+                        <labels>
+                          <label description="File Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_filename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_filename" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1014476a-b373-405a-9f73-333e99f82f11}" locklevel="1" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b166c2af-b67c-478c-9c0e-9197ba276b2b}">
+                        <labels>
+                          <label description="Integration Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_integrationtype" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_integrationtype" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9f83f265-25f0-4a5c-a34d-021479bc3c08}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="File Upload" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fileupload" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="gap_fileupload" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{99004158-ad44-4863-a42a-0196ace81b24}" visible="false">
+                        <labels>
+                          <label description="Application" languagecode="1033" />
+                        </labels>
+                        <control id="gap_application" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="gap_application" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{089979bf-6dda-4d87-9e61-9c97b5d6ff4c}" visible="false">
+                        <labels>
+                          <label description="Processed" languagecode="1033" />
+                        </labels>
+                        <control id="gap_processed" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="gap_processed" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{8a4273ac-bdad-4714-a15e-c3eec516aaaa}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0d1aa4f9-907a-439e-bdb1-604e01229729}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a6447eaf-8862-4df5-9759-dcbdfc6a0180}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b613b160-aa13-434b-a3e8-5e90dbc6a9d4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{fdade252-e491-4d7a-a0a3-1f740e46ff09}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{15bad13e-46a2-4d3d-ad58-31b01dc78e07}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0d29ee75-c778-47ab-a5c3-433b374257e1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{91a4eb8f-173d-4117-9939-86c848c7c2a1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{576c7ed0-8379-4ffa-a99c-7a1924f07be8}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_filename</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_filename</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Maximum file size is 32MB</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Maximum file size is 32MB</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Maximum file size is 32MB</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{d56fad10-b632-4ef8-aa49-5abd2c6891ff}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_filename</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_filename</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Accepted File Formats: PDF, DOC, XLS, JPEG, PNG, CSV</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Accepted File Formats: PDF, DOC, XLS, JPEG, PNG, CSV</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Accepted File Formats: PDF, DOC, XLS, JPEG, PNG, CSV</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{e52a9fc0-e04a-4ce9-871f-70206dedf6ae}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_filename</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_filename</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Spotlight Due Diligence Files should be uploaded as a CSV file</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Spotlight Due Diligence Files should be uploaded as a CSV file</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_filename</primary>
+              <labelText type="SingleLine.Text" static="true">Spotlight Due Diligence Files should be uploaded as a CSV file</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

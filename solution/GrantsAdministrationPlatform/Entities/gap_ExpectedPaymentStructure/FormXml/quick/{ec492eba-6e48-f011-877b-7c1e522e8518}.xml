@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ec492eba-6e48-f011-877b-7c1e522e8518}</formid>
+    <IntroducedVersion>1.0.1.39</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{e89ccfb4-baa2-4b83-a18e-6384369a92f1}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" visible="true" labelid="{2d5ba3e6-50b3-4a6a-ac76-0e4e6d864cb3}">
+                  <labels>
+                    <label description="Payment Requests" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="C0550AC7-0F44-45A4-8EF5-D2911C0689D9" labelid="{a80f6157-fdb0-4359-9989-2cdff8d99804}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{050a3c63-c3a4-49b3-8ed2-1f7021926f5b}" rowspan="4" colspan="1" auto="false" showlabel="false" labelid="{38090f73-246c-4465-b863-251f34832ff9}">
+                        <labels>
+                          <label description="Requests" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>gap_expectedpaymentrequest_ExpectedPaymentStructure_gap_expectedpaymentstructure</RelationshipName>
+                            <TargetEntityType>gap_expectedpaymentrequest</TargetEntityType>
+                            <ViewId>{C8BDB280-6E48-F011-877B-7C1E522E917B}</ViewId>
+                            <ViewIds>{5755DF4A-3A76-418C-AF5F-A49C61886E11},{C8BDB280-6E48-F011-877B-7C1E522E917B}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Request View" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

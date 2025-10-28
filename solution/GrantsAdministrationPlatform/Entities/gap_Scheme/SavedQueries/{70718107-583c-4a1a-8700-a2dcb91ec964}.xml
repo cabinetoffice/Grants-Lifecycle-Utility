@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{70718107-583c-4a1a-8700-a2dcb91ec964}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_title" select="1" icon="1" preview="1">
+        <row name="result" id="gap_schemeid">
+          <cell name="gap_title" width="265" />
+          <cell name="gap_ggisreferencenumber" width="233" />
+          <cell name="gap_department" width="207" />
+          <cell name="gap_applicationopeningdate" width="258" />
+          <cell name="gap_applicationclosingdate" width="210" />
+          <cell name="gap_stage" width="116" />
+          <cell name="ownerid" width="255" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_scheme">
+          <attribute name="gap_schemeid" />
+          <attribute name="gap_title" />
+          <order attribute="gap_title" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_applicationopeningdate" />
+          <attribute name="gap_applicationclosingdate" />
+          <attribute name="gap_department" />
+          <attribute name="gap_ggisreferencenumber" />
+          <attribute name="ownerid" />
+          <attribute name="gap_stage" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Schemes" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

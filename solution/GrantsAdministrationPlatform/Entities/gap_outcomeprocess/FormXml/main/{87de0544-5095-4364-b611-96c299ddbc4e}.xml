@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{87de0544-5095-4364-b611-96c299ddbc4e}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{67c89487-e3df-46a1-8e8a-8fa0aff77978}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{33d6d155-3cdf-41b9-9231-59f1a388ea7f}">
+          <labels>
+            <label description="Notification Letter Generation" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{0e509b36-33ba-9c31-cc29-52aefb09e570}" name="StageStep3_section1" labelid="{52422e75-941c-48dc-8d12-f5bd6c5af5ac}">
+                  <labels>
+                    <label description="Notification Letter Generation" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4f641082-e118-49f7-8d44-13763a8d9285}" showlabel="true" visible="true" labelid="{b919c8a0-ed6e-45b2-befc-c044170ddff6}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_outcomeprocess:gap_notificationletterdraftreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_notificationletterdraftreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_outcomeprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{358e65cc-fdd5-4e6c-b37a-042df38a4962}" name="StageStep7" locklevel="0" expanded="true" visible="false" labelid="{d3eb0584-061f-4559-a56f-8f45159d8b4b}">
+          <labels>
+            <label description="Notification Letter Quality Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{0598888a-e4bf-3336-2d73-1dddde957ae0}" name="StageStep7_section1" labelid="{d2824b32-bd99-43e8-b40e-c366d317b8d7}">
+                  <labels>
+                    <label description="Notification Letter Quality Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{449eb3f8-b646-4d16-bd97-ad07d54ac2b1}" showlabel="true" visible="true" labelid="{923c3bb8-0365-4e63-a08d-d6c4d80c1910}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_outcomeprocess:gap_notificationletterqualityreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_notificationletterqualityreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_outcomeprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{336b2241-b041-4529-851c-68db0acdb042}" name="StageStep11" locklevel="0" expanded="true" visible="false" labelid="{02da4a05-1b55-434c-b161-c06fe517cadd}">
+          <labels>
+            <label description="Notification Letter Confirmation" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{f1ce211f-ba6f-e2da-ecad-efd973689483}" name="StageStep11_section1" labelid="{76c4e450-6b53-4d2c-83fc-8b34658f3d70}">
+                  <labels>
+                    <label description="Notification Letter Confirmation" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6ba3584b-6402-44c3-8fa7-44a569db3dc2}" showlabel="true" visible="true" labelid="{1087cbc8-93a4-499e-98a0-38b6648daf42}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_outcomeprocess:gap_outcomeprocesscompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_outcomeprocesscompletedon" disabled="false" relationship="bpf_gap_application_gap_outcomeprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

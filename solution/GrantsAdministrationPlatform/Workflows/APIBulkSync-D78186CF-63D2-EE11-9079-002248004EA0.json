@@ -1,0 +1,147 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence_|_Trigger": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "schedule": {
+              "hours": [
+                "0",
+                "20"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "4d29c830-6890-42a1-82bc-d6508f82843e"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Dataverse_|_Get_Schemes": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "cfc89a13-5598-4ad5-aeae-16593c1c0fba"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "$filter": "gap_stage eq 803260008 "
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Iterate_|_Per_Scheme": {
+          "foreach": "@outputs('Dataverse_|_Get_Schemes')?['body/value']",
+          "actions": {
+            "Condition_|_Requires_Sync": {
+              "actions": {
+                "Dataverse_|_Trigger_Sync": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "d657d69b-e4ca-4b29-8544-7847a9eac02b"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_schemes",
+                      "recordId": "@items('Iterate_|_Per_Scheme')?['gap_schemeid']",
+                      "item/gap_applicationssynctrigger": "@{utcNow()}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Delay": {
+                  "runAfter": {
+                    "Dataverse_|_Trigger_Sync": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a2055209-9d45-457e-a366-24e7efeb4bec"
+                  },
+                  "type": "Wait",
+                  "inputs": {
+                    "interval": {
+                      "count": 15,
+                      "unit": "Minute"
+                    }
+                  }
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "or": [
+                  {
+                    "equals": [
+                      "@items('Iterate_|_Per_Scheme')?['gap_applicationslastsyncedon']",
+                      "@null"
+                    ]
+                  },
+                  {
+                    "greater": [
+                      "@utcNow()",
+                      "@addMinutes(items('Iterate_|_Per_Scheme')?['gap_applicationslastsyncedon'], items('Iterate_|_Per_Scheme')?['gap_applicationsrefreshinterval'])"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e3ef04d7-db3a-446a-b74c-ea2aab1e7e23"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Dataverse_|_Get_Schemes": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "334bd29c-a548-495d-9770-706794a7e192"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

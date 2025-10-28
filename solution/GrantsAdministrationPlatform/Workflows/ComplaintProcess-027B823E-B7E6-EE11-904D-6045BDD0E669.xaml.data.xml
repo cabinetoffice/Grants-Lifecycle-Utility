@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{027b823e-b7e6-ee11-904d-6045bdd0e669}" Name="Complaint Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/ComplaintProcess-027B823E-B7E6-EE11-904D-6045BDD0E669.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_complaintprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.7</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_Complaint</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Complaint Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{56677538-ef47-49a0-a3f3-c7867ad87da4}">
+      <label languagecode="1033" description="Document Complaint" />
+    </steplabels>
+    <steplabels id="{38d7c637-9bb3-44c1-aa03-ea64cdae008e}">
+      <label languagecode="1033" description="Complaint Theme" />
+    </steplabels>
+    <steplabels id="{b5f085b1-59c7-48d3-95ee-d2851c6c290f}">
+      <label languagecode="1033" description="Covered by FAQ" />
+    </steplabels>
+    <steplabels id="{eceaf20b-0ed9-4b7f-b10b-0451fb3f509a}">
+      <label languagecode="1033" description="Send Response" />
+    </steplabels>
+    <steplabels id="{830f2832-581b-4178-ab94-1ee1de5f9ec1}">
+      <label languagecode="1033" description="Application Review Required" />
+    </steplabels>
+    <steplabels id="{291c382e-662c-4dd8-ade1-3ad28461930a}">
+      <label languagecode="1033" description="Appeal Review" />
+    </steplabels>
+    <steplabels id="{7a2e0461-635e-4e7f-8cf1-20deec91f368}">
+      <label languagecode="1033" description="Appeal Review" />
+    </steplabels>
+    <steplabels id="{712bb020-ab47-43c4-900a-5ee373d1b612}">
+      <label languagecode="1033" description="Escalation Review" />
+    </steplabels>
+    <steplabels id="{4793ef5a-aefd-491c-ac42-d54ec9e58604}">
+      <label languagecode="1033" description="Escalation Review" />
+    </steplabels>
+    <steplabels id="{3db34157-9f16-4743-a779-b1b630fafc5d}">
+      <label languagecode="1033" description="Send Response" />
+    </steplabels>
+    <steplabels id="{b0713b3a-2ae2-42b6-9abe-e340350db42d}">
+      <label languagecode="1033" description="Application Review Required" />
+    </steplabels>
+    <steplabels id="{09f34d53-c391-416f-9418-a6387e4b9b6a}">
+      <label languagecode="1033" description="Appeal Review" />
+    </steplabels>
+    <steplabels id="{75af2cf8-deed-4aa3-b1da-4d6aa36603dd}">
+      <label languagecode="1033" description="Appeal Review" />
+    </steplabels>
+  </labels>
+</Workflow>

@@ -1,0 +1,46 @@
+<appaction uniquename="gap__AdvanceStageFD!b4b0e2ba30f64cdbb6291d5ea3cf2763!gap_DEMO!gap_scheme!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Advance Stage">
+    <label description="Advance Stage" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Advance Stage">
+    <label description="Advance Stage" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Advance to the next scheme stage">
+    <label description="Advance to the next scheme stage" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Advance to the next stage">
+    <label description="Advance to the next stage" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_scheme</logicalname>
+  </contextentity>
+  <contextvalue>gap_scheme</contextvalue>
+  <fonticon>StageAdvance</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>AdvanceStageFD!b4b0e2ba30f64cdbb6291d5ea3cf2763</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>9777eb67b2c547159cb429bed08651f1</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100015.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>9777eb67b2c547159cb429bed08651f1</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

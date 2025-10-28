@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Activate.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Activate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.AddConnection.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.AddConnection" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.AddEmail.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.AddExistingAssoc" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.AddExistingStandard.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.AddExistingStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.AddToQueue.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.AddToQueue" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.AdvMergeRecords.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.AdvMergeRecords" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Assign.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Assign" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.AssociateParentChildCase.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.AssociateParentChildCase" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.BulkDelete.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.BulkDelete" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.ChangeDataSetControlButton.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.ChangeDataSetControlButton" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Charts.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Charts" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.CopySelected.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.CopySelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Deactivate.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Deactivate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Delete.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Delete" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Detect.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Detect" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.DocumentTemplate.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.DocumentTemplate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.ExportSelectedToExcel.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.ExportSelectedToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.ExportToExcel.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.ExportToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Filters.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Filters" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Flows.RefreshCommandBar.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.MailMerge.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.MailMerge" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.modern.AddEmail.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.modern.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.OpenAssociatedGridViewStandard.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.OpenAssociatedGridViewStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.RunReport.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.RunReport" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.RunScript.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.RunScript" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.RunWorkflow.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.RunWorkflow" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.SaveAsDefaultGridView.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.SaveAsDefaultGridView" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.SaveAsNew.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.SaveAsNew" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.SaveToCurrent.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.SaveToCurrent" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.SendSelected.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.SendSelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.Sharing.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.Sharing" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.gap_relatedcontact.WordTemplate.Hide" Location="Mscrm.SubGrid.gap_relatedcontact.WordTemplate" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions />
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

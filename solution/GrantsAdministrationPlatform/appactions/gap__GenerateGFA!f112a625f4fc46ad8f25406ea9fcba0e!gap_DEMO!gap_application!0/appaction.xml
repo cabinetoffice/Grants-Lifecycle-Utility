@@ -1,0 +1,46 @@
+<appaction uniquename="gap__GenerateGFA!f112a625f4fc46ad8f25406ea9fcba0e!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Generate Short GFA button">
+    <label description="Generate Short GFA button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Generate Standard GFA">
+    <label description="Generate Standard GFA" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to generate short GFA letter">
+    <label description="Button to generate short GFA letter" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Generate Short GFA button">
+    <label description="Generate Short GFA button" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>LetterOutgoing</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>GenerateGFA!f112a625f4fc46ad8f25406ea9fcba0e</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>d5ef497671f24cad9cf4e09eda73b35c</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100031.5234375000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>d5ef497671f24cad9cf4e09eda73b35c</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

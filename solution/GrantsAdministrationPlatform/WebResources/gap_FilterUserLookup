@@ -1,0 +1,53 @@
+// Creates a view that filters the lookup field with the list of possible reviewers
+function filterLookupOptions(executionContext) {
+  var formContext = executionContext.getFormContext();
+
+  // inputUsers lists the IDs needed to filter the LookUp field
+  var inputUsers = formContext
+    .getAttribute("gap_revieweroptionarray")
+    .getValue();
+  // inputUsers is received as a string so it then needs to be converted into and array of Objects
+  var inputIdArray = JSON.parse(inputUsers);
+  var lookupFieldName = "gap_reassignreviewer";
+
+  var filterCriteria = "<filter type='or'>";
+  for (let i = 0; i < inputIdArray.length; i++) {
+    let userId = inputIdArray[i].user;
+    filterCriteria +=
+      "<condition attribute='systemuserid' operator='eq' value='" +
+      userId +
+      "' />";
+  }
+  filterCriteria += "</filter>";
+
+  var viewId = "{00000000-0000-0000-0000-000007654321}";
+  var entityName = "systemuser";
+  var viewDisplayName = "Filtered Users View";
+
+  var fetchXml =
+    "<fetch version='1.0' output-format='xml-platform' mapping='logical'>" +
+    "  <entity name='" +
+    entityName +
+    "'>" +
+    "    <all-attributes/>" +
+    filterCriteria +
+    "  </entity>" +
+    "</fetch>";
+
+  var layoutXml =
+    "<grid name='resultset' object='8' jump='systemuserid' select='1' icon='1' preview='1'>" +
+    "<row name='result' id='systemuserid'>" +
+    "<cell name='fullname' width='150'/>" +
+    "</row> </grid>";
+
+  formContext
+    .getControl(lookupFieldName)
+    .addCustomView(
+      viewId,
+      entityName,
+      viewDisplayName,
+      fetchXml,
+      layoutXml,
+      true
+    );
+}

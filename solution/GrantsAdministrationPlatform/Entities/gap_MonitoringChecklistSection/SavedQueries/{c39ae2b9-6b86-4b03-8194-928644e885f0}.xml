@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{c39ae2b9-6b86-4b03-8194-928644e885f0}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_section" select="1" icon="1" preview="1">
+        <row name="result" id="gap_monitoringchecklistsectionid">
+          <cell name="gap_section" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_monitoringchecklistsection">
+          <attribute name="gap_monitoringchecklistsectionid" />
+          <attribute name="gap_section" />
+          <attribute name="createdon" />
+          <order attribute="gap_section" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="gap_section" operator="like" value="{0}" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Monitoring Checklist Sections" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

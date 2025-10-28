@@ -1,0 +1,19 @@
+<customapi uniquename="gap_ProcessGfaPdfV2">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>1</bindingtype>
+  <boundentitylogicalname>gap_application</boundentitylogicalname>
+  <description default="ProcessGfaPdfV2">
+    <label description="ProcessGfaPdfV2" languagecode="1033" />
+  </description>
+  <displayname default="ProcessGfaPdfV2">
+    <label description="ProcessGfaPdfV2" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>ProcessGfaPdfV2</name>
+  <plugintypeid>
+    <plugintypeexportkey>d414a1c1-43ed-4ef0-9f95-4022103948a1</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

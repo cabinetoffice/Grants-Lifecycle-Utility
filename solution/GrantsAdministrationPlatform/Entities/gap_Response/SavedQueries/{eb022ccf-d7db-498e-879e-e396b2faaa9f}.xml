@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{eb022ccf-d7db-498e-879e-e396b2faaa9f}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_id" select="1" icon="1" preview="1">
+        <row name="result" id="gap_responseid">
+          <cell name="gap_question" width="282" />
+          <cell name="gap_answer" width="100" />
+          <cell name="gap_application" width="107" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_response">
+          <attribute name="gap_responseid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_question" />
+          <attribute name="gap_application" />
+          <attribute name="gap_answer" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Responses" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

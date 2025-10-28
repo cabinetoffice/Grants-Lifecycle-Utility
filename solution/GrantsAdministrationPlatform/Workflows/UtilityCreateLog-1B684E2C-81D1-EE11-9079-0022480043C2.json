@@ -1,0 +1,323 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "a8869a17-9f32-4143-9ef0-c3ce355cf638"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Type",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please select the log type",
+                  "x-ms-content-hint": "TEXT",
+                  "enum": [
+                    "Warning",
+                    "Error"
+                  ]
+                },
+                "text_1": {
+                  "title": "Message",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please provide a log message",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_2": {
+                  "title": "Workflow",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please provide the outputs of the workflow() function",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_3": {
+                  "title": "Link Type",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please select the link type",
+                  "x-ms-content-hint": "TEXT",
+                  "enum": [
+                    "Scheme",
+                    "Application",
+                    "Other"
+                  ]
+                },
+                "text_4": {
+                  "title": "Link Identifier",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please provide the link identifier",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text",
+                "text_1",
+                "text_3"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Data_|_Generate_Mapping": {
+          "runAfter": {
+            "Data_|_Parse_Workflow": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1ca101a5-79a9-4fed-a958-d9ef19abb7af"
+          },
+          "type": "Compose",
+          "inputs": {
+            "Warning": 803260000,
+            "Error": 803260001
+          }
+        },
+        "Data_|_Calculate_Mapping": {
+          "runAfter": {
+            "Data_|_Generate_Mapping": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6d34d9e8-646b-4c9a-850c-aa453b21cdc9"
+          },
+          "type": "Compose",
+          "inputs": "@outputs('Data_|_Generate_Mapping')[triggerBody()['text']]"
+        },
+        "Dataverse_|_Create_Log": {
+          "runAfter": {
+            "Switch_|_On_Link_Type": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7f4ff9f0-563a-4a48-b38b-38e1fedf0359"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_logs",
+              "item/gap_message": "@triggerBody()['text_1']",
+              "item/gap_type": "@outputs('Data_|_Calculate_Mapping')",
+              "item/gap_Application@odata.bind": "@if(equals(triggerBody()['text_3'],'Application'), variables('Link'), null)",
+              "item/gap_Scheme@odata.bind": "@if(equals(triggerBody()['text_3'],'Scheme'), variables('Link'), null)",
+              "item/gap_workflow": "Workflow ID: @{body('Data_|_Parse_Workflow')?['id']}\nFlow: @{body('Data_|_Parse_Workflow')?['tags']?['flowDisplayName']}\nTrigger: @{body('Data_|_Parse_Workflow')?['tags']?['triggerType']}\nRun ID: @{body('Data_|_Parse_Workflow')?['run']?['id']}"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "connectionName": "shared_commondataserviceforapps-2"
+            }
+          }
+        },
+        "Variable_|_Initialize_Link": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "a8581c60-f773-4790-a8cf-66a7f6cf293e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Link",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Switch_|_On_Link_Type": {
+          "runAfter": {
+            "Data_|_Calculate_Mapping": [
+              "Succeeded"
+            ]
+          },
+          "cases": {
+            "Case_|_Scheme": {
+              "case": "Scheme",
+              "actions": {
+                "Variable_|_Set_Link_(Scheme)": {
+                  "metadata": {
+                    "operationMetadataId": "f6c754a1-114a-4b2b-8ae1-44434acdec50"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Link",
+                    "value": "gap_schemes(@{triggerBody()['text_4']})"
+                  }
+                }
+              }
+            },
+            "Case_|_Application": {
+              "case": "Application",
+              "actions": {
+                "Variable_|_Set_Link_(Application)": {
+                  "metadata": {
+                    "operationMetadataId": "dc59c611-3276-4be8-8e59-0b6d41ae316c"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Link",
+                    "value": "gap_applications(@{triggerBody()['text_4']})"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "actions": {}
+          },
+          "expression": "@triggerBody()['text_3']",
+          "metadata": {
+            "operationMetadataId": "f4bb6b71-a0e3-435f-9029-139ff51089bd"
+          },
+          "type": "Switch"
+        },
+        "Respond_to_a_PowerApp_or_flow": {
+          "runAfter": {
+            "Dataverse_|_Create_Log": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b7fdabad-56c2-4b8b-9cb7-7bf4cdf1b860"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {}
+          }
+        },
+        "Data_|_Parse_Workflow": {
+          "runAfter": {
+            "Variable_|_Initialize_Link": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f25dd0d2-d424-4cde-bae9-986aa83b50f0"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@string(triggerBody()?['text_2'])",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "object",
+                  "properties": {
+                    "flowDisplayName": {
+                      "type": "string"
+                    },
+                    "capabilities": {
+                      "type": "string"
+                    },
+                    "environmentName": {
+                      "type": "string"
+                    },
+                    "logicAppName": {
+                      "type": "string"
+                    },
+                    "environmentWorkflowId": {
+                      "type": "string"
+                    },
+                    "xrmWorkflowId": {
+                      "type": "string"
+                    },
+                    "environmentFlowSuspensionReason": {
+                      "type": "string"
+                    },
+                    "sharingType": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "createdTime": {
+                      "type": "string"
+                    },
+                    "lastModifiedTime": {
+                      "type": "string"
+                    },
+                    "createdBy": {
+                      "type": "string"
+                    },
+                    "triggerType": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "run": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

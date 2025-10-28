@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1a3d0f13-2bac-4d05-9865-8143d9eb232d}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{6a2404bc-389b-49a2-a19e-3f77130dd0ac}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{8d1f114f-3624-4a7d-8581-b4ead7589862}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{795a5221-6eb0-4867-9bfa-f7a227822749}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a8a96ffd-488f-4826-8fb8-76d37c223369}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Order" languagecode="1033" />
+                        </labels>
+                        <control id="gap_order" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="gap_order" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{a4ab2add-83f0-4eeb-8a1b-a2218423da0c}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{652d50b0-5b4f-4b5f-8e7f-6427e9c63ec3}" locklevel="0" colspan="1" rowspan="4">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="gap_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_description" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{3215e01d-3e4b-4319-9c7a-38454804cc4e}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{e02336b0-2e81-44b7-93eb-d5fef9e575e6}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{68e1dde7-32fb-44df-858d-a6a37352f581}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{81285c18-6678-4680-aea7-dbcf1edbf4ea}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Expected Amount" languagecode="1033" />
+                        </labels>
+                        <control id="gap_expectedamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_expectedamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7b892cea-1a07-49a4-aaca-1f1d2e682cd5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Monitoring Checklist Template" languagecode="1033" />
+                        </labels>
+                        <control id="gap_monitoringchecklisttemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_monitoringchecklisttemplate" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{11a2a029-463c-47e2-9dfe-97bf339375e8}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Earliest Possible Submission Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_earliestpossiblesubmissiondate" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_earliestpossiblesubmissiondate" uniqueid="{40859794-d0d2-4140-ae0b-5a590b34e4d3}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8446c02c-5dec-4d77-a3a1-5a8f94f6c719}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_type" disabled="false" />
+                      </cell>
+                      <cell id="{f3a40477-b7ad-4e10-a94a-ae6605e3c87e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Earliest Possible Submission Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_earliestpossiblesubmissiondate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_earliestpossiblesubmissiondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{04b7fa0e-4cfa-427c-bad7-8a01228a59d0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{efd46bb7-4175-445e-95ba-0c527e842529}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Latest Possible Submission Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_latestpossiblesubmissiondate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_latestpossiblesubmissiondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{28bd879b-7511-451e-8ad1-df1e6540ac27}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{73e4d625-f13f-43a8-b182-f3f8e96d1d20}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Peer Review Risk Threshold" languagecode="1033" />
+                        </labels>
+                        <control id="gap_peerreviewriskthreshold" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="gap_peerreviewriskthreshold" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{d5262ab9-ad6b-4f79-adbd-33cad77dac61}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{4cf97245-0436-4038-b92e-5efeb553a256}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Quality Review Risk Threshold" languagecode="1033" />
+                        </labels>
+                        <control id="gap_qualityreviewriskthreshold" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="gap_qualityreviewriskthreshold" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_3" id="1c051021-0e36-46cb-a046-b53e044c07a8" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="Pre-requisite Activities" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{ad4c035c-a531-4a0b-82ae-a6672bad7847}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Pre-requisite activities" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>gap_MonitoringActivityTemplate_gap_MonitoringActivityTemplate_gap_MonitoringActivityTemplate</RelationshipName>
+                            <TargetEntityType>gap_monitoringactivitytemplate</TargetEntityType>
+                            <ViewId>{F800AADC-D1C9-42F2-B71C-5E7CA053199F}</ViewId>
+                            <ViewIds>{F800AADC-D1C9-42F2-B71C-5E7CA053199F}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ffce5396-8105-4ed8-b655-a60b56fd4ec1}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{2470374d-056a-46df-a3df-6dc0cb4b1749}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3830244f-4d85-484d-87e0-b63b0befd11f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8a19e84b-25a5-4ac8-bf12-3f1838875ff2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b1c5598f-5e3c-4137-81fc-bc623f7292e6}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{c1d5ae60-653b-4924-aee6-fe40b4ad2ce4}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{08e75b75-9417-4bf9-975d-8f172448eef5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{680693ed-9a9f-4edb-ad7d-e7052a849802}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{038e08c5-e80c-47a9-9543-26f69b04daf2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{40859794-d0d2-4140-ae0b-5a590b34e4d3}">
+          <customControl id="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}">
+            <parameters>
+              <datafieldname>gap_earliestpossiblesubmissiondate</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}">
+            <parameters>
+              <datafieldname>gap_earliestpossiblesubmissiondate</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_earliestpossiblesubmissiondate</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_earliestpossiblesubmissiondate</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_earliestpossiblesubmissiondate</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

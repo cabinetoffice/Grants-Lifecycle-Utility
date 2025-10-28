@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_reassignapplicationownerv2_50e5b</Name>
+  <AppVersion>2025-10-15T15:31:12Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.25095.12.0</CreatedByClientVersion>
+  <MinClientVersion>3.25095.12.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"500","primaryDeviceHeight":"167","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25095.12","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251003T115614Z-3.25094.10.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Reassign Application Owner V2</DisplayName>
+  <Description>Form to reassign a review</Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"0bc6b082-bdae-4cda-8915-cae7876f7c99":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1774/1.0.1774.4397/logicflows/icon.png","dataSources":["Application|ReassignOwner|RefreshOptionsv2"],"dependencies":["5cd92f13-a274-4151-bf7b-ac46ab02664f"],"dependents":[],"parameterHints":{"workflowName":{"value":"68c88325-be13-4488-8c9b-33b04aa03cca"},"workflowEntityId":{"value":"f59296ce-2778-f011-b4cb-002248433196"},"workflowDisplayName":{"value":"Application | Reassign Owner | Refresh Options v2"},"5cd92f13-a274-4151-bf7b-ac46ab02664f":{"value":"shared_commondataserviceforapps_2"}},"parameterHintsV2":{"workflowName":{"value":"68c88325-be13-4488-8c9b-33b04aa03cca"},"workflowEntityId":{"value":"f59296ce-2778-f011-b4cb-002248433196"},"workflowDisplayName":{"value":"Application | Reassign Owner | Refresh Options v2"},"shared_commondataserviceforapps_2":{"value":"5cd92f13-a274-4151-bf7b-ac46ab02664f"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"5cd92f13-a274-4151-bf7b-ac46ab02664f":{"id":"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps","displayName":"Microsoft Dataverse","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1776/1.0.1776.4401/commondataserviceforapps/icon.png","dataSources":[],"dependencies":[],"dependents":["0bc6b082-bdae-4cda-8915-cae7876f7c99"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium"}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Reviews":{"entitySetName":"gap_reviews","logicalName":"gap_review"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"},"Applications":{"entitySetName":"gap_applications","logicalName":"gap_application"},"environment_39a902ba":{"entitySetName":"Environment","logicalName":"environment_39a902ba"},"Schemes":{"entitySetName":"gap_schemes","logicalName":"gap_scheme"},"Teams":{"entitySetName":"teams","logicalName":"team"},"Scoring Checklists":{"entitySetName":"gap_scoringchecklists","logicalName":"gap_scoringchecklist"},"Scoring Checklist Sections":{"entitySetName":"gap_scoringchecklistsections","logicalName":"gap_scoringchecklistsection"},"Scoring Checklist Questions":{"entitySetName":"gap_scoringchecklistquestions","logicalName":"gap_scoringchecklistquestion"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>2</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"dependencyid":"f59296ce-2778-f011-b4cb-002248433196","componenttype":29,"componenttypeplatformname":"Workflow"},{"logicalname":"gap_review","componenttype":1},{"logicalname":"systemuser","componenttype":1},{"logicalname":"gap_application","componenttype":1},{"logicalname":"gap_scheme","componenttype":1},{"logicalname":"team","componenttype":1},{"logicalname":"gap_scoringchecklist","componenttype":1},{"logicalname":"gap_scoringchecklistsection","componenttype":1},{"logicalname":"gap_scoringchecklistquestion","componenttype":1}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_reassignapplicationownerv2_50e5b_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_reassignapplicationownerv2_50e5b_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/gap_reassignapplicationownerv2_50e5b_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>

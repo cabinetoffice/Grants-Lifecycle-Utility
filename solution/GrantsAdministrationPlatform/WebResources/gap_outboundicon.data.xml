@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{226cabd6-0ad7-ee11-904d-6045bdd0e669}</WebResourceId>
+  <Name>gap_outboundicon</Name>
+  <DisplayName>Outbound Icon</DisplayName>
+  <WebResourceType>11</WebResourceType>
+  <IntroducedVersion>1.0.1.4</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_outboundicon226CABD6-0AD7-EE11-904D-6045BDD0E669</FileName>
+</WebResource>

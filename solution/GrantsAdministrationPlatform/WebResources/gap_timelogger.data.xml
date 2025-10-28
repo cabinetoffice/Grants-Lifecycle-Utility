@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{599ec17c-5e77-f011-b4cc-7ced8d3ad3ea}</WebResourceId>
+  <Name>gap_timelogger</Name>
+  <DisplayName>Time Logger</DisplayName>
+  <Description>Tracks the time a user is on a form / application</Description>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>3.0.0.9</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_timelogger599EC17C-5E77-F011-B4CC-7CED8D3AD3EA</FileName>
+</WebResource>

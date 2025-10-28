@@ -1,0 +1,19 @@
+<customapi uniquename="gap_CreateApplicationAndRelatedRecords">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>1</bindingtype>
+  <boundentitylogicalname>gap_scheme</boundentitylogicalname>
+  <description default="CreateApplicationAndRelatedRecords">
+    <label description="CreateApplicationAndRelatedRecords" languagecode="1033" />
+  </description>
+  <displayname default="Create Application &amp; Related Records">
+    <label description="Create Application &amp; Related Records" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>CreateApplicationAndRelatedRecords</name>
+  <plugintypeid>
+    <plugintypeexportkey>c89302e7-3b70-4668-ae69-59f73cef81b4</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

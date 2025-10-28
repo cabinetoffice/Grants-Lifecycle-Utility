@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{3c7a7544-338e-f011-b4cb-7ced8d9c519d}</WebResourceId>
+  <Name>gap_usericonv2</Name>
+  <DisplayName>User Icon v2</DisplayName>
+  <WebResourceType>11</WebResourceType>
+  <IntroducedVersion>3.2.0.1</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_usericonv23C7A7544-338E-F011-B4CB-7CED8D9C519D</FileName>
+</WebResource>

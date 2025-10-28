@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{7ea09d8d-3b41-4749-8060-d88109ca8f53}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_name" select="1" icon="1" preview="1">
+        <row name="result" id="gap_timeloggingid">
+          <cell name="gap_name" width="300" />
+          <cell name="gap_substage" width="100" />
+          <cell name="gap_starttime" width="100" />
+          <cell name="gap_endtime" width="100" />
+          <cell name="gap_username" width="127" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_timelogging">
+          <attribute name="gap_timeloggingid" />
+          <attribute name="gap_name" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_starttime" />
+          <attribute name="gap_endtime" />
+          <order attribute="gap_starttime" descending="true" />
+          <attribute name="gap_substage" />
+          <attribute name="gap_username" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Time Loggings" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

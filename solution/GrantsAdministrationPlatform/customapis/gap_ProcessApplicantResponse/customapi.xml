@@ -1,0 +1,19 @@
+<customapi uniquename="gap_ProcessApplicantResponse">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>1</bindingtype>
+  <boundentitylogicalname>gap_application</boundentitylogicalname>
+  <description default="ProcessApplicantResponse">
+    <label description="ProcessApplicantResponse" languagecode="1033" />
+  </description>
+  <displayname default="ProcessApplicantResponse">
+    <label description="ProcessApplicantResponse" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>ProcessApplicantResponse</name>
+  <plugintypeid>
+    <plugintypeexportkey>5b997fa7-eb29-4d29-90ce-7d7522bf7cc9</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{045a82ea-3378-f011-b4cb-002248433196}</WebResourceId>
+  <Name>gap_Untitleddesign</Name>
+  <DisplayName>Untitled design</DisplayName>
+  <WebResourceType>11</WebResourceType>
+  <IntroducedVersion>3.0.0.10</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_Untitleddesign045A82EA-3378-F011-B4CB-002248433196</FileName>
+</WebResource>

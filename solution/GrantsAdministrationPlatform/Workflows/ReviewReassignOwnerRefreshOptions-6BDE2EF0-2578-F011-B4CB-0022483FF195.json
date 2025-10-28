@@ -1,0 +1,544 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "7a97ea65-0b25-47d4-bf7c-fa421a760165"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "foundReview",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "actions": {
+            "Condition_|_Reassignment_Required": {
+              "actions": {
+                "Dataverse_|_Get_Record": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "b6f4c2ea-f949-4edd-bb01-8225757bba33"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "@{outputs('Type')}s",
+                      "recordId": "@outputs('Value')",
+                      "$expand": "@{outputs('Get_Review')?['body/gap_configurationrelationship']}($filter=activityid ne @{outputs('Get_Review')?['body/activityid']} and gap_type eq @{outputs('Get_Review')?['body/gap_type']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Switch_|_On_Category": {
+                  "runAfter": {
+                    "Dataverse_|_Get_Record": [
+                      "Succeeded"
+                    ]
+                  },
+                  "cases": {
+                    "Case_|_Administrator": {
+                      "case": "Administrator",
+                      "actions": {
+                        "Flow_|_Get_Administrators": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "4c476c53-6432-4664-a059-1357e4d2059b"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "2373c176-86dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@outputs('Get_Review')?['body/_gap_scheme_value']",
+                              "text_1": "Administrators"
+                            },
+                            "retryPolicy": {
+                              "type": "none"
+                            }
+                          }
+                        },
+                        "Dataverse_|_Update_Review_(Administrator)": {
+                          "runAfter": {
+                            "Flow_|_Get_other_Administrators": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "e3dc54f9-b4f3-4da3-9942-3e424395c92d"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "UpdateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_reviews",
+                              "recordId": "@triggerBody()['text']",
+                              "item/gap_ReassignReviewer_gap_Review@odata.bind": "@null",
+                              "item/gap_revieweroptionarray": "@body('Flow_|_Get_other_Administrators')?['users']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Flow_|_Get_other_Administrators": {
+                          "runAfter": {
+                            "Flow_|_Get_Administrators": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "4298ee64-7c10-430b-8137-b667bce8b03a"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "d251da56-97dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@body('Flow_|_Get_Administrators')?['users']",
+                              "text_1": "@outputs('Get_Review')?['body/_ownerid_value']"
+                            }
+                          }
+                        },
+                        "Respond_to_a_Power_App_or_flow": {
+                          "runAfter": {
+                            "Dataverse_|_Update_Review_(Administrator)": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "2bd6b966-a1a3-4ac6-bd62-74b0802e913d"
+                          },
+                          "type": "Response",
+                          "kind": "PowerApp",
+                          "inputs": {
+                            "statusCode": 200,
+                            "body": {
+                              "refreshedarray": "@outputs('Dataverse_|_Update_Review_(Administrator)')?['body/gap_revieweroptionarray']"
+                            },
+                            "schema": {
+                              "type": "object",
+                              "properties": {
+                                "refreshedarray": {
+                                  "title": "refreshedArray",
+                                  "x-ms-dynamically-added": true,
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Case_|_Reviewers": {
+                      "case": "Reviewer",
+                      "actions": {
+                        "Flow_|_Get_Reviewers": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "8a5df2ad-c71e-49e2-ba5e-da4cd39bff63"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "2373c176-86dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@outputs('Get_Review')?['body/_gap_scheme_value']",
+                              "text_1": "Reviewers"
+                            },
+                            "retryPolicy": {
+                              "type": "none"
+                            }
+                          }
+                        },
+                        "Flow_|_Remove_Owner": {
+                          "runAfter": {
+                            "Flow_|_Get_Reviewers": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "313583cf-fd2a-4585-b230-e4841e8a5846"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "d251da56-97dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@body('Flow_|_Get_Reviewers')?['users']",
+                              "text_1": "@body('Dataverse_|_Get_Record')['_ownerid_value']"
+                            },
+                            "retryPolicy": {
+                              "type": "none"
+                            }
+                          }
+                        },
+                        "Flow_|_Remove_review_owner": {
+                          "runAfter": {
+                            "Flow_|_Remove_Owner": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "4d36610e-b036-45e2-bc7b-ab63e5699b8a"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "d251da56-97dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@body('Flow_|_Remove_Owner')?['users']",
+                              "text_1": "@outputs('Get_Review')?['body/_ownerid_value']"
+                            }
+                          }
+                        },
+                        "Update_a_row": {
+                          "runAfter": {
+                            "Flow_|_Remove_review_owner": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "d40fc7d3-9505-4561-a230-86a95bd6357c"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "UpdateOnlyRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_reviews",
+                              "recordId": "@triggerBody()['text']",
+                              "item/gap_ReassignReviewer_gap_Review@odata.bind": "@null",
+                              "item/gap_reviewreassignswitch": false,
+                              "item/gap_revieweroptionarray": "@body('Flow_|_Remove_review_owner')?['users']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Respond_to_a_Power_App_or_flow_2": {
+                          "runAfter": {
+                            "Update_a_row": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "7cb924e4-a152-4d2a-87ae-aa3032214967"
+                          },
+                          "type": "Response",
+                          "kind": "PowerApp",
+                          "inputs": {
+                            "statusCode": 200,
+                            "body": {
+                              "refreshedarray": "@outputs('Update_a_row')?['body/gap_revieweroptionarray']"
+                            },
+                            "schema": {
+                              "type": "object",
+                              "properties": {
+                                "refreshedarray": {
+                                  "title": "refreshedArray",
+                                  "x-ms-dynamically-added": true,
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Case_|_Quality_Control": {
+                      "case": "Quality Control",
+                      "actions": {
+                        "Flow_|_Get_Quality_Controllers": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "cdeef5be-21b6-4e64-bffc-3a328cae1518"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "2373c176-86dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@outputs('Get_Review')?['body/_gap_scheme_value']",
+                              "text_1": "Quality Controllers"
+                            },
+                            "retryPolicy": {
+                              "type": "none"
+                            }
+                          }
+                        },
+                        "Dataverse_|_Update_Review_(Quality_Control)": {
+                          "runAfter": {
+                            "Flow_|_Get_other_Quality_Controllers": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "50d3ded1-0ef7-4219-8d74-76b5d9df9f47"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "UpdateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_reviews",
+                              "recordId": "@triggerBody()['text']",
+                              "item/gap_ReassignReviewer_gap_Review@odata.bind": "@null",
+                              "item/gap_revieweroptionarray": "@body('Flow_|_Get_other_Quality_Controllers')?['users']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Flow_|_Get_other_Quality_Controllers": {
+                          "runAfter": {
+                            "Remove_App_owner": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "5da64a8c-db41-492e-ac48-5a67ff8362a8"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "d251da56-97dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@body('Remove_App_owner')?['users']",
+                              "text_1": "@outputs('Get_Review')?['body/_ownerid_value']"
+                            }
+                          }
+                        },
+                        "Remove_App_owner": {
+                          "runAfter": {
+                            "Flow_|_Get_Quality_Controllers": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "95aca443-c114-48ec-960d-0abcd2c7c49f"
+                          },
+                          "type": "Workflow",
+                          "inputs": {
+                            "host": {
+                              "workflowReferenceName": "d251da56-97dc-ee11-904d-6045bdf1ea43"
+                            },
+                            "body": {
+                              "text": "@body('Flow_|_Get_Quality_Controllers')?['users']",
+                              "text_1": "@body('Dataverse_|_Get_Record')?['_ownerid_value']"
+                            }
+                          }
+                        },
+                        "Respond_to_a_Power_App_or_flow_3": {
+                          "runAfter": {
+                            "Dataverse_|_Update_Review_(Quality_Control)": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "b8f78b64-5748-4e7a-966d-c2e4aba35987"
+                          },
+                          "type": "Response",
+                          "kind": "PowerApp",
+                          "inputs": {
+                            "statusCode": 200,
+                            "body": {
+                              "refreshedarray": "@outputs('Dataverse_|_Update_Review_(Quality_Control)')?['body/gap_revieweroptionarray']"
+                            },
+                            "schema": {
+                              "type": "object",
+                              "properties": {
+                                "refreshedarray": {
+                                  "title": "refreshedArray",
+                                  "x-ms-dynamically-added": true,
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "default": {
+                    "actions": {}
+                  },
+                  "expression": "@outputs('Review_Configuration')['gap_reassignoncreation@OData.Community.Display.V1.FormattedValue']",
+                  "metadata": {
+                    "operationMetadataId": "96effd35-6998-4432-890e-7730bab2b9c8"
+                  },
+                  "type": "Switch"
+                }
+              },
+              "runAfter": {
+                "Review_Configuration": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@outputs('Review_Configuration')?['gap_reassignoncreation']",
+                        "@null"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "706415cb-c51e-4d22-abb9-25757cdf961e"
+              },
+              "type": "If"
+            },
+            "Dataverse_|_Get_Review_Configuration": {
+              "runAfter": {
+                "Value": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e73394e1-c997-402e-bb8c-21dab79895ac"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_reviewconfigurations",
+                  "$filter": "gap_type eq @{outputs('Get_Review')?['body/gap_type']}",
+                  "$top": 1
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Review_Configuration": {
+              "runAfter": {
+                "Dataverse_|_Get_Review_Configuration": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "5ef9c2bf-fa03-47ae-bef8-c4d8cd630dca"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('Dataverse_|_Get_Review_Configuration')['body/value'])"
+            },
+            "Get_Review": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "0f678ad8-d6f7-46ae-9e97-01397aacfef5"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_reviews",
+                  "recordId": "@triggerBody()['text']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Value": {
+              "runAfter": {
+                "Type": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "6194ec97-a203-4fb6-a69e-a4fc3d6b4810"
+              },
+              "type": "Compose",
+              "inputs": "@coalesce(outputs('Get_Review')?['body/_gap_regardingreview_value'],outputs('Get_Review')?['body/_regardingobjectid_value'])"
+            },
+            "Type": {
+              "runAfter": {
+                "Get_Review": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "143b4ad6-4953-45e8-9728-0c3aeeb519b9"
+              },
+              "type": "Compose",
+              "inputs": "@coalesce(outputs('Get_Review')?['body/_gap_regardingreview_value@Microsoft.Dynamics.CRM.lookuplogicalname'],outputs('Get_Review')?['body/_regardingobjectid_value@Microsoft.Dynamics.CRM.lookuplogicalname'])"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "db517aad-6893-4577-9989-79771b9f4d2b"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

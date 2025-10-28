@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{3290bd5a-5c80-424b-b500-9366c65bd7ac}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_title" select="1" icon="1" preview="1">
+        <row name="result" id="gap_documentid">
+          <cell name="gap_title" width="300" />
+          <cell name="gap_url" width="300" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_document">
+          <attribute name="gap_documentid" />
+          <attribute name="gap_title" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <order attribute="gap_title" descending="true" />
+          <attribute name="gap_url" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Documents" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

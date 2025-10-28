@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{b0a9bed8-bb2a-4614-8277-d7ced761ed64}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_scoringchecklistname" select="1" icon="1" preview="1">
+        <row name="result" id="gap_scoringchecklistid">
+          <cell name="gap_scoringchecklistname" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_scoringchecklist">
+          <attribute name="gap_scoringchecklistid" />
+          <attribute name="gap_scoringchecklistname" />
+          <attribute name="createdon" />
+          <order attribute="gap_scoringchecklistname" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Scoring Checklists" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

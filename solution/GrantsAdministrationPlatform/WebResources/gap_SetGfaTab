@@ -1,0 +1,17 @@
+function setGfaTab(executionContext) {
+  var formContext = executionContext.getFormContext();
+  var templateType = formContext.getAttribute("gap_templatetype").getText();
+  var generalTab = formContext.ui.tabs.get("general");
+  var longGrantFundingLetter = generalTab.sections.get("grant_funding_letter");
+  var grantTable = generalTab.sections.get("grant_table");
+  if (templateType == "Long Form") {
+    longGrantFundingLetter.setVisible(true);
+    grantTable.setVisible(false);
+  } else if (templateType == "Short Form") {
+    longGrantFundingLetter.setVisible(false);
+    grantTable.setVisible(true);
+  } else if (templateType == "Long Form (DIIF)") {
+    longGrantFundingLetter.setVisible(false);
+    grantTable.setVisible(false);
+  }
+}

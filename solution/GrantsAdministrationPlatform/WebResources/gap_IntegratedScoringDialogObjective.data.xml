@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{a641368e-8b89-f011-b4cb-0022483ff195}</WebResourceId>
+  <Name>gap_IntegratedScoringDialogObjective</Name>
+  <DisplayName>IntegratedScoringDialogObjective</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>3.1.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_IntegratedScoringDialogObjectiveA641368E-8B89-F011-B4CB-0022483FF195</FileName>
+</WebResource>

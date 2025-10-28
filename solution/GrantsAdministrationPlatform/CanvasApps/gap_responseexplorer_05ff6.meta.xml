@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_responseexplorer_05ff6</Name>
+  <AppVersion>2025-05-30T09:48:23Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.24031.25.0</CreatedByClientVersion>
+  <MinClientVersion>3.24031.25.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"444","primaryDeviceHeight":"790","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Web","showStatusBar":"false","publisherVersion":"3.24031.25","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","offlineLargeFilesSupport":"false","sienaVersion":"20240229T122133Z-3.24023.11.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Response Explorer</DisplayName>
+  <Description></Description>
+  <CommitMessage></CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Applications":{"entitySetName":"gap_applications","logicalName":"gap_application"},"Responses":{"entitySetName":"gap_responses","logicalName":"gap_response"},"Sections":{"entitySetName":"gap_sections","logicalName":"gap_section"},"Contacts":{"entitySetName":"contacts","logicalName":"contact"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"componenttype":1,"logicalname":"gap_application"},{"componenttype":1,"logicalname":"gap_response"},{"componenttype":1,"logicalname":"gap_section"},{"componenttype":1,"logicalname":"contact"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_responseexplorer_05ff6_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_responseexplorer_05ff6_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/gap_responseexplorer_05ff6_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>

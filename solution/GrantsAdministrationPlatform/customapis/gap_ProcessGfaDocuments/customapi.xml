@@ -1,0 +1,19 @@
+<customapi uniquename="gap_ProcessGfaDocuments">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>1</bindingtype>
+  <boundentitylogicalname>gap_application</boundentitylogicalname>
+  <description default="ProcessGfaDocuments">
+    <label description="ProcessGfaDocuments" languagecode="1033" />
+  </description>
+  <displayname default="ProcessGfaDocuments">
+    <label description="ProcessGfaDocuments" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>ProcessGfaDocuments</name>
+  <plugintypeid>
+    <plugintypeexportkey>68e6172d-a625-4f26-ae34-d33523419456</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

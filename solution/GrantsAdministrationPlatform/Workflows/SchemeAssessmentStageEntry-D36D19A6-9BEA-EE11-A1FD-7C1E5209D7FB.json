@@ -1,0 +1,116 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_schemeadministrationprocess",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_activestagename",
+              "subscriptionRequest/filterexpression": "gap_activestagename eq 'Assessment'"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "f9adb706-7cea-4779-9907-94cf87354831"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "type": "Scope",
+          "actions": {
+            "Update_Application": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@triggerOutputs()?['body/_bpf_gap_schemeid_value']",
+                  "item/gap_stage": 803260003
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "f2ba705f-b8f0-4743-a105-a9eb8de78af3"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "926ebd39-9e05-464b-8c6b-200761433552"
+          }
+        },
+        "Scope_|_Error_Handling": {
+          "type": "Scope",
+          "actions": {
+            "Flow_|_Create_Log": {
+              "type": "Workflow",
+              "inputs": {
+                "host": {
+                  "workflowReferenceName": "1b684e2c-81d1-ee11-9079-0022480043c2"
+                },
+                "body": {
+                  "text": "Error",
+                  "text_1": "An error occurred when performing a stage entry.",
+                  "text_3": "Scheme",
+                  "text_2": "@workflow()",
+                  "text_4": "@triggerOutputs()?['body/_bpf_gap_schemeid_value']"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "0424a571-be76-4b00-835a-dfe84ee1bcc6"
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "Skipped",
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1829f19a-7377-491c-aac8-cf7ad5eb9990"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

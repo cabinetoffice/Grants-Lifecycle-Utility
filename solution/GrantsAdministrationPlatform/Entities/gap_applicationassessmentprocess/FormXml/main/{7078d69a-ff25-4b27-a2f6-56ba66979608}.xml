@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7078d69a-ff25-4b27-a2f6-56ba66979608}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{a15dc7f3-eced-4aee-89d5-9e10ce407ac4}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{dd2bd8e1-ff85-48a6-8d93-3656c0416782}">
+          <labels>
+            <label description="Scoring" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{c0811597-e377-a1bc-17f4-406a5667ca0d}" name="StageStep3_section1" labelid="{3844f630-5c4a-4818-8b6b-f0c58ded0076}">
+                  <labels>
+                    <label description="Scoring" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{c35ea972-e938-4364-87e8-b6a12c5f8e61}" showlabel="true" visible="true" labelid="{cb47df4a-eb5c-41a8-982d-cbb4d24cd4ea}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_scoringcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_scoringcompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{1d791b9a-362c-455c-b4e0-e1c3434e126e}" name="StageStep7" locklevel="0" expanded="true" visible="false" labelid="{c9c1d544-83a8-4e64-a92a-377978dc3cdf}">
+          <labels>
+            <label description="Peer Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{e083a5fa-b3ce-0e28-0dfd-573fffc6c230}" name="StageStep7_section1" labelid="{b4636df4-4036-4a6a-82d3-04810ecd60da}">
+                  <labels>
+                    <label description="Peer Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5368d660-9ca8-4ef4-8e22-856d65ababf0}" showlabel="true" visible="true" labelid="{bdb828cb-e1b8-48c8-b5d2-cb5674817b19}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_peerreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_peerreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{1fdd611f-3882-4381-b98e-06b299ab90a3}" name="StageStep11" locklevel="0" expanded="true" visible="false" labelid="{38dcf45a-a450-472c-a1e2-cbe9e0c15d89}">
+          <labels>
+            <label description="Sample Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{6aed9cb3-cfa3-d49d-3379-4d8999ae6a1e}" name="StageStep11_section1" labelid="{0b021fb9-4341-459b-9324-76a0b86c4844}">
+                  <labels>
+                    <label description="Sample Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{75dc3c50-7e87-46f9-9fd6-3d2e67dafb17}" showlabel="true" visible="true" labelid="{1157eead-e5ba-4d25-b51a-aff164e154a7}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_samplereviewcompletedon" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="gap_samplereviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{b9dace7f-5922-455d-9e40-8c3b304e37e9}" name="StageStep15" locklevel="0" expanded="true" visible="false" labelid="{503ae2d5-7102-4723-9518-e737ff0284de}">
+          <labels>
+            <label description="Quality Control" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{30a78937-162d-c498-6839-e647770ec18a}" name="StageStep15_section1" labelid="{3ae72213-a18d-4522-b52e-a2e0e99fa973}">
+                  <labels>
+                    <label description="Quality Control" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{df407351-15a8-4682-a67d-8a21884db44d}" showlabel="true" visible="true" labelid="{746b7bb0-bbda-417d-81c4-bba3f1359cd7}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_qualityreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_qualityreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{72f3993f-3dcd-4020-aa8f-5a8971e83149}" name="StageStep19" locklevel="0" expanded="true" visible="false" labelid="{78cd8ada-853a-43af-8ef6-ddeb362e7252}">
+          <labels>
+            <label description="Due Diligence" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{1122281a-8251-26da-9d43-e93520fac2a3}" name="StageStep19_section1" labelid="{4cbbbb63-99d8-413b-8938-c02680c1bdbe}">
+                  <labels>
+                    <label description="Due Diligence" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{2e2969fb-a6a5-42ac-8eb9-9f5aee544768}" showlabel="true" visible="true" labelid="{7218c300-c1b3-442e-b548-7ba4e331554c}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_duediligencecompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_duediligencecompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{4b81f495-7ddb-4d9d-b673-cef20c0baa96}" name="StageStep23" locklevel="0" expanded="true" visible="false" labelid="{6365876f-e03c-4fe0-a7ea-0abce02e371f}">
+          <labels>
+            <label description="Panel Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{34e6a977-2fa4-5000-cc8b-7b467be81e0b}" name="StageStep23_section1" labelid="{68801167-7a64-4a36-8adb-7250e5ce3275}">
+                  <labels>
+                    <label description="Panel Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5f7cdbe1-8bc3-4ba6-8993-c1d6a79c8c7a}" showlabel="true" visible="true" labelid="{8e274a85-1528-4f18-9f1a-b0828ce510e8}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_panelreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_panelreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{399bf0ea-1872-4295-8f75-56bce742fc60}" name="StageStep27" locklevel="0" expanded="true" visible="false" labelid="{f497440c-97a0-4890-96b5-586305f15cea}">
+          <labels>
+            <label description="Panel Decision" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{11306c9f-ba52-f159-1aa3-4b060a026e22}" name="StageStep27_section1" labelid="{d75f6caf-b374-44a6-9735-d300df12a657}">
+                  <labels>
+                    <label description="Panel Decision" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{59743ba5-767c-4d81-9cf2-3faa8e7d54c6}" showlabel="true" visible="true" labelid="{23a6c7b7-c63b-4789-99ea-6d153d8e15c8}">
+                        <labels>
+                          <label description="Panel Decision" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_paneldecision" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_paneldecision" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{aaab3732-c647-44fd-96e2-368b2a2cc852}" name="StageStep31" locklevel="0" expanded="true" visible="false" labelid="{7c6c85d7-4dba-4309-afc4-ff64b12ffb85}">
+          <labels>
+            <label description="Rejected" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{42e443b0-74ff-675f-4338-19c6ef539ba4}" name="StageStep31_section1" labelid="{548c433b-ade8-41fb-b6a8-f98710c1ce2a}">
+                  <labels>
+                    <label description="Rejected" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4c2807b8-aedd-448c-9f0b-33edd12f6ee3}" showlabel="true" visible="true" labelid="{8ade15f5-5fce-4d19-b72b-e10e5b541293}">
+                        <labels>
+                          <label description="Decision" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_decision" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="gap_decision" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{baacfec4-3e04-49e7-b72c-20589f81a795}" name="StageStep35" locklevel="0" expanded="true" visible="false" labelid="{c0bec0b4-c02c-4ed9-a842-4ffd08db6894}">
+          <labels>
+            <label description="Outcome Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{3cfa5e68-12da-545a-fca4-4501f7f9688b}" name="StageStep35_section1" labelid="{be4ee9d5-b045-4a35-9495-647e899b7547}">
+                  <labels>
+                    <label description="Outcome Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{16eb766e-6197-4995-9554-6b1a6b32c5fd}" showlabel="true" visible="true" labelid="{a223fb54-d37f-4be9-b72f-dfaac5f584c9}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_outcomereviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_outcomereviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{98aa1cd4-cccb-46dd-954b-0fa745b93e33}" name="StageStep39" locklevel="0" expanded="true" visible="false" labelid="{78a6402d-beaf-4c57-bbf9-501c0b12039b}">
+          <labels>
+            <label description="GFA" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{6f4a4f41-2768-6fe3-5634-c433c30e739c}" name="StageStep39_section1" labelid="{37d5352a-f692-4c8d-98f3-4c110ea81d34}">
+                  <labels>
+                    <label description="GFA" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{18ec0d08-eae9-4ecc-b73c-0fa7ef478128}" showlabel="true" visible="true" labelid="{507d55e2-de05-4c2c-8875-e376322297aa}">
+                        <labels>
+                          <label description="GFA" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_gfa" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="gap_gfa" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{0401e86d-22ba-425b-8bfc-0aaefb47fc8c}" name="StageStep43" locklevel="0" expanded="true" visible="false" labelid="{f610a7a0-1c79-4bc5-b33f-35bf36b48e15}">
+          <labels>
+            <label description="GFA Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{56bc7b1c-6f40-8b89-6a7d-0626ed786178}" name="StageStep43_section1" labelid="{54dca32d-17e0-4fab-af7c-b3b808e1c5cf}">
+                  <labels>
+                    <label description="GFA Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{da1e409a-c05d-4f20-950a-7d8d4143591d}" showlabel="true" visible="true" labelid="{82205490-5eb5-4dbd-b7f1-fbbda9e9bf31}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_gfareviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_gfareviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{0dd169f6-f730-475b-970d-98ac1a9c211b}" name="StageStep47" locklevel="0" expanded="true" visible="false" labelid="{82cf3298-8e03-498e-b1f2-306747584ce8}">
+          <labels>
+            <label description="Offer" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{689ab9fc-b0ae-8e8d-9794-72ba2f74c548}" name="StageStep47_section1" labelid="{003defd0-a700-45cd-a9cf-e6353fb5cf44}">
+                  <labels>
+                    <label description="Offer" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8b6ac07f-bf3a-4be0-b485-ae2117eb3348}" showlabel="true" visible="true" labelid="{80c658ab-cac0-4f95-9aff-1cf17c265320}">
+                        <labels>
+                          <label description="Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_application_gap_applicationassessmentprocess:gap_offercompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_offercompletedon" disabled="false" relationship="bpf_gap_application_gap_applicationassessmentprocess" isrequired="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

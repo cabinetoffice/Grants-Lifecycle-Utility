@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="GGMS Core Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5b82e4e020b1d527" PluginAssemblyId="ebce3367-f6d4-4deb-a4ae-2fb5691539de" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/GGMSCorePlugins-EBCE3367-F6D4-4DEB-A4AE-2FB5691539DE/GGMSCorePlugins.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="CreateApplicationAndRelatedRecords, GGMS Core Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5b82e4e020b1d527" PluginTypeId="c89302e7-3b70-4668-ae69-59f73cef81b4" Name="CreateApplicationAndRelatedRecords">
+      <FriendlyName>f299439c-47bb-40bf-b183-68dd48bd5ca9</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

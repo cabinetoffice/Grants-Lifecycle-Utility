@@ -1,0 +1,69 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "gap_feedbacksubmittals",
+              "subscriptionRequest/scope": 1
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "62bebbf3-4e3e-4075-a04b-54d1b384f2e1"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Email",
+                "type": "string",
+                "value": "Hi,\nA new feedback response has been submitted from @{triggerOutputs()?['body/_createdonbehalfby_value']} , attached are the responses.\n\nQ1. @{triggerOutputs()?['body/gap_abletodowhatyouneededtoday']}\nQ2. @{triggerOutputs()?['body/gap_describetheeaseofuse']}\nQ3. @{triggerOutputs()?['body/gap_whydidyougivethisscore']}\nQ4. @{triggerOutputs()?['body/gap_overallopinionsofourservice']}"
+              }
+            ]
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "521dd8f4-3ea2-496e-a71e-618171f8b41f"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

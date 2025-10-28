@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Activate.Hide" Location="Mscrm.SubGrid.systemuser.Activate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.AddConnection.Hide" Location="Mscrm.SubGrid.systemuser.AddConnection" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.AddEmail.Hide" Location="Mscrm.SubGrid.systemuser.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.AddToQueue.Hide" Location="Mscrm.SubGrid.systemuser.AddToQueue" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.AddUserAccess.UCI.Hide" Location="Mscrm.SubGrid.systemuser.AddUserAccess.UCI" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.AdvMergeRecords.Hide" Location="Mscrm.SubGrid.systemuser.AdvMergeRecords" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Assign.Hide" Location="Mscrm.SubGrid.systemuser.Assign" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.AssociateParentChildCase.Hide" Location="Mscrm.SubGrid.systemuser.AssociateParentChildCase" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.ChangeDataSetControlButton.Hide" Location="Mscrm.SubGrid.systemuser.ChangeDataSetControlButton" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Charts.Hide" Location="Mscrm.SubGrid.systemuser.Charts" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.CopySelected.Hide" Location="Mscrm.SubGrid.systemuser.CopySelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Deactivate.Hide" Location="Mscrm.SubGrid.systemuser.Deactivate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.DocumentTemplate.Hide" Location="Mscrm.SubGrid.systemuser.DocumentTemplate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Edit.Hide" Location="Mscrm.SubGrid.systemuser.Edit" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.ExportSelectedToExcel.Hide" Location="Mscrm.SubGrid.systemuser.ExportSelectedToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.ExportToExcel.Hide" Location="Mscrm.SubGrid.systemuser.ExportToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Filters.Hide" Location="Mscrm.SubGrid.systemuser.Filters" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Flows.RefreshCommandBar.Hide" Location="Mscrm.SubGrid.systemuser.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.FolderTracking.Hide" Location="Mscrm.SubGrid.systemuser.FolderTracking" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.MailMerge.Hide" Location="Mscrm.SubGrid.systemuser.MailMerge" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.modern.AddEmail.Hide" Location="Mscrm.SubGrid.systemuser.modern.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.OpenAssociatedGridViewStandard.Hide" Location="Mscrm.SubGrid.systemuser.OpenAssociatedGridViewStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RefreshButton.Hide" Location="Mscrm.SubGrid.systemuser.RefreshButton" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RemoveMembers.Hide" Location="Mscrm.SubGrid.systemuser.RemoveMembers" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RemoveMembers.UCI.Hide" Location="Mscrm.SubGrid.systemuser.RemoveMembers.UCI" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RemoveUserAccess.UCI.Hide" Location="Mscrm.SubGrid.systemuser.RemoveUserAccess.UCI" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RemoveUsersFromPosition.UCI.Hide" Location="Mscrm.SubGrid.systemuser.RemoveUsersFromPosition.UCI" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RunReport.Hide" Location="Mscrm.SubGrid.systemuser.RunReport" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RunScript.Hide" Location="Mscrm.SubGrid.systemuser.RunScript" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.RunWorkflow.Hide" Location="Mscrm.SubGrid.systemuser.RunWorkflow" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.SaveAsDefaultGridView.Hide" Location="Mscrm.SubGrid.systemuser.SaveAsDefaultGridView" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.SaveAsNew.Hide" Location="Mscrm.SubGrid.systemuser.SaveAsNew" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.SaveToCurrent.Hide" Location="Mscrm.SubGrid.systemuser.SaveToCurrent" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.SendSelected.Hide" Location="Mscrm.SubGrid.systemuser.SendSelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.Sharing.Hide" Location="Mscrm.SubGrid.systemuser.Sharing" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.systemuser.WordTemplate.Hide" Location="Mscrm.SubGrid.systemuser.WordTemplate" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions />
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

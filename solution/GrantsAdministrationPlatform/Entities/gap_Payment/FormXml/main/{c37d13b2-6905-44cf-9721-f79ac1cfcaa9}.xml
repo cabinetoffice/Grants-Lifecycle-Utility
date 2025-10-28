@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c37d13b2-6905-44cf-9721-f79ac1cfcaa9}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{2f6556f3-1279-4ff5-a4ee-7ca370fd0fe7}" IsUserDefined="1">
+          <labels>
+            <label description="Payment Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{6080c032-58fa-4a41-ac00-9c7835ea89b8}" columns="1" name="Transaction">
+                  <labels>
+                    <label description="Account Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{c70bd7f8-ad8e-4703-a374-2e5f0d32a974}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{87e07d93-ef9c-4f64-9ebb-28273c04c1c2}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aba7bf5e-90bf-4d7b-a87b-132a5e47dbbd}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="ID" languagecode="1033" />
+                        </labels>
+                        <control id="gap_id" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_id" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{286fb7b0-deb1-4898-a424-245d006ea071}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Bank" languagecode="1033" />
+                        </labels>
+                        <control id="gap_bank" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_bank" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{06b19700-c04a-4203-9d0f-390ebe66b968}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Details | Payee Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_detailspayeename" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_detailspayeename" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{452c73ea-bfb6-4d5d-bfa3-5e90d0f00538}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Details | Account Number" languagecode="1033" />
+                        </labels>
+                        <control id="gap_detailsaccountnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_detailsaccountnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{79dcd1ac-c69b-4417-88cc-265793acdfe7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Details | Sort Code" languagecode="1033" />
+                        </labels>
+                        <control id="gap_detailssortcode" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_detailssortcode" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="65e2140e-51f7-4bd7-a023-749476bb2197" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Due Diligence" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="duediligencesummary" id="84e96e1a-19be-4f6e-b3d4-1d6ee3109b29" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="Due Diligence Summary" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{8c8b12cc-7119-4713-b316-18af086fc972}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{97c12baa-b44c-4b17-84a0-21c18ee7638c}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e9a437fb-3696-407d-b304-bc549b4e53cf}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Due Diligence Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_duediligencecompletedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_duediligencecompletedon" disabled="false" />
+                      </cell>
+                      <cell id="{a2fe1f44-dedf-4814-bec1-e1782b76c3ce}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Due Diligence Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="gap_duediligenceoutcome" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_duediligenceoutcome" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Payment Alerts" id="99eacaa7-d334-47e9-9e2a-ea55346359ec" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Alerts" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{c1614f51-4ad8-484a-bc61-454c86f5dffc}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="alertssubgrid" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>gap_alert_BankAccount_gap_payment</RelationshipName>
+                            <TargetEntityType>gap_alert</TargetEntityType>
+                            <ViewId>{a63b8069-da5c-44f4-9219-bf715c6cdd90}</ViewId>
+                            <ViewIds>{a63b8069-da5c-44f4-9219-bf715c6cdd90}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{5c6d6c10-598e-4bec-9c35-dda37498a2cc}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{087ced55-b3c0-43d2-aae7-306a6e353b19}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0e5e2248-bead-427e-8640-0a37627f3af4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2f4e7be2-1650-43e8-b811-59195afa1fc8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{42c53976-b84d-4ced-a498-7c1e79598014}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="header_gap_status" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_status" disabled="false" />
+            </cell>
+            <cell id="{972c579c-0036-49b3-972b-459fc36f32ca}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{73faad32-8a83-4ac4-9f98-5fc2b44a73d1}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{83c0331c-77a0-4776-a7ba-d4795b7b4344}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{ba8f9c27-1abc-4fad-9ba5-611a01b10e3e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d0a21dee-9267-4bfc-a648-96e7bdceb1c5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

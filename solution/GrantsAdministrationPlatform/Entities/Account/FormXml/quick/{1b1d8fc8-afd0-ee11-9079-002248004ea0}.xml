@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{1b1d8fc8-afd0-ee11-9079-002248004ea0}</formid>
+    <IntroducedVersion>1.0.0.5</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{2bd16e3e-b461-4922-a8a5-ded4b0fe93cf}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="Applying Organization" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{97d497bc-f164-4419-9c20-131080dba8ed}">
+                  <labels>
+                    <label description="Applying Organization" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="C0550AC7-0F44-45A4-8EF5-D2911C0689D9" labelid="{bf6a4dbf-9583-49e7-9199-9ffcae8c81e0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{991cbab0-4297-4bb0-bb54-d20b44f0ec97}" locklevel="0" colspan="1" rowspan="1" labelid="{0de94752-76d2-42b2-aa68-9977e63da673}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="name" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{86f30fee-2e8b-432a-8698-03c6ecc31003}" locklevel="0" colspan="1" rowspan="1" labelid="{b229060a-2231-4320-abb2-f7f1be3d3b62}">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_type" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c1d24e4c-2472-4ad5-ab3c-4e74a3829d5c}" locklevel="0" colspan="1" rowspan="1" labelid="{04e1f963-438a-4ec7-a78a-ae347d8b2b76}">
+                        <labels>
+                          <label description="Companies House Number" languagecode="1033" />
+                        </labels>
+                        <control id="gap_companieshousenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_companieshousenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2206aaa1-7d30-4b06-8d5c-0ac70b7d7664}" locklevel="0" colspan="1" rowspan="1" labelid="{db48c71c-69bb-4b94-9e20-f25fd9def543}">
+                        <labels>
+                          <label description="Charity Commission Number" languagecode="1033" />
+                        </labels>
+                        <control id="gap_charitycommissionnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_charitycommissionnumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="3" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information (Custom)" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

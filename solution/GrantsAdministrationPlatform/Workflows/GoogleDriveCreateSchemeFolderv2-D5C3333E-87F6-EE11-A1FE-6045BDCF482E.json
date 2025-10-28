@@ -1,0 +1,283 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      },
+      "shared_googledrive": {
+        "api": {
+          "name": "shared_googledrive"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_GoogleDrive"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "Google Drive Root Configuration (gap_GoogleDriveRootConfiguration)": {
+          "defaultValue": {
+            "id": "1kNFocFTfbuOfOMv6Ks89G56AjdxkH3y3",
+            "path": "GLU - Document Library (DEV)",
+            "dummy": "/GLU - Document Library (DEV)/README.txt"
+          },
+          "type": "Object",
+          "metadata": {
+            "schemaName": "gap_GoogleDriveRootConfiguration"
+          }
+        }
+      },
+      "triggers": {
+        "Trigger": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "0812502f-9b22-4f2c-acd2-d6ecd5e403a8"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "type": "Scope",
+          "actions": {
+            "Google_Drive_Root_Configuration": {
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@parameters('Google Drive Root Configuration (gap_GoogleDriveRootConfiguration)')",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "dummy": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "b1bcef54-1d2a-4abc-8307-dbe37a76c633"
+              }
+            },
+            "Name": {
+              "type": "Compose",
+              "inputs": "Scheme: @{triggerBody()?['gap_title']}",
+              "runAfter": {
+                "Google_Drive_Root_Configuration": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "bf7b96e1-cd14-4ac4-81d2-963c70873b13"
+              }
+            },
+            "Get_File": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "path": "@body('Google_Drive_Root_Configuration')?['dummy']",
+                  "inferContentType": true
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
+                  "operationId": "GetFileContentByPath",
+                  "connectionName": "shared_googledrive"
+                }
+              },
+              "runAfter": {
+                "Name": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8a58095f-4d67-4fb3-86b4-8ad079ad9318"
+              }
+            },
+            "Create_File": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "folderPath": "@{body('Google_Drive_Root_Configuration')?['path']}/@{outputs('Name')}",
+                  "name": "README.txt",
+                  "body": "@body('Get_File')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
+                  "operationId": "CreateFile",
+                  "connectionName": "shared_googledrive"
+                }
+              },
+              "runAfter": {
+                "Get_File": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e1bee639-7bbf-4419-89c3-c2808da28b68"
+              }
+            },
+            "Get_Folder": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "id": "@body('Google_Drive_Root_Configuration')?['id']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
+                  "operationId": "ListFolder",
+                  "connectionName": "shared_googledrive"
+                }
+              },
+              "runAfter": {
+                "Create_File": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "50afa263-c408-4339-ae9b-e18d1cd14ab7"
+              }
+            },
+            "Filter_Results": {
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Get_Folder')",
+                "where": "@equals(item()?['DisplayName'],outputs('Name'))"
+              },
+              "runAfter": {
+                "Get_Folder": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c733e1e1-f3f8-49c6-b50c-2624581aa28d"
+              }
+            },
+            "Add_Document": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_documents",
+                  "item/gap_title": "README.txt",
+                  "item/gap_drivemodifieddate": "@outputs('Create_File')?['body/LastModified']",
+                  "item/gap_fileid": "@outputs('Create_File')?['body/Id']",
+                  "item/gap_folderid": "@{first(body('Filter_Results'))?['Id']}",
+                  "item/cr982_Scheme@odata.bind": "gap_schemes(@{triggerOutputs()?['body/gap_schemeid']})",
+                  "item/gap_size": "@outputs('Create_File')?['body/Size']",
+                  "item/gap_url": "https://drive.google.com/file/d/@{outputs('Create_File')?['body/Id']}"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Filter_Results": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "adbabbf5-e000-4d8b-8ee6-00616a2cd251"
+              }
+            },
+            "Update_Scheme": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                  "item/gap_googledrivefolderid": "@{first(body('Filter_Results'))?['Id']}",
+                  "item/gap_googledrivefolderpath": "/@{outputs('Name')}"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "runAfter": {
+                "Add_Document": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f7fc3424-bfd6-443d-8255-13685c30d2d8"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "2cfdabf4-5da7-4e7a-9a02-ad567a2fc7ab"
+          }
+        },
+        "Scope_|_Error_Handling": {
+          "type": "Scope",
+          "actions": {
+            "Flow_|_Create_Log": {
+              "type": "Workflow",
+              "inputs": {
+                "host": {
+                  "workflowReferenceName": "1b684e2c-81d1-ee11-9079-0022480043c2"
+                },
+                "body": {
+                  "text": "Error",
+                  "text_1": "An error occurred when creating a scheme folder.",
+                  "text_3": "Scheme",
+                  "text_2": "@{workflow()}",
+                  "text_4": "@triggerBody()?['gap_schemeid']"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "43655402-b809-492d-9fac-7d955dc85e1e"
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "TimedOut",
+              "Skipped",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7b3e06b8-f28d-432b-adfd-ec10c41f1f53"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

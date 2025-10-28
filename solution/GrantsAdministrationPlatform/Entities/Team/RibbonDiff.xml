@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Activate.Hide" Location="Mscrm.SubGrid.team.Activate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.AddConnection.Hide" Location="Mscrm.SubGrid.team.AddConnection" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.AddEmail.Hide" Location="Mscrm.SubGrid.team.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.team.AddExistingAssoc" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.AddNewStandard.Hide" Location="Mscrm.SubGrid.team.AddNewStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.AddToQueue.Hide" Location="Mscrm.SubGrid.team.AddToQueue" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.AdvMergeRecords.Hide" Location="Mscrm.SubGrid.team.AdvMergeRecords" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Assign.Hide" Location="Mscrm.SubGrid.team.Assign" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.AssociateParentChildCase.Hide" Location="Mscrm.SubGrid.team.AssociateParentChildCase" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.BulkDelete.Hide" Location="Mscrm.SubGrid.team.BulkDelete" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.ChangeDataSetControlButton.Hide" Location="Mscrm.SubGrid.team.ChangeDataSetControlButton" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Charts.Hide" Location="Mscrm.SubGrid.team.Charts" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.CopySelected.Hide" Location="Mscrm.SubGrid.team.CopySelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Deactivate.Hide" Location="Mscrm.SubGrid.team.Deactivate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Delete.Hide" Location="Mscrm.SubGrid.team.Delete" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Detect.Hide" Location="Mscrm.SubGrid.team.Detect" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.DocumentTemplate.Hide" Location="Mscrm.SubGrid.team.DocumentTemplate" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Edit.Hide" Location="Mscrm.SubGrid.team.Edit" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.ExportSelectedToExcel.Hide" Location="Mscrm.SubGrid.team.ExportSelectedToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.ExportToExcel.Hide" Location="Mscrm.SubGrid.team.ExportToExcel" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Flows.RefreshCommandBar.Hide" Location="Mscrm.SubGrid.team.Flows.RefreshCommandBar" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.FolderTracking.Hide" Location="Mscrm.SubGrid.team.FolderTracking" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.MailMerge.Hide" Location="Mscrm.SubGrid.team.MailMerge" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.modern.AddEmail.Hide" Location="Mscrm.SubGrid.team.modern.AddEmail" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.NewRecord.Hide" Location="Mscrm.SubGrid.team.NewRecord" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.OpenAssociatedGridViewStandard.Hide" Location="Mscrm.SubGrid.team.OpenAssociatedGridViewStandard" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.RunReport.Hide" Location="Mscrm.SubGrid.team.RunReport" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.RunScript.Hide" Location="Mscrm.SubGrid.team.RunScript" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.RunWorkflow.Hide" Location="Mscrm.SubGrid.team.RunWorkflow" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.SaveAsDefaultGridView.Hide" Location="Mscrm.SubGrid.team.SaveAsDefaultGridView" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.SaveAsNew.Hide" Location="Mscrm.SubGrid.team.SaveAsNew" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.SaveToCurrent.Hide" Location="Mscrm.SubGrid.team.SaveToCurrent" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.SendSelected.Hide" Location="Mscrm.SubGrid.team.SendSelected" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.Sharing.Hide" Location="Mscrm.SubGrid.team.Sharing" />
+    <HideCustomAction HideActionId="gap.Mscrm.SubGrid.team.WordTemplate.Hide" Location="Mscrm.SubGrid.team.WordTemplate" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.AddConnectionGrid">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountExactlyOne" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CreateConnection" />
+        <DisplayRule Id="Mscrm.IsConnectionsEnabledSelected" />
+        <DisplayRule Id="Mscrm.HideOnCommandBar" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="Mscrm.GridRibbonActions.addConnection" Library="/_static/_common/scripts/RibbonActions.js">
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <BoolParameter Value="false" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.CreateConnection">
+        <MiscellaneousPrivilegeRule PrivilegeName="CreateConnection" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideOnCommandBar">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Legacy" />
+          </Or>
+          <Or>
+            <PageRule Address="/userdefined/edit.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/advancedfind/advfind.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/advancedfind/fetchData.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/tools/formeditor/formeditor.aspx" />
+          </Or>
+          <Or>
+            <PageRule Address="/tools/visualizationdesigner/visualizationdesigner.aspx" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.IsConnectionsEnabledSelected">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsConnectionsEnabled" PropertyValue="true" Default="false" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.SelectionCountExactlyOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Maximum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.GridCommandActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/CommandBarActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

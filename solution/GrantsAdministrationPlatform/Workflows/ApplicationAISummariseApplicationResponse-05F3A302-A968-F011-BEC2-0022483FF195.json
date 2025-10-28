@@ -1,0 +1,207 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger_": {
+          "metadata": {
+            "operationMetadataId": "dfb69687-7973-404a-8dc5-8a0513512426"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "gap_response",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Variable_|_Aggregated_Content": {
+          "runAfter": {
+            "Variable_|_Application_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3bf6dbea-8660-409c-9998-03b5e09b12fd"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Aggregated Content",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Variable_|_Application_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "71568780-938f-4ac2-8258-31e4888278ec"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Application ID",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Dataverse_|_List_Responses": {
+          "runAfter": {
+            "Set_variable_|_Application_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "67574c1a-ccb8-4be8-ab36-959b2eb9b3f2"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_responses",
+              "$filter": "_gap_application_value eq @{triggerOutputs()?['body/_gap_application_value']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Set_variable_|_Application_ID": {
+          "runAfter": {
+            "Variable_|_Aggregated_Content": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ca0b45b0-3ea6-42ca-a303-a1433ad0f772"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "Application ID",
+            "value": "@triggerOutputs()?['body/_gap_application_value']"
+          }
+        },
+        "Apply_to_each_4": {
+          "foreach": "@outputs('Dataverse_|_List_Responses')?['body/value']",
+          "actions": {
+            "Append_to_string_variable_2": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "48d041bd-32f4-4bb6-b1ca-b57a424d01ce"
+              },
+              "type": "AppendToStringVariable",
+              "inputs": {
+                "name": "Aggregated Content",
+                "value": "@@{items('Apply_to_each')?['Answer']}"
+              }
+            },
+            "Run_a_prompt": {
+              "runAfter": {
+                "Append_to_string_variable_2": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4bb40499-3c54-47d3-bb63-fc1ad5d74d6e",
+                "flowSystemMetadata": {
+                  "portalOperationId": "aibuilderpredict_customprompt",
+                  "portalOperationGroup": "aibuilder",
+                  "portalOperationApiDisplayNameOverride": "AI Builder",
+                  "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                  "portalOperationBrandColorOverride": "#0A76C4",
+                  "portalOperationApiTierOverride": "Standard"
+                }
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "aibuilderpredict_customprompt",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "recordId": "d8f4d672-0aa0-4c1b-955b-8569e9b1f343",
+                  "item/requestv2/text": "@variables('Aggregated Content')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Update_a_row": {
+              "runAfter": {
+                "Run_a_prompt": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2200b3f9-88be-4e94-9492-f446e1d96330"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateOnlyRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@variables('Application ID')",
+                  "item/gap_aisummary": "@outputs('Run_a_prompt')?['body/responsev2/predictionOutput/text']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Dataverse_|_List_Responses": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8a80f5e3-ebf1-4c4d-be6e-1a5916405699"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

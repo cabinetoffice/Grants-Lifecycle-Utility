@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{ba83c012-5adc-4d98-bd22-5eb02c8bcad3}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_name" select="1" icon="1" preview="1">
+        <row name="result" id="gap_monitoringchecklistid">
+          <cell name="gap_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_monitoringchecklist">
+          <attribute name="gap_monitoringchecklistid" />
+          <attribute name="gap_name" />
+          <attribute name="createdon" />
+          <order attribute="gap_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Monitoring Checklists" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

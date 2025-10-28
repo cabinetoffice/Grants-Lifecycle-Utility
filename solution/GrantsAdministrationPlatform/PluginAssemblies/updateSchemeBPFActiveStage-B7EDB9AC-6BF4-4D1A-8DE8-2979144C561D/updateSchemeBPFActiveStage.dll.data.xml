@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="updateSchemeBPFActiveStage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5e31ed67497dffe" PluginAssemblyId="b7edb9ac-6bf4-4d1a-8de8-2979144c561d" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/updateSchemeBPFActiveStage-B7EDB9AC-6BF4-4D1A-8DE8-2979144C561D/updateSchemeBPFActiveStage.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="UpdateSchemeStagePlugin, updateSchemeBPFActiveStage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5e31ed67497dffe" PluginTypeId="735ac263-8aae-4d4b-8fea-4b3ef312e714" Name="UpdateSchemeStagePlugin">
+      <FriendlyName>701f516e-96be-41b3-a54a-3127d95e07e3</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

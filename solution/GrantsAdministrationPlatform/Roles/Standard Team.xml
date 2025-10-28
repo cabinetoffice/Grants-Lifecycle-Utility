@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{f3f9bab3-f4c4-ee11-9079-002248004a06}" name="Standard Team" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <IsAutoAssigned>0</IsAutoAssigned>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendActivity" level="Basic" />
+    <RolePrivilege name="prvAppendgap_Application" level="Basic" />
+    <RolePrivilege name="prvAppendgap_Response" level="Basic" />
+    <RolePrivilege name="prvAppendgap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvAppendgap_Scheme" level="Basic" />
+    <RolePrivilege name="prvAppendToActivity" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_Application" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_Response" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_Scheme" level="Basic" />
+    <RolePrivilege name="prvAssignActivity" level="Basic" />
+    <RolePrivilege name="prvAssigngap_Application" level="Basic" />
+    <RolePrivilege name="prvAssigngap_Response" level="Basic" />
+    <RolePrivilege name="prvAssigngap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvAssigngap_Scheme" level="Basic" />
+    <RolePrivilege name="prvCreateActivity" level="Basic" />
+    <RolePrivilege name="prvCreategap_Application" level="Basic" />
+    <RolePrivilege name="prvCreategap_Response" level="Basic" />
+    <RolePrivilege name="prvCreategap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvCreategap_Scheme" level="Basic" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvDeleteActivity" level="Basic" />
+    <RolePrivilege name="prvDeletegap_Application" level="Basic" />
+    <RolePrivilege name="prvDeletegap_Response" level="Basic" />
+    <RolePrivilege name="prvDeletegap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvDeletegap_Scheme" level="Basic" />
+    <RolePrivilege name="prvReadActivity" level="Basic" />
+    <RolePrivilege name="prvReadgap_Application" level="Basic" />
+    <RolePrivilege name="prvReadgap_Response" level="Basic" />
+    <RolePrivilege name="prvReadgap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvReadgap_Scheme" level="Basic" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvShareActivity" level="Basic" />
+    <RolePrivilege name="prvSharegap_Application" level="Basic" />
+    <RolePrivilege name="prvSharegap_Response" level="Basic" />
+    <RolePrivilege name="prvSharegap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvSharegap_Scheme" level="Basic" />
+    <RolePrivilege name="prvWriteActivity" level="Basic" />
+    <RolePrivilege name="prvWritegap_Application" level="Basic" />
+    <RolePrivilege name="prvWritegap_Response" level="Basic" />
+    <RolePrivilege name="prvWritegap_ResponseMapping" level="Basic" />
+    <RolePrivilege name="prvWritegap_Scheme" level="Basic" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

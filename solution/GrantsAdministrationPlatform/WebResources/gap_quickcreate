@@ -1,0 +1,31 @@
+function quickCreate(executionContext) {
+
+var formContext = executionContext;
+var reviewGUID = formContext.data.entity.getId();
+var applicationArray = formContext.getAttribute("regardingobjectid").getValue();
+var schemeArray = formContext.getAttribute("gap_scheme").getValue();
+formContext.getAttribute("gap_reviewstatus").setValue(803260001);
+
+
+    var parameters = {};
+parameters["gap_regardingreview"] = reviewGUID;
+parameters["regardingobjectid"] = applicationArray;
+parameters["gap_type"] = 803260009;
+parameters["gap_scheme"] = schemeArray;
+parameters["gap_configurationcompletedfield"] = "gap_referralchecktrigger";
+parameters["gap_configurationrelationship"] = "gap_review_gap_Reviews";
+
+    var entityFormOptions = {};
+
+    entityFormOptions["entityName"] = "gap_review";
+    entityFormOptions["useQuickCreateForm"] = true; 
+
+    Xrm.Navigation.openForm(entityFormOptions,parameters).then(
+        function (success) {
+Xrm.Utility.openEntityForm(Xrm.Page.data.entity.getEntityName(), 
+                              Xrm.Page.data.entity.getId())
+        },
+        function(error) {
+            console.log(error);
+        });
+}

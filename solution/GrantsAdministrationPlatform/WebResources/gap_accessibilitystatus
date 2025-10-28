@@ -1,0 +1,24 @@
+function onQuestionTypeChange(executionContext) {
+var formContext = executionContext.getFormContext();
+var questionType = formContext.getAttribute("gap_type").getValue();
+
+// Get reference to the HTML web resource control
+var htmlControl = formContext.getControl("WebResource_gap_statusmessage");
+
+if (htmlControl && htmlControl.getObject()) {
+var htmlWindow = htmlControl.getObject().contentWindow;
+
+if (Type === "Choice" || Type === 803260003) { 
+// Show the Choice Options field
+formContext.getControl("gap_choiceoptions").setVisible(true);
+
+// Announce message
+htmlWindow.updateStatusMessage("Choice options field displayed. Enter your available options.");
+} else {
+formContext.getControl("gap_choiceoptions").setVisible(false);
+
+// Clear message
+htmlWindow.updateStatusMessage("");
+}
+}
+}

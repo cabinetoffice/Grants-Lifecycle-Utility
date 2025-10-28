@@ -1,0 +1,141 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "92b157d2-fc15-4351-aa2d-e0fe628cbcb7"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_-_Application_Limit": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Application Limit",
+                "type": "integer",
+                "value": 40
+              }
+            ]
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c03946aa-4bc4-4f8b-98d1-ff31b5699ef7"
+          }
+        },
+        "Initialize_variable_-_Application_Count": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Application Count",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_variable_-_Application_Limit": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0a567a78-1d49-47b8-827b-42582c96bfa5"
+          }
+        },
+        "Do_until": {
+          "type": "Until",
+          "expression": "@equals(variables('Application Count'), variables('Application Limit'))",
+          "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+          },
+          "actions": {
+            "Add_a_new_row": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "item/gap_id": "ID-@{rand(1,100000000)}",
+                  "item/gap_Scheme@odata.bind": "gap_schemes(5aa222c5-cbfc-45e9-be3c-3fdc2d277a90)",
+                  "item/gap_stage": 803260000,
+                  "item/gap_submissionid": "test-123",
+                  "item/gap_submittedon": "@utcNow()",
+                  "item/gap_Organization@odata.bind": "accounts(f614d874-d89a-f011-b41b-000d3ad61ba8)"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "d4611762-3a5b-4e41-82fe-f6225acbe613"
+              }
+            },
+            "Increment_variable": {
+              "type": "IncrementVariable",
+              "inputs": {
+                "name": "Application Count",
+                "value": 1
+              },
+              "runAfter": {
+                "Add_a_new_row": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d60d02b4-4c64-4541-baf6-31ff493b8910"
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_-_Application_Count": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c3ad4d34-e4be-4aa2-8732-92334fe2974b"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

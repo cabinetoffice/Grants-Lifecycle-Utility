@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{412baa9f-39d2-ee11-9079-002248004ea0}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_id" select="1" icon="1" preview="1">
+        <row name="result" id="gap_relatedcontactid">
+          <cell name="gap_contact" width="100" />
+          <cell name="cr982_relationship" width="111" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="gap_relatedcontact">
+          <attribute name="gap_relatedcontactid" />
+          <attribute name="gap_contact" />
+          <attribute name="cr982_relationship" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.5</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Related Contacts" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

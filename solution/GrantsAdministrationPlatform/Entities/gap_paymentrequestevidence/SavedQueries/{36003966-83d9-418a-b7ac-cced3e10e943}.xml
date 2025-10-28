@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{36003966-83d9-418a-b7ac-cced3e10e943}</savedqueryid>
+    <layoutxml>
+      <grid name="gap_paymentrequestevidences" jump="bpf_name" select="1" icon="1" preview="1">
+        <row name="gap_paymentrequestevidence" id="businessprocessflowinstanceid">
+          <cell name="bpf_gap_expectedpaymentrequestid" width="300" />
+          <cell name="activestageid" width="150" />
+          <cell name="statuscode" width="150" />
+          <cell name="createdon" width="150" />
+          <cell name="processid" width="300" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_paymentrequestevidence">
+          <attribute name="businessprocessflowinstanceid" />
+          <attribute name="bpf_name" />
+          <attribute name="createdon" />
+          <attribute name="bpf_gap_expectedpaymentrequestid" />
+          <attribute name="activestageid" />
+          <attribute name="statecode" />
+          <attribute name="statuscode" />
+          <attribute name="createdby" />
+          <attribute name="processid" />
+          <order attribute="bpf_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.1.39</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Payment Request - Evidence Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

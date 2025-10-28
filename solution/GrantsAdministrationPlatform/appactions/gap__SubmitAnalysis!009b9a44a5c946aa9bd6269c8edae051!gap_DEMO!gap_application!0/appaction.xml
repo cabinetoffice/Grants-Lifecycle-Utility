@@ -1,0 +1,46 @@
+<appaction uniquename="gap__SubmitAnalysis!009b9a44a5c946aa9bd6269c8edae051!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Submit Analysis button">
+    <label description="Submit Analysis button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Submit Analysis">
+    <label description="Submit Analysis" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to submit analysis">
+    <label description="Button to submit analysis" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Submit Analysis">
+    <label description="Submit Analysis" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Completed</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>SubmitAnalysis!009b9a44a5c946aa9bd6269c8edae051</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>4985ad439a614d89b9721c2671a8a2d0</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100033.7500000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>4985ad439a614d89b9721c2671a8a2d0</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

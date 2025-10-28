@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="PermissionsPlugin: Create of gap_responsemapping" SdkMessageProcessingStepId="{41b9537e-d266-f011-b4cb-7ced8d3ad3ea}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>9ebdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>PermissionsPlugin, PermissionsPlugIn, Version=1.0.0.0, Culture=neutral, PublicKeyToken=95e9344454fa6856</PluginTypeName>
+  <PluginTypeId>83fd67c6-21b8-49d9-8010-840f6e52f346</PluginTypeId>
+  <PrimaryEntity>gap_responsemapping</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Configuration>{
+  "EntityName": "gap_responsemapping",
+  "LookupPaths": [
+    "gap_scoringtemplatequestion.gap_section.gap_template.gap_scheme"
+  ],
+  "TeamPermissions": [
+    {
+      "TeamField": "ownerid",
+      "Permissions": "CRWDATGS"
+    },
+    {
+      "TeamField": "gap_reviewers",
+      "Permissions": "CR--A-T--"
+    },
+    {
+      "TeamField": "gap_qualitycontrollers",
+      "Permissions": "CR--A-T--"
+    }
+  ]
+}</Configuration>
+  <Description>PermissionsPlugin: Create of gap_responsemapping</Description>
+  <FilteringAttributes>gap_scoringtemplatequestion</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>40</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

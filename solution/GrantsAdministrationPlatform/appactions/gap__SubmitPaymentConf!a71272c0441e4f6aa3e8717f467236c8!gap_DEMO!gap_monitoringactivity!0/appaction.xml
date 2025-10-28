@@ -1,0 +1,40 @@
+<appaction uniquename="gap__SubmitPaymentConf!a71272c0441e4f6aa3e8717f467236c8!gap_DEMO!gap_monitoringactivity!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Submit Payment Confirmation">
+    <label description="Submit Payment Confirmation" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_monitoringactivity</logicalname>
+  </contextentity>
+  <contextvalue>gap_monitoringactivity</contextvalue>
+  <fonticon>$clientsvg:Accept</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>SubmitPaymentConf!a71272c0441e4f6aa3e8717f467236c8</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>c615805e17c84faf98e89893fec2ce27</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!feb6ae077215492ab7852098fe9569ed!gap_DEMO!gap_monitoringactivity!0</uniquename>
+  </parentappactionid>
+  <sequence>45000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>c615805e17c84faf98e89893fec2ce27</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

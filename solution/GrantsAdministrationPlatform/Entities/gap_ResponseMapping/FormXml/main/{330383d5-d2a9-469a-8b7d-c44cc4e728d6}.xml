@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{330383d5-d2a9-469a-8b7d-c44cc4e728d6}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{dcc62f65-1025-4a5c-9c76-021f779c857c}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{3bf576bf-57e3-4411-9529-d6fe99749829}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b186b68e-151e-46d7-b2f3-9cb3a2dc57db}" visible="false">
+                        <labels>
+                          <label description="ID" languagecode="1033" />
+                        </labels>
+                        <control id="gap_id" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_id" />
+                      </cell>
+                      <cell id="{b62bbd57-8804-45dc-af53-99b6c2a09efe}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Answer (As Should be Entered in the Scoring Checklist)" languagecode="1033" />
+                        </labels>
+                        <control id="gap_answer" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_answer" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{574ed1e9-7278-4810-bad5-6c446f32636c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Response (As Entered in Apply for a Grant)" languagecode="1033" />
+                        </labels>
+                        <control id="gap_response" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_response" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{e79fe660-8faf-4346-a7b3-f4c099fd709b}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{0eab2d26-57d9-420c-baf4-5c3556ac89a9}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{f009a4f4-7289-4769-92cf-0726a3fb37a8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{67133f6f-be09-41bb-8b80-abe2a3c859b3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f44c2ff2-2049-4cdc-92e7-2d0e9f2332a1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7e729303-0530-4ae2-8f2a-0b3e0019487f}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{80bcb40c-df8c-4b1c-8a4e-2eea0fc5a80b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{76889d05-8cf5-4200-aa98-dd1a096bdeed}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{cb2267e6-82ea-40db-acec-3030abaa7753}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bba8364a-7f94-40a9-95f6-6e172c875d1e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

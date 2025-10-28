@@ -1,0 +1,10 @@
+<environmentvariabledefinition schemaname="gap_ResetDelay">
+  <displayname default="Reset Delay">
+    <label description="Reset Delay" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.1.16</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000001</type>
+</environmentvariabledefinition>

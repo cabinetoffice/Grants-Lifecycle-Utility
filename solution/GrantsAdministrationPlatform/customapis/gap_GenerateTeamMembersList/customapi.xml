@@ -1,0 +1,18 @@
+<customapi uniquename="gap_GenerateTeamMembersList">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="GenerateTeamMembersList">
+    <label description="GenerateTeamMembersList" languagecode="1033" />
+  </description>
+  <displayname default="GenerateTeamMembersList">
+    <label description="GenerateTeamMembersList" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>GenerateTeamMembersList</name>
+  <plugintypeid>
+    <plugintypeexportkey>8bd52f7e-d456-4554-b26a-fabb63e3f2a1</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

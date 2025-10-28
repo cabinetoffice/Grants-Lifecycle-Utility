@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{7d7c1675-73f9-4b4e-9aac-62c76a52cc87}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_attachmentname" select="1" icon="1" preview="1">
+        <row name="result" id="gap_attachmentsid">
+          <cell name="gap_attachmentname" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_attachments">
+          <attribute name="gap_attachmentsid" />
+          <attribute name="gap_attachmentname" />
+          <attribute name="createdon" />
+          <order attribute="gap_attachmentname" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Attachments Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

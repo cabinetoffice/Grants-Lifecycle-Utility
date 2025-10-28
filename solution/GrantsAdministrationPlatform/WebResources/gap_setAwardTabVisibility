@@ -1,0 +1,26 @@
+function setAwardTabVisibility(executionContext) {
+    var formContext = executionContext.getFormContext();
+    var activeBPF = formContext.data.process.getActiveProcess();
+
+    if (activeBPF) {
+        var activeBPFId = activeBPF.getId().toUpperCase();
+
+        // Log the active BPF ID for debugging purposes
+        console.log("Active BPF ID:", activeBPFId);
+
+        if (activeBPFId === "F81D20B9-B342-F011-877A-7C1E522E8518") {
+            console.log("Setting tab_9 visible");
+            formContext.ui.tabs.get("tab_9").setVisible(true);
+        } else if (
+            activeBPFId === "9AA9C642-C13F-F011-877A-7C1E522E917B" ||
+            activeBPFId === "A5D2246D-C33F-F011-877A-7C1E522E917B"
+        ) {
+            console.log("Setting tab_9 invisible");
+            formContext.ui.tabs.get("tab_9").setVisible(false);
+        } else {
+            console.log("Active BPF ID does not trigger visibility change for tab_9.");
+        }
+    } else {
+        console.log("No active BPF found.");
+    }
+}

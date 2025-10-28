@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{646b7cd5-c2ad-f011-bbd3-7ced8d38c68c}</WebResourceId>
+  <Name>gap_statusmessage</Name>
+  <DisplayName>statusmessage</DisplayName>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>4.1.1.18</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_statusmessage646B7CD5-C2AD-F011-BBD3-7CED8D38C68C</FileName>
+</WebResource>

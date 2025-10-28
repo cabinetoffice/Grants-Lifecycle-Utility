@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{51758e8e-e4db-44bb-9e0a-51df17bb9f38}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" shownavigationbar="true">
+      <tabs>
+        <tab verticallayout="true" id="{0ba4e1ca-a306-48c6-b9ea-ce247b0e24b3}" IsUserDefined="1" name="General">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{7df05a3f-9b58-4151-a7ad-07d01b598201}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8e21ebf4-f226-4ed9-81d3-8acb5b05e58b}" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d768fe5f-d9fb-4c97-b743-2fd915be0690}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_name" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="_section_323" id="f962d335-6370-4308-81fd-62ed2938d514" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Milestone Periods (Days)" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{29318c5f-6a3d-404d-9357-fc99d3439920}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Pre-Mobilisation" languagecode="1033" />
+                        </labels>
+                        <control id="gap_premobilisationmilestone" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="gap_premobilisationmilestone" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{80eb2dd9-997e-4041-afb1-60c0e94d3a6a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Mobilisation" languagecode="1033" />
+                        </labels>
+                        <control id="gap_mobilisationmilestone" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="gap_mobilisationmilestone" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25869c07-fc6d-4c1c-b41b-e81163d94ef1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Assessment" languagecode="1033" />
+                        </labels>
+                        <control id="gap_assessmentmilestone" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="gap_assessmentmilestone" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{bb1b09f9-d969-4cf3-ad97-1be34be90446}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5bdbfb2f-3714-4423-8eb1-853fd4bb4285}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3f76906b-b8c7-426d-8494-62bc9addfe33}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3c4320fe-f126-4ca0-b3b5-6f9f94db408b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{b8971000-682f-4ab0-bc33-fca1f3d0c99a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5209b644-e25c-4911-8900-b77b44929d01}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{45bf6e2d-ff6f-49fe-baec-f16df2b31856}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3075e4bc-afb6-4dfc-b4c6-f555ab9915e9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

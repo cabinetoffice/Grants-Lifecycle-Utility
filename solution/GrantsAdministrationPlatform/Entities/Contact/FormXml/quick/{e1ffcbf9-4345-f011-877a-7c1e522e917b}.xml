@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{e1ffcbf9-4345-f011-877a-7c1e522e917b}</formid>
+    <IntroducedVersion>1.0.1.39</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="{1dc74241-5856-47bc-b7e2-e69ed7f8dbc8}" showlabel="false" name="New Tab" labelid="{0d477ec4-bdba-4e38-a88b-13b3d79ec294}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="true" columns="1" showbar="false" IsUserDefined="false" labelwidth="130" id="{1ea4af24-8034-4f15-b1e4-ff952308ef94}" name="New Section" labelid="{e6815eb8-1eaa-4846-8c14-43d9a488ca12}">
+                  <labels>
+                    <label description="Applicant Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{8ca5ce1e-3e04-4378-a461-0353da906d87}" rowspan="4" colspan="1" auto="false" availableforphone="false" showlabel="false" labelid="{a6299e77-a5d7-4a00-862b-2f916ba27241}">
+                        <labels>
+                          <label description="Accounts" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <RelationshipName>account_primary_contact</RelationshipName>
+                            <TargetEntityType>account</TargetEntityType>
+                            <ViewId>{41DF6A3B-4545-F011-877A-7C1E522E8518}</ViewId>
+                            <ViewIds>{15C63745-0A6E-4322-8416-A62C84D90279},{00000000-0000-0000-00AA-000010001001},{41DF6A3B-4545-F011-877A-7C1E522E8518}</ViewIds>
+                            <VisualizationId>{74a622c0-5193-de11-97d4-00155da3b01e}</VisualizationId>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="4" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="GGIS Integration View" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

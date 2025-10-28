@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{2d7cbb9f-b464-453a-9170-62b9c60b1b77}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{889a440f-22e5-4d24-8222-9e63289394b0}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{86794959-2214-4119-8b93-b936d430a073}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{fd8a49f7-0d44-4f09-81a6-32143f9ccbdf}">
+                        <labels>
+                          <label description="Attachment Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_attachmentname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_attachmentname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{143eb8aa-9d36-4adb-bc5a-fb2519c15da2}" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a4903a70-c0d3-4ded-b3d3-211072edbe67}">
+                        <labels>
+                          <label description="Attachment URL" languagecode="1033" />
+                        </labels>
+                        <control id="gap_attachmenturl" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="gap_attachmenturl" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{dff17347-3961-4ca2-ad10-308b806a823d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{7e5356d6-c8dc-4ee5-899a-f4ad018da92f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2d512f2c-039a-4a77-b51f-735e03cb24a6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{70dbc753-da41-402f-8ef4-323c419f115b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{535810b6-e2bd-4558-89bb-d1e8f662e458}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{45b01a83-542a-4532-8f46-7ee7892e8b77}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{33e27d4d-04c3-42d9-85f1-89c64f0f69a4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3e5dbdee-9eea-4fa5-adb3-acbbe8e835d9}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

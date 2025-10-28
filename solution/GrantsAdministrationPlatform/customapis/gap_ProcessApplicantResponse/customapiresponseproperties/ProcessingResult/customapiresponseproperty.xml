@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="ProcessingResult">
+  <description default="ProcessingResult">
+    <label description="ProcessingResult" languagecode="1033" />
+  </description>
+  <displayname default="ProcessingResult">
+    <label description="ProcessingResult" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>ProcessingResult</name>
+  <type>10</type>
+</customapiresponseproperty>

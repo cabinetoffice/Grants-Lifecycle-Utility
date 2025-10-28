@@ -1,0 +1,274 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "metadata": {
+            "operationMetadataId": "410bcad5-7efc-48ac-8413-727418399d59"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "gap_responsemapping",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Core_Process": {
+          "actions": {
+            "Get_Template_Question": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ce973f2a-c9b2-4d09-8532-b4c2cc4ae039"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_scoringtemplatequestions",
+                  "recordId": "@triggerOutputs()?['body/_gap_scoringtemplatequestion_value']",
+                  "$select": "gap_responsemappingjson"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Condition": {
+              "actions": {
+                "Compose_Response_Mapping_JSON_(no_existing)": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "41fe7cee-27e9-4905-9129-a4d76a24835d"
+                  },
+                  "type": "Compose",
+                  "inputs": [
+                    {
+                      "response": "@triggerOutputs()?['body/gap_response']",
+                      "answer": "@triggerOutputs()?['body/gap_answer']"
+                    }
+                  ]
+                },
+                "Update_Response_Mapping_JSON_on_Scoring_Template_Question_(no_existing)": {
+                  "runAfter": {
+                    "Compose_Response_Mapping_JSON_(no_existing)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "024dd52d-d4a9-474b-b2b2-e84162e86110"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringtemplatequestions",
+                      "recordId": "@triggerOutputs()?['body/_gap_scoringtemplatequestion_value']",
+                      "item/gap_responsemappingjson": "@outputs('Compose_Response_Mapping_JSON_(no_existing)')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Template_Question": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Parse_Existing_JSON": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "15236183-b8f9-4b5b-aba6-086cb4e0ace0"
+                    },
+                    "type": "ParseJson",
+                    "inputs": {
+                      "content": "@outputs('Get_Template_Question')?['body/gap_responsemappingjson']",
+                      "schema": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "response": {
+                              "type": "string"
+                            },
+                            "answer": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "response",
+                            "answer"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "Apply_to_each": {
+                    "foreach": "@body('Parse_Existing_JSON')",
+                    "actions": {
+                      "Append_Existing_Mappings_to_JSON": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "49c7c507-71b5-40ac-8abf-35478e720073"
+                        },
+                        "type": "AppendToArrayVariable",
+                        "inputs": {
+                          "name": "UpdatedResponseMappings",
+                          "value": {
+                            "response": "@{items('Apply_to_each')['response']}",
+                            "answer": "@{items('Apply_to_each')['answer']}"
+                          }
+                        }
+                      }
+                    },
+                    "runAfter": {
+                      "Parse_Existing_JSON": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "cbdddbb3-b84e-405e-8cb6-0270b104a75c"
+                    },
+                    "type": "Foreach"
+                  },
+                  "Append_New_Mappings": {
+                    "runAfter": {
+                      "Apply_to_each": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "af02c175-b4fa-4ad6-bbd0-ccd0251bce07"
+                    },
+                    "type": "AppendToArrayVariable",
+                    "inputs": {
+                      "name": "UpdatedResponseMappings",
+                      "value": {
+                        "response": "@{triggerOutputs()?['body/gap_response']}",
+                        "answer": "@{triggerOutputs()?['body/gap_answer']}"
+                      }
+                    }
+                  },
+                  "Compose_Output": {
+                    "runAfter": {
+                      "Append_New_Mappings": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "b2897a24-6871-4b8c-9614-88c269c4fea7"
+                    },
+                    "type": "Compose",
+                    "inputs": "@variables('UpdatedResponseMappings')"
+                  },
+                  "Update_a_row": {
+                    "runAfter": {
+                      "Compose_Output": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "b6aacc7e-3591-4518-bf18-fc001ad96925"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps_1",
+                        "operationId": "UpdateOnlyRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "gap_scoringtemplatequestions",
+                        "recordId": "@triggerOutputs()?['body/_gap_scoringtemplatequestion_value']",
+                        "item/gap_responsemappingjson": "@outputs('Compose_Output')"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "equals": [
+                  "@empty(outputs('Get_Template_Question')?['body/gap_responsemappingjson'])",
+                  true
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "72196c81-b307-43ee-b2c5-7bcf1801ecb5"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Initialize_Array": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a8434b44-192a-4a69-81df-1e2159f1e405"
+          },
+          "type": "Scope"
+        },
+        "Initialize_Array": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "8587711c-47ef-4bbe-adf1-45708d92f4b0"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "UpdatedResponseMappings",
+                "type": "array",
+                "value": []
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

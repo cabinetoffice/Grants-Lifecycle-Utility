@@ -1,0 +1,116 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "b1b9e274-85ac-4296-be9f-fa7169769dfa"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_reassignowner",
+              "subscriptionRequest/filterexpression": "_gap_reassignowner_value ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_Team_Members": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c4b43ee5-b5ee-443b-8526-90fea088c453"
+          },
+          "type": "Workflow",
+          "inputs": {
+            "host": {
+              "workflowReferenceName": "1085c650-c272-f011-b4cc-0022483ff195"
+            },
+            "body": {
+              "text": "@triggerOutputs()?['body/_gap_scheme_value']"
+            }
+          }
+        },
+        "Remove_New_Owner": {
+          "runAfter": {
+            "Get_Team_Members": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "675f3779-977d-4fb1-b116-0d3d90ac6d88"
+          },
+          "type": "Workflow",
+          "inputs": {
+            "host": {
+              "workflowReferenceName": "d251da56-97dc-ee11-904d-6045bdf1ea43"
+            },
+            "body": {
+              "text": "@body('Get_Team_Members')?['users']",
+              "text_1": "@triggerOutputs()?['body/_gap_reassignowner_value']"
+            }
+          }
+        },
+        "Update_a_row": {
+          "runAfter": {
+            "Remove_New_Owner": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3c20545c-6166-4e7f-a47c-ea7fb480f603"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateOnlyRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+              "item/ownerid@odata.bind": "systemusers(@{triggerOutputs()?['body/_gap_reassignowner_value']})",
+              "item/gap_owneroptionsarray": "@body('Remove_New_Owner')?['users']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

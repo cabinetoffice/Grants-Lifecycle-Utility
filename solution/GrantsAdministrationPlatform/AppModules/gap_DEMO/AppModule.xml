@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>gap_DEMO</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>b177da22-c3c9-ee11-9079-002248004b54</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="expiredprocess" />
+    <AppModuleComponent type="1" schemaName="gap_alert" />
+    <AppModuleComponent type="1" schemaName="gap_application" />
+    <AppModuleComponent type="1" schemaName="gap_applicationassessmentprocess" />
+    <AppModuleComponent type="1" schemaName="gap_assessmentprocess" />
+    <AppModuleComponent type="1" schemaName="gap_awardprocess" />
+    <AppModuleComponent type="1" schemaName="gap_bankingdetails" />
+    <AppModuleComponent type="1" schemaName="gap_complaint" />
+    <AppModuleComponent type="1" schemaName="gap_complaintprocess" />
+    <AppModuleComponent type="1" schemaName="gap_document" />
+    <AppModuleComponent type="1" schemaName="gap_evidenceprocess" />
+    <AppModuleComponent type="1" schemaName="gap_expectedpaymentrequest" />
+    <AppModuleComponent type="1" schemaName="gap_expectedpaymentstructure" />
+    <AppModuleComponent type="1" schemaName="gap_feedbacksubmittals" />
+    <AppModuleComponent type="1" schemaName="gap_gfaschemetemplate" />
+    <AppModuleComponent type="1" schemaName="gap_inboundquery" />
+    <AppModuleComponent type="1" schemaName="gap_inboundqueryprocess" />
+    <AppModuleComponent type="1" schemaName="gap_integrationfile" />
+    <AppModuleComponent type="1" schemaName="gap_message" />
+    <AppModuleComponent type="1" schemaName="gap_monitoringactivity" />
+    <AppModuleComponent type="1" schemaName="gap_monitoringactivitytemplate" />
+    <AppModuleComponent type="1" schemaName="gap_monitoringstructure" />
+    <AppModuleComponent type="1" schemaName="gap_monitoringstructuretemplate" />
+    <AppModuleComponent type="1" schemaName="gap_outboundquery" />
+    <AppModuleComponent type="1" schemaName="gap_outboundqueryprocess" />
+    <AppModuleComponent type="1" schemaName="gap_outcomeprocess" />
+    <AppModuleComponent type="1" schemaName="gap_payment" />
+    <AppModuleComponent type="1" schemaName="gap_paymentrequestevidence" />
+    <AppModuleComponent type="1" schemaName="gap_paymentrequestpayment" />
+    <AppModuleComponent type="1" schemaName="gap_paymentrequestprocess" />
+    <AppModuleComponent type="1" schemaName="gap_relatedcontact" />
+    <AppModuleComponent type="1" schemaName="gap_reportissue" />
+    <AppModuleComponent type="1" schemaName="gap_response" />
+    <AppModuleComponent type="1" schemaName="gap_responsemapping" />
+    <AppModuleComponent type="1" schemaName="gap_review" />
+    <AppModuleComponent type="1" schemaName="gap_scheme" />
+    <AppModuleComponent type="1" schemaName="gap_schemeadministrationprocess" />
+    <AppModuleComponent type="1" schemaName="gap_schemetemplate" />
+    <AppModuleComponent type="1" schemaName="gap_scoringchecklist" />
+    <AppModuleComponent type="1" schemaName="gap_scoringchecklistquestion" />
+    <AppModuleComponent type="1" schemaName="gap_scoringchecklistsection" />
+    <AppModuleComponent type="1" schemaName="gap_scoringtemplate" />
+    <AppModuleComponent type="1" schemaName="gap_scoringtemplatequestion" />
+    <AppModuleComponent type="1" schemaName="gap_scoringtemplatesection" />
+    <AppModuleComponent type="1" schemaName="gap_section" />
+    <AppModuleComponent type="1" schemaName="knowledgearticle" />
+    <AppModuleComponent type="1" schemaName="mspp_entityform" />
+    <AppModuleComponent type="1" schemaName="newprocess" />
+    <AppModuleComponent type="1" schemaName="queue" />
+    <AppModuleComponent type="1" schemaName="systemuser" />
+    <AppModuleComponent type="1" schemaName="team" />
+    <AppModuleComponent type="26" id="{dc32f705-d28c-f011-b4cb-000d3ad60bb2}" />
+    <AppModuleComponent type="26" id="{e4ddb86d-d28c-f011-b4cb-000d3ad60bb2}" />
+    <AppModuleComponent type="26" id="{f8328791-55c0-ee11-9079-002248004b54}" />
+    <AppModuleComponent type="26" id="{533a9110-9ac6-ee11-9079-002248004d0a}" />
+    <AppModuleComponent type="26" id="{c687d6ce-1b46-44c4-a6e7-1d088e44f86b}" />
+    <AppModuleComponent type="26" id="{1de56d97-d8cc-4c5b-bd56-3b51ae24644d}" />
+    <AppModuleComponent type="26" id="{49745acf-9d68-49df-a267-67041888a0ea}" />
+    <AppModuleComponent type="26" id="{90ec2c1d-d28c-f011-b4cb-7c1e52028308}" />
+    <AppModuleComponent type="26" id="{c86c3a53-d28c-f011-b4cb-7c1e52028308}" />
+    <AppModuleComponent type="26" id="{b026b591-f7e3-48fd-919e-c4d26367d54d}" />
+    <AppModuleComponent type="26" id="{5e2f99db-b925-42fb-b60c-ee60cccdc8ec}" />
+    <AppModuleComponent type="29" id="{2f55425c-a2b8-ee11-9078-002248004b54}" />
+    <AppModuleComponent type="29" id="{ab81c1af-1a45-48d9-8133-3edc033dbeef}" />
+    <AppModuleComponent type="29" id="{bcd43793-5686-4fd4-b3b4-c0c26d6f7e40}" />
+    <AppModuleComponent type="60" id="{a104b835-9f3b-e511-80d1-00155db10d2b}" />
+    <AppModuleComponent type="60" id="{f2277ee3-b6d0-ee11-9079-002248004dbc}" />
+    <AppModuleComponent type="60" id="{48cac4fa-afd0-ee11-9079-002248004ea0}" />
+    <AppModuleComponent type="60" id="{8a0b83ac-b6d0-ee11-9079-002248004ea0}" />
+    <AppModuleComponent type="60" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}" />
+    <AppModuleComponent type="60" id="{449faa0e-f471-48ec-87d0-4719909546d2}" />
+    <AppModuleComponent type="60" id="{7bb87dfd-ec3e-4ed9-8e3e-5725d3067295}" />
+    <AppModuleComponent type="60" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}" />
+    <AppModuleComponent type="60" id="{f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e}" />
+    <AppModuleComponent type="60" id="{ff0fb09d-b9d7-ee11-904d-6045bdd0e669}" />
+    <AppModuleComponent type="60" id="{9e050435-7edc-ee11-904d-6045bdf1ea43}" />
+    <AppModuleComponent type="60" id="{9e18f10e-c9fc-ee11-a1fe-6045bdfc99dd}" />
+    <AppModuleComponent type="60" id="{8a8d9b2b-a28d-f011-b4cb-7c1e52028308}" />
+    <AppModuleComponent type="60" id="{e83799fd-2f1e-430f-b000-7c61c58bdc3f}" />
+    <AppModuleComponent type="60" id="{d4fb80e1-d28c-f011-b4cb-7ced8d6be8f0}" />
+    <AppModuleComponent type="60" id="{a9b98327-1c8e-f011-b4cb-7ced8d6ca6ae}" />
+    <AppModuleComponent type="60" id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}" />
+    <AppModuleComponent type="60" id="{68e77518-a7b4-43c3-aafc-9a899a8032b3}" />
+    <AppModuleComponent type="60" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}" />
+    <AppModuleComponent type="60" id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}" />
+    <AppModuleComponent type="62" schemaName="gap_DEMO" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{295ad9c6-17c5-ee11-9079-002248004b54}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Grant Life-cycle Utility (GLU) - Beta Service" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Grant Administration Platform to monitor and progress schemes through the mobilisation, assessment, award and payment proccesses." languagecode="1033" />
+  </Descriptions>
+  <appelements>
+    <appelement uniquename="cr705_gap_DEMO_canvasappid_gap_reassignreviewerform_eacd7">
+      <canvasappid>
+        <name>gap_reassignreviewerform_eacd7</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>cr705_gap_DEMO_canvasappid_gap_reassignreviewerform_eacd7</name>
+    </appelement>
+    <appelement uniquename="gap_gap_DEMO_canvasappid_gap_demodefaultcommandlibrary_7c943">
+      <canvasappid>
+        <name>gap_demodefaultcommandlibrary_7c943</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>gap_gap_DEMO_canvasappid_gap_demodefaultcommandlibrary_7c943</name>
+    </appelement>
+    <appelement uniquename="gap_gap_DEMO_canvasappid_gap_integratedscoringchecklist_a1c7f">
+      <canvasappid>
+        <name>gap_integratedscoringchecklist_a1c7f</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>gap_gap_DEMO_canvasappid_gap_integratedscoringchecklist_a1c7f</name>
+    </appelement>
+    <appelement uniquename="gap_gap_DEMO_canvasappid_gap_reassignapplicationownerform_4b3a9">
+      <canvasappid>
+        <name>gap_reassignapplicationownerform_4b3a9</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>gap_gap_DEMO_canvasappid_gap_reassignapplicationownerform_4b3a9</name>
+    </appelement>
+    <appelement uniquename="gap_gap_DEMO_canvasappid_gap_reassignapplicationownerv2_50e5b">
+      <canvasappid>
+        <name>gap_reassignapplicationownerv2_50e5b</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>gap_gap_DEMO_canvasappid_gap_reassignapplicationownerv2_50e5b</name>
+    </appelement>
+    <appelement uniquename="gap_gap_DEMO_canvasappid_gap_scoringchecklistv2_d0366">
+      <canvasappid>
+        <name>gap_scoringchecklistv2_d0366</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>gap_gap_DEMO_canvasappid_gap_scoringchecklistv2_d0366</name>
+    </appelement>
+  </appelements>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+    <appsetting settingdefinitionid.uniquename="NewLookModernExperienceOct2023">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

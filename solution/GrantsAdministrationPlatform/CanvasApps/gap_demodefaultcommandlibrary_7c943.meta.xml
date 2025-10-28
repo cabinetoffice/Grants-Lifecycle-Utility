@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_demodefaultcommandlibrary_7c943</Name>
+  <AppVersion>2025-10-28T16:03:47Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.25102.17.0</CreatedByClientVersion>
+  <MinClientVersion>0.0.0.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","sienaVersion":"20251024T110902Z-3.25101.19.0","deviceCapabilities":"","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.25095.12","minimumRequiredApiVersion":"2.2.0","hasComponent":"true","hasUnlockedComponent":"true","isUnifiedRootApp":"false","showStatusBar":"false","offlineLargeFilesSupport":"false"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(251,101,60,1)</BackgroundColor>
+  <DisplayName>DEMO_DefaultCommandLibrary</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage>Saved by Command designer.</CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds"},"dataSources":{"Schemes":{"entitySetName":"gap_schemes","logicalName":"gap_scheme"},"Documents":{"entitySetName":"gap_documents","logicalName":"gap_document"},"Applications":{"entitySetName":"gap_applications","logicalName":"gap_application"},"Reviews":{"entitySetName":"gap_reviews","logicalName":"gap_review"},"Messages":{"entitySetName":"gap_messages","logicalName":"gap_message"},"Inbound Queries":{"entitySetName":"gap_inboundqueries","logicalName":"gap_inboundquery"},"Outbound Queries":{"entitySetName":"gap_outboundqueries","logicalName":"gap_outboundquery"},"Complaints":{"entitySetName":"gap_complaints","logicalName":"gap_complaint"},"Alerts":{"entitySetName":"gap_alerts","logicalName":"gap_alert"},"Duplicate Records":{"entitySetName":"duplicaterecords","logicalName":"duplicaterecord"},"Integration Files":{"entitySetName":"gap_integrationfiles","logicalName":"gap_integrationfile"},"Monitoring Activities":{"entitySetName":"gap_monitoringactivities","logicalName":"gap_monitoringactivity"},"Teams":{"entitySetName":"teams","logicalName":"team"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"},"Environment Variable Definitions":{"entitySetName":"environmentvariabledefinitions","logicalName":"environmentvariabledefinition"},"Environment Variable Values":{"entitySetName":"environmentvariablevalues","logicalName":"environmentvariablevalue"},"Monitoring Structures":{"entitySetName":"gap_monitoringstructures","logicalName":"gap_monitoringstructure"},"Feedback Submittals":{"entitySetName":"gap_feedbacksubmittalses","logicalName":"gap_feedbacksubmittals"},"Report Issues":{"entitySetName":"gap_reportissues","logicalName":"gap_reportissue"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>1</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"gap_scheme","componenttype":1},{"logicalname":"gap_document","componenttype":1},{"logicalname":"gap_application","componenttype":1},{"logicalname":"gap_review","componenttype":1},{"logicalname":"gap_message","componenttype":1},{"logicalname":"gap_inboundquery","componenttype":1},{"logicalname":"gap_outboundquery","componenttype":1},{"logicalname":"gap_complaint","componenttype":1},{"logicalname":"gap_alert","componenttype":1},{"logicalname":"duplicaterecord","componenttype":1},{"logicalname":"gap_integrationfile","componenttype":1},{"logicalname":"gap_monitoringactivity","componenttype":1},{"logicalname":"team","componenttype":1},{"logicalname":"systemuser","componenttype":1},{"logicalname":"environmentvariabledefinition","componenttype":1},{"logicalname":"environmentvariablevalue","componenttype":1},{"logicalname":"gap_monitoringstructure","componenttype":1},{"logicalname":"gap_feedbacksubmittals","componenttype":1},{"logicalname":"gap_reportissue","componenttype":1}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_demodefaultcommandlibrary_7c943_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_demodefaultcommandlibrary_7c943_DocumentUri.msapp</DocumentUri>
+</CanvasApp>

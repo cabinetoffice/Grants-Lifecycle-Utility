@@ -1,0 +1,46 @@
+<appaction uniquename="gap__GFASent!5acdbf8766ff43d98837760ac241d6a9!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="GFA Sent button">
+    <label description="GFA Sent button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="GFA Sent">
+    <label description="GFA Sent" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to confirm that the GFA has been sent">
+    <label description="Button to confirm that the GFA has been sent" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="GFA Sent">
+    <label description="GFA Sent" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Completed</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>GFASent!5acdbf8766ff43d98837760ac241d6a9</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>fe024bd3328d4a7d84404ba036430097</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100037.9687500000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>fe024bd3328d4a7d84404ba036430097</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

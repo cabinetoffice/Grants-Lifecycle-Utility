@@ -1,0 +1,162 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-2": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_importcompletedon",
+              "subscriptionRequest/filterexpression": "gap_importcompletedon ne null and (gap_amountrequested eq null or gap_fundinglocations eq null)\n"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-2"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "2781ea76-0b59-4a5d-be70-8e602c5e903d"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "type": "Scope",
+          "actions": {
+            "Get_Amount": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_responses",
+                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_AMOUNT'"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps-2"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+              }
+            },
+            "Get_Funding_Locations": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_responses",
+                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'BENEFITIARY_LOCATION'"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps-2"
+                }
+              },
+              "runAfter": {
+                "Get_Amount": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "eefe7a80-6e74-41f2-8cea-2461bb485db0"
+              }
+            },
+            "Data_|_Parse_Funding_Locations": {
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@string(first(outputs('Get_Funding_Locations')?['body/value'])['gap_answer'])",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Funding_Locations": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8a70a673-4e36-43a1-b368-c27fa8e9bf00"
+              }
+            },
+            "Dataverse_|_Update_Application": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@triggerBody()?['gap_applicationid']",
+                  "item/gap_amountrequested": "@float(first(outputs('Get_Amount')?['body/value'])['gap_answer'])",
+                  "item/gap_fundinglocations": "@{concat(\r\n'- ',\r\njoin(\r\nbody('Data_|_Parse_Funding_Locations'), \r\nconcat(decodeUriComponent('%0A'), '- ')\r\n)\r\n)}"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "connectionName": "shared_commondataserviceforapps-2"
+                }
+              },
+              "runAfter": {
+                "Data_|_Parse_Funding_Locations": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8da6e37a-c5af-4bc4-a627-f1510f3f8549"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "076134d9-8ca8-429e-b40d-ce31ca62d451"
+          }
+        },
+        "Scope_|_Error_Handling": {
+          "type": "Scope",
+          "actions": {},
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "Skipped",
+              "TimedOut",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2b5905b7-428a-44d6-82de-b015b198dc3c"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

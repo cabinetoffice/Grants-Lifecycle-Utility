@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{bfdb01e5-5f48-f011-877a-000d3ad545f3}" Name="Payment Request - Evidence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/PaymentRequest-Evidence-BFDB01E5-5F48-F011-877A-000D3AD545F3.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_paymentrequestevidence</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.39</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_ExpectedPaymentRequest</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Payment Request - Evidence" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{a7c26175-3521-40d4-af37-080c5221b904}">
+      <label languagecode="1033" description="Evidence" />
+    </steplabels>
+    <steplabels id="{8cddbe7a-56c6-48f7-89b5-4ec6f084445b}">
+      <label languagecode="1033" description="Received On" />
+    </steplabels>
+    <steplabels id="{946b1227-92b2-42a7-bfed-7f2611e2601c}">
+      <label languagecode="1033" description="Payment Request" />
+    </steplabels>
+    <steplabels id="{efa49c04-fc0c-414b-bf77-54a0fbb33170}">
+      <label languagecode="1033" description="Received On" />
+    </steplabels>
+    <steplabels id="{20b15ff9-cd83-48b1-9e7e-f34f95c9d057}">
+      <label languagecode="1033" description="Payment Request Submission" />
+    </steplabels>
+    <steplabels id="{732a2788-579e-4f7e-92ed-a18c1fa33a1d}">
+      <label languagecode="1033" description="Request Submitted On" />
+    </steplabels>
+  </labels>
+</Workflow>

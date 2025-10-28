@@ -1,0 +1,193 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "4c45440c-9c8f-4f76-829d-c84dbfc3aa68"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Team Members",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please provide a list of team members.",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_2": {
+                  "title": "OData Filter (Applications)",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "(Optional) Please provide an OData filter.",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_1": {
+                  "title": "OData Filter (Reviews)",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "(Optional) Please provide an OData filter.",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Data_|_Parse_Team_Members": {
+          "runAfter": {
+            "Variable_|_Initialize_TeamMembersArray": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "94ba4a21-c096-436c-ba69-29bf8e285f4e"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@string(triggerBody()?['text'])",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "user"
+                ]
+              }
+            }
+          }
+        },
+        "Variable_|_Initialize_TeamMembersArray": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "95a543c6-a774-494e-a90e-8a656a8126dd"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TeamMembersArray",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Respond_to_PowerApps_(V2)": {
+          "runAfter": {
+            "Condition_|_Required_Team_Members": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "49df3a3f-d390-44e5-96d6-daf9de3c10cf"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "title": "User",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "user": "@{first(sort(variables('TeamMembersArray'), 'value'))['user']}"
+            }
+          }
+        },
+        "Condition_|_Required_Team_Members": {
+          "actions": {
+            "Iterate_|_Per_Team_Member": {
+              "foreach": "@body('Data_|_Parse_Team_Members')",
+              "actions": {
+                "Variable_|_Append_Value": {
+                  "metadata": {
+                    "operationMetadataId": "aa5642cc-1d73-49aa-b0af-f72ffe190d1d"
+                  },
+                  "type": "AppendToArrayVariable",
+                  "inputs": {
+                    "name": "TeamMembersArray",
+                    "value": {
+                      "user": "@items('Iterate_|_Per_Team_Member')['user']",
+                      "value": "@rand(0, 100)\r\n"
+                    }
+                  }
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "e50ebd28-7753-4b21-9fa0-070fe861c380"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Data_|_Parse_Team_Members": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Terminate_|_Insufficient_Team_Members": {
+                "metadata": {
+                  "operationMetadataId": "85934ee6-bd5c-4b01-bc36-21d09653721a"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed"
+                }
+              }
+            }
+          },
+          "expression": {
+            "and": [
+              {
+                "greaterOrEquals": [
+                  "@length(body('Data_|_Parse_Team_Members'))",
+                  1
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cea7c71c-7e86-495a-aaf8-83bd9dd1c5c9"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

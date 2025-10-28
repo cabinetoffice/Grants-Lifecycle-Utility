@@ -1,0 +1,24 @@
+
+function onGapTypeChange(executionContext) {
+    var formContext = executionContext.getFormContext();
+    var gapType = formContext.getAttribute("gap_type").getValue();
+    // Define the BPF IDs (real GUIDs from your environment)
+    var bpfEvidenceId = "8c9ef63c-9c55-f011-bec2-00224840fbec"; 
+    var bpfPaymentRequestedId = "4223d0f2-9c55-f011-bec2-00224840fbec"; 
+    if (gapType === 1) { // Evidence
+        setBpf(formContext, bpfEvidenceId);
+    } else if (gapType === 2) { // Payment Requested
+        setBpf(formContext, bpfPaymentRequestedId);
+    }
+}
+function setBpf(formContext, bpfId) {
+    formContext.data.process.setActiveProcess(bpfId, function (result) {
+        if (result) {
+            console.log("BPF switched successfully.");
+        } else {
+            console.warn("BPF switch failed or was cancelled.");
+        }
+    }, function (error) {
+        console.error("Error switching BPF: ", error.message);
+    });
+}

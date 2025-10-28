@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{e2813e87-9aaf-4e5c-90d3-5c12d25d36d8}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" shownavigationbar="false">
+      <tabs>
+        <tab verticallayout="true" id="{beed36cc-3616-4bf2-8695-84d31eda6fac}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{e9b5c316-cc00-4760-8b6b-05693fb1fc0e}" columns="11">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e63cfe0f-decc-4315-91cc-acef098014f3}" locklevel="0">
+                        <labels>
+                          <label description="Application ID" languagecode="1033" />
+                        </labels>
+                        <control id="gap_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_name" disabled="true" />
+                      </cell>
+                      <cell id="{2c9a2d37-8394-4eac-99bb-5fdb1d431da6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Scheme" languagecode="1033" />
+                        </labels>
+                        <control id="gap_scheme" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_scheme" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8a767c71-6bf9-4260-b4f8-fdb0368de131}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Start Time" languagecode="1033" />
+                        </labels>
+                        <control id="gap_starttime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_starttime" disabled="true" />
+                      </cell>
+                      <cell id="{19389349-5eeb-4ae4-974e-f2f354a1da25}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="End Time" languagecode="1033" />
+                        </labels>
+                        <control id="gap_endtime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_endtime" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ef96d8c6-fcbf-4c6d-8c69-7ffa93004251}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Time Working" languagecode="1033" />
+                        </labels>
+                        <control id="gap_timeworking" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="gap_timeworking" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dc65cefd-a84d-4c79-b2c0-5c9c369a613d}" locklevel="0" colspan="1" rowspan="1" visible="true">
+                        <labels>
+                          <label description="User ID" languagecode="1033" />
+                        </labels>
+                        <control id="gap_userid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_userid" disabled="true" />
+                      </cell>
+                      <cell id="{c3c824d4-166d-496d-9afd-9c9b54720c58}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Sub Stage" languagecode="1033" />
+                        </labels>
+                        <control id="gap_substage" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_substage" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ebbeebc1-f956-405b-b3c7-a8f82c95a0ec}" visible="false">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                      <cell id="{848619ee-9fd1-498d-b386-4b4258a5f4f0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Username" languagecode="1033" />
+                        </labels>
+                        <control id="gap_username" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_username" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{4fe5bfcd-967d-40e2-b8ce-185e60f6b0a9}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{f7377b71-94ab-473d-9ea9-b3dbf4524ed8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{06467386-e578-400e-ac64-0f952b532353}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2d2d17cb-50f2-4011-b906-794eabf59c1c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{c3e2477d-4168-43d4-9ee5-62a9aa9de2a2}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{a45bd827-85a0-4bd8-9a21-943a69f395a3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a881baa5-1f77-45f1-80c8-f7b389e76aef}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2d430519-4432-45df-880a-cef8052d7eb4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

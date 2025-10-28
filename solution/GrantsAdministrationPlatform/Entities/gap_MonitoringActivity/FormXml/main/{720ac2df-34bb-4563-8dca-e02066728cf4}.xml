@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{720ac2df-34bb-4563-8dca-e02066728cf4}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{9ea9f41b-4f48-40f9-9eaf-b8a9132c01d6}" IsUserDefined="1">
+          <labels>
+            <label description="Monitoring Activity Summary" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="70%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{230a79bb-2d6b-48c5-9715-44f8e8f0bb45}" columns="1" name="submissiondetails">
+                  <labels>
+                    <label description="Submission Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{1eae8bfe-e154-4e83-8e52-0bef33dca4c0}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_name" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c02a1fd5-2015-4454-ad62-d9e649827106}" locklevel="0" colspan="1" rowspan="6">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="gap_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{c5722c42-c359-4f05-967e-190515dfe232}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Order" languagecode="1033" />
+                        </labels>
+                        <control id="gap_order" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="gap_order" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{05a9bab1-4c70-4858-91ee-e3e49a2ef85a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Current Stage" languagecode="1033" />
+                        </labels>
+                        <control id="header_gap_currentstage" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_currentstage" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3722993e-37e3-46a3-ba2e-37d530b64c74}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Scheme" languagecode="1033" />
+                        </labels>
+                        <control id="gap_scheme" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_scheme" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e9f3a42f-a344-4fcf-b267-81272a01538a}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Initialized Stage" languagecode="1033" />
+                        </labels>
+                        <control id="gap_initializedstage" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_initializedstage" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dca95804-7126-4beb-b349-8c75c79a1da2}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Status" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{62d316d1-f470-4102-81c7-fdb44cd4bc24}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Earliest Possible Submission Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_earliestpossiblesubmissiondate" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_earliestpossiblesubmissiondate" uniqueid="{953750ad-534c-4d42-b0bc-d427640066ee}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ef280ba7-03d6-4709-9d52-47e350a64eb0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Earliest Possible Submission Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_earliestpossiblesubmissiondate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_earliestpossiblesubmissiondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dee89368-fe22-491d-ae32-77ca3ab508a4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Latest Possible Submission Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_latestpossiblesubmissiondate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_latestpossiblesubmissiondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{75e3ec8a-de19-4417-9823-0a1cce4215bc}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Submission Received On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_submissionreceivedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_submissionreceivedon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba259fe4-5f30-4c38-a9a0-7ae4e8640b2b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Application" languagecode="1033" />
+                        </labels>
+                        <control id="gap_application" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_application" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{93f9e08a-9b3d-42f6-8721-a5e964c94398}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Monitoring Checklist" languagecode="1033" />
+                        </labels>
+                        <control id="gap_monitoringchecklist" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_monitoringchecklist" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6ba7ee9d-ba73-44cc-97ae-4a3af913dbc6}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Monitoring Activity Template" languagecode="1033" />
+                        </labels>
+                        <control id="gap_monitoringactivitytemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_monitoringactivitytemplate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="documentssection" id="4ca7c23e-15af-41be-8fb7-ed30e3ea97dd" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Submission Documents" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{4d078e4a-df54-4dc0-ad1f-12a8b10ca990}" rowspan="4" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="documents subgrid" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="documentssubgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>gap_document_MonitoringActivity_gap_monitoringactivity</RelationshipName>
+                            <TargetEntityType>gap_document</TargetEntityType>
+                            <ViewId>{3290BD5A-5C80-424B-B500-9366C65BD7AC}</ViewId>
+                            <ViewIds>{3290BD5A-5C80-424B-B500-9366C65BD7AC}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="30%">
+              <sections>
+                <section name="_section_539" id="1df4409b-68b1-4728-abd1-9b39384dbc3b" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Notes" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{79cf8201-2e41-40d1-9eb1-76670752ad55}" rowspan="15" colspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false">
+                          <parameters>
+                            <UClientModules>Activities,Notes</UClientModules>
+                            <UClientUniqueName>Notes</UClientUniqueName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="bd901378-34d9-4428-973b-fbacdb89cd6b" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Assessment" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="reviewssection" id="66006181-6abd-46fc-ae04-4a965072dfe5" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" visible="true">
+                  <labels>
+                    <label description="Reviewers" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{68c979fd-7497-479f-b395-c61d918b87d0}" locklevel="0" colspan="2" rowspan="1">
+                        <labels>
+                          <label description="Monitoring Structure" languagecode="1033" />
+                        </labels>
+                        <control id="gap_monitoringstructure" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_monitoringstructure" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{95000ea3-9ae5-4445-add5-e72b8b3c95f3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Initial Reviewer" languagecode="1033" />
+                        </labels>
+                        <control id="gap_initialreviewer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_initialreviewer" disabled="true" />
+                      </cell>
+                      <cell id="{6ee4785b-0772-4a99-85ab-8a7067761675}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Peer Reviewer" languagecode="1033" />
+                        </labels>
+                        <control id="gap_peerreviewer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_peerreviewer" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5235533a-f459-40e3-a632-bcd322b37b05}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Final Reviewer" languagecode="1033" />
+                        </labels>
+                        <control id="gap_finalreviewer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_finalreviewer" disabled="true" />
+                      </cell>
+                      <cell id="{0e77c42e-890d-4a48-9563-cc5f1f2e6f33}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Decision Maker" languagecode="1033" />
+                        </labels>
+                        <control id="gap_decisionmaker" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_decisionmaker" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="assessmentsection" id="f935dded-7951-4cfc-a8d1-1fd08d931e59" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115">
+                  <labels>
+                    <label description="1. Reviews" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{f889a8ac-524b-4e65-80cd-a7aae4b63c87}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{91e8c8c1-b30f-4bea-a87f-3ee43f1e69c7}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{08206745-d9bf-435f-a509-2fe90680a45d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{572ce0f8-ad8a-4eb7-85de-8fbcb04f6d06}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Initial Review Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="gap_initialreviewoutcome" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_initialreviewoutcome" disabled="false" />
+                      </cell>
+                      <cell id="{7feef923-6d0e-46d3-8b36-147ab85db3c3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Peer Review Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="gap_peerreviewoutcome" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_peerreviewoutcome" disabled="false" />
+                      </cell>
+                      <cell id="{bbe9f71f-cbe2-42ae-bad1-7c279951e219}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Final Review Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="gap_finalreviewoutcome" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_finalreviewoutcome" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eb122eb1-31c9-4fb3-a9bd-ea17db3230c5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Spotlight Checks Complete" languagecode="1033" />
+                        </labels>
+                        <control id="gap_spotlightcheckscomplete" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_spotlightcheckscomplete" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{37f15447-7f83-4ccc-b3cf-10d412440b83}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{4a895d50-a96c-4217-bfb6-2beefadad9f6}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="payment_status_section" id="0baa9bc5-ff9c-467a-89a4-f7b2c54d2e46" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="2. Payment Status" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{25be4b9b-b6d1-467a-b3e5-43a4997e5fa6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Payment Status" languagecode="1033" />
+                        </labels>
+                        <control id="gap_paymentstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_paymentstatus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6ef02149-ca75-4bcb-b69f-b16db7a2950d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Payment Amount" languagecode="1033" />
+                        </labels>
+                        <control id="gap_paymentamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_paymentamount" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{f9749ef0-6139-4975-a5ba-71d659675d56}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{ad8833ba-8e38-4d3b-b910-dd9f33147f66}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f077f8d7-5362-4606-8c36-e304543888f6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b3fd15c8-10ad-4203-a0b6-db7ea75182dd}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c5fddd8d-3669-4d29-9330-9bd8041c7c18}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{34986796-599a-41be-a1c8-d5e0e285bcbe}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{c8337b6c-e4a1-4bbf-9335-02853c449504}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{167e2b3b-e522-4794-9a79-00462778e002}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e0396022-94dc-496d-945e-39207d314ff4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="gap_MonitoringActivityFormComponentVisibility" libraryUniqueId="{6c0dbcb0-40ff-4899-9b82-a97d844b93ea}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="onLoad" libraryName="gap_MonitoringActivityFormComponentVisibility" handlerUniqueId="{8796b4fb-96d0-4675-8860-592800bdbbec}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <controlDescriptions>
+        <controlDescription forControl="{953750ad-534c-4d42-b0bc-d427640066ee}">
+          <customControl id="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}">
+            <parameters>
+              <datafieldname>gap_earliestpossiblesubmissiondate</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}">
+            <parameters>
+              <datafieldname>gap_earliestpossiblesubmissiondate</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_earliestpossiblesubmissiondate</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_earliestpossiblesubmissiondate</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_earliestpossiblesubmissiondate</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

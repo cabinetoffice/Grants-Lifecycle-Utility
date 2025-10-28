@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{a601513b-834b-f011-877b-7c1e522e917b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_filename" select="1" icon="1" preview="1">
+        <row name="result" id="gap_integrationfileid">
+          <cell name="gap_filename" width="200" />
+          <cell name="gap_integrationtype" width="133" />
+          <cell name="gap_processed" width="100" />
+          <cell name="gap_startimporton" width="129" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="gap_integrationfile">
+          <attribute name="gap_filename" />
+          <attribute name="gap_integrationfileid" />
+          <attribute name="gap_integrationtype" />
+          <attribute name="gap_processed" />
+          <attribute name="gap_startimporton" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.1.39</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Scheme Integration File View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

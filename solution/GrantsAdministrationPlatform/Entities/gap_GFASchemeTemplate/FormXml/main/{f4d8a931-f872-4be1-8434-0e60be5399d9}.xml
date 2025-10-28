@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{f4d8a931-f872-4be1-8434-0e60be5399d9}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{42a84b4f-f344-4ad7-88c2-2a4f2d6401c3}" IsUserDefined="1" name="general">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="null_section_3" id="04209c4e-038f-40de-a5d2-86ac027ccc2d" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" visible="true">
+                  <labels>
+                    <label description="0. Template Details" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ba4e6b75-5c0a-4a87-8f1f-8152f8097798}" visible="false" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                      <cell locklevel="0" id="{75eb2187-730b-4802-84c9-43fd3a451bff}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{918c987c-4859-44dc-96d6-a2247981edf1}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Title" languagecode="1033" />
+                        </labels>
+                        <control id="gap_title" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_title" />
+                      </cell>
+                      <cell id="{c28399ef-f843-443e-b57c-0e27d5c60ae5}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Template Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_templatetype" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_templatetype" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{87d06b7b-7d84-4e23-8b1a-1824ba8a0210}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Question Ordering File" languagecode="1033" />
+                        </labels>
+                        <control id="gap_applicationquestions" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="gap_applicationquestions" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{a2a3f6ed-e600-4c68-bc30-eb9ba54a9535}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4cb68f8f-b1fc-4401-a810-d72f093fd211}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Total Amount Of Grant" languagecode="1033" />
+                        </labels>
+                        <control id="gap_totalamountofgrant" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_totalamountofgrant" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{88d6b4ea-1219-43cd-9e36-b27e0d73b451}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{edaa3c03-01f7-4483-99b4-919e6ba96da6}" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Grant Claim Working Day Submission" languagecode="1033" />
+                        </labels>
+                        <control id="gap_grantclaimworkingdaysubmission" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="gap_grantclaimworkingdaysubmission" />
+                      </cell>
+                      <cell locklevel="0" id="{d6b4562c-9a9e-4587-a1d9-783b4644b9db}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="basic_information" id="cc79a787-b15d-469b-af90-54ddc671d274" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="1. Basic Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a2a87f10-f973-4e95-9c1e-bd0ebf5bcb27}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Authority Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_authorityname" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="gap_authorityname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d723b8d6-660b-4318-ab06-63f19e2dde49}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Authority Contact Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_authoritycontactname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_authoritycontactname" disabled="false" />
+                      </cell>
+                      <cell id="{be6248d0-726c-44ca-ad74-888796cfd7fa}" locklevel="0" colspan="1" rowspan="3">
+                        <labels>
+                          <label description="Authority Address" languagecode="1033" />
+                        </labels>
+                        <control id="gap_authorityaddress" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_authorityaddress" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dedf08df-1f17-4ef1-a08d-e864eb5b69c5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Authority Contact Email" languagecode="1033" />
+                        </labels>
+                        <control id="gap_authoritycontactemail" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="gap_authoritycontactemail" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{5edf07c3-e3c4-40af-a185-6dc92f696505}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{2407eae5-11f4-40af-ab5d-dca122439936}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Authority Contact Phone Number" languagecode="1033" />
+                        </labels>
+                        <control id="gap_authoritycontactphonenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_authoritycontactphonenumber" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="grant_funding_letter" id="5b54eb7e-9c78-4642-8110-a8416da4aa2c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="2. Grant Offer Letter (Long Form)" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{0b7165e7-55a2-4506-ad2e-a41148e8d443}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Future Correspondence Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_futurecorrespondencename" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_futurecorrespondencename" disabled="false" />
+                      </cell>
+                      <cell id="{52dd9e3f-5cbe-4864-bba2-34d22f2fffd1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Future Correspondence Address" languagecode="1033" />
+                        </labels>
+                        <control id="gap_futurecorrespondenceaddress" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_futurecorrespondenceaddress" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fd24611d-bdf9-4985-b66a-43f9e2c89e17}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Signatory Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_signatoryname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_signatoryname" disabled="false" />
+                      </cell>
+                      <cell id="{f0439b9d-4214-4869-976a-ea2fd274b828}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Funding Start Date / Commencement Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fundingstartdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_fundingstartdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ebe012ee-0d49-4afb-af3c-77991a4002cf}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Funding End Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fundingenddate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_fundingenddate" disabled="false" />
+                      </cell>
+                      <cell id="{0b2481d9-7f7f-4403-81fc-d5befef7e748}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Major Asset Value" languagecode="1033" />
+                        </labels>
+                        <control id="gap_majorassetvalue" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_majorassetvalue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{afed9420-080c-4601-b0c1-24a07ffa51ef}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Funded Activities Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fundedactivitiesstartdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_fundedactivitiesstartdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7bfb2250-c54e-4397-bf1f-91f2b205275d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Secretary Of State Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_secretaryofstatename" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_secretaryofstatename" disabled="false" />
+                      </cell>
+                      <cell id="{097aae8c-36b4-446b-b3ed-66f4471e47cb}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Department Signatory Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_departmentsignatoryname" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_departmentsignatoryname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{01f2510b-5d42-4586-9e43-535332ac54f1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Clause 3.5 Provision Of Evidence" languagecode="1033" />
+                        </labels>
+                        <control id="gap_clause35provisionofevidence" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_clause35provisionofevidence" disabled="false" />
+                      </cell>
+                      <cell id="{a5e4221b-0f2a-4cc8-ab9d-644689e83a1f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Department Signatory Title" languagecode="1033" />
+                        </labels>
+                        <control id="gap_departmentsignatorytitle" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_departmentsignatorytitle" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{35618fa7-eeda-4ab9-be1d-5f1af9179967}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Funded Activities Change Days Notice" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fundedactivitieschangedaysnotice" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_fundedactivitieschangedaysnotice" disabled="false" />
+                      </cell>
+                      <cell id="{00af5635-32cf-49c5-a161-f4c764de7d69}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Department Signatory Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_departmentsignatorydate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_departmentsignatorydate" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="grant_table" id="5d7f4558-c8fe-4118-8aa1-51b10f7f9668" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="2. Grant Overview Table (Short Form)" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{5600f450-a74b-4276-83e9-78fde8ee2321}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Funding Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fundingstartdate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_fundingstartdate" />
+                      </cell>
+                      <cell id="{97eeb8cf-6ae4-48ba-b26d-f34bbe0232d5}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Funding End Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_fundingenddate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_fundingenddate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{77111296-9dc6-49e7-8839-378a60cea019}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{ce37804f-a521-460b-b2d6-86d60b846649}" locklevel="0" colspan="1" rowspan="6">
+                        <labels>
+                          <label description="Grant Manager Information Details" languagecode="1033" />
+                        </labels>
+                        <control id="gap_grantmanagerinformationdetails" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_grantmanagerinformationdetails" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{187ce67f-eff9-4352-877d-4cbce6a3fa9e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Grant Reporting Interval" languagecode="1033" />
+                        </labels>
+                        <control id="gap_grantrecipientreportingfrequency" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_grantrecipientreportingfrequency" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ceaaecdb-bea7-43c8-9620-778927e5aeec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Grant Review Interval" languagecode="1033" />
+                        </labels>
+                        <control id="gap_grantreviewinterval" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_grantreviewinterval" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{b73effc8-039d-459f-8dcd-40f256e0a9c0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5e8cb36f-16e3-43c3-82ec-dea84d1d0526}" locklevel="0" colspan="1" rowspan="6">
+                        <labels>
+                          <label description="Grant Escalation Contact Information" languagecode="1033" />
+                        </labels>
+                        <control id="gap_grantescalationcontactinformation" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_grantescalationcontactinformation" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{57e68ef1-27d6-4712-a8db-54586130139b}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{5fa266f3-b58c-4b68-a449-0f77ecca4471}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{eddf5637-5e8f-4634-b97e-117e07198d76}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{af221a4e-136c-4671-bbbe-9e2985b39be0}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{3f17e349-01b1-455f-8c9a-26953ff11a03}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{2d36d9bc-e464-40ad-a546-fdae32e0970d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_6" id="4ec6103d-832c-414a-9eb6-342300aba1ba" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="3. Grant Application" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{edf98d3e-d248-474e-b84c-fafa3033299c}" locklevel="0" colspan="1" rowspan="10">
+                        <labels>
+                          <label description="Eligibility Statement" languagecode="1033" />
+                        </labels>
+                        <control id="gap_eligibilitystatement" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_eligibilitystatement" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="null_section_5" id="4c5596fe-18a4-4b97-a2bd-111c3321213f" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="4. Additional Annexes (Long Form)" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{d0ecb04b-8093-4861-9a13-fc2798da1f9d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Annex 8 Data Protection" languagecode="1033" />
+                        </labels>
+                        <control id="gap_annex8dataprotection" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_annex8dataprotection" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0a7789b9-4bb4-4fe9-ba18-50548b79ea90}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Annex 10 Subsidy Control" languagecode="1033" />
+                        </labels>
+                        <control id="gap_annex10subsidycontrol" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_annex10subsidycontrol" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b8a7b4b1-add2-4807-8ccd-d9f46f381ceb}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Department Agreed Amount" languagecode="1033" />
+                        </labels>
+                        <control id="gap_departmentagreedamount" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="gap_departmentagreedamount" disabled="false" />
+                      </cell>
+                      <cell id="{d27c1731-14b3-4103-8b35-7d051279cb3a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Annex 9 Exit" languagecode="1033" />
+                        </labels>
+                        <control id="gap_includeannex9" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_includeannex9" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{284c927f-9970-4db3-8b2b-7541e4092c40}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{fa502230-56c8-4e65-9f26-169957129c37}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Annex 13 Recipient Subsidiary" languagecode="1033" />
+                        </labels>
+                        <control id="gap_annex13recipientsubsidiary" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_annex13recipientsubsidiary" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{8e218d06-867e-41ad-b647-a0a040140286}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{5cdab0b3-94c3-4c3b-944f-6af8990be750}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6bc19bac-6401-439d-9a24-ddff3fd54260}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4cca71b1-65c9-43eb-916f-27e9e6e120a8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{d5976ee0-3bd6-4e70-a138-091b5ec3d1cb}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{f5b0067b-038c-4099-a2b0-cb07e17566b2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8e8e1ed1-541b-4c40-963a-962d82cac1ef}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{021ee6cd-fbc6-4e3d-9ba1-f21a360bae22}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="gap_SetGfaTab" libraryUniqueId="{6c179254-d7d6-4940-9cb9-cee4dde23e69}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="setGfaTab" libraryName="gap_SetGfaTab" handlerUniqueId="{22f2e1c5-f621-461f-9cc6-cd888e57df6a}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="gap_templatetype">
+          <Handlers>
+            <Handler functionName="setGfaTab" libraryName="gap_SetGfaTab" handlerUniqueId="{6da46ba8-258e-4887-b526-b8ffcafb8050}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

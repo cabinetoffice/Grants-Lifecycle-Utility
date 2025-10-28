@@ -1,0 +1,235 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "7211ef12-d0b6-4f8a-a177-41daaef40d76"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_gfatemplateconfiguration",
+              "subscriptionRequest/filterexpression": "_gap_gfatemplateconfiguration_value ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_GFA_Template": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "4f21dfdd-097d-435d-a8eb-fdf571df9333"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_gfaschemetemplates",
+              "recordId": "@triggerOutputs()?['body/_gap_gfatemplateconfiguration_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Grant_Access_to_Administrators": {
+          "runAfter": {
+            "Get_Administrator_Team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "GrantAccess",
+              "item/Target": "gap_gfaschemetemplates(@{outputs('Get_GFA_Template')?['body/gap_gfaschemetemplateid']})",
+              "item/PrincipalAccess": {
+                "Principal": {
+                  "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                  "teamid": "@{outputs('Get_Administrator_Team')?['body/teamid']}"
+                },
+                "AccessMask": "WriteAccess,ReadAccess,AppendAccess,AppendToAccess"
+              }
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Administrator_Team": {
+          "runAfter": {
+            "Get_GFA_Template": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ad4e6b4b-f36a-484e-b520-d0ea53aa1edb"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "recordId": "@triggerOutputs()?['body/_ownerid_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Reviewers": {
+          "runAfter": {
+            "Grant_Access_to_Administrators": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "928a3282-a981-4a4b-a028-99df63cc5967"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "recordId": "@triggerOutputs()?['body/_gap_reviewers_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Grant_Access_to_Reviewers": {
+          "runAfter": {
+            "Get_Reviewers": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7d5674f4-c87c-40b2-be42-cd5784159357"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "GrantAccess",
+              "item/Target": "gap_gfaschemetemplates(@{outputs('Get_GFA_Template')?['body/gap_gfaschemetemplateid']})",
+              "item/PrincipalAccess": {
+                "Principal": {
+                  "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                  "teamid": "@{outputs('Get_Reviewers')?['body/teamid']}"
+                },
+                "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+              }
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Quality_Controllers": {
+          "runAfter": {
+            "Grant_Access_to_Reviewers": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "293651c7-83ad-44bf-9e6b-d8f5c24e2ad4"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "recordId": "@triggerOutputs()?['body/_gap_qualitycontrollers_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Grant_Access_to_Quality_Controllers": {
+          "runAfter": {
+            "Get_Quality_Controllers": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7d5674f4-c87c-40b2-be42-cd5784159357"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "GrantAccess",
+              "item/Target": "gap_gfaschemetemplates(@{outputs('Get_GFA_Template')?['body/gap_gfaschemetemplateid']})",
+              "item/PrincipalAccess": {
+                "Principal": {
+                  "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                  "teamid": "@{outputs('Get_Quality_Controllers')?['body/teamid']}"
+                },
+                "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+              }
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

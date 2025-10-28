@@ -1,0 +1,23 @@
+function ShowhideControl(executionContext,controlName,toggleBoolean){
+
+    var formContext = executionContext.getFormContext();// get the form Context
+    
+    var booleanstatus = formContext.getAttribute(toggleBoolean).getValue();// get the value of toggle field
+    
+    if(booleanstatus == 0)
+    
+    {
+    
+                   formContext.getControl(controlName).setVisible(false);//Hide Subgrid
+    
+    }
+    
+    else
+    
+    {    
+    
+        formContext.getControl(controlName).setVisible(true);//Show Subgrid
+    
+    }
+    
+    }

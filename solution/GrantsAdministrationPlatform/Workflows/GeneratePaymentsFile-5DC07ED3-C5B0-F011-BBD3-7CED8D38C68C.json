@@ -1,0 +1,356 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "7b79d1b9-79d3-4360-83c8-6c1fb326719a"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Scheme Name",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Scheme_Name": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8c361333-b8a5-4dc3-9f97-cbd7230b4d53"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "$filter": "gap_title eq '@{triggerBody()['text']}'"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Compose_2": {
+          "runAfter": {
+            "Scheme_Name": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0e318675-caaf-49c5-a195-a2f65de83833"
+          },
+          "type": "Compose",
+          "inputs": "triggerOutputs()?['body/@{triggerBody()['text']}']"
+        },
+        "Filter_application": {
+          "runAfter": {
+            "Compose_2": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "98b6ae2c-b1c5-47d3-ae44-571c7b80c0c5"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "$filter": "gap_Scheme/gap_title eq '@{triggerBody()['text']}' and gap_currentstage eq 'Monitoring'",
+              "$expand": "gap_Scheme($select=gap_title)"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_2": {
+          "foreach": "@outputs('Filter_application')?['body/value']",
+          "actions": {
+            "Monitoring_Activity": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "1b7806d4-3e7a-4824-af52-f91174e18c65"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_monitoringactivities",
+                  "$select": "gap_name, gap_paymentamount, gap_currentstage, gap_paymentstatus",
+                  "$filter": "_gap_application_value eq @{items('Apply_to_each_2')?['gap_applicationid']} and gap_currentstage eq 'Payment Confirmation'  and gap_paymentstatus eq 899930000"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each": {
+              "foreach": "@outputs('Monitoring_Activity')?['body/value']",
+              "actions": {
+                "bankingDetails": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "9c4f9dc5-aab9-4f2e-b675-856e5cff430c"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_bankingdetailses",
+                      "$filter": "gap_bankingdetailsid eq @{items('Apply_to_each_2')?['_gap_bankingdetails_value']}",
+                      "$top": 1
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Apply_to_each_3": {
+                  "foreach": "@outputs('bankingDetails')?['body/value']",
+                  "actions": {
+                    "OneCSVRow": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "5b5c3843-9dd6-48ae-b7b9-97ead62f09be"
+                      },
+                      "type": "Compose",
+                      "inputs": {
+                        "GAPID": "@{items('Apply_to_each_2')?['gap_gapid']}",
+                        "ApplicantName": "@{items('Apply_to_each_3')?['gap_accountname']}",
+                        "SortCode": "@{items('Apply_to_each_3')?['gap_banksortcode']}",
+                        "AccountNumber": "@{items('Apply_to_each_3')?['gap_accountnumber']}",
+                        "BankName": "@{items('Apply_to_each_3')?['gap_bankorbuildingsocietyname']}",
+                        "PaymentAmount": "@{items('Apply_to_each')?['gap_paymentamount']}",
+                        "PaymentDate": ""
+                      }
+                    },
+                    "Append_to_array_variable": {
+                      "runAfter": {
+                        "OneCSVRow": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "623f3758-e3fd-4a29-a275-7b3df9e699a9"
+                      },
+                      "type": "AppendToArrayVariable",
+                      "inputs": {
+                        "name": "Rows",
+                        "value": "@outputs('OneCSVRow')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "bankingDetails": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "cae85c52-4b2f-4c7a-9751-c894c05e89b9"
+                  },
+                  "type": "Foreach"
+                }
+              },
+              "runAfter": {
+                "Monitoring_Activity": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "9ce825ef-542e-4959-ba80-9a6be4d78e76"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Filter_application": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bf0ec300-a9ff-4667-864a-5600b5ff76ef"
+          },
+          "type": "Foreach"
+        },
+        "Create_CSV_table": {
+          "runAfter": {
+            "Apply_to_each_2": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f6e7bfee-12b5-497a-a990-679856ffe1d3"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@variables('Rows')",
+            "format": "CSV",
+            "columns": [
+              {
+                "header": "GAPID",
+                "value": "@item()?['GAPID']"
+              },
+              {
+                "header": "AccountName",
+                "value": "@item()?['ApplicantName']"
+              },
+              {
+                "header": "SortCode",
+                "value": "@item()?['SortCode']"
+              },
+              {
+                "header": "AccountNumber",
+                "value": "@item()?['AccountNumber']"
+              },
+              {
+                "header": "BankName",
+                "value": "@item()?['BankName']"
+              },
+              {
+                "header": "PaymentAmount",
+                "value": "@item()?['PaymentAmount']"
+              },
+              {
+                "header": "PaymentDate",
+                "value": "@item()?['PaymentDate']"
+              }
+            ]
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "848eac6e-e5e0-41cd-9deb-0876eff26046"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Rows",
+                "type": "array",
+                "value": []
+              }
+            ]
+          }
+        },
+        "List_rows": {
+          "runAfter": {
+            "Create_CSV_table": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c1915971-2e70-4bf4-aeb0-2aa128e2419e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "$filter": "gap_title eq '@{triggerBody()['text']}'",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_4": {
+          "foreach": "@outputs('List_rows')?['body/value']",
+          "actions": {
+            "Add_a_new_row": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "aa86b27b-0e01-4378-b64b-047019ba8430"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_documents",
+                  "item/gap_title": "@concat('CSV Export - ', triggerBody()?['body']?['Scheme Name'])",
+                  "item/gap_csvfile": "@outputs('Create_CSV_table')?['body']",
+                  "item/gap_fileid": "@concat('CSV_', formatDateTime(utcNow(), 'yyyyMMdd'))",
+                  "item/overriddencreatedon": "@utcNow()",
+                  "item/cr982_Scheme@odata.bind": "@concat('gap_schemes(', item()?['gap_schemeid'], ')')",
+                  "item/gap_size": "@length(outputs('Create_CSV_table')?['body'])",
+                  "item/gap_type": 803260001,
+                  "item/utcconversiontimezonecode": 0
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6888021d-4161-4358-9ba0-e1044c040a1e"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{68e77518-a7b4-43c3-aafc-9a899a8032b3}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{e9ce9103-4936-477d-afe8-7e416458050b}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{543d2afd-3951-4b0a-9a6a-47f6b46bed04}" columns="1">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{f47f4c78-b892-447f-87b4-8cc21500d927}" colspan="1">
+                        <labels>
+                          <label description="Subject" languagecode="1033" />
+                        </labels>
+                        <control id="subject" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="subject" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0bfc5f40-b4ca-445f-85e5-cdb3bdc275d3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="header_gap_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_type" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{64c8b9b6-38be-47f8-8bee-10289519a7de}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="description" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5c43e264-407d-4933-ba8f-f5d0c03dc693}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Outcome" languagecode="1033" />
+                        </labels>
+                        <control id="gap_outcome" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_outcome" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aa990800-a41a-45fc-afdb-bcccd3365e19}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Outcome Value" languagecode="1033" />
+                        </labels>
+                        <control id="gap_outcomevalue" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="gap_outcomevalue" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e4241fbd-2841-466f-a240-04dbe7998c52}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Commentary" languagecode="1033" />
+                        </labels>
+                        <control id="gap_commentary" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_commentary" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_4" id="3e64c9ed-0893-4ada-8e32-2dafee091df0" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{99c11c9e-aa63-4c5f-82ba-7b202ad38fc2}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="Referrals" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Referral_SubGrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <TargetEntityType>gap_review</TargetEntityType>
+                            <ViewId>{775C280C-3EDD-EE11-904D-6045BDD0E669}</ViewId>
+                            <ViewIds>{334B8846-0E2E-484F-B991-A296A315318F},{AA8094A7-EBBF-4DA9-93DE-E6B74670A825},{775C280C-3EDD-EE11-904D-6045BDD0E669}</ViewIds>
+                            <RelationshipName>gap_review_gap_Reviews</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="_section_810" id="2952ec31-7de5-4b34-b432-584f59967f2c" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{bdc77b29-33ea-49ac-ad03-f9a1e1810327}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Scheme" languagecode="1033" />
+                        </labels>
+                        <control id="gap_scheme" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_scheme" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{10ce48a1-ec15-4ac7-87a5-ea4dc3320331}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Regarding" languagecode="1033" />
+                        </labels>
+                        <control id="regardingobjectid" classid="{F3015350-44A2-4aa0-97B5-00166532B5E9}" datafieldname="regardingobjectid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e13f0b87-4ee6-42b2-8677-4f79c866d69b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Related" languagecode="1033" />
+                        </labels>
+                        <control id="gap_regardingreview" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_regardingreview" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{72c38823-ed44-44cc-80e3-663efa524b74}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Linked To" languagecode="1033" />
+                        </labels>
+                        <control id="gap_linkedto" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_linkedto" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{108ac739-83f0-4b69-8009-1a75251ce8e1}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Eligible for Resubmission" languagecode="1033" />
+                        </labels>
+                        <control id="gap_eligibleforresubmission" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_eligibleforresubmission" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f6ea2280-60cb-43a8-a0a6-4ecc19c6b687}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Enable Referrals" languagecode="1033" />
+                        </labels>
+                        <control id="gap_enablereferrals" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_enablereferrals" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5249e71f-a54f-4c18-9818-3274150b38a1}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Resubmission Trigger" languagecode="1033" />
+                        </labels>
+                        <control id="gap_resubmissiontrigger" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_resubmissiontrigger" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{44a885d1-4c16-4e88-87fe-69237630197f}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Referral Check Trigger" languagecode="1033" />
+                        </labels>
+                        <control id="gap_referralchecktrigger" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_referralchecktrigger" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{384ebd4d-f528-444f-9c4a-1db55b40638c}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
+                        <labels>
+                          <label description="Configuration | Completed Field" languagecode="1033" />
+                        </labels>
+                        <control id="gap_configurationcompletedfield" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_configurationcompletedfield" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3f6acc2e-0723-4e3b-86be-eb78a78de01d}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Configuration | Lookup Field" languagecode="1033" />
+                        </labels>
+                        <control id="gap_configurationlookupfield" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_configurationlookupfield" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{177562a6-7ff8-4a47-ae21-d6f5aa1942e8}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Configuration | Relationship" languagecode="1033" />
+                        </labels>
+                        <control id="gap_configurationrelationship" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_configurationrelationship" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="reassign_reviewer" id="70262bb9-652f-427f-9aa2-94ce7e966a46" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="Choose a reviewer to reassign to" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{35adcc10-b01e-41df-8ed7-a867f8f6469e}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Assigned Team" languagecode="1033" />
+                        </labels>
+                        <control id="gap_assignedteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_assignedteam" disabled="true">
+                          <parameters />
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ce4302df-ae2d-4a07-9ac6-97ffb7f9326c}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Reviewer Option Array" languagecode="1033" />
+                        </labels>
+                        <control id="gap_revieweroptionarray" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_revieweroptionarray" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{883d9310-a26f-4da2-9f6e-d75d3c2ead0a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Reassign Review?" languagecode="1033" />
+                        </labels>
+                        <control id="gap_reviewreassignswitch" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_reviewreassignswitch" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cf7b4fe5-f2c9-4265-8da6-1a60b437a0c6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Choose a reviewer" languagecode="1033" />
+                        </labels>
+                        <control id="gap_reassignreviewer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_reassignreviewer" disabled="false">
+                          <parameters>
+                            <DisableMru>true</DisableMru>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <useMainFormDialogForEdit>true</useMainFormDialogForEdit>
+                            <useMainFormDialogForCreate>true</useMainFormDialogForCreate>
+                            <DefaultViewId>{30CE6879-6B7A-E211-8976-00155D89AC0C}</DefaultViewId>
+                            <AvailableViewIds>{ABA981C9-16A2-4DCC-B694-376AE95FA4B0},{862C3CBF-23FF-4EAB-B9A9-7B438BAC70A9},{51AF2F40-36BB-4198-9B0C-71A986C7C953},{F79AD170-AE03-4F4C-8132-D4AA08520A0C},{00000000-0000-0000-00AA-000010001119},{5953249B-2A59-43BF-A94F-6B8CC1F2D245},{00000000-0000-0000-00AA-000010001019},{DA675923-DA9D-4702-AAD6-3207283A5ACE},{00000000-0000-0000-00AA-000010001020},{8DD58E14-0138-47D4-BA2D-A7DC76094D05},{00000000-0000-0000-00AA-000010001021},{1FE05F14-0074-49E3-B55D-0AF1FD0A2B85},{AF89FDC8-5D83-40B4-988C-A0941579EE9D},{BB3CD580-ECFB-4A85-A623-9A109B73815F},{5FDA842A-004B-42B4-A611-B93C2C69667E},{490B1410-D231-46B0-B5FA-60017B21AB14},{30CE6879-6B7A-E211-8976-00155D89AC0C},{AAD628C6-F0DD-4D34-B0ED-9A78F9C23A20},{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8},{E5D893D1-2B1F-46E5-8EA4-25562567CCCE},{19487F2F-8405-4D59-8F8B-4EDA98D4F302},{31E76B45-BFE7-447E-B4B5-50DC393BCDBE},{FCF02D37-524A-4332-8AC7-497EF6B739F9},{89939D86-F073-42BA-BFC4-DA7999C78825}</AvailableViewIds>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{e0f0aaf1-1e33-46c1-8499-2b9098f71010}" celllabelposition="Top" columns="1111" labelwidth="115">
+        <rows>
+          <row>
+            <cell locklevel="0" id="{71e8b71c-44b8-42ee-830e-51bce6a8d2ff}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{9c53813e-57e7-49cf-94d5-f6dc072b48ce}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4a70a858-aed2-4b98-9acb-cb80641c5b4e}" visible="false">
+              <labels>
+                <label description="Activity Status" languagecode="1033" />
+              </labels>
+              <control id="header_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+            </cell>
+            <cell locklevel="0" id="{668f2d6d-e3ff-4dda-9b06-8fea5e706ff0}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b555735f-ac1b-4e5d-b49e-469b96f77395}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Status" languagecode="1033" />
+              </labels>
+              <control id="header_gap_reviewstatus" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_reviewstatus" disabled="false" />
+            </cell>
+            <cell id="{528416a3-4ad3-4b83-be53-07f9ed20451f}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" />
+            </cell>
+            <cell locklevel="0" id="{22a3c01d-5095-4f15-a718-4afe5f8a4c48}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{0561ca7a-0558-4eac-8467-db1cc3c52761}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{2d4a640b-3066-440c-8a1d-b86e5bc27684}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c4dac8e8-1e5f-4b98-b925-d926b4a6f2b8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{cdc4b445-c731-4f86-8879-6c3260608730}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="gap_togglesubgrid" libraryUniqueId="{170edd3a-e451-4b56-b36b-f8c8bba89138}" />
+        <Library name="gap_SetDropdownVisibility" libraryUniqueId="{1229fd2d-707f-49f7-8af3-6612a09b032e}" />
+        <Library name="gap_SetCustomView" libraryUniqueId="{695d52f5-113a-4321-af4f-41b0de37136b}" />
+        <Library name="gap_FilterUserLookup" libraryUniqueId="{989e53d8-8f92-4f63-867d-70f5306909b9}" />
+        <Library name="gap_reviewButtonVisibility" libraryUniqueId="{b9667260-fb3a-4435-9070-b6bae673042e}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="ShowhideControl" libraryName="gap_togglesubgrid" handlerUniqueId="{96cf5905-90b0-49aa-8ce7-30a1903219f9}" enabled="true" parameters="&quot;Referral_SubGrid&quot;,&quot;gap_enablereferrals&quot;" passExecutionContext="true" />
+            <Handler functionName="setButtonsVisibility" libraryName="gap_reviewButtonVisibility" handlerUniqueId="{8340114e-cf18-4110-9741-2dd5470d5ec6}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="gap_reviewreassignswitch">
+          <Handlers>
+            <Handler functionName="filterLookupOptions" libraryName="gap_FilterUserLookup" handlerUniqueId="{a30018f1-6493-4178-a1e7-56296f6e0967}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{46a5b797-4c24-4be3-9c8f-0c559d185d99}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{175609fa-78f2-423a-b04a-13027fd52220}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{784316d4-7b64-4abd-9794-104955104123}">
+          <labels>
+            <label description="Document Query" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{02c5cc09-c0ce-f163-6821-3ae78e9e0c31}" name="StageStep3_section1" labelid="{25d77fde-7b04-43ad-9c02-d479921609ab}">
+                  <labels>
+                    <label description="Document Query" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{6b900dd0-35c9-4386-99ff-f3c5898ed1e9}" showlabel="true" visible="true" labelid="{bb913dd1-7427-4da6-987c-485185abab0d}">
+                        <labels>
+                          <label description="Document Query | Completed On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_inboundquery_gap_inboundqueryprocess:gap_documentquerycompletedon" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_documentquerycompletedon" disabled="false" relationship="bpf_gap_inboundquery_gap_inboundqueryprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{99c40a5d-3446-416e-8e03-8d8bd7e691c4}" showlabel="true" visible="true" labelid="{2094d1b2-956d-4cfd-82b8-445b10b3770d}">
+                        <labels>
+                          <label description="Covered by FAQ" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_inboundquery_gap_inboundqueryprocess:gap_coveredbyfaq" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="gap_coveredbyfaq" disabled="false" relationship="bpf_gap_inboundquery_gap_inboundqueryprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{bdf67cd2-c677-4aa0-9942-50a4536cf40d}" name="StageStep9" locklevel="0" expanded="true" visible="false" labelid="{50a4c665-8062-4177-b2dc-ef3e478580a9}">
+          <labels>
+            <label description="Send Response" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{4d83eaf9-0d8b-dcfc-07a3-0dfe684faac4}" name="StageStep9_section1" labelid="{72e9ad95-2c10-42b8-be4e-a8ea6478627b}">
+                  <labels>
+                    <label description="Send Response" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{75428312-8ff0-40f6-a371-334617d70baa}" showlabel="true" visible="true" labelid="{34ef7456-55b6-4ab6-b143-9cd323edc138}">
+                        <labels>
+                          <label description="Response Sent On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_inboundquery_gap_inboundqueryprocess:gap_responsesenton" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_responsesenton" disabled="false" relationship="bpf_gap_inboundquery_gap_inboundqueryprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{7cbff539-213d-4189-8160-cae33468034d}" name="StageStep13" locklevel="0" expanded="true" visible="false" labelid="{0702019f-1dc2-40ca-ac08-231dbcb7d09f}">
+          <labels>
+            <label description="Escalation Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{7fbff8c8-1fb6-f81c-0d67-7715c765e2b4}" name="StageStep13_section1" labelid="{bcce9d9a-69a7-4566-9798-14823d0f09b6}">
+                  <labels>
+                    <label description="Escalation Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{95c5cae4-807e-48d4-8675-31c44e1b1068}" showlabel="true" visible="true" labelid="{3d99298a-1907-4817-bb3b-1e0052c488dd}">
+                        <labels>
+                          <label description="Escalation Review" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_inboundquery_gap_inboundqueryprocess:gap_escalationreview" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="gap_escalationreview" disabled="false" relationship="bpf_gap_inboundquery_gap_inboundqueryprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{c645dbf7-27c6-45bb-9f30-b2e15cd9e675}" name="StageStep17" locklevel="0" expanded="true" visible="false" labelid="{f23ebcd2-62c5-4dae-b869-36bf9ab63bf9}">
+          <labels>
+            <label description="Send Response" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{24149547-c83d-d713-32bd-efb79a969280}" name="StageStep17_section1" labelid="{ccb8d10e-a759-446e-bf20-041586bb8010}">
+                  <labels>
+                    <label description="Send Response" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{2eefbf76-be1e-4d9e-8d1e-0c98981bb438}" showlabel="true" visible="true" labelid="{7ebeba47-e9a0-4d34-a68b-d3ec5c0baecb}">
+                        <labels>
+                          <label description="Response Sent On" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_inboundquery_gap_inboundqueryprocess:gap_responsesenton" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_responsesenton" disabled="false" relationship="bpf_gap_inboundquery_gap_inboundqueryprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

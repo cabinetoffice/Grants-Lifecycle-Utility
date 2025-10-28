@@ -1,0 +1,49 @@
+<appaction uniquename="gap__SubjectiveScoring!66d5b6b8e3ca4d48bc53b53a99900ffc!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Subjective Scoring Pop Up">
+    <label description="Subjective Scoring Pop Up" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Open Subjective Scoring">
+    <label description="Open Subjective Scoring" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to complete subjective scoring via a pop up window">
+    <label description="Button to complete subjective scoring via a pop up window" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Subjective Scoring Pop Up">
+    <label description="Subjective Scoring Pop Up" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>OpenInNewWindow</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>SubjectiveScoring!66d5b6b8e3ca4d48bc53b53a99900ffc</name>
+  <onclickeventjavascriptfunctionname>openCustomPageDialog</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>dbcd6394-8b89-f011-b4cc-6045bd1102ef</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!16007fcd8bc145dc8e65ef7e8b696df1!gap_DEMO!gap_application!0</uniquename>
+  </parentappactionid>
+  <sequence>3750.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>0e20859bb09144c394a3219a40dce60f</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

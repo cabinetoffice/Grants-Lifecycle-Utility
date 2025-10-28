@@ -1,0 +1,46 @@
+<appaction uniquename="gap__SubmitGFA!e2121ddfe43743fab6fdb717d84bbcc2!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Submit GFA">
+    <label description="Submit GFA" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Submit GFA">
+    <label description="Submit GFA" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to confirm GFA submission">
+    <label description="Button to confirm GFA submission" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Submit GFA ">
+    <label description="Submit GFA " languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Completed</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>SubmitGFA!e2121ddfe43743fab6fdb717d84bbcc2</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>b5ad843a21f74b32a8fefd3c9b125e9b</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100036.5625000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>b5ad843a21f74b32a8fefd3c9b125e9b</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

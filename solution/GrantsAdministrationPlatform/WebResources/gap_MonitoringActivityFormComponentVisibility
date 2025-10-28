@@ -1,0 +1,33 @@
+function onLoad(executionContext) {
+    var formContext = executionContext.getFormContext();
+
+    // Retrieve the value of the field 'gap_currentstage'
+    var attribute = formContext.getAttribute("gap_currentstage");
+    var currentStageValue = attribute ? attribute.getValue() : null;
+
+    // Check if 'gap_currentstage' equals "Drafting" or "Error (Drafting)"
+    if (currentStageValue === "Drafting" || currentStageValue === "Error (Drafting)") {
+        toggleSectionVisibility(formContext, "documentssection", false);
+        toggleTabVisibility(formContext, "tab_2", false);
+    } else {
+        toggleSectionVisibility(formContext, "documentssection", true);
+        toggleTabVisibility(formContext, "tab_2", true);
+    }
+}
+
+function toggleSectionVisibility(formContext, sectionName, isVisible) {
+    var tabs = formContext.ui.tabs.get();
+    tabs.forEach(function(tab) {
+        var section = tab.sections.get(sectionName);
+        if (section) {
+            section.setVisible(isVisible);
+        }
+    });
+}
+
+function toggleTabVisibility(formContext, tabName, isVisible) {
+    var tab = formContext.ui.tabs.get(tabName);
+    if (tab) {
+        tab.setVisible(isVisible);
+    }
+}

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{5755df4a-3a76-418c-af5f-a49c61886e11}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_name" select="1" icon="1" preview="1">
+        <row name="result" id="gap_expectedpaymentrequestid">
+          <cell name="gap_name" width="300" />
+          <cell name="gap_type" width="150" />
+          <cell name="gap_deadlineforevidence" width="150" />
+          <cell name="gap_deadlineforpaymentrequest" width="150" />
+          <cell name="gap_amount" width="150" />
+          <cell name="gap_receivedon" width="150" />
+          <cell name="gap_senton" width="150" />
+          <cell name="gap_expectedpaymentstructure" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_expectedpaymentrequest">
+          <attribute name="gap_expectedpaymentrequestid" />
+          <attribute name="gap_name" />
+          <attribute name="createdon" />
+          <order attribute="gap_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_type" />
+          <attribute name="gap_deadlineforevidence" />
+          <attribute name="gap_deadlineforpaymentrequest" />
+          <attribute name="gap_amount" />
+          <attribute name="gap_receivedon" />
+          <attribute name="gap_senton" />
+          <attribute name="gap_expectedpaymentstructure" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Expected Payment Requests" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

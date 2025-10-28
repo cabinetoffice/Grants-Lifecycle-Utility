@@ -1,0 +1,232 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Delay (gap_Delay)": {
+          "defaultValue": 45,
+          "type": "Int",
+          "metadata": {
+            "schemaName": "gap_Delay"
+          }
+        }
+      },
+      "triggers": {
+        "Trigger": {
+          "metadata": {
+            "operationMetadataId": "82681f86-52d7-4f85-b1d5-0949087eeae8"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "gap_document",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "_cr982_scheme_value ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "actions": {
+            "Share_with_Admins": {
+              "runAfter": {
+                "Get_Scheme": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a0a5beeb-efb7-4f1d-9968-895d2aef91bf"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "PerformUnboundAction",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "actionName": "GrantAccess",
+                  "item/Target": "gap_documents(@{triggerOutputs()?['body/gap_documentid']})",
+                  "item/PrincipalAccess": {
+                    "Principal": {
+                      "teamid": "@{outputs('Get_Scheme')?['body/_ownerid_value']}",
+                      "@@odata.type": "Microsoft.Dynamics.CRM.team"
+                    },
+                    "AccessMask": "ReadAccess,WriteAccess,AppendAccess,AppendToAccess"
+                  }
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Share_with_Reviewers": {
+              "runAfter": {
+                "Share_with_Admins": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c56f4bfe-282c-448b-8375-ead949c4910d"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "PerformUnboundAction",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "actionName": "GrantAccess",
+                  "item/Target": "gap_documents(@{triggerOutputs()?['body/gap_documentid']})",
+                  "item/PrincipalAccess": {
+                    "Principal": {
+                      "teamid": "@{outputs('Get_Scheme')?['body/_gap_reviewers_value']}",
+                      "@@odata.type": "Microsoft.Dynamics.CRM.team"
+                    },
+                    "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                  }
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Share_with_Quality_Controllers": {
+              "runAfter": {
+                "Share_with_Reviewers": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "6a09a359-493e-4648-9332-a379a91c730e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "PerformUnboundAction",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "actionName": "GrantAccess",
+                  "item/Target": "gap_documents(@{triggerOutputs()?['body/gap_documentid']})",
+                  "item/PrincipalAccess": {
+                    "Principal": {
+                      "teamid": "@{outputs('Get_Scheme')?['body/_gap_qualitycontrollers_value']}",
+                      "@@odata.type": "Microsoft.Dynamics.CRM.team"
+                    },
+                    "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                  }
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Delay": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "8a1fde81-1809-430c-96fd-4cab7542bba9"
+              },
+              "type": "Wait",
+              "inputs": {
+                "interval": {
+                  "count": "@parameters('Delay (gap_Delay)')",
+                  "unit": "Second"
+                }
+              }
+            },
+            "Get_Scheme": {
+              "runAfter": {
+                "Delay": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2558597b-dbb1-43b7-ad3c-d559eacc419d"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@triggerOutputs()?['body/_cr982_scheme_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ead314cf-d742-4c13-9dd9-b2db06bccc1d"
+          },
+          "type": "Scope"
+        },
+        "Scope_|_Error_Handling": {
+          "actions": {
+            "Create_Log": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "0092ce06-86f9-4f5a-9c09-fc816a1c2af6"
+              },
+              "type": "Workflow",
+              "inputs": {
+                "host": {
+                  "workflowReferenceName": "1b684e2c-81d1-ee11-9079-0022480043c2"
+                },
+                "body": {
+                  "text": "Error",
+                  "text_1": "An error occured when sharing a scheme level document.",
+                  "text_3": "Scheme",
+                  "text_2": "@workflow()",
+                  "text_4": "@triggerOutputs()?['body/_cr982_scheme_value']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af651a4b-2f17-4b68-9af4-0109318618a3"
+          },
+          "type": "Scope"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

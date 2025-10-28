@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{4d54a76c-08a5-f011-bbd3-6045bd0ec921}</WebResourceId>
+  <Name>gap_MonitoringActivityFormComponentVisibility</Name>
+  <DisplayName>MonitoringActivityFormComponentVisibility</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>4.1.1.7</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_MonitoringActivityFormComponentVisibility4D54A76C-08A5-F011-BBD3-6045BD0EC921</FileName>
+</WebResource>

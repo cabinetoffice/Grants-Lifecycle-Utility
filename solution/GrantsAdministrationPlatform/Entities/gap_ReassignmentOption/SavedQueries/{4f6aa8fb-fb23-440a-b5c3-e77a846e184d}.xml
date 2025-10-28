@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{4f6aa8fb-fb23-440a-b5c3-e77a846e184d}</savedqueryid>
+    <layoutxml>
+      <grid name="gap_reassignmentoptions" jump="gap_revieweroption" select="1" icon="1" preview="1">
+        <row name="gap_reassignmentoption" id="gap_reassignmentoptionid">
+          <cell name="gap_revieweroption" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_reassignmentoption">
+          <attribute name="gap_reassignmentoptionid" />
+          <attribute name="gap_revieweroption" />
+          <attribute name="createdon" />
+          <order attribute="gap_revieweroption" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Reassignment Option Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

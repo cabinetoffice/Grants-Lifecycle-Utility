@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{34bbb879-d18c-f011-b4cb-000d3ad60bb2}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_id" select="1" icon="1" preview="1">
+        <row name="result" id="gap_applicationid">
+          <cell name="gap_gapid" width="271" />
+          <cell name="gap_id" width="300" />
+          <cell name="gap_currentstage" width="139" />
+          <cell name="ownerid" width="147" />
+          <cell name="gap_importcompletedon" width="224" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="gap_application">
+          <attribute name="gap_id" />
+          <attribute name="gap_applicationid" />
+          <attribute name="ownerid" />
+          <attribute name="gap_importcompletedon" />
+          <attribute name="gap_gapid" />
+          <order attribute="gap_importcompletedon" descending="true" />
+          <attribute name="gap_currentstage" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>3.1.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Linked Applications" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,797 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Stage_Updated": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_monitoringactivity",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_currentstage",
+              "subscriptionRequest/filterexpression": "gap_currentstage eq 'Initial Review' and gap_initializedstage ne 'Initial Review'"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "021c447b-db9a-440c-aed1-b774538d3387"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_Error_Message": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Error Message",
+                "type": "string"
+              }
+            ]
+          },
+          "runAfter": {
+            "Update_a_row": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "04a47c8f-551e-4423-9cf7-77ae16b4841a"
+          }
+        },
+        "Try": {
+          "type": "Scope",
+          "actions": {
+            "Reviewer_Requires_Setting": {
+              "type": "If",
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@triggerOutputs()?['body/_gap_initialreviewer_value']",
+                      "@null"
+                    ]
+                  }
+                ]
+              },
+              "actions": {
+                "List_Users_in_Reviewer_Team": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "teammemberships",
+                      "$filter": "teamid eq @{outputs('Get_Scheme')?['body/_gap_reviewers_value']}"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "connectionName": "shared_commondataserviceforapps-1"
+                    }
+                  },
+                  "runAfter": {
+                    "Set_Initial_Reviewer": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "61148d74-6c1b-4899-bf34-f63a5b9ad734"
+                  }
+                },
+                "Condition_|_Initial_Reviewer_in_Reviewer_Team": {
+                  "type": "If",
+                  "expression": {
+                    "contains": [
+                      "@variables('Reviewers Team')",
+                      "@variables('Initial Reviewer')"
+                    ]
+                  },
+                  "actions": {
+                    "Update_Initial_Reviewer": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "entityName": "gap_monitoringactivities",
+                          "recordId": "@triggerOutputs()?['body/gap_monitoringactivityid']",
+                          "item/gap_InitialReviewer@odata.bind": "systemusers(@{outputs('Get_Application')?['body/_gap_initialreviewer_value']})"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                          "operationId": "UpdateOnlyRecord",
+                          "connectionName": "shared_commondataserviceforapps-1"
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "4737f97c-90ad-4517-bb0f-82085b953310"
+                      }
+                    }
+                  },
+                  "else": {
+                    "actions": {
+                      "List_Users_(Reviewer_Team)": {
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "parameters": {
+                            "entityName": "teammemberships",
+                            "$filter": "teamid eq @{outputs('Get_Scheme')?['body/_gap_reviewers_value']}"
+                          },
+                          "host": {
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                            "operationId": "ListRecords",
+                            "connectionName": "shared_commondataserviceforapps-1"
+                          }
+                        },
+                        "metadata": {
+                          "operationMetadataId": "6753efe7-ad59-4c91-aa95-c5e27b21ef4f"
+                        }
+                      },
+                      "Condition_|_Minimum_Quantity": {
+                        "type": "If",
+                        "expression": {
+                          "greaterOrEquals": [
+                            "@length(outputs('List_Users_(Reviewer_Team)')?['body/value'])",
+                            1
+                          ]
+                        },
+                        "actions": {
+                          "Apply_to_each_2": {
+                            "type": "Foreach",
+                            "foreach": "@outputs('List_Users_(Reviewer_Team)')?['body/value']",
+                            "actions": {
+                              "List_rows_|_Applications_for_this_Scheme": {
+                                "type": "OpenApiConnection",
+                                "inputs": {
+                                  "parameters": {
+                                    "entityName": "gap_applications",
+                                    "$filter": "_gap_scheme_value eq @{outputs('Get_Scheme')?['body/gap_schemeid']} and _ownerid_value eq @{items('Apply_to_each_2')?['systemuserid']}"
+                                  },
+                                  "host": {
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                    "operationId": "ListRecords",
+                                    "connectionName": "shared_commondataserviceforapps-1"
+                                  }
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "aeb469e1-715b-406f-8fc6-07153444cbec"
+                                }
+                              },
+                              "List_rows_|_Monitoring_Activities_for_this_Scheme": {
+                                "type": "OpenApiConnection",
+                                "inputs": {
+                                  "parameters": {
+                                    "entityName": "gap_monitoringactivities",
+                                    "$filter": "_gap_scheme_value eq @{outputs('Get_Scheme')?['body/gap_schemeid']} and _ownerid_value eq @{items('Apply_to_each_2')?['systemuserid']}"
+                                  },
+                                  "host": {
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                    "operationId": "ListRecords",
+                                    "connectionName": "shared_commondataserviceforapps-1"
+                                  }
+                                },
+                                "runAfter": {
+                                  "List_rows_|_Applications_for_this_Scheme": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "fe1fba3f-fc37-46eb-9ef6-370662727d03"
+                                }
+                              },
+                              "Get_User": {
+                                "type": "OpenApiConnection",
+                                "inputs": {
+                                  "parameters": {
+                                    "entityName": "systemusers",
+                                    "recordId": "@items('Apply_to_each_2')?['systemuserid']"
+                                  },
+                                  "host": {
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                    "operationId": "GetItem",
+                                    "connectionName": "shared_commondataserviceforapps-1"
+                                  }
+                                },
+                                "runAfter": {
+                                  "List_rows_|_Monitoring_Activities_for_this_Scheme": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "8c39a028-9120-41c9-9050-22187fa00bb5"
+                                }
+                              },
+                              "Update_Review_Array": {
+                                "type": "AppendToArrayVariable",
+                                "inputs": {
+                                  "name": "Review Array",
+                                  "value": {
+                                    "Reviewer": "@{items('Apply_to_each_2')?['systemuserid']}",
+                                    "Name": "@{outputs('Get_User')?['body/fullname']}",
+                                    "Number of Reviews": "@add(length(outputs('List_rows_|_Monitoring_Activities_for_this_Scheme')?['body/value']), length(outputs('List_rows_|_Applications_for_this_Scheme')?['body/value']))"
+                                  }
+                                },
+                                "runAfter": {
+                                  "Get_User": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "29c63815-5529-4de6-b082-4ac66782f8f9"
+                                }
+                              }
+                            },
+                            "metadata": {
+                              "operationMetadataId": "f30f9ed6-6de3-423b-930a-41b4fd96b7c3"
+                            }
+                          },
+                          "Sort_Users": {
+                            "type": "Compose",
+                            "inputs": "@sort(variables('Review Array'), 'Number of Reviews')",
+                            "runAfter": {
+                              "Apply_to_each_2": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "d4c48e08-4738-4ea4-a08e-6e3d638a14f6"
+                            }
+                          },
+                          "Compose_|_Get_User": {
+                            "type": "Compose",
+                            "inputs": "@first(outputs('Sort_Users'))?['Reviewer']",
+                            "runAfter": {
+                              "Sort_Users": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "767c01dc-1939-4958-b616-6253732de87d"
+                            }
+                          },
+                          "Flow_|_Get_Team_Members": {
+                            "type": "Workflow",
+                            "inputs": {
+                              "host": {
+                                "workflowReferenceName": "1085c650-c272-f011-b4cc-0022483ff195"
+                              },
+                              "body": {
+                                "text": "@outputs('Get_Scheme')?['body/gap_schemeid']"
+                              }
+                            },
+                            "runAfter": {
+                              "Compose_|_Get_User": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "78ba3db9-7c9a-4553-bddd-ac3664b7e100"
+                            }
+                          },
+                          "Flow_|_Remove_Owner": {
+                            "type": "Workflow",
+                            "inputs": {
+                              "host": {
+                                "workflowReferenceName": "d251da56-97dc-ee11-904d-6045bdf1ea43"
+                              },
+                              "body": {
+                                "text": "@body('Flow_|_Get_Team_Members')?['users']",
+                                "text_1": "@outputs('Compose_|_Get_User')"
+                              }
+                            },
+                            "runAfter": {
+                              "Flow_|_Get_Team_Members": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "dbedc1e2-0c52-4e5d-acc8-2f6bdee0eacf"
+                            }
+                          },
+                          "Update_Owner": {
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "parameters": {
+                                "entityName": "gap_monitoringactivities",
+                                "recordId": "@triggerOutputs()?['body/gap_monitoringactivityid']",
+                                "item/gap_InitialReviewer@odata.bind": "systemusers(@{outputs('Compose_|_Get_User')})"
+                              },
+                              "host": {
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                "operationId": "UpdateOnlyRecord",
+                                "connectionName": "shared_commondataserviceforapps-1"
+                              }
+                            },
+                            "runAfter": {
+                              "Flow_|_Remove_Owner": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "8fe1b0f6-4047-478c-9011-7844d4437906"
+                            }
+                          }
+                        },
+                        "else": {
+                          "actions": {
+                            "Update_Error_Message": {
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "Error Message",
+                                "value": "There was an insufficient number of reviewers in the team."
+                              },
+                              "metadata": {
+                                "operationMetadataId": "10fa6d1a-7004-4de9-8e84-6d3936f9bcd4"
+                              }
+                            },
+                            "Trigger_Error": {
+                              "type": "Compose",
+                              "inputs": "@div(1,0)",
+                              "runAfter": {
+                                "Update_Error_Message": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "1d80a474-c36c-410f-ad6c-b6fb1d3d1c40"
+                              }
+                            }
+                          }
+                        },
+                        "runAfter": {
+                          "List_Users_(Reviewer_Team)": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "64961b35-7eb2-48eb-a86b-4fdd6f4fa09f"
+                        }
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Apply_to_each": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "c7232395-6b48-4bef-922e-516f543420b9"
+                  }
+                },
+                "Set_Initial_Reviewer": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Initial Reviewer",
+                    "value": "@outputs('Get_Application')?['body/_gap_initialreviewer_value']"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "1a974242-f164-49a3-b967-9817fc1e173e"
+                  }
+                },
+                "Apply_to_each": {
+                  "type": "Foreach",
+                  "foreach": "@outputs('List_Users_in_Reviewer_Team')?['body/value']",
+                  "actions": {
+                    "Append_to_Reviewers_Team": {
+                      "type": "AppendToArrayVariable",
+                      "inputs": {
+                        "name": "Reviewers Team",
+                        "value": "@items('Apply_to_each')?['systemuserid']"
+                      },
+                      "metadata": {
+                        "operationMetadataId": "84be5422-23f3-4ad3-8b91-74de10b6103f"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_Users_in_Reviewer_Team": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "109f5a41-d778-49a3-b2cb-85f642db498e"
+                  }
+                }
+              },
+              "else": {
+                "actions": {}
+              },
+              "runAfter": {
+                "Update_Monitoring_Structure_Owner": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "0d7481db-e049-4b21-8f21-d07726215746"
+              }
+            },
+            "Get_Latest_Monitoring_Activity": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_monitoringactivities",
+                  "recordId": "@triggerOutputs()?['body/gap_monitoringactivityid']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "runAfter": {
+                "Reviewer_Requires_Setting": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "0be54156-d4f6-47bc-977d-500cfa3a82d8"
+              }
+            },
+            "Update_Monitoring_Activity_Owner": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_monitoringactivities",
+                  "recordId": "@outputs('Get_Latest_Monitoring_Activity')?['body/gap_monitoringactivityid']",
+                  "item/ownerid@odata.bind": "systemusers(@{outputs('Get_Latest_Monitoring_Activity')?['body/_gap_initialreviewer_value']})"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "runAfter": {
+                "Get_Latest_Monitoring_Activity": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c01f1ba5-098e-4639-b581-0e8ae54f71db"
+              }
+            },
+            "Get_Application": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@triggerOutputs()?['body/_gap_application_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "1994cc12-5db8-4d61-8534-7e31a41767aa"
+              }
+            },
+            "Get_Scheme": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@outputs('Get_Application')?['body/_gap_scheme_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "runAfter": {
+                "Get_Application": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c28ec64c-40a9-411a-be9d-d1409c90cdaf"
+              }
+            },
+            "Monitoring_Checklist_Exists": {
+              "type": "If",
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@triggerOutputs()?['body/_gap_monitoringchecklist_value']",
+                        "@null"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "actions": {
+                "Update_Monitoring_Checklist_": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "gap_monitoringchecklists",
+                      "recordId": "@outputs('Get_Latest_Monitoring_Activity')?['body/_gap_monitoringchecklist_value']",
+                      "item/ownerid@odata.bind": "systemusers(@{outputs('Get_Latest_Monitoring_Activity')?['body/_gap_initialreviewer_value']})"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "connectionName": "shared_commondataserviceforapps-1"
+                    }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "536d1bae-5542-46d5-931f-72272cf532a9"
+                  }
+                }
+              },
+              "else": {
+                "actions": {}
+              },
+              "runAfter": {
+                "Update_Monitoring_Activity_Owner": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b0d9bee6-68dc-4063-b8ad-8efa306b2677"
+              }
+            },
+            "Get_Monitoring_Structure": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_monitoringstructures",
+                  "recordId": "@outputs('Get_Application')?['body/_gap_monitoringstructure_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "runAfter": {
+                "Get_Scheme": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a771e89a-cbef-4bbf-ad4a-8f61f29b02d7"
+              }
+            },
+            "Update_Monitoring_Structure_Owner": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_monitoringstructures",
+                  "recordId": "@outputs('Get_Monitoring_Structure')?['body/gap_monitoringstructureid']",
+                  "item/ownerid@odata.bind": "systemusers(@{outputs('Get_Monitoring_Structure')?['body/_createdby_value']})"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "runAfter": {
+                "Get_Monitoring_Structure": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f431af1a-8128-4c70-93b4-ff2560265354"
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_Reviewers_Team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cd509f08-3c93-4593-8f32-00cb80aa8023"
+          }
+        },
+        "Catch": {
+          "type": "Scope",
+          "actions": {
+            "Update_Monitoring_Activity_Stage": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_monitoringactivities",
+                  "recordId": "@triggerOutputs()?['body/gap_monitoringactivityid']",
+                  "item/gap_currentstage": "Error (Initial Review)"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "c01f1ba5-098e-4639-b581-0e8ae54f71db"
+              }
+            },
+            "Error_Message_Exists": {
+              "type": "If",
+              "expression": {
+                "and": [
+                  {
+                    "greater": [
+                      "@length(variables('Error Message'))",
+                      0
+                    ]
+                  }
+                ]
+              },
+              "actions": {
+                "Add_Custom_Error_Message": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "annotations",
+                      "item/subject": "An error occurred.",
+                      "item/notetext": "@variables('Error Message')",
+                      "item/objectid_gap_monitoringactivity@odata.bind": "gap_monitoringactivities(@{triggerOutputs()?['body/gap_monitoringactivityid']})"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "connectionName": "shared_commondataserviceforapps-1"
+                    }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "ef2dafcd-55ba-4452-921e-797fc9afac15"
+                  }
+                }
+              },
+              "else": {
+                "actions": {
+                  "Add_Standard_Error_Message": {
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "entityName": "annotations",
+                        "item/subject": "An error occurred.",
+                        "item/notetext": "Flow Name: @{workflow()['name']}\nRun ID: @{workflow()['run']['name']}\nDate & Time: @{utcNow()}\nLink: @{concat('https://make.powerautomate.com/environments/', workflow()['tags']['environmentName'], '/solutions/', split(workflow()['tags']['environmentWorkflowId'], '-')[1], '/flows/', workflow()['tags']['xrmWorkflowId'])\r\n}",
+                        "item/objectid_gap_monitoringactivity@odata.bind": "gap_monitoringactivities(@{triggerOutputs()?['body/gap_monitoringactivityid']})"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "operationId": "CreateRecord",
+                        "connectionName": "shared_commondataserviceforapps-1"
+                      }
+                    },
+                    "metadata": {
+                      "operationMetadataId": "d28264f6-6a18-46fb-aa4b-40a552729341"
+                    }
+                  }
+                }
+              },
+              "runAfter": {
+                "Update_Monitoring_Activity_Stage": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "5b41800d-c72e-45fe-bfc7-d9f4cc47b33f"
+              }
+            }
+          },
+          "runAfter": {
+            "Try": [
+              "TimedOut",
+              "Skipped",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "617add9f-d49a-4165-a1cf-f135603ca881"
+          }
+        },
+        "Update_a_row": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_monitoringactivities",
+              "recordId": "@triggerOutputs()?['body/gap_monitoringactivityid']",
+              "item/gap_initializedstage": "Initial Review"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "UpdateOnlyRecord",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "7271d5ae-8dcd-4869-babe-a440e6e21b2c"
+          }
+        },
+        "Initialize_Review_Array": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Review Array",
+                "type": "array"
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_Error_Message": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "25886939-3448-45f2-92cf-d79ac986eeb8"
+          }
+        },
+        "Initialize_Initial_Reviewer": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Initial Reviewer",
+                "type": "string"
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_Review_Array": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "71e41a0c-b8aa-4602-810e-9fc788925054"
+          }
+        },
+        "Initialize_Reviewers_Team": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Reviewers Team",
+                "type": "array"
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_Initial_Reviewer": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4929b5cc-4bab-411e-9cfd-8329fcb01e8a"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

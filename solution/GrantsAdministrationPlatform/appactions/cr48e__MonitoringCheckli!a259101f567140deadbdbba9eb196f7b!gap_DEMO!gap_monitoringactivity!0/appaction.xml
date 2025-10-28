@@ -1,0 +1,49 @@
+<appaction uniquename="cr48e__MonitoringCheckli!a259101f567140deadbdbba9eb196f7b!gap_DEMO!gap_monitoringactivity!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Monitoring Checklist Pop Up">
+    <label description="Monitoring Checklist Pop Up" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Monitoring Checklist Pop-Up">
+    <label description="Monitoring Checklist Pop-Up" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to view monitoring checklist pop up">
+    <label description="Button to view monitoring checklist pop up" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Monitoring Checklist Pop Up">
+    <label description="Monitoring Checklist Pop Up" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_monitoringactivity</logicalname>
+  </contextentity>
+  <contextvalue>gap_monitoringactivity</contextvalue>
+  <fonticon>OpenInNewWindow</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>MonitoringCheckli!a259101f567140deadbdbba9eb196f7b</name>
+  <onclickeventjavascriptfunctionname>openMonitoringChecklistDialog</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>23b7a4e9-13a5-f011-bbd2-6045bd13df5f</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!feb6ae077215492ab7852098fe9569ed!gap_DEMO!gap_monitoringactivity!0</uniquename>
+  </parentappactionid>
+  <sequence>5000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>eaba86f9ffb94b4690289854659512bc</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_scoringchecklistv2_d0366</Name>
+  <AppVersion>2025-10-27T14:29:48Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.25102.17.0</CreatedByClientVersion>
+  <MinClientVersion>3.25102.17.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1744","primaryDeviceHeight":"725","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25102.17","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251023T163816Z-3.25095.13.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Scoring Checklist v2</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Applications":{"entitySetName":"gap_applications","logicalName":"gap_application"},"Scoring Checklists":{"entitySetName":"gap_scoringchecklists","logicalName":"gap_scoringchecklist"},"Sections":{"entitySetName":"gap_sections","logicalName":"gap_section"},"Responses":{"entitySetName":"gap_responses","logicalName":"gap_response"},"Scoring Checklist Questions":{"entitySetName":"gap_scoringchecklistquestions","logicalName":"gap_scoringchecklistquestion"},"Scoring Checklist Sections":{"entitySetName":"gap_scoringchecklistsections","logicalName":"gap_scoringchecklistsection"},"Documents":{"entitySetName":"gap_documents","logicalName":"gap_document"},"Document Audits":{"entitySetName":"gap_documentaudits","logicalName":"gap_documentaudit"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"},"Bulk Delete Failures":{"entitySetName":"bulkdeletefailures","logicalName":"bulkdeletefailure"}},"components":[{"componentName":"CustomControl","identifier":"gap_GGMS.InlineFrame","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}}]}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>2</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"gap_application","componenttype":1},{"logicalname":"gap_scoringchecklist","componenttype":1},{"logicalname":"gap_section","componenttype":1},{"logicalname":"gap_response","componenttype":1},{"logicalname":"gap_scoringchecklistquestion","componenttype":1},{"logicalname":"gap_scoringchecklistsection","componenttype":1},{"logicalname":"gap_document","componenttype":1},{"logicalname":"gap_documentaudit","componenttype":1},{"logicalname":"systemuser","componenttype":1},{"logicalname":"bulkdeletefailure","componenttype":1},{"dependencyid":"","logicalname":"gap_GGMS.InlineFrame","componenttype":66,"componenttypeplatformname":"CustomControl"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_scoringchecklistv2_d0366_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_scoringchecklistv2_d0366_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/gap_scoringchecklistv2_d0366_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>

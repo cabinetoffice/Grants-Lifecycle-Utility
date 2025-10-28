@@ -1,0 +1,7 @@
+function DisableDropDownValue(executionContext) {
+    formContext = executionContext.getFormContext();
+    var optionSet = formContext.getControl("gap_changerevieweroptions");
+    var optionsArray = formContext.getAttribute("gap_revieweroptionarray").getValue();
+    console.log(optionsArray);
+    optionSet.removeOption('Tommy');
+}

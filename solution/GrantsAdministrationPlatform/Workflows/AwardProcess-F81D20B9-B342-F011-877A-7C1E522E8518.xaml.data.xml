@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{f81d20b9-b342-f011-877a-7c1e522e8518}" Name="Award Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/AwardProcess-F81D20B9-B342-F011-877A-7C1E522E8518.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <processorder>2</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_awardprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.39</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_Application</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Award Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{fd576ed0-cc34-4575-9519-4769926c5fad}">
+      <label languagecode="1033" description="GFA Letter Generation" />
+    </steplabels>
+    <steplabels id="{35b6d36b-e0cc-4eef-966e-a261b6ee5661}">
+      <label languagecode="1033" description="GFA Initial Review Completed On" />
+    </steplabels>
+    <steplabels id="{94936888-aec6-4bdd-9e4d-2c0b70eb5415}">
+      <label languagecode="1033" description="GFA Quality Review" />
+    </steplabels>
+    <steplabels id="{498fb7f6-2507-444b-916a-8577da91fcdf}">
+      <label languagecode="1033" description="GFA Quality Review Completed On" />
+    </steplabels>
+    <steplabels id="{7f3766d5-7a80-4deb-91ab-1453af35e09d}">
+      <label languagecode="1033" description="GFA Signing" />
+    </steplabels>
+    <steplabels id="{6ba127f8-3c38-4b0b-9dac-ee0744e6216e}">
+      <label languagecode="1033" description="GFA Signed &amp; Received On" />
+    </steplabels>
+    <steplabels id="{c1e2a5b3-05c4-4598-86f3-2dc1c3b340ee}">
+      <label languagecode="1033" description="Review GFA Completeness" />
+    </steplabels>
+    <steplabels id="{528a9fa3-55a8-453c-a3d5-dba4f797b621}">
+      <label languagecode="1033" description="GFA Completeness Review Completed On" />
+    </steplabels>
+    <steplabels id="{fa2d0328-f8d1-4838-807f-bcdf2948a07e}">
+      <label languagecode="1033" description="Signed GFA Email Review" />
+    </steplabels>
+    <steplabels id="{f73bdcf5-c752-4f1d-a31a-af8cb93301ec}">
+      <label languagecode="1033" description="Signed GFA Email Review Completed On" />
+    </steplabels>
+    <steplabels id="{f99d82f2-f1d0-4827-b470-92145ee61f7f}">
+      <label languagecode="1033" description="Signed GFA Email Quality Review" />
+    </steplabels>
+    <steplabels id="{8b966347-7160-4e05-81d3-36c3db71556f}">
+      <label languagecode="1033" description="Signed GFA Email Quality Review Completed On" />
+    </steplabels>
+    <steplabels id="{23c53ccc-7763-404e-b838-8326b4fff2be}">
+      <label languagecode="1033" description="Send Final GFA" />
+    </steplabels>
+    <steplabels id="{429f0f01-6b5c-4d1f-86f1-3ec6847d6134}">
+      <label languagecode="1033" description="Final GFA Sent On" />
+    </steplabels>
+    <steplabels id="{96f1d80c-6a9a-49f0-9282-eb9070bceccf}">
+      <label languagecode="1033" description="Define Monitoring Structure" />
+    </steplabels>
+    <steplabels id="{887cf2be-2e7f-4fb5-9cf9-cba0efec21c0}">
+      <label languagecode="1033" description="Define Structure Completed On" />
+    </steplabels>
+    <steplabels id="{79173492-be0b-470f-a788-8def85d9da9f}">
+      <label languagecode="1033" description="Monitoring" />
+    </steplabels>
+    <steplabels id="{51f8b76d-8b3a-4c2a-84d0-1d11b36238d2}">
+      <label languagecode="1033" description="Payment Started On" />
+    </steplabels>
+  </labels>
+</Workflow>

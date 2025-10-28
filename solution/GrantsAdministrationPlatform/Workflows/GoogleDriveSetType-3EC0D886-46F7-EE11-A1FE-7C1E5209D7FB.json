@@ -1,0 +1,154 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Trigger": {
+          "metadata": {
+            "operationMetadataId": "17a9ac16-629e-4460-a25f-e06985d1655a"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "gap_document",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_title",
+              "subscriptionRequest/filterexpression": "gap_title ne null",
+              "subscriptionRequest/name": "3ec0d886-46f7-ee11-a1fe-7c1e5209d7fb"
+            },
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Scope_|_Core_Process": {
+          "actions": {
+            "Extension": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "9e0b51d8-0e1e-45a5-a6bc-e3165f1b2f99"
+              },
+              "type": "Compose",
+              "inputs": "@last(split(triggerOutputs()?['body/gap_title'], '.'))"
+            },
+            "Get_Mappings": {
+              "runAfter": {
+                "Extension": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "527d0df2-b5e4-4405-a05f-aa1899e7a8bf"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_extensionmappings",
+                  "$filter": "gap_extension eq '@{outputs('Extension')}'"
+                },
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Update_Document": {
+              "runAfter": {
+                "Get_Mappings": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ae106996-8a6c-4a44-b533-31918a1539d5"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_documents",
+                  "recordId": "@triggerBody()?['gap_documentid']",
+                  "item/gap_type": "@first(outputs('Get_Mappings')?['body/value'])?['gap_type']"
+                },
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "cf1b1842-2cd3-49ab-b56e-550159a272fc"
+          },
+          "type": "Scope"
+        },
+        "Scope_|_Error_Handling": {
+          "actions": {
+            "Run_a_Child_Flow": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5b9ed3ce-1e3e-4320-bf8e-be6746ffc707"
+              },
+              "type": "Workflow",
+              "inputs": {
+                "host": {
+                  "workflowReferenceName": "1b684e2c-81d1-ee11-9079-0022480043c2"
+                },
+                "body": {
+                  "text": "Error",
+                  "text_1": "An error occurred when setting a type.",
+                  "text_3": "Other",
+                  "text_2": "@{workflow()}"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Scope_|_Core_Process": [
+              "TimedOut",
+              "Skipped",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "508b4590-c93e-4dcb-9c80-6f65f21f366c"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

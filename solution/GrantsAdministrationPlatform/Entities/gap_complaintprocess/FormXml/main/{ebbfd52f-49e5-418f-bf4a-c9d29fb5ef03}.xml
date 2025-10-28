@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{ebbfd52f-49e5-418f-bf4a-c9d29fb5ef03}</formid>
+    <IntroducedVersion>1.0.1.7</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{56677538-ef47-49a0-a3f3-c7867ad87da4}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{016c6989-b15a-46cf-be3e-eb46df710c54}">
+          <labels>
+            <label description="Document Complaint" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{c0ba67a2-7244-3f4a-ee0e-25a10b91d36c}" name="StageStep3_section1" labelid="{daecf10a-9ff5-4c54-925b-f6c88d54eede}">
+                  <labels>
+                    <label description="Document Complaint" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{38d7c637-9bb3-44c1-aa03-ea64cdae008e}" showlabel="true" visible="true" labelid="{a52ac6bb-c31b-428a-8ffb-238bbf1ec14a}">
+                        <labels>
+                          <label description="Complaint Theme" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_complaint_gap_complaintprocess:gap_complainttheme" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_complainttheme" disabled="false" relationship="bpf_gap_complaint_gap_complaintprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b5f085b1-59c7-48d3-95ee-d2851c6c290f}" showlabel="true" visible="true" labelid="{853d757f-4016-4e15-a418-28a6cfeea1ea}">
+                        <labels>
+                          <label description="Covered by FAQ" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_complaint_gap_complaintprocess:gap_coveredbyfaq" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="gap_coveredbyfaq" disabled="false" relationship="bpf_gap_complaint_gap_complaintprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{eceaf20b-0ed9-4b7f-b10b-0451fb3f509a}" name="StageStep9" locklevel="0" expanded="true" visible="false" labelid="{1bb6e36f-501b-4c1f-9786-97ace3676f74}">
+          <labels>
+            <label description="Send Response" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{4e944f53-5613-e2bf-1d31-57e57ba83284}" name="StageStep9_section1" labelid="{b2c0bfc6-7d40-4a04-a592-da95d1673744}">
+                  <labels>
+                    <label description="Send Response" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{830f2832-581b-4178-ab94-1ee1de5f9ec1}" showlabel="true" visible="true" labelid="{567cbf4d-043a-4384-a19d-3299c5fcdf15}">
+                        <labels>
+                          <label description="Application Review Required" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_complaint_gap_complaintprocess:gap_applicationreviewrequired" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="gap_applicationreviewrequired" disabled="false" relationship="bpf_gap_complaint_gap_complaintprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{291c382e-662c-4dd8-ade1-3ad28461930a}" name="StageStep13" locklevel="0" expanded="true" visible="false" labelid="{3f376302-4556-4075-bab2-32b1df77265e}">
+          <labels>
+            <label description="Appeal Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{a184b4c2-0630-f872-3aa5-497043e33cc4}" name="StageStep13_section1" labelid="{3111c7ba-98b9-4d48-9682-a8f280fca5bd}">
+                  <labels>
+                    <label description="Appeal Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{7a2e0461-635e-4e7f-8cf1-20deec91f368}" showlabel="true" visible="true" labelid="{1198d98d-8c42-4e88-bbe3-f4874eba8d46}">
+                        <labels>
+                          <label description="Appeal Review" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_complaint_gap_complaintprocess:gap_appealreview" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_appealreview" disabled="false" relationship="bpf_gap_complaint_gap_complaintprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{712bb020-ab47-43c4-900a-5ee373d1b612}" name="StageStep17" locklevel="0" expanded="true" visible="false" labelid="{1a9e100f-16a7-4218-be8a-2ad418d0d48f}">
+          <labels>
+            <label description="Escalation Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{99f8d1e8-799d-3b7f-be40-f02d1b53670f}" name="StageStep17_section1" labelid="{41db9c0b-80d4-426f-9b5b-fcb916e6df34}">
+                  <labels>
+                    <label description="Escalation Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{4793ef5a-aefd-491c-ac42-d54ec9e58604}" showlabel="true" visible="true" labelid="{b4f77455-c751-49e5-9ce5-093bfce88e58}">
+                        <labels>
+                          <label description="Escalation Review" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_complaint_gap_complaintprocess:gap_escalationreview" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_escalationreview" disabled="false" relationship="bpf_gap_complaint_gap_complaintprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{3db34157-9f16-4743-a779-b1b630fafc5d}" name="StageStep21" locklevel="0" expanded="true" visible="false" labelid="{674223f8-8fa3-466f-b4cf-dceb3a99b877}">
+          <labels>
+            <label description="Send Response" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{8f38ff2e-6f97-e1f1-3830-a95a7e09ab5b}" name="StageStep21_section1" labelid="{ee6d6f25-758c-40fc-b85b-a992ce63b17c}">
+                  <labels>
+                    <label description="Send Response" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b0713b3a-2ae2-42b6-9abe-e340350db42d}" showlabel="true" visible="true" labelid="{2aa7d6bc-f842-4c62-ad24-0a160613a323}">
+                        <labels>
+                          <label description="Application Review Required" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_complaint_gap_complaintprocess:gap_applicationreviewrequired" classid="{67fac785-cd58-4f9f-abb3-4b7ddc6ed5ed}" datafieldname="gap_applicationreviewrequired" disabled="false" relationship="bpf_gap_complaint_gap_complaintprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{09f34d53-c391-416f-9418-a6387e4b9b6a}" name="StageStep25" locklevel="0" expanded="true" visible="false" labelid="{d93dfada-b475-4009-b281-2c50f4f6fef5}">
+          <labels>
+            <label description="Appeal Review" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showbar="false" columns="1" id="{35eb5084-e5f3-44ab-6fa4-268ba2791902}" name="StageStep25_section1" labelid="{4bdd7279-4ca0-4fa9-b2f3-f590424f533d}">
+                  <labels>
+                    <label description="Appeal Review" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{75af2cf8-deed-4aa3-b1da-4d6aa36603dd}" showlabel="true" visible="true" labelid="{7f188946-8f3d-4bec-84df-182db7e8a7cd}">
+                        <labels>
+                          <label description="Appeal Review" languagecode="1033" />
+                        </labels>
+                        <control id="bpf_gap_complaint_gap_complaintprocess:gap_appealreview" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_appealreview" disabled="false" relationship="bpf_gap_complaint_gap_complaintprocess" isrequired="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

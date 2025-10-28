@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{66eee7ad-8ac0-4b74-bfd7-804c4c627a9b}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_question" select="1" icon="1" preview="1">
+        <row name="result" id="gap_monitoringchecklistquestionid">
+          <cell name="gap_question" width="300" />
+          <cell name="gap_order" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="gap_monitoringchecklistquestion">
+          <attribute name="gap_monitoringchecklistquestionid" />
+          <attribute name="gap_question" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="gap_order" />
+          <order attribute="gap_order" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Monitoring Checklist Questions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

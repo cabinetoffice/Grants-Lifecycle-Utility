@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{8c9ef63c-9c55-f011-bec2-00224840fbec}" Name="Evidence Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/EvidenceProcess-8C9EF63C-9C55-F011-BEC2-00224840FBEC.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>gap_evidenceprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.1.39</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_MonitoringActivity</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Evidence Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{9382ff64-a273-460a-99a1-f3c264f759c1}">
+      <label languagecode="1033" description="Process Evidence" />
+    </steplabels>
+    <steplabels id="{bf95683f-8668-4e2f-92e4-cb12d7b35062}">
+      <label languagecode="1033" description="Submission Review Completed On" />
+    </steplabels>
+    <steplabels id="{8cc56ddf-f5a6-4c41-82d0-8ec877bb46a3}">
+      <label languagecode="1033" description="Evidence Quality Review" />
+    </steplabels>
+    <steplabels id="{e3c0313c-b221-4169-8672-70acf11ee082}">
+      <label languagecode="1033" description="Quality Review Completed On" />
+    </steplabels>
+    <steplabels id="{0180cc72-1fe8-4ea1-a9f1-78d2f44f868f}">
+      <label languagecode="1033" description="Outcome" />
+    </steplabels>
+    <steplabels id="{04872bea-7793-43a6-976b-9004db47ab1b}">
+      <label languagecode="1033" description="Department Outcome" />
+    </steplabels>
+  </labels>
+</Workflow>

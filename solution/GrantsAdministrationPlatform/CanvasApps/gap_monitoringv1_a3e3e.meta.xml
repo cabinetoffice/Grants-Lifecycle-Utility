@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_monitoringv1_a3e3e</Name>
+  <AppVersion>2025-10-27T14:11:23Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.25102.17.0</CreatedByClientVersion>
+  <MinClientVersion>3.25102.17.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1744","primaryDeviceHeight":"725","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25102.17","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251023T163409Z-3.25095.13.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Monitoring V1</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Documents":{"entitySetName":"gap_documents","logicalName":"gap_document"},"Monitoring Checklist Sections":{"entitySetName":"gap_monitoringchecklistsections","logicalName":"gap_monitoringchecklistsection"},"Monitoring Checklists":{"entitySetName":"gap_monitoringchecklists","logicalName":"gap_monitoringchecklist"},"Monitoring Checklist Questions":{"entitySetName":"gap_monitoringchecklistquestions","logicalName":"gap_monitoringchecklistquestion"},"Applications":{"entitySetName":"gap_applications","logicalName":"gap_application"},"Scoring Checklists":{"entitySetName":"gap_scoringchecklists","logicalName":"gap_scoringchecklist"},"Monitoring Activities":{"entitySetName":"gap_monitoringactivities","logicalName":"gap_monitoringactivity"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"},"Monitoring Structures":{"entitySetName":"gap_monitoringstructures","logicalName":"gap_monitoringstructure"},"Monitoring Structure Templates":{"entitySetName":"gap_monitoringstructuretemplates","logicalName":"gap_monitoringstructuretemplate"},"Document Audits":{"entitySetName":"gap_documentaudits","logicalName":"gap_documentaudit"}},"components":[{"componentName":"CustomControl","identifier":"gap_GGMS.InlineFrame","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}}]}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>2</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"gap_document","componenttype":1},{"logicalname":"gap_monitoringchecklistsection","componenttype":1},{"logicalname":"gap_monitoringchecklist","componenttype":1},{"logicalname":"gap_monitoringchecklistquestion","componenttype":1},{"logicalname":"gap_application","componenttype":1},{"logicalname":"gap_scoringchecklist","componenttype":1},{"logicalname":"gap_monitoringactivity","componenttype":1},{"logicalname":"systemuser","componenttype":1},{"logicalname":"gap_monitoringstructure","componenttype":1},{"logicalname":"gap_monitoringstructuretemplate","componenttype":1},{"logicalname":"gap_documentaudit","componenttype":1},{"dependencyid":"","logicalname":"gap_GGMS.InlineFrame","componenttype":66,"componenttypeplatformname":"CustomControl"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_monitoringv1_a3e3e_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_monitoringv1_a3e3e_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/gap_monitoringv1_a3e3e_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>

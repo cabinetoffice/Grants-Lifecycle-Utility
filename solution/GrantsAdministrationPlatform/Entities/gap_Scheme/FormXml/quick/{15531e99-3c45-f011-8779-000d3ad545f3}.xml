@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{15531e99-3c45-f011-8779-000d3ad545f3}</formid>
+    <IntroducedVersion>1.0.1.39</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab id="ACBA75B7-97B6-4116-AA55-51312992B721" name="tab_1" showlabel="false" labelid="{710ae6d8-9437-4ed7-9d00-ac1673a0de38}">
+          <labels>
+            <label description="New Tab" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section id="AD49B5BF-256F-46A8-9C75-947146172EB9" name="tab_1_column_1_section_1" columns="1" showlabel="true" showbar="false" IsUserDefined="0" labelwidth="130" labelid="{dd5e9bf9-9806-4a7a-8ea2-355985fa0a3e}">
+                  <labels>
+                    <label description="Scheme Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{47771b6a-2c9f-433d-ad87-0ca2c03f0cc0}" locklevel="1" colspan="1" rowspan="1" labelid="{ad849b78-64c0-4910-a2b1-73ef29b1efc1}">
+                        <labels>
+                          <label description="Grant Scheme (Refrence Number)" languagecode="1033" />
+                        </labels>
+                        <control id="gap_ggisreferencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_ggisreferencenumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e311565a-259c-456b-8da8-2f17967eee6b}" locklevel="1" colspan="1" rowspan="1" labelid="{ac698fb0-338f-4538-a7fc-989023a3e991}">
+                        <labels>
+                          <label description="Award Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_title" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_title" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{19552c1b-7ddb-48ba-a2b8-8c4bd8cdd842}" locklevel="1" colspan="1" rowspan="1" labelid="{124b85b5-c5dd-4c2c-9a6f-441526eae2ab}">
+                        <labels>
+                          <label description="Allocation Method (Payment)" languagecode="1033" />
+                        </labels>
+                        <control id="gap_paymenttype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_paymenttype" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ff07909d-5345-46b3-994a-97cd0e2eecd1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Total Amount Budgeted Per Financial Year" languagecode="1033" />
+                        </labels>
+                        <control id="gap_totalamountbudgetedperfinancialyear" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_totalamountbudgetedperfinancialyear" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d7857c40-9504-4cdd-b8e8-20aaa7b3e122}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Total Amount Paid Per Financial Year" languagecode="1033" />
+                        </labels>
+                        <control id="gap_totalamountpaidperfinancialyear" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_totalamountpaidperfinancialyear" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8cc6dd9b-841e-4f24-a92a-4a369bd1120e}" locklevel="0" colspan="1" rowspan="1" visible="false" labelid="{163667a2-fd51-4529-9dc1-9243fd7336c9}">
+                        <labels>
+                          <label description="Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_type" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e9a7c07b-583f-4512-9f69-dcf3f6a1397d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Is Grant Monitored?" languagecode="1033" />
+                        </labels>
+                        <control id="gap_grantmonitored" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_grantmonitored" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8d652b91-42bd-4a1f-a4a3-b3d01833f6ca}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Publish" languagecode="1033" />
+                        </labels>
+                        <control id="gap_publish" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_publish" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f09f3e9a-5c11-48c6-9631-3fef5ddb1cc3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Risk Profile" languagecode="1033" />
+                        </labels>
+                        <control id="gap_riskprofile" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_riskprofile" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cc395bb4-4b41-4d17-a2c0-2d0c6f5f32b9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Authority Act" languagecode="1033" />
+                        </labels>
+                        <control id="gap_authorityact" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_authorityact" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="GGIS Integration View" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>
