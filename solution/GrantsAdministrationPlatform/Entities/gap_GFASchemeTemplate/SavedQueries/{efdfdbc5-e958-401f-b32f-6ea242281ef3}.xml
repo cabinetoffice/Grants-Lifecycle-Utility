@@ -17,15 +17,10 @@
           <cell name="gap_authoritycontactemail" width="150" />
           <cell name="gap_authoritycontactphonenumber" width="150" />
           <cell name="gap_authorityname" width="150" />
-          <cell name="gap_nameofproject" width="150" />
           <cell name="gap_fundingstartdate" width="150" />
           <cell name="gap_fundingenddate" width="150" />
-          <cell name="gap_statutoryprovision" width="150" />
-          <cell name="gap_grantrecipientreportingfrequency" width="150" />
           <cell name="gap_projectrepresentativeinformation" width="150" />
-          <cell name="gap_grantescalationcontactinformation" width="150" />
           <cell name="gap_grantclaimworkingdaysubmission" width="150" />
-          <cell name="gap_governinglawcountry" width="150" />
         </row>
       </grid>
     </layoutxml>
@@ -46,15 +41,10 @@
           <attribute name="gap_authoritycontactemail" />
           <attribute name="gap_authoritycontactphonenumber" />
           <attribute name="gap_authorityname" />
-          <attribute name="gap_nameofproject" />
           <attribute name="gap_fundingstartdate" />
           <attribute name="gap_fundingenddate" />
-          <attribute name="gap_statutoryprovision" />
-          <attribute name="gap_grantrecipientreportingfrequency" />
           <attribute name="gap_projectrepresentativeinformation" />
-          <attribute name="gap_grantescalationcontactinformation" />
           <attribute name="gap_grantclaimworkingdaysubmission" />
-          <attribute name="gap_governinglawcountry" />
         </entity>
       </fetch>
     </fetchxml>

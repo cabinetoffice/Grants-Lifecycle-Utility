@@ -2,6 +2,7 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
@@ -32,16 +33,17 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "SubscribeWebhookTrigger"
             },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "gap_scheme",
               "subscriptionRequest/scope": 4,
               "subscriptionRequest/filteringattributes": "gap_gfatemplateconfiguration",
-              "subscriptionRequest/filterexpression": "_gap_gfatemplateconfiguration_value ne null"
+              "subscriptionRequest/filterexpression": "_gap_gfatemplateconfiguration_value ne null",
+              "subscriptionRequest/name": "c79918d0-b279-f011-b4cb-0022483ff195:MTA"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -56,9 +58,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "GetItem",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "GetItem"
             },
             "parameters": {
               "entityName": "gap_gfaschemetemplates",
@@ -79,9 +81,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "PerformUnboundAction",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "PerformUnboundAction"
             },
             "parameters": {
               "actionName": "GrantAccess",
@@ -109,9 +111,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "GetItem",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "GetItem"
             },
             "parameters": {
               "entityName": "teams",
@@ -132,9 +134,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "GetItem",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "GetItem"
             },
             "parameters": {
               "entityName": "teams",
@@ -155,9 +157,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "PerformUnboundAction",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "PerformUnboundAction"
             },
             "parameters": {
               "actionName": "GrantAccess",
@@ -185,9 +187,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "GetItem",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "GetItem"
             },
             "parameters": {
               "entityName": "teams",
@@ -208,9 +210,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "PerformUnboundAction",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "PerformUnboundAction"
             },
             "parameters": {
               "actionName": "GrantAccess",
@@ -229,7 +231,7 @@
       },
       "outputs": {}
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

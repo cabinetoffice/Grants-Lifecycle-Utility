@@ -1,0 +1,1149 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "metadata": {
+            "operationMetadataId": "fb949526-39d8-4703-8d1b-568c058e2434"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_updateobjectivechecklists",
+              "subscriptionRequest/filterexpression": "gap_updateobjectivechecklists ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_|_Template_Sections": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "d5885144-bccf-4fac-8815-c1431f9852da"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Template Sections",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_|_Checklist_Sections": {
+          "runAfter": {
+            "Initialize_variable_|_Template_Sections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ede4436f-28af-4029-921a-217f751b1b00"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Checklist Sections",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_|_Existing_Sections": {
+          "runAfter": {
+            "Initialize_variable_|_Checklist_Sections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "556da017-f9b7-4368-b2c1-bd99cea9cfd8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Existing Sections",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_|_Updated_Checklist": {
+          "runAfter": {
+            "Initialize_variable_|_Existing_Sections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ab47302a-8e98-4ca6-a5d1-98065b83a5bd"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Updated Checklist",
+                "type": "boolean",
+                "value": false
+              }
+            ]
+          }
+        },
+        "Get_Objective_Scoring_Template": {
+          "runAfter": {
+            "Initialize_variable_|_Updated_Checklist": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a3149010-058f-4c6d-996a-c2563db94f4e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_scoringtemplates",
+              "recordId": "@triggerOutputs()?['body/_gap_objectivescoringtemplate_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "List_Objective_Template_Sections": {
+          "runAfter": {
+            "Get_Objective_Scoring_Template": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e9c55eb3-e062-49e6-8d70-3a886a923868"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_scoringtemplatesections",
+              "$filter": "_gap_template_value eq @{outputs('Get_Objective_Scoring_Template')?['body/gap_scoringtemplateid']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_2": {
+          "foreach": "@outputs('List_Objective_Template_Sections')?['body/value']",
+          "actions": {
+            "Append_to_Template_Sections": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ab4edd4e-e889-41d5-b815-55567f7fe8dc"
+              },
+              "type": "AppendToArrayVariable",
+              "inputs": {
+                "name": "Template Sections",
+                "value": {
+                  "Name": "@items('Apply_to_each_2')?['gap_name']",
+                  "GUID": "@items('Apply_to_each_2')?['gap_scoringtemplatesectionid']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "List_Objective_Template_Sections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cd5b5b6c-6826-4c6e-9633-262de5b5ad5a"
+          },
+          "type": "Foreach"
+        },
+        "Select_Template_Section_Names": {
+          "runAfter": {
+            "Apply_to_each_2": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "527bbaba-c192-42bd-bb4a-5dd7c021fdbb"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@variables('Template Sections')",
+            "select": {
+              "Name": "@toLower(trim(coalesce(item()?['Name'], '')))"
+            }
+          }
+        },
+        "Select_Template_Section_Name_with_GUID": {
+          "runAfter": {
+            "Select_Template_Section_Names": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "aeabe5c7-d3f4-4358-a20d-307a7869f3b3"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@variables('Template Sections')",
+            "select": {
+              "Name": "@toLower(trim(coalesce(item()?['Name'], '')))",
+              "GUID": "@item()?['GUID']"
+            }
+          }
+        },
+        "List_Applications": {
+          "runAfter": {
+            "Select_Template_Section_Name_with_GUID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "389d6965-7a61-4857-bcde-c0a8e15a18b4"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "$filter": "_gap_scheme_value eq @{triggerOutputs()?['body/gap_schemeid']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('List_Applications')?['body/value']",
+          "actions": {
+            "Condition_|_Is_there_an_objective_checklist": {
+              "actions": {
+                "Get_Objective_Scoring_Checklist": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "baa8f213-92d7-47e5-b9df-965aebe21394"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringchecklists",
+                      "recordId": "@items('Apply_to_each')?['_gap_objectivescoringchecklist_value']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "List_Objective_Sections": {
+                  "runAfter": {
+                    "Get_Objective_Scoring_Checklist": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6a22fb7a-507e-49d8-b3f9-8ad02f54f96a"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringchecklistsections",
+                      "$filter": "_gap_checklist_value eq @{outputs('Get_Objective_Scoring_Checklist')?['body/gap_scoringchecklistid']}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Apply_to_each_3": {
+                  "foreach": "@outputs('List_Objective_Sections')?['body/value']",
+                  "actions": {
+                    "Append_to_Checklist_Sections": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "af671f9a-eb4a-45d0-bc26-c6143b1018f0"
+                      },
+                      "type": "AppendToArrayVariable",
+                      "inputs": {
+                        "name": "Checklist Sections",
+                        "value": {
+                          "Name": "@items('Apply_to_each_3')?['gap_scoringchecklistsectionname']",
+                          "GUID": "@items('Apply_to_each_3')?['gap_scoringchecklistsectionid']"
+                        }
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_Objective_Sections": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5c5465e1-b916-4ffe-8f97-11131655dd74"
+                  },
+                  "type": "Foreach"
+                },
+                "Filter_array_|_Template_Section_NOT_in_Checklist_Section": {
+                  "runAfter": {
+                    "Select_Checklist_Section_Name_with_GUID": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "2c8230d7-0d37-4556-9ffe-482f925a051d"
+                  },
+                  "type": "Query",
+                  "inputs": {
+                    "from": "@body('Select_Template_Section_Name_with_GUID')",
+                    "where": "@not(contains(body('Select_Checklist_Section_Names'), json(concat('{ \"Name\": \"', item()?['Name'], '\" }'))))"
+                  }
+                },
+                "Select_Checklist_Section_Names": {
+                  "runAfter": {
+                    "Apply_to_each_3": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "05f1264a-4ede-4c33-b111-8ad5a2f64d77"
+                  },
+                  "type": "Select",
+                  "inputs": {
+                    "from": "@variables('Checklist Sections')",
+                    "select": {
+                      "Name": "@toLower(trim(coalesce(item()?['Name'], '')))"
+                    }
+                  }
+                },
+                "Filter_array_|_Checklist_Section_NOT_in_Template_Section": {
+                  "runAfter": {
+                    "Condition_|_New_Sections": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "2feb53ee-89dd-4ef2-8503-20664f57e529"
+                  },
+                  "type": "Query",
+                  "inputs": {
+                    "from": "@body('Select_Checklist_Section_Name_with_GUID')",
+                    "where": "@not(contains(body('Select_Template_Section_Names'), json(concat('{ \"Name\": \"', item()?['Name'], '\" }'))))"
+                  }
+                },
+                "Condition_|_New_Sections": {
+                  "actions": {
+                    "Apply_to_each_4": {
+                      "foreach": "@body('Filter_array_|_Template_Section_NOT_in_Checklist_Section')",
+                      "actions": {
+                        "Get_Missing_Section": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "d1b78f3c-d167-4f81-a683-4b6179c6762e"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "GetItem",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringtemplatesections",
+                              "recordId": "@items('Apply_to_each_4')?['GUID']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Add_New_Checklist_Section": {
+                          "runAfter": {
+                            "Get_Missing_Section": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "2326b070-2d14-45f8-946b-0b02b4797115"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistsections",
+                              "item/gap_order": "@outputs('Get_Missing_Section')?['body/gap_order']",
+                              "item/gap_scoringchecklistsectionname": "@outputs('Get_Missing_Section')?['body/gap_name']",
+                              "item/gap_Checklist@odata.bind": "gap_scoringchecklists(@{outputs('Get_Objective_Scoring_Checklist')?['body/gap_scoringchecklistid']})",
+                              "item/gap_scoringchecklistsectiontype": "@outputs('Get_Missing_Section')?['body/gap_sectiontemplatetype']",
+                              "item/gap_sectionchecklisttype": "@outputs('Get_Missing_Section')?['body/gap_sectiontemplatetype']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "List_Scoring_Template_Questions_from_New_Section": {
+                          "runAfter": {
+                            "Add_New_Checklist_Section": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "94db578e-5c15-457f-bac2-1f3164e52a0c"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "ListRecords",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringtemplatequestions",
+                              "$filter": "_gap_section_value eq @{outputs('Get_Missing_Section')?['body/gap_scoringtemplatesectionid']}"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Apply_to_each_6": {
+                          "foreach": "@outputs('List_Scoring_Template_Questions_from_New_Section')?['body/value']",
+                          "actions": {
+                            "Add_New_Scoring_Checklist_Questions": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "6283ff09-4c23-4214-81c9-e63e65855f29"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps_1",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_scoringchecklistquestions",
+                                  "item/gap_Checklist@odata.bind": "gap_scoringchecklists(@{outputs('Get_Objective_Scoring_Checklist')?['body/gap_scoringchecklistid']})",
+                                  "item/gap_title": "@items('Apply_to_each_6')?['gap_title']",
+                                  "item/gap_applicablequestion": "@items('Apply_to_each_6')?['cr705_applicablequestion']",
+                                  "item/gap_automationenabled": "@items('Apply_to_each_6')?['cr705_automatedenabled']",
+                                  "item/gap_aiprompt": "@items('Apply_to_each_6')?['cr705_aiprompt']",
+                                  "item/gap_Application@odata.bind": "gap_applications(@{items('Apply_to_each')?['gap_applicationid']})",
+                                  "item/gap_automationtype": "@items('Apply_to_each_6')?['cr705_automationtype']",
+                                  "item/gap_checklistquestiontype": "@items('Apply_to_each_6')?['gap_questiontemplatetype']",
+                                  "item/gap_choiceoptions": "@items('Apply_to_each_6')?['gap_choiceoptions']",
+                                  "item/gap_conditionalapplicablequestion": "@items('Apply_to_each_6')?['gap_conditionalapplicablequestion']",
+                                  "item/gap_conditionalautomationenabled": "@items('Apply_to_each_6')?['gap_conditionalautomationenabled']",
+                                  "item/gap_datatype": "@items('Apply_to_each_6')?['gap_type']",
+                                  "item/gap_description": "@items('Apply_to_each_6')?['gap_description']",
+                                  "item/gap_order": "@items('Apply_to_each_6')?['gap_order']",
+                                  "item/gap_responsemappingjson": "@items('Apply_to_each_6')?['gap_responsemappingjson']",
+                                  "item/gap_Section@odata.bind": "gap_scoringchecklistsections(@{outputs('Add_New_Checklist_Section')?['body/gap_scoringchecklistsectionid']})"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "List_Scoring_Template_Questions_from_New_Section": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "2edd4c04-6f6b-4564-9053-4f032fc4a5d6"
+                          },
+                          "type": "Foreach"
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "abd81535-0e72-4409-a6e0-e21f9554e431"
+                      },
+                      "type": "Foreach"
+                    },
+                    "Set_Updated_Checklist": {
+                      "runAfter": {
+                        "Apply_to_each_4": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "d6c6cfb9-29c6-415e-b012-fed179bd04bd"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "Updated Checklist",
+                        "value": true
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Filter_array_|_Template_Section_NOT_in_Checklist_Section": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "greaterOrEquals": [
+                      "@length(body('Filter_array_|_Template_Section_NOT_in_Checklist_Section'))",
+                      1
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5a6bde71-cf73-454e-8b2a-1aec92ef4425"
+                  },
+                  "type": "If"
+                },
+                "Condition_|_Sections_to_Delete": {
+                  "actions": {
+                    "Apply_to_each_5": {
+                      "foreach": "@body('Filter_array_|_Checklist_Section_NOT_in_Template_Section')",
+                      "actions": {
+                        "Get_Checklist_Sections_to_Delete": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "cc5794fe-eeaf-4657-a720-3f27e8c2fd6f"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "GetItem",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistsections",
+                              "recordId": "@items('Apply_to_each_5')?['GUID']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Delete_Sections": {
+                          "runAfter": {
+                            "Get_Checklist_Sections_to_Delete": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "7836499f-5cb5-4559-b80d-cbaa719117c4"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "DeleteRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistsections",
+                              "recordId": "@outputs('Get_Checklist_Sections_to_Delete')?['body/gap_scoringchecklistsectionid']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "be1294c0-5125-4e14-a9e9-9f6c7cc97745"
+                      },
+                      "type": "Foreach"
+                    },
+                    "Set_Updated_Checklist_(2)": {
+                      "runAfter": {
+                        "Apply_to_each_5": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "3a340a82-8c76-4198-b9ca-95acdd90a2c7"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "Updated Checklist",
+                        "value": true
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Filter_array_|_Checklist_Section_NOT_in_Template_Section": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "greaterOrEquals": [
+                      "@length(body('Filter_array_|_Checklist_Section_NOT_in_Template_Section'))",
+                      1
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6d584033-3e7e-4b67-b8b8-e07c5820f31f"
+                  },
+                  "type": "If"
+                },
+                "Select_Checklist_Section_Name_with_GUID": {
+                  "runAfter": {
+                    "Select_Checklist_Section_Names": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d70ad6f0-4129-4569-9b0d-2a6a3c927100"
+                  },
+                  "type": "Select",
+                  "inputs": {
+                    "from": "@variables('Checklist Sections')",
+                    "select": {
+                      "Name": "@toLower(trim(coalesce(item()?['Name'], '')))",
+                      "GUID": "@item()?['GUID']"
+                    }
+                  }
+                },
+                "Apply_to_each_7": {
+                  "foreach": "@body('Select_Checklist_Section_Name_with_GUID')",
+                  "actions": {
+                    "Filter_array_Matched_Sections": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "cfd0adc1-948e-4842-8e80-1e08286eaa90"
+                      },
+                      "type": "Query",
+                      "inputs": {
+                        "from": "@body('Select_Template_Section_Name_with_GUID')",
+                        "where": "@equals(item()?['Name'], items('Apply_to_each_7')?['Name'])"
+                      }
+                    },
+                    "Condition_|_Matching_Sections": {
+                      "actions": {
+                        "Append_to_Existing_Sections": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "3134bd26-5753-4ff3-a118-c49956477ded"
+                          },
+                          "type": "AppendToArrayVariable",
+                          "inputs": {
+                            "name": "Existing Sections",
+                            "value": {
+                              "Name": "@items('Apply_to_each_7')?['Name']",
+                              "TemplateGUID": "@first(body('Filter_array_Matched_Sections'))?['GUID']",
+                              "ChecklistGUID": "@items('Apply_to_each_7')?['GUID']"
+                            }
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Filter_array_Matched_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "expression": {
+                        "greaterOrEquals": [
+                          "@length(body('Filter_array_Matched_Sections'))",
+                          1
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "84218f9e-42cf-4434-b7ff-bdc5b074d2b1"
+                      },
+                      "type": "If"
+                    }
+                  },
+                  "runAfter": {
+                    "Condition_|_Sections_to_Delete": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "e62f4d62-ac4a-4f30-a95f-c5ca7329c0b3"
+                  },
+                  "type": "Foreach"
+                },
+                "Condition_|_Existing_Sections": {
+                  "actions": {
+                    "Apply_to_each_8": {
+                      "foreach": "@variables('Existing Sections')",
+                      "actions": {
+                        "List_Scoring_Template_Questions": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "87a1ce1b-0369-44ec-bd5c-296473a97d6a"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "ListRecords",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringtemplatequestions",
+                              "$filter": "_gap_section_value eq @{replace(replace(items('Apply_to_each_8')?['TemplateGUID'], '{', ''), '}', '')} "
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "List_Scoring_Checklist_Questions": {
+                          "runAfter": {
+                            "List_Scoring_Template_Questions": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "3889107d-70f7-445f-8492-2b572976e7c8"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "ListRecords",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistquestions",
+                              "$filter": "_gap_section_value eq @{replace(replace(items('Apply_to_each_8')?['ChecklistGUID'], '{', ''), '}', '')} and _gap_application_value eq @{items('Apply_to_each')?['gap_applicationid']}"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Filter_array_|_Template_Questions_not_in_Checklist_Questions": {
+                          "runAfter": {
+                            "Select_Scoring_Checklist_Questions": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "90896b4c-90dc-4af0-a5e6-9f70d90efba7"
+                          },
+                          "type": "Query",
+                          "inputs": {
+                            "from": "@body('Select_Scoring_Template_Questions_with_GUID')",
+                            "where": "@not(contains(body('Select_Scoring_Checklist_Questions'), json(concat('{ \"Name\": \"', item()?['Name'], '\" }'))))"
+                          }
+                        },
+                        "Select_Scoring_Template_Questions_with_GUID": {
+                          "runAfter": {
+                            "List_Scoring_Checklist_Questions": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "88dd252a-9d62-4d5d-9907-f16acffc6eed"
+                          },
+                          "type": "Select",
+                          "inputs": {
+                            "from": "@body('List_Scoring_Template_Questions')?['value']",
+                            "select": {
+                              "Name": "@toLower(trim(coalesce(item()?['gap_title'], '')))",
+                              "GUID": "@item()?['gap_scoringtemplatequestionid']"
+                            }
+                          }
+                        },
+                        "Select_Scoring_Checklist_Questions_with_GUID": {
+                          "runAfter": {
+                            "Select_Scoring_Template_Questions": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "0b60f09c-bda1-4117-85f3-5bce7806fddc"
+                          },
+                          "type": "Select",
+                          "inputs": {
+                            "from": "@body('List_Scoring_Checklist_Questions')?['value']",
+                            "select": {
+                              "Name": "@toLower(trim(coalesce(item()?['gap_title'], '')))",
+                              "GUID": "@item()?['gap_scoringchecklistquestionid']"
+                            }
+                          }
+                        },
+                        "Select_Scoring_Template_Questions": {
+                          "runAfter": {
+                            "Select_Scoring_Template_Questions_with_GUID": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "4d567424-a3ee-424c-8bec-543efed6dfa2"
+                          },
+                          "type": "Select",
+                          "inputs": {
+                            "from": "@body('Select_Scoring_Template_Questions_with_GUID')",
+                            "select": {
+                              "Name": "@item()?['Name']"
+                            }
+                          }
+                        },
+                        "Select_Scoring_Checklist_Questions": {
+                          "runAfter": {
+                            "Select_Scoring_Checklist_Questions_with_GUID": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "bb7e37af-0deb-4f21-8c64-01023618a293"
+                          },
+                          "type": "Select",
+                          "inputs": {
+                            "from": "@body('Select_Scoring_Checklist_Questions_with_GUID')",
+                            "select": {
+                              "Name": "@item()?['Name']"
+                            }
+                          }
+                        },
+                        "Condition_|_Questions_to_Add_to_Section": {
+                          "actions": {
+                            "Apply_to_each_9": {
+                              "foreach": "@body('Filter_array_|_Template_Questions_not_in_Checklist_Questions')",
+                              "actions": {
+                                "Get_Scoring_Template_Question": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "1a76a75b-92cc-4cf7-acf7-f4e181a2ec35"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps_1",
+                                      "operationId": "GetItem",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_scoringtemplatequestions",
+                                      "recordId": "@items('Apply_to_each_9')?['GUID']"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                },
+                                "Add_New_Question": {
+                                  "runAfter": {
+                                    "Get_Scoring_Template_Question": [
+                                      "Succeeded"
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "24986562-9755-42ea-86dc-ca6c41660ee2"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps_1",
+                                      "operationId": "CreateRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_scoringchecklistquestions",
+                                      "item/gap_Checklist@odata.bind": "gap_scoringchecklists(@{outputs('Get_Objective_Scoring_Checklist')?['body/gap_scoringchecklistid']})",
+                                      "item/gap_title": "@outputs('Get_Scoring_Template_Question')?['body/gap_title']",
+                                      "item/gap_applicablequestion": "@outputs('Get_Scoring_Template_Question')?['body/cr705_applicablequestion']",
+                                      "item/gap_automationenabled": "@outputs('Get_Scoring_Template_Question')?['body/cr705_automatedenabled']",
+                                      "item/gap_aiprompt": "@outputs('Get_Scoring_Template_Question')?['body/cr705_aiprompt']",
+                                      "item/gap_Application@odata.bind": "gap_applications(@{items('Apply_to_each')?['gap_applicationid']})",
+                                      "item/gap_automationtype": "@outputs('Get_Scoring_Template_Question')?['body/cr705_automationtype']",
+                                      "item/gap_checklistquestiontype": "@outputs('Get_Scoring_Template_Question')?['body/gap_questiontemplatetype']",
+                                      "item/gap_choiceoptions": "@outputs('Get_Scoring_Template_Question')?['body/gap_choiceoptions']",
+                                      "item/gap_conditionalapplicablequestion": "@outputs('Get_Scoring_Template_Question')?['body/gap_conditionalapplicablequestion']",
+                                      "item/gap_conditionalautomationenabled": "@outputs('Get_Scoring_Template_Question')?['body/gap_conditionalautomationenabled']",
+                                      "item/gap_datatype": "@outputs('Get_Scoring_Template_Question')?['body/gap_type']",
+                                      "item/gap_description": "@outputs('Get_Scoring_Template_Question')?['body/gap_description']",
+                                      "item/gap_order": "@outputs('Get_Scoring_Template_Question')?['body/gap_order']",
+                                      "item/gap_responsemappingjson": "@outputs('Get_Scoring_Template_Question')?['body/gap_responsemappingjson']",
+                                      "item/gap_Section@odata.bind": "gap_scoringchecklistsections(@{items('Apply_to_each_8')?['ChecklistGUID']})"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                }
+                              },
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "b81fd047-131c-40ac-b23b-1441001db548"
+                              },
+                              "type": "Foreach"
+                            },
+                            "Set_Updated_Checklist_(3)": {
+                              "runAfter": {
+                                "Apply_to_each_9": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "91ea1faf-226e-45d3-b8d2-910addcabd88"
+                              },
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "Updated Checklist",
+                                "value": true
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Filter_array_|_Template_Questions_not_in_Checklist_Questions": [
+                              "Succeeded"
+                            ]
+                          },
+                          "expression": {
+                            "greaterOrEquals": [
+                              "@length(body('Filter_array_|_Template_Questions_not_in_Checklist_Questions'))",
+                              1
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "562d3e7a-4f54-4c26-8951-9b83f988c4a3"
+                          },
+                          "type": "If"
+                        },
+                        "Filter_array_|_Checklist_Questions_not_in_Template_Questions": {
+                          "runAfter": {
+                            "Condition_|_Questions_to_Add_to_Section": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "7e7e9f2d-bd7f-494d-a09d-8b496fb9656e"
+                          },
+                          "type": "Query",
+                          "inputs": {
+                            "from": "@body('Select_Scoring_Checklist_Questions_with_GUID')",
+                            "where": "@not(contains(body('Select_Scoring_Template_Questions'), json(concat('{ \"Name\": \"', item()?['Name'], '\" }'))))"
+                          }
+                        },
+                        "Condition_|_Delete_Question": {
+                          "actions": {
+                            "Apply_to_each_10": {
+                              "foreach": "@body('Filter_array_|_Checklist_Questions_not_in_Template_Questions')",
+                              "actions": {
+                                "Delete_Checklist_Question": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "6907d747-fac8-4f21-93c6-c739aaf189b3"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps_1",
+                                      "operationId": "DeleteRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_scoringchecklistquestions",
+                                      "recordId": "@items('Apply_to_each_10')?['GUID']"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                }
+                              },
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "9cd3f83d-fc16-44a2-add0-f3b5cbaa27a9"
+                              },
+                              "type": "Foreach"
+                            },
+                            "Set_Updated_Checklist_(4)": {
+                              "runAfter": {
+                                "Apply_to_each_10": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "4f4424f6-3d71-40b5-849e-728169bec6eb"
+                              },
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "Updated Checklist",
+                                "value": true
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Filter_array_|_Checklist_Questions_not_in_Template_Questions": [
+                              "Succeeded"
+                            ]
+                          },
+                          "expression": {
+                            "greaterOrEquals": [
+                              "@length(body('Filter_array_|_Checklist_Questions_not_in_Template_Questions'))",
+                              1
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "8c785882-ed9b-4f6a-9287-4ec05f52035d"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "8c2f1e9e-3040-4b2a-8c58-1a020a418f77"
+                      },
+                      "type": "Foreach"
+                    }
+                  },
+                  "runAfter": {
+                    "Apply_to_each_7": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "greaterOrEquals": [
+                      "@length(variables('Existing Sections'))",
+                      1
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5360b8bd-eddf-4856-bb79-30e16b9e9f03"
+                  },
+                  "type": "If"
+                },
+                "Condition_|_Update_Current_Stage": {
+                  "actions": {
+                    "Update_Application_Current_Stage": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "666178a8-73f4-41e0-8771-7292b3e422d9"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "UpdateOnlyRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_applications",
+                          "recordId": "@items('Apply_to_each')?['gap_applicationid']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Condition_|_Existing_Sections": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "and": [
+                      {
+                        "equals": [
+                          "@variables('Updated Checklist')",
+                          true
+                        ]
+                      },
+                      {
+                        "not": {
+                          "equals": [
+                            "@items('Apply_to_each')?['gap_currentstage']",
+                            "Objective Scoring"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a6a9a9ab-d068-4e85-92ab-0a0b2a954cd9"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "Clear_Existing_Sections": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@items('Apply_to_each')?['_gap_objectivescoringchecklist_value']",
+                    "@null"
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "da411a59-0c57-410e-baea-0f24c8ad3c6a"
+              },
+              "type": "If"
+            },
+            "Clear_Checklist_Sections": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ca3fe9de-305a-462a-a227-0c690282e5c4"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Checklist Sections",
+                "value": []
+              }
+            },
+            "Clear_Existing_Sections": {
+              "runAfter": {
+                "Clear_Checklist_Sections": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8f391cf3-deee-4215-b881-123a8a4308bd"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Existing Sections",
+                "value": []
+              }
+            }
+          },
+          "runAfter": {
+            "List_Applications": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "58080508-e0d1-4de8-81ad-22ccde570ecf"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

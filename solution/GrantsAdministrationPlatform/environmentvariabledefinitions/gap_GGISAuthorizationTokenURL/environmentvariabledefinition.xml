@@ -1,0 +1,10 @@
+<environmentvariabledefinition schemaname="gap_GGISAuthorizationTokenURL">
+  <displayname default="GGIS Authorization Token URL">
+    <label description="GGIS Authorization Token URL" languagecode="1033" />
+  </displayname>
+  <introducedversion>5.0.0.6</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

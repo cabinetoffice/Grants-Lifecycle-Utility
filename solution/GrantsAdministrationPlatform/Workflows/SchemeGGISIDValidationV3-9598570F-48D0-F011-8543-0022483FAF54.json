@@ -1,0 +1,348 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "GGIS Client Secret (gap_GGISClientSecret)": {
+          "defaultValue": "BF8DAA8281EF67902A0967177FE2F12FBD5D5150DD2578A504A80FA3296F9E42",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISClientSecret"
+          }
+        },
+        "GGIS Password (gap_GGISPassword)": {
+          "defaultValue": "CabinetOfficeUAT2025",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISPassword"
+          }
+        },
+        "GGIS Client ID (gap_GGISClientID)": {
+          "defaultValue": "3MVG9tklOJf0sawVT8xQYY3p9N89f2LDsb6ixogVmNwKd8Nd6vJpRX6PB2UPsITI7bQnfX7gkXSudXs0jUlGD",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISClientID"
+          }
+        },
+        "GGIS Username (gap_GGISUsername)": {
+          "defaultValue": "samuel.x.parker@cabinetoffice.gov.uk.ggis.uatapi",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISUsername"
+          }
+        },
+        "GGIS Scheme Endpoint URL (gap_GGISSchemeEndpointURL)": {
+          "defaultValue": "https://cabinetoffice--uatapi.sandbox.my.salesforce.com/services/apexrest/scheme",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISSchemeEndpointURL"
+          }
+        },
+        "GGIS Authorization Token URL (gap_GGISAuthorizationTokenURL)": {
+          "defaultValue": "https://test.salesforce.com/services/oauth2/token",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISAuthorizationTokenURL"
+          }
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "4d6c9ea3-9f03-46c2-b34a-41e5276f0715"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_startvalidateid",
+              "subscriptionRequest/name": "c607c37e-4883-f011-b4cb-002248433196:MTA"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Request_Authorization_Token": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "22e015f6-60e0-4751-a4d1-7a2e6d7a5a53"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "@parameters('GGIS Authorization Token URL (gap_GGISAuthorizationTokenURL)')",
+            "headers": {
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            "body": "grant_type=password&client_id=@{parameters('GGIS Client ID (gap_GGISClientID)')}&client_secret=@{parameters('GGIS Client Secret (gap_GGISClientSecret)')}&username=@{parameters('GGIS Username (gap_GGISUsername)')}&password=@{parameters('GGIS Password (gap_GGISPassword)')}"
+          },
+          "runtimeConfiguration": {
+            "secureData": {
+              "properties": [
+                "inputs",
+                "outputs"
+              ]
+            }
+          }
+        },
+        "Scope": {
+          "actions": {
+            "Get_Scheme": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "0ef13a32-16af-42c6-85b8-c1095860be13"
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('GGIS Scheme Endpoint URL (gap_GGISSchemeEndpointURL)')",
+                "headers": {
+                  "Authorization": "Bearer @{body('Request_Authorization_Token')?['access_token']}",
+                  "Content-Type": "application/json"
+                },
+                "retryPolicy": {
+                  "type": "none"
+                }
+              }
+            },
+            "Find_Scheme": {
+              "foreach": "@body('Get_Scheme')",
+              "actions": {
+                "Condition": {
+                  "actions": {
+                    "Condition_2": {
+                      "actions": {
+                        "Update_a_row": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "d25c17de-d332-4706-a9ab-c1b54c5e6850"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "UpdateOnlyRecord"
+                            },
+                            "parameters": {
+                              "entityName": "gap_schemes",
+                              "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                              "item/gap_ggisawardenddate": "@items('Find_Scheme')?['schemeEndDate']",
+                              "item/gap_ggisawardstartdate": "@items('Find_Scheme')?['schemeStartDate']",
+                              "item/gap_idvalidationoutcome": "Successfully Validated GGIS Reference on @{formatDateTime(utcNow(), 'yyyy-MM-dd hh:mm')}\nTotal Budgeted Value: @{string(items('Find_Scheme')?['totalBudgetedSchemeValue'])}\nName: @{items('Find_Scheme')?['schemeName']}"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Set_variable": {
+                          "runAfter": {
+                            "Update_a_row": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "2a17be6a-227d-446f-a2db-15f2fb957049"
+                          },
+                          "type": "SetVariable",
+                          "inputs": {
+                            "name": "FoundScheme",
+                            "value": "@true"
+                          }
+                        }
+                      },
+                      "runAfter": {},
+                      "else": {
+                        "actions": {
+                          "Condition_4": {
+                            "actions": {
+                              "Update_a_row_3": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "d25c17de-d332-4706-a9ab-c1b54c5e6850"
+                                },
+                                "type": "OpenApiConnection",
+                                "inputs": {
+                                  "host": {
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                    "connectionName": "shared_commondataserviceforapps",
+                                    "operationId": "UpdateOnlyRecord"
+                                  },
+                                  "parameters": {
+                                    "entityName": "gap_schemes",
+                                    "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                                    "item/gap_ggisawardenddate": "@items('Find_Scheme')?['schemeEndDate']",
+                                    "item/gap_ggisawardstartdate": "@items('Find_Scheme')?['schemeStartDate']",
+                                    "item/gap_idvalidationoutcome": "Successfully Validated GGIS Reference on @{formatDateTime(utcNow(), 'yyyy-MM-dd hh:mm')}\nTotal Budgeted Value: @{string(items('Find_Scheme')?['totalBudgetedSchemeValue'])}\nName: @{items('Find_Scheme')?['schemeName']}"
+                                  },
+                                  "authentication": "@parameters('$authentication')"
+                                }
+                              },
+                              "Set_variable_2": {
+                                "runAfter": {
+                                  "Update_a_row_3": [
+                                    "Succeeded"
+                                  ]
+                                },
+                                "metadata": {
+                                  "operationMetadataId": "2a17be6a-227d-446f-a2db-15f2fb957049"
+                                },
+                                "type": "SetVariable",
+                                "inputs": {
+                                  "name": "FoundScheme",
+                                  "value": "@true"
+                                }
+                              }
+                            },
+                            "runAfter": {},
+                            "expression": {
+                              "equals": [
+                                "@items('Find_Scheme')?['organisationReferenceNumber']",
+                                "@triggerOutputs()?['body/gap_ggisreferencenumber']"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "fb939702-5c92-435a-8ec3-718d534c7699"
+                            },
+                            "type": "If"
+                          }
+                        }
+                      },
+                      "expression": {
+                        "equals": [
+                          "@item()?['schemeReferenceNumber']",
+                          "@triggerOutputs()?['body/gap_ggisreferencenumber']"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "fb939702-5c92-435a-8ec3-718d534c7699"
+                      },
+                      "type": "If"
+                    }
+                  },
+                  "runAfter": {},
+                  "expression": {
+                    "equals": [
+                      "@variables('FoundScheme')",
+                      "@false"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "b611cdc6-a8b8-42a4-b87c-bd3d00976130"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "Get_Scheme": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "24bc2c64-f8cb-4fcb-9529-2979467345ed"
+              },
+              "type": "Foreach"
+            },
+            "Condition_3": {
+              "actions": {
+                "Update_a_row_2": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "d25c17de-d332-4706-a9ab-c1b54c5e6850"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord"
+                    },
+                    "parameters": {
+                      "entityName": "gap_schemes",
+                      "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                      "item/gap_idvalidationoutcome": "Failed To Validate GGIS ID on @{formatDateTime(utcNow(), 'yyyy-MM-dd hh:mm')}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Find_Scheme": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "equals": [
+                  "@variables('FoundScheme')",
+                  "@false"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "9c0d6606-8a77-4029-9b1e-c1131a59fea2"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Request_Authorization_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0fee6628-e376-405a-bc63-b222594df9da"
+          },
+          "type": "Scope"
+        },
+        "Initialize_variable": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "5984b729-db8d-45f3-a598-d60bc97a815a"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FoundScheme",
+                "type": "boolean",
+                "value": "@false"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

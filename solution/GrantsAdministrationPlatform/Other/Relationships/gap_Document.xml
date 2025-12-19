@@ -105,10 +105,10 @@
       </EntityRelationshipRole>
     </EntityRelationshipRoles>
   </EntityRelationship>
-  <EntityRelationship Name="gap_application_GFASignedByApplicant_gap_document">
+  <EntityRelationship Name="gap_application_GFABankDetailsForm_gap_document">
     <EntityRelationshipType>OneToMany</EntityRelationshipType>
     <IsCustomizable>1</IsCustomizable>
-    <IntroducedVersion>1.0.1.39</IntroducedVersion>
+    <IntroducedVersion>5.0.1.13</IntroducedVersion>
     <IsHierarchical>0</IsHierarchical>
     <ReferencingEntityName>gap_Application</ReferencingEntityName>
     <ReferencedEntityName>gap_Document</ReferencedEntityName>
@@ -120,10 +120,10 @@
     <CascadeUnshare>NoCascade</CascadeUnshare>
     <CascadeRollupView>NoCascade</CascadeRollupView>
     <IsValidForAdvancedFind>1</IsValidForAdvancedFind>
-    <ReferencingAttributeName>gap_GFASignedByApplicant</ReferencingAttributeName>
+    <ReferencingAttributeName>gap_GFABankDetailsForm</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="" languagecode="1033" />
+        <Description description="Link to banking details form" languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -131,11 +131,11 @@
         <NavPaneDisplayOption>UseCollectionName</NavPaneDisplayOption>
         <NavPaneArea>Details</NavPaneArea>
         <NavPaneOrder>10000</NavPaneOrder>
-        <NavigationPropertyName>gap_GFASignedByApplicant</NavigationPropertyName>
+        <NavigationPropertyName>gap_GFABankDetailsForm</NavigationPropertyName>
         <RelationshipRoleType>1</RelationshipRoleType>
       </EntityRelationshipRole>
       <EntityRelationshipRole>
-        <NavigationPropertyName>gap_application_GFASignedByApplicant_gap_document</NavigationPropertyName>
+        <NavigationPropertyName>gap_application_GFABankDetailsForm_gap_document</NavigationPropertyName>
         <RelationshipRoleType>0</RelationshipRoleType>
       </EntityRelationshipRole>
     </EntityRelationshipRoles>

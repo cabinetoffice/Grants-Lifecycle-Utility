@@ -1,0 +1,723 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Trigger_|_When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "14b0fb59-7d4b-40bf-b680-a39b9b60e4a2"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_query",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_responsesenton"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "description": "Triggered by the Query Table"
+        }
+      },
+      "actions": {
+        "Max_Score_Variable": {
+          "runAfter": {
+            "Current_Score_Variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "401c205b-7668-4f2d-9adc-a38e9ba2d4f0"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "MaxScore",
+                "type": "float",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Best_Answer_Variable": {
+          "runAfter": {
+            "Max_Score_Variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "401c205b-7668-4f2d-9adc-a38e9ba2d4f0"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "BestAnswer",
+                "type": "string",
+                "value": "''"
+              }
+            ]
+          }
+        },
+        "No_Match_Path": {
+          "actions": {
+            "Update_Status_Message_Variable": {
+              "metadata": {
+                "operationMetadataId": "ade220de-8549-40a5-a0a6-0f12f6f99e25"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Status Message",
+                "value": "Insufficient data for AI response - Ensure that the specified scheme on the Query Record has data in the FAQ Document."
+              },
+              "description": "Message to state that no answer in the FAQ Document table has been found with the scheme and predicted tag"
+            },
+            "Update_Query_Table_with_No_response_message": {
+              "runAfter": {
+                "Update_Status_Message_Variable": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "5a3fb6b5-e5b2-45ed-8965-4abe8eee5098"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_queries",
+                  "recordId": "@triggerOutputs()?['body/gap_queryid']",
+                  "item/gap_answer": "@variables('Status Message')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Filter_FAQ_Table_using_Tags_and_Scheme": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Loop_through_QA_Records": {
+                "foreach": "@body('Filter_array')",
+                "actions": {
+                  "Compare_and_Update_Best_Answer": {
+                    "actions": {
+                      "Keyword_Match_|_Update_Variables": {
+                        "actions": {
+                          "Update_Max_Score_Variable": {
+                            "metadata": {
+                              "operationMetadataId": "89563f10-cf1d-419b-a084-944778534b9d"
+                            },
+                            "type": "SetVariable",
+                            "inputs": {
+                              "name": "MaxScore",
+                              "value": "@outputs('Confidence_Level')"
+                            },
+                            "description": "Tracks highest similarity score"
+                          },
+                          "Update_Best_Answer_Variable": {
+                            "runAfter": {
+                              "Update_Max_Score_Variable": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "f4dc2dbc-554d-4cb1-9cb4-3fe22f6f41ef"
+                            },
+                            "type": "SetVariable",
+                            "inputs": {
+                              "name": "BestAnswer",
+                              "value": "@{items('Loop_through_QA_Records')?['gap_Answer']}"
+                            },
+                            "description": "Holds best-matched answer text"
+                          }
+                        },
+                        "metadata": {
+                          "operationMetadataId": "654cfb80-9894-47ff-9f13-12e17848d64b"
+                        },
+                        "type": "Scope",
+                        "description": "Query keywords match an FAQ Document Answer "
+                      }
+                    },
+                    "runAfter": {
+                      "Confidence_Level": [
+                        "Succeeded"
+                      ]
+                    },
+                    "else": {
+                      "actions": {}
+                    },
+                    "expression": {
+                      "less": [
+                        "@variables('MaxScore')",
+                        "@outputs('Confidence_Level')"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "66520b0c-8354-4ec7-93a3-2d9674ba6bca"
+                    },
+                    "type": "If",
+                    "description": "If calculated score for an answer exceeds current Max Score it is updated and the answer text is stored in BestAnswer Variable"
+                  },
+                  "QA_Question": {
+                    "metadata": {
+                      "operationMetadataId": "a8b6beac-1683-45fe-be94-cb40661c19a4"
+                    },
+                    "type": "Compose",
+                    "inputs": "@toLower(item()?['gap_question'])",
+                    "description": "Normalise question"
+                  },
+                  "Run_a_prompt": {
+                    "runAfter": {
+                      "QA_Question": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "e29168ab-2d23-408e-a4aa-b9b7591d2d68",
+                      "flowSystemMetadata": {
+                        "portalOperationId": "aibuilderpredict_customprompt",
+                        "portalOperationGroup": "aibuilder",
+                        "portalOperationApiDisplayNameOverride": "AI Builder",
+                        "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                        "portalOperationBrandColorOverride": "#0A76C4",
+                        "portalOperationApiTierOverride": "Standard"
+                      }
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "recordId": "ff17da6a-32f9-434a-9b32-fa437990eab8",
+                        "item/requestv2/Proposed_20Answer": "@toLower(item()?['gap_answer'])",
+                        "item/requestv2/User_20Query": "@outputs('Compose')"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "operationId": "aibuilderpredict_customprompt",
+                        "connectionName": "shared_commondataserviceforapps"
+                      }
+                    }
+                  },
+                  "MatchedKeywordsText": {
+                    "runAfter": {
+                      "Run_a_prompt": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "57b6c0b8-f457-4b85-bd96-c07e4da7f7cf"
+                    },
+                    "type": "Compose",
+                    "inputs": "@outputs('Run_a_prompt')?['body/responsev2/predictionOutput/structuredOutput/matched_keywords']"
+                  },
+                  "Confidence_Level": {
+                    "runAfter": {
+                      "MatchedKeywordsText": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "0b7d0a8c-a18a-4ab0-a8e7-07faaf72f376"
+                    },
+                    "type": "Compose",
+                    "inputs": "@outputs('Run_a_prompt')?['body/responsev2/predictionOutput/structuredOutput/confidence_score']"
+                  }
+                },
+                "metadata": {
+                  "operationMetadataId": "2a7f7991-f665-46ff-a002-431134359bb8"
+                },
+                "type": "Foreach",
+                "runtimeConfiguration": {
+                  "concurrency": {
+                    "repetitions": 1
+                  }
+                }
+              },
+              "Confidence_Level_Condition": {
+                "actions": {
+                  "High_Confidence_-_Update_Query_Record": {
+                    "metadata": {
+                      "operationMetadataId": "2aedfe16-c283-4adb-8026-7679c2f13dfe"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "entityName": "gap_queries",
+                        "recordId": "@triggerOutputs()?['body/gap_queryid']",
+                        "item/gap_answer": "@variables('BestAnswer')",
+                        "item/gap_confidence": "@variables('MaxScore')",
+                        "item/gap_predictedtag": "@outputs('Prediction_Outcome')"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "operationId": "UpdateOnlyRecord",
+                        "connectionName": "shared_commondataserviceforapps"
+                      }
+                    },
+                    "description": "Update Query record with suggested answer"
+                  }
+                },
+                "runAfter": {
+                  "Loop_through_QA_Records": [
+                    "Succeeded"
+                  ]
+                },
+                "else": {
+                  "actions": {
+                    "AI_Processing_|_Semantic_Similarity_Fallback__2": {
+                      "actions": {
+                        "BestAnswer": {
+                          "runAfter": {
+                            "Similarity_Check": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "283d3f7d-3f3d-4e5c-a847-42e3db513e00"
+                          },
+                          "type": "Compose",
+                          "inputs": "@trim(substring(\r\n    outputs('Similarity_Check')?['body/responsev2/predictionOutput/text'],\r\n    0,\r\n    indexOf(outputs('Similarity_Check')?['body/responsev2/predictionOutput/text'], 'Confidence level:')\r\n))\r\n",
+                          "description": "Outd"
+                        },
+                        "Condition": {
+                          "actions": {
+                            "Update_Best_Answer_2": {
+                              "metadata": {
+                                "operationMetadataId": "a9353055-bb57-42ab-9716-00085f344499"
+                              },
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "BestAnswer",
+                                "value": "@{outputs('BestAnswer')}"
+                              }
+                            },
+                            "High_Confidence_-_Update_Query_Record_2": {
+                              "runAfter": {
+                                "Update_Best_Answer_2": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "ecb83616-71a7-4723-b2a9-328a936ec524"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "parameters": {
+                                  "entityName": "gap_queries",
+                                  "recordId": "@triggerOutputs()?['body/gap_queryid']",
+                                  "item/gap_answer": "@variables('BestAnswer')",
+                                  "item/gap_confidence": "@outputs('ConfidenceScore')",
+                                  "item/gap_predictedtag": "@outputs('Prediction_Outcome')"
+                                },
+                                "host": {
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                  "operationId": "UpdateOnlyRecord",
+                                  "connectionName": "shared_commondataserviceforapps"
+                                }
+                              },
+                              "description": "Update Query record with low confidence response - prompting the user to manually review dataset"
+                            }
+                          },
+                          "runAfter": {
+                            "ConfidenceScore": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Low_Confidence_-_Update_Query_Record": {
+                                "metadata": {
+                                  "operationMetadataId": "ecb83616-71a7-4723-b2a9-328a936ec524"
+                                },
+                                "type": "OpenApiConnection",
+                                "inputs": {
+                                  "parameters": {
+                                    "entityName": "gap_queries",
+                                    "recordId": "@triggerOutputs()?['body/gap_queryid']",
+                                    "item/gap_answer": "'No strong match found. Manual review of FAQ Data is required.'",
+                                    "item/gap_predictedtag": "@outputs('Prediction_Outcome')"
+                                  },
+                                  "host": {
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                    "operationId": "UpdateOnlyRecord",
+                                    "connectionName": "shared_commondataserviceforapps"
+                                  }
+                                },
+                                "description": "Update Query record with low confidence response - prompting the user to manually review dataset"
+                              }
+                            }
+                          },
+                          "expression": {
+                            "greater": [
+                              "@outputs('ConfidenceScore')",
+                              70
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "3b5b9fe1-341b-4bbf-969e-37bae49873d5"
+                          },
+                          "type": "If"
+                        },
+                        "Join_Answers": {
+                          "runAfter": {
+                            "Select": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "179e0464-f71f-406b-9163-ec634a18c773"
+                          },
+                          "type": "Compose",
+                          "inputs": "@join(body('Select'), '\\n')"
+                        },
+                        "Select": {
+                          "metadata": {
+                            "operationMetadataId": "99b52dc3-22d5-40fa-b2d6-5e30096d3f6d"
+                          },
+                          "type": "Select",
+                          "inputs": {
+                            "from": "@body('Filter_array')",
+                            "select": {
+                              "": "@item()?['gap_answer']"
+                            }
+                          }
+                        },
+                        "Similarity_Check": {
+                          "runAfter": {
+                            "Join_Answers": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "ef909130-074d-4f3f-959d-22172fa2e37f",
+                            "flowSystemMetadata": {
+                              "portalOperationId": "aibuilderpredict_customprompt",
+                              "portalOperationGroup": "aibuilder",
+                              "portalOperationApiDisplayNameOverride": "AI Builder",
+                              "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                              "portalOperationBrandColorOverride": "#0A76C4",
+                              "portalOperationApiTierOverride": "Standard"
+                            }
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "parameters": {
+                              "recordId": "9a351205-3ebc-4410-b7cb-fcae3b5770fe",
+                              "item/requestv2/Answer": "@outputs('Join_Answers')",
+                              "item/requestv2/Applicant_20Query": "@outputs('Compose')"
+                            },
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "operationId": "aibuilderpredict_customprompt",
+                              "connectionName": "shared_commondataserviceforapps"
+                            }
+                          }
+                        },
+                        "ConfidenceScore": {
+                          "runAfter": {
+                            "BestAnswer": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "283d3f7d-3f3d-4e5c-a847-42e3db513e00"
+                          },
+                          "type": "Compose",
+                          "inputs": "@int(trim(last(split(outputs('Similarity_Check')?['body/responsev2/predictionOutput/text'], 'Confidence Level:'))))",
+                          "description": "Outd"
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "283f808f-ad25-45b6-a152-a3c1adcbd0b2"
+                      },
+                      "type": "Scope",
+                      "description": "No keyword match - Carry out AI semantic similarity checks"
+                    }
+                  }
+                },
+                "expression": {
+                  "greaterOrEquals": [
+                    "@variables('MaxScore')",
+                    60
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "7c4e624f-ea5a-49ce-9922-d8f12fc15d91"
+                },
+                "type": "If",
+                "description": "70% Threshold for producing a good response"
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@length(body('Filter_array'))",
+              0
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1b68f5f0-b80a-4956-866b-3b0a6a5309ad"
+          },
+          "type": "If",
+          "description": "Checks if list rows action has responses matching the predicted tag + scheme"
+        },
+        "Status_Message_Variable": {
+          "runAfter": {
+            "Best_Answer_Variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4d3d0ed2-d529-468e-8581-5b14f786e979"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Status Message",
+                "type": "string",
+                "value": "\""
+              }
+            ]
+          }
+        },
+        "Current_Score_Variable": {
+          "runAfter": {
+            "Query_Text_Variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ec4bb276-4641-41f8-ba0a-af9330957d91"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "CurrentScore",
+                "type": "float",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Query_Text_Variable": {
+          "runAfter": {
+            "Store_Query": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "99dc1a61-e850-4a5c-9b2d-7d14d84f6daf"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "QueryText",
+                "type": "string",
+                "value": "@{toLower(triggerOutputs()?['body/gap_query'])}"
+              }
+            ]
+          }
+        },
+        "Schemes_|_Get_a_row_by_ID": {
+          "runAfter": {
+            "Semantic_Score_Variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "94d450ca-71e6-49e5-a86d-e16a5770ce87"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_schemes",
+              "recordId": "@triggerOutputs()?['body/_gap_scheme_value']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "description": "Retrieve row from the scheme table using the lookup GUID"
+        },
+        "Semantic_Score_Variable": {
+          "runAfter": {
+            "Status_Message_Variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c4ec3044-c24b-4e1b-ae50-a2ea007f526d"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SemanticScore",
+                "type": "float"
+              }
+            ]
+          }
+        },
+        "Store_Query": {
+          "actions": {
+            "Compose": {
+              "metadata": {
+                "operationMetadataId": "6ee1826e-5554-463c-8abb-38e2c3d9c4a1"
+              },
+              "type": "Compose",
+              "inputs": "@toLower(triggerOutputs()?['body/gap_query'])",
+              "description": "Sense check"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "6ee1826e-5554-463c-8abb-38e2c3d9c4a1"
+          },
+          "type": "Scope"
+        },
+        "AI_Processing_|_Predict_Tag": {
+          "actions": {
+            "Predict": {
+              "metadata": {
+                "operationMetadataId": "1d49cb1c-c143-4db9-baf8-3acb39ac15a8",
+                "flowSystemMetadata": {
+                  "portalOperationId": "aibuilderpredict_textclassification",
+                  "portalOperationGroup": "aibuilder",
+                  "portalOperationApiDisplayNameOverride": "AI Builder",
+                  "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                  "portalOperationBrandColorOverride": "#0A76C4",
+                  "portalOperationApiTierOverride": "Standard"
+                }
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "item/requestv2/language": "Detect automatically",
+                  "recordId": "ed40d2e5-6aa5-4c28-a54c-4814b19f5563",
+                  "item/requestv2/text": "@outputs('Compose')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "aibuilderpredict_textclassification",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "description": "Use Classification Model to predict the tag of the query"
+            },
+            "Prediction_Outcome": {
+              "runAfter": {
+                "Predict": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "06f4ba22-bfe7-4079-9277-e60b6b7c64c8"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('Predict')?['body']?['responsev2']?['predictionOutput']?['results'])?['type']",
+              "description": "Prediction is extracted to determine the category"
+            }
+          },
+          "runAfter": {
+            "Schemes_|_Get_a_row_by_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0ed1196e-81c0-4b0e-9345-eb127d1a1e56"
+          },
+          "type": "Scope"
+        },
+        "Filter_FAQ_Table_using_Tags_and_Scheme": {
+          "actions": {
+            "Filter_FAQ_Table": {
+              "metadata": {
+                "operationMetadataId": "bc1ecd69-7d2b-4551-b971-6f96e1c988b1"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_faqdocuments",
+                  "$filter": "gap_tags eq '@{outputs('Prediction_Outcome')}' "
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "description": "Filter FAQ Table based on the Predicted Tag"
+            },
+            "Filter_array": {
+              "runAfter": {
+                "Filter_FAQ_Table": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "12cf0766-b6e1-49d9-a947-5be29f4c958d"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@outputs('Filter_FAQ_Table')?['body/value']",
+                "where": "@equals(item()?['_gap_relatedscheme_value@OData.Community.Display.V1.FormattedValue'], outputs('Schemes_|_Get_a_row_by_ID')?['body/gap_title'])"
+              },
+              "description": "Filter FAQ Table based on Scheme"
+            }
+          },
+          "runAfter": {
+            "AI_Processing_|_Predict_Tag": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e30763bc-449d-4789-b13e-6e09a47f0dc3"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

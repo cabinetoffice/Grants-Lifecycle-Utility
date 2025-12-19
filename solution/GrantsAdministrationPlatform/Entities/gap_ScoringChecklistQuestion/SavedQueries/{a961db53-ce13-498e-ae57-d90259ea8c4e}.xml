@@ -12,7 +12,6 @@
         <row name="result" id="gap_scoringchecklistquestionid">
           <cell name="gap_title" width="300" />
           <cell name="createdon" width="125" />
-          <cell name="gap_comments" width="101" />
         </row>
       </grid>
     </layoutxml>
@@ -24,7 +23,6 @@
           <attribute name="gap_title" />
           <attribute name="createdon" />
           <order attribute="gap_title" descending="false" />
-          <attribute name="gap_comments" />
         </entity>
       </fetch>
     </fetchxml>

@@ -1,0 +1,43 @@
+<appaction uniquename="gap__ReassignMonitorin!60620fb23eda46abb7a2d0846f61ca0d!gap_DEMO!gap_monitoringactivity!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Reassign Monitoring Activity">
+    <label description="Reassign Monitoring Activity" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Reassign Monitoring Activity">
+    <label description="Reassign Monitoring Activity" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltiptitle default="Reassign Monitoring Activity">
+    <label description="Reassign Monitoring Activity" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_monitoringactivity</logicalname>
+  </contextentity>
+  <contextvalue>gap_monitoringactivity</contextvalue>
+  <fonticon>ManageRoles</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>ReassignMonitorin!60620fb23eda46abb7a2d0846f61ca0d</name>
+  <onclickeventjavascriptfunctionname>openCustomPageDialog</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5},{"type":4},{"type":8}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>75ec62f5-0cbf-f011-bbd3-6045bd13df5f</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100046.5000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>8ad85bfca0504900b8d69bd79466ae74</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

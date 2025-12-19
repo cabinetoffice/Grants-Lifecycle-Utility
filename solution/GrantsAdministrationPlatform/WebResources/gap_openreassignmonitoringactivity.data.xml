@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{75ec62f5-0cbf-f011-bbd3-6045bd13df5f}</WebResourceId>
+  <Name>gap_openreassignmonitoringactivity</Name>
+  <DisplayName>OpenReassignMonitoringActivity</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>5.0.0.23</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_openreassignmonitoringactivity75EC62F5-0CBF-F011-BBD3-6045BD13DF5F</FileName>
+</WebResource>

@@ -333,6 +333,46 @@
             <Description description="Value of the Expected Amount in base currency." languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="gap_ExpectedPaymentDate">
+          <Type>datetime</Type>
+          <Name>gap_expectedpaymentdate</Name>
+          <LogicalName>gap_expectedpaymentdate</LogicalName>
+          <RequiredLevel>required</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>3</Behavior>
+          <displaynames>
+            <displayname description="Expected Payment Date" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="The date that the payment can be expected." languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="gap_LatestPossibleSubmissionDate">
           <Type>datetime</Type>
           <Name>gap_latestpossiblesubmissiondate</Name>
@@ -642,44 +682,6 @@
           </displaynames>
           <Descriptions>
             <Description description="Insert a number between 0 and 100 to reflect the proportion of monitoring activities to be subject to a Peer Review." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_PreRequisiteActivities">
-          <Type>lookup</Type>
-          <Name>gap_prerequisiteactivities</Name>
-          <LogicalName>gap_prerequisiteactivities</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Pre-Requisite Activities" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Activities that must be completed and approved before this activity can be approved." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_QualityReviewRiskThreshold">

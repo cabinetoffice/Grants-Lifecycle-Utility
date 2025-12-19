@@ -1,0 +1,307 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Stage_Updated": {
+          "metadata": {
+            "operationMetadataId": "10fd4dda-a93d-4370-8ee5-e17761068305"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_currentstage",
+              "subscriptionRequest/filterexpression": "gap_currentstage eq 'GFA (Unsigned) Quality Review Selection' and gap_initializedstage ne 'GFA (Unsigned) Quality Review Selection'",
+              "subscriptionRequest/name": "d3f07090-3792-f011-b4cc-000d3a7f477d:MTA"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Try": {
+          "actions": {
+            "Get_Scheme": {
+              "metadata": {
+                "operationMetadataId": "1d63d954-a6c2-439d-be99-5175f59fca2d"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@triggerOutputs()?['body/_gap_scheme_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "GetItem"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Generate_Threshold": {
+              "runAfter": {
+                "Get_Scheme": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "05bf10a4-ac97-404b-8135-676bb401dcd2"
+              },
+              "type": "Compose",
+              "inputs": "@coalesce(outputs('Get_Scheme')?['body/gap_gfaunsignedqualityreviewriskthreshold'], 100)"
+            },
+            "Threshold_Met": {
+              "actions": {
+                "Selected_For_Review": {
+                  "metadata": {
+                    "operationMetadataId": "4a58394b-ff24-4486-83bf-b60c42912c27"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_currentstage": "GFA (Unsigned) Quality Review"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Generate_Threshold": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Not_Selected_For_Review": {
+                    "metadata": {
+                      "operationMetadataId": "4a58394b-ff24-4486-83bf-b60c42912c27"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "entityName": "gap_applications",
+                        "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                        "item/gap_currentstage": "GFA (Unsigned) Distribution"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "connectionName": "shared_commondataserviceforapps_1",
+                        "operationId": "UpdateOnlyRecord"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "and": [
+                  {
+                    "less": [
+                      "@rand(0,100)",
+                      "@outputs('Generate_Threshold')"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "92fd6237-890a-4392-a207-0e693e35d3ff"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Initialize_Error_Message": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "92429c9c-3511-40bb-9ce0-42e5fc94790c"
+          },
+          "type": "Scope"
+        },
+        "Catch": {
+          "actions": {
+            "Update_Application_Stage": {
+              "metadata": {
+                "operationMetadataId": "c01f1ba5-098e-4639-b581-0e8ae54f71db"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                  "item/gap_currentstage": "Error (GFA (Unsigned) Quality Review Selection)"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateOnlyRecord"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Error_Message_Exists": {
+              "actions": {
+                "Add_Custom_Error_Message": {
+                  "metadata": {
+                    "operationMetadataId": "80607076-3413-4c38-a43c-bfce31b60453"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "annotations",
+                      "item/subject": "An error occurred.",
+                      "item/notetext": "@variables('Error Message')",
+                      "item/objectid_gap_application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "CreateRecord"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Update_Application_Stage": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Add_Standard_Error_Message": {
+                    "metadata": {
+                      "operationMetadataId": "c8c3a9f1-5081-489e-8236-9daea6a34950"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "parameters": {
+                        "entityName": "annotations",
+                        "item/subject": "An error occurred.",
+                        "item/notetext": "Flow Name: @{workflow()['name']}\nRun ID: @{workflow()['run']['name']}\nDate & Time: @{utcNow()}\nLink: @{concat('https://make.powerautomate.com/environments/', workflow()['tags']['environmentName'], '/solutions/', split(workflow()['tags']['environmentWorkflowId'], '-')[1], '/flows/', workflow()['tags']['xrmWorkflowId'])\n}",
+                        "item/objectid_gap_application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})"
+                      },
+                      "host": {
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                        "connectionName": "shared_commondataserviceforapps_1",
+                        "operationId": "CreateRecord"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "and": [
+                  {
+                    "greater": [
+                      "@length(variables('Error Message'))",
+                      0
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8c640350-7e50-48cf-994d-b28c37a28870"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Try": [
+              "TimedOut",
+              "Skipped",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "40f63f7a-e8a7-4787-9a8f-19a696613aa3"
+          },
+          "type": "Scope"
+        },
+        "Initialize_Error_Message": {
+          "runAfter": {
+            "Update_a_row": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "36faedca-19bb-434b-915f-779bc02fa73c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Error Message",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Update_a_row": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "7271d5ae-8dcd-4869-babe-a440e6e21b2c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_applications",
+              "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+              "item/gap_initializedstage": "GFA (Unsigned) Quality Review Selection"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateOnlyRecord"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

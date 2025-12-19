@@ -1,0 +1,251 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "f682517a-0781-43cc-a2ae-127428ae1941"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "title": "File Content",
+                  "type": "object",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please select file",
+                  "x-ms-content-hint": "FILE",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "contentBytes": {
+                      "type": "string",
+                      "format": "byte"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "file"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Scope": {
+          "actions": {
+            "Apply_to_each_|_Delete_older_rows": {
+              "foreach": "@outputs('List_rows_|_Existing_rows')?['body/value']",
+              "actions": {
+                "Delete_a_row": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "77652216-c77e-4160-82bd-05b849018292"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_2",
+                      "operationId": "DeleteRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_vehicleseligibleforgrants",
+                      "recordId": "@items('Apply_to_each_|_Delete_older_rows')?['gap_vehicleseligibleforgrantid']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Apply_to_each_|_Add_updated_rows": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a8175b96-98d4-41ab-a6e3-f7d5d125901a"
+              },
+              "type": "Foreach",
+              "runtimeConfiguration": {
+                "concurrency": {
+                  "repetitions": 50
+                }
+              }
+            },
+            "Compose_|_Split_file_content_by_line": {
+              "runAfter": {
+                "Compose_|_Convert_file_content_to_string": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "9c9c37d2-10a9-4a09-86f6-f01b973d0c59"
+              },
+              "type": "Compose",
+              "inputs": "@split(outputs('Compose_|_Convert_file_content_to_string'), decodeUriComponent('%0D%0A'))\r\n"
+            },
+            "Compose_|_Convert_file_content_to_string": {
+              "runAfter": {
+                "List_rows_|_Existing_rows": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "3470021d-ab96-48b9-9b75-66db9022b7db"
+              },
+              "type": "Compose",
+              "inputs": "@trim(base64ToString(triggerBody()?['file']?['contentBytes']))"
+            },
+            "List_rows_|_Existing_rows": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "b4adbf89-3e31-4e98-bf48-6d90fc3f81a3"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_2",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_vehicleseligibleforgrants",
+                  "$select": "gap_vehicleseligibleforgrantid"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Apply_to_each_|_Add_updated_rows": {
+              "foreach": "@skip(outputs('Compose_|_Split_file_content_by_line'), 1)",
+              "actions": {
+                "Split_By_Comma": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "cde449fd-939f-403e-9b02-da7c5ffd765a"
+                  },
+                  "type": "Compose",
+                  "inputs": "@split(item(), ',')"
+                },
+                "Add_a_new_row": {
+                  "runAfter": {
+                    "Split_By_Comma": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d3a270d6-fc2e-46a5-a5a2-39e49c77ced6"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_2",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_vehicleseligibleforgrants",
+                      "item/gap_name": "@{trim(outputs('Split_By_Comma')?[0])} - @{trim(outputs('Split_By_Comma')?[1])}",
+                      "item/gap_make": "@trim(outputs('Split_By_Comma')?[0])",
+                      "item/gap_model": "@trim(outputs('Split_By_Comma')?[1])",
+                      "item/gap_vehicletype": "@trim(outputs('Split_By_Comma')?[2])"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Compose_|_Split_file_content_by_line": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "551eb988-9033-4167-9644-18ce2dc42063"
+              },
+              "type": "Foreach",
+              "runtimeConfiguration": {
+                "concurrency": {
+                  "repetitions": 50
+                }
+              }
+            },
+            "Response": {
+              "runAfter": {
+                "Apply_to_each_|_Delete_older_rows": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "5810a9d1-37c5-48a0-b04b-c4661aaeecd9"
+              },
+              "type": "Response",
+              "kind": "Http",
+              "inputs": {
+                "statusCode": 200
+              }
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "cf253e43-ecc1-45dc-98b0-7847d1e8cac2"
+          },
+          "type": "Scope"
+        },
+        "Scope_|_Error": {
+          "actions": {
+            "Terminate": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "0f85a99d-d720-4fcc-82e3-b586f859ee19"
+              },
+              "type": "Terminate",
+              "inputs": {
+                "runStatus": "Failed"
+              }
+            }
+          },
+          "runAfter": {
+            "Scope": [
+              "Skipped",
+              "TimedOut",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "12db5eb9-867c-4d10-87fa-e29c859707c1"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

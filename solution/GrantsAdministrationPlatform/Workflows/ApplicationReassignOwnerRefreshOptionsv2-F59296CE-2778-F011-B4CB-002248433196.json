@@ -108,8 +108,7 @@
             },
             "parameters": {
               "entityName": "gap_applications",
-              "recordId": "@triggerBody()['text']",
-              "item/gap_owneroptionsarray": "@body('Remove_New_Owner')?['users']"
+              "recordId": "@triggerBody()['text']"
             },
             "authentication": "@parameters('$authentication')"
           }

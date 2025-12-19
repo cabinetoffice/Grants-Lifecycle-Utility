@@ -91,14 +91,6 @@
                         <control id="gap_riskprofile" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_riskprofile" disabled="false" />
                       </cell>
                     </row>
-                    <row>
-                      <cell id="{cc395bb4-4b41-4d17-a2c0-2d0c6f5f32b9}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Authority Act" languagecode="1033" />
-                        </labels>
-                        <control id="gap_authorityact" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_authorityact" disabled="false" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
               </sections>

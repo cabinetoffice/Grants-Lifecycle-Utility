@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{08fc6eac-78c1-f011-bbd2-7c1e5209bbb7}</formid>
+    <IntroducedVersion>5.0.1.7</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{f3068979-9d25-4bd4-aa94-0c6b8399107e}" IsUserDefined="1" labelid="{c813fe07-e3db-43c5-af6f-b43340879b42}">
+          <labels>
+            <label description="Upload FAQ Document" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{cb7cc3be-4fb1-440b-9cc6-70a59451a0f2}" labelid="{c99f0db9-86bb-4f06-8960-2e62abe4843b}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{e98f942b-f438-433e-aad9-d5962ed27e78}" labelid="{90a86df1-ce1b-4307-9820-9a0ec4f0ca24}">
+                        <labels>
+                          <label description="FAQ Document Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_faqdocumentname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_faqdocumentname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2b892c9e-1cd8-4bd3-b8b4-7b50a8a38f39}" locklevel="0" colspan="1" rowspan="1" labelid="{96eb3299-b4af-4d1c-8223-9927826f8961}">
+                        <labels>
+                          <label description="Related Scheme" languagecode="1033" />
+                        </labels>
+                        <control id="gap_relatedscheme" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_relatedscheme" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5a49ad6b-0cfc-41bd-89c0-2514e98f00a7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="FAQ Document" languagecode="1033" />
+                        </labels>
+                        <control id="gap_faqdocument" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="gap_faqdocument" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{981eda6c-2afb-4270-a628-b1af419ee632}" visible="false" labelid="{01faf9ab-bee8-475f-8846-04465d0ef4cc}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="76309504-81ad-4ed5-a309-f84ff5ed43ce" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Manage FAQ Document" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="478fe55b-26b1-4878-87be-13de4b025e93" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{d3ef5d13-71c9-4412-8c4a-fc7f773e26da}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Question" languagecode="1033" />
+                        </labels>
+                        <control id="gap_question" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_question" uniqueid="{3a5f831c-8f32-4a52-a321-39498b63156f}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c1aa4a1b-d2c4-4268-a1ed-3721402a2d57}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Question" languagecode="1033" />
+                        </labels>
+                        <control id="gap_question" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_question" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{be23729d-1f8b-41e9-8e35-b33a28901f1e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Answer" languagecode="1033" />
+                        </labels>
+                        <control id="gap_answer" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_answer" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{80be73c0-ee5b-4989-ac7e-4f4c277ad96d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Tags" languagecode="1033" />
+                        </labels>
+                        <control id="gap_tags" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_tags" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b3084fa9-7834-449a-ad79-b0bb98a66b41}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                        </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{3d5dc89f-2f83-4590-b32d-4b753520e9b3}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{524132c5-1218-43ac-9668-abb47a0f00a5}" showlabel="false" labelid="{2f47fc2c-46b5-4eb0-a4d2-6cd4385e7ac0}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{510c0a04-ffd3-40ed-bc5f-04dcd176c4ae}" showlabel="false" labelid="{b907e170-9d91-44d9-bb62-0111d0cc9c99}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{3331aa3d-d20b-4a2d-9648-fbdf57bcb839}" showlabel="false" labelid="{5441eab5-ca19-4492-9112-7baeb41b8a6b}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{73b9cb1b-7fcf-4b87-9528-44c7abf2c55c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9c4a353a-241a-46b1-97dc-ff4127e983af}" showlabel="false" labelid="{ba542dc6-3f52-4f9c-acf7-85395384e1dd}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{acdb7284-ed27-4d3d-a07b-cd1347718f9c}" showlabel="false" labelid="{881d3e5d-13db-407b-8b78-3c1a6669c46f}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c3f18929-036e-45e5-8669-d3214702521a}" showlabel="false" labelid="{005736f9-0ca2-4ee2-82d9-bd23fb4e59ab}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="1" FallbackForm="true">
+        <Role Id="{791FCF32-DDF7-EE11-A1FE-6045BDC1FE60}" />
+        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{3a5f831c-8f32-4a52-a321-39498b63156f}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_question</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_question</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_question</primary>
+              <labelText type="SingleLine.Text" static="true">This view allows Admins to delete existing FAQ Documents against a scheme</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_question</primary>
+              <labelText type="SingleLine.Text" static="true">This view allows Admins to delete existing FAQ Documents against a scheme</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_question</primary>
+              <labelText type="SingleLine.Text" static="true">This view allows Admins to delete existing FAQ Documents against a scheme</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Admin FAQ Form" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

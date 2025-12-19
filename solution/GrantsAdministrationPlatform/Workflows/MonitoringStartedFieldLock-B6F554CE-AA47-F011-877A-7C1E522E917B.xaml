@@ -60,22 +60,16 @@
                 <mxswa:ActivityReference.Properties>
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                    <Sequence DisplayName="SetDisplayModeStep3: New Action">
-                      <mcwc:SetDisplayMode ControlId="gap_amount" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_expectedpaymentrequest" IsReadOnly="True" />
-                    </Sequence>
                     <Sequence DisplayName="SetDisplayModeStep4: New Action">
                       <mcwc:SetDisplayMode ControlId="gap_deadlineforevidence" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_expectedpaymentrequest" IsReadOnly="True" />
                     </Sequence>
                     <Sequence DisplayName="SetDisplayModeStep5: New Action">
                       <mcwc:SetDisplayMode ControlId="gap_deadlineforpaymentrequest" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_expectedpaymentrequest" IsReadOnly="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetDisplayModeStep6: New Action">
-                      <mcwc:SetDisplayMode ControlId="gap_type" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_expectedpaymentrequest" IsReadOnly="True" />
-                    </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetDisplayModeStep6_9: New Action">
+                    <Sequence DisplayName="SetVisibilityStep9: New Action">
                       <mcwc:SetVisibility ControlId="gap_receivedon" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_expectedpaymentrequest" IsVisible="True" />
                     </Sequence>
-                    <Sequence DisplayName="SetVisibilityStep_SetDisplayModeStep6_9_10: New Action">
+                    <Sequence DisplayName="SetVisibilityStep10: New Action">
                       <mcwc:SetVisibility ControlId="gap_senton" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_expectedpaymentrequest" IsVisible="True" />
                     </Sequence>
                   </sco:Collection>

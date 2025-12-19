@@ -11,8 +11,8 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <processorder>0</processorder>
   <RunAs>1</RunAs>
   <UniqueName>gap_assessmentprocess</UniqueName>
@@ -51,12 +51,6 @@
     </steplabels>
     <steplabels id="{afa71da4-a625-408e-a069-45a7f9c3c2b4}">
       <label languagecode="1033" description="Quality Review Completed On" />
-    </steplabels>
-    <steplabels id="{1d88c9cb-20da-41a6-9a86-05297d5cf53b}">
-      <label languagecode="1033" description="Department Confirmation" />
-    </steplabels>
-    <steplabels id="{a2e78e18-20f0-477e-bf06-f59cdf96eab3}">
-      <label languagecode="1033" description="Department Outcome" />
     </steplabels>
   </labels>
 </Workflow>

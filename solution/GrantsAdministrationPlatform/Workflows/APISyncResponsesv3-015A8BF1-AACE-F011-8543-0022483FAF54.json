@@ -1,0 +1,750 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_gap-5ffind-20a-20grant-20v2-5fd78db9986efe513d": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_FindaGrantv2"
+        },
+        "api": {
+          "name": "shared_gap-5ffind-20a-20grant-20v2-5fd78db9986efe513d",
+          "logicalName": "gap_5Ffind-20a-20grant-20v2"
+        }
+      },
+      "shared_commondataserviceforapps_2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Dataverse_|_Trigger": {
+          "metadata": {
+            "operationMetadataId": "80d45758-16e7-47ae-a21c-a18850ea342c"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_applicationssynctrigger",
+              "subscriptionRequest/filterexpression": "gap_applicationssynctrigger ne null",
+              "subscriptionRequest/name": "d9afec36-d78f-f011-b4cb-6045bd0f9625:MTA"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Data_|_Initialise_Application_Counter": {
+          "runAfter": {
+            "Data_|_Initialise_Application_Page_Counter": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8e0816e0-6a47-4efb-adcf-44bc618c6274"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Application Counter",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Data_|_Initialise_Application_Limit": {
+          "runAfter": {
+            "Data_|_Initialise_Application_Counter": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0bea48fb-e2a3-4cd6-a476-ca870c475cbf"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Application Limit",
+                "type": "integer",
+                "value": "@coalesce(triggerOutputs()?['body/gap_applicationimportlimit'], 8)"
+              }
+            ]
+          }
+        },
+        "Data_|_Initialise_Page": {
+          "runAfter": {
+            "Data_|_Initialise_Application_Limit": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0bea48fb-e2a3-4cd6-a476-ca870c475cbf"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Page",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Data_|_Initialise_Is_Complete": {
+          "runAfter": {
+            "Data_|_Initialise_Page": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0bea48fb-e2a3-4cd6-a476-ca870c475cbf"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Is Complete",
+                "type": "boolean",
+                "value": false
+              }
+            ]
+          }
+        },
+        "Do_until": {
+          "actions": {
+            "Try": {
+              "actions": {
+                "Limit_Reached": {
+                  "actions": {
+                    "Stop_Loop_(3)_1": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "d2a6e649-7e5c-4e9d-b891-67278be0c8dd"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "Is Complete",
+                        "value": true
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Per_Application": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "or": [
+                      {
+                        "greaterOrEquals": [
+                          "@variables('Application Counter')",
+                          "@variables('Application Limit')"
+                        ]
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "14927b7f-5d0b-4056-8b93-ca88fbe4d0f0"
+                  },
+                  "type": "If"
+                },
+                "Get_Applications": {
+                  "runAfter": {
+                    "Increment_Page": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "64e09273-e0a7-4cf9-9994-c1eba473cb9c"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_gap-5ffind-20a-20grant-20v2-5fd78db9986efe513d",
+                      "connectionName": "shared_gap-5ffind-20a-20grant-20v2-5fd78db9986efe513d",
+                      "operationId": "GetApplications"
+                    },
+                    "parameters": {
+                      "reference": "@triggerOutputs()?['body/gap_ggisreferencenumber']",
+                      "page": "@variables('Page')"
+                    },
+                    "retryPolicy": {
+                      "type": "none"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Reset_Application_Page_Counter": {
+                  "runAfter": {
+                    "Get_Applications": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "585de496-e673-479b-8e37-39b41b955f61"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Application Page Counter",
+                    "value": 0
+                  }
+                },
+                "Last_Page": {
+                  "actions": {
+                    "Stop_Loop_(3)_2": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "92291594-b1fd-4131-8b92-d0e102e59278"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "Is Complete",
+                        "value": true
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Limit_Reached": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "or": [
+                      {
+                        "equals": [
+                          "@variables('Application Page Counter')",
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "109326bc-8976-4f5a-b86c-0716ba12db94"
+                  },
+                  "type": "If"
+                },
+                "Increment_Page": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "26584d4b-eb1e-45ec-a92d-3b5245f93d3b"
+                  },
+                  "type": "IncrementVariable",
+                  "inputs": {
+                    "name": "Page",
+                    "value": 1
+                  }
+                },
+                "Per_Application": {
+                  "foreach": "@outputs('Get_Applications')?['body/Applications']",
+                  "actions": {
+                    "Below_Limit": {
+                      "actions": {
+                        "New_Application": {
+                          "actions": {
+                            "Compose": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "ac859ba8-5056-4e29-951d-1fd8e582bd81"
+                              },
+                              "type": "Compose",
+                              "inputs": "@items('Per_Application')"
+                            },
+                            "Perform_a_bound_action": {
+                              "runAfter": {
+                                "Compose": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "7c62f6c2-13d5-4a00-b28c-8339c3f457fe"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                  "connectionName": "shared_commondataserviceforapps_2",
+                                  "operationId": "PerformBoundAction"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_schemes",
+                                  "actionName": "Microsoft.Dynamics.CRM.gap_CreateApplicationAndRelatedRecords",
+                                  "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                                  "item/Body": "@items('Per_Application')"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Append_to_array_variable": {
+                              "runAfter": {
+                                "Perform_a_bound_action": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "0b9865b9-f7b9-4b62-9607-b15e77cbf76c"
+                              },
+                              "type": "AppendToArrayVariable",
+                              "inputs": {
+                                "name": "Outputs",
+                                "value": "@outputs('Perform_a_bound_action')?['body/Output']"
+                              }
+                            },
+                            "Increment_Application_Counter": {
+                              "runAfter": {
+                                "Append_to_array_variable": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "dc511440-5641-4519-9725-909f8e4ba663"
+                              },
+                              "type": "IncrementVariable",
+                              "inputs": {
+                                "name": "Application Counter",
+                                "value": 1
+                              }
+                            }
+                          },
+                          "runAfter": {},
+                          "else": {
+                            "actions": {
+                              "Append_to_array_variable_1": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "b75b248d-0841-48e4-849b-333076a49879"
+                                },
+                                "type": "AppendToArrayVariable",
+                                "inputs": {
+                                  "name": "Outputs",
+                                  "value": "Skipped @{items('Per_Application')?['SubmissionId']}"
+                                }
+                              }
+                            }
+                          },
+                          "expression": {
+                            "and": [
+                              {
+                                "not": {
+                                  "contains": [
+                                    "@body('Select_Submission_IDs')",
+                                    "@items('Per_Application')?['SubmissionId']"
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "4da90301-db53-409a-86dd-f4858ba63d57"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {},
+                      "expression": {
+                        "and": [
+                          {
+                            "less": [
+                              "@variables('Application Counter')",
+                              "@variables('Application Limit')"
+                            ]
+                          }
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "32ae829c-fdfc-4ae9-ab70-cad6e7fa2907"
+                      },
+                      "type": "If"
+                    },
+                    "Increment_Application_Page_Counter": {
+                      "runAfter": {
+                        "Below_Limit": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "611a02fb-3c30-4175-8fa4-ef41a9cc7cc0"
+                      },
+                      "type": "IncrementVariable",
+                      "inputs": {
+                        "name": "Application Page Counter",
+                        "value": 1
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Select_Submission_IDs": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "2aa84f02-2f7c-4f7d-90d9-f48eff37851a"
+                  },
+                  "type": "Foreach",
+                  "runtimeConfiguration": {
+                    "concurrency": {
+                      "repetitions": 1
+                    }
+                  }
+                },
+                "List_Existing_Applications": {
+                  "runAfter": {
+                    "Reset_Application_Page_Counter": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "627c35d2-d75a-4a87-a4fd-c5613b19b2b6"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps_2",
+                      "operationId": "ListRecords"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "$filter": "_gap_scheme_value eq @{triggerOutputs()?['body/gap_schemeid']}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Select_Submission_IDs": {
+                  "runAfter": {
+                    "List_Existing_Applications": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "faeca579-4260-4aaa-90a8-69880c2ed61f"
+                  },
+                  "type": "Select",
+                  "inputs": {
+                    "from": "@outputs('List_Existing_Applications')?['body/value']",
+                    "select": "@item()?['gap_submissionid']"
+                  }
+                },
+                "Update_Find_and_Apply_API_Status_|_200": {
+                  "runAfter": {
+                    "Last_Page": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "35edf979-ecbe-4686-abca-9af2ec7fedda"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps_2",
+                      "operationId": "UpdateOnlyRecord"
+                    },
+                    "parameters": {
+                      "entityName": "gap_schemes",
+                      "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                      "item/gap_findapplyapistatus": "200"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "6d6007da-5b30-4fed-b8b7-4603a2b46ede"
+              },
+              "type": "Scope"
+            },
+            "Catch": {
+              "actions": {
+                "Stop_Loop_(1)": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "b1beb712-8f98-4a0a-a805-a6b5f307df6c"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Is Complete",
+                    "value": true
+                  }
+                },
+                "Switch": {
+                  "runAfter": {
+                    "Parse_JSON": [
+                      "Succeeded"
+                    ]
+                  },
+                  "cases": {
+                    "Case_|_404": {
+                      "case": "404",
+                      "actions": {
+                        "Update_Find_and_Apply_API_Status_|_404": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "01125a44-20ee-4809-86a8-9a2f8c3461fb"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "connectionName": "shared_commondataserviceforapps_2",
+                              "operationId": "UpdateOnlyRecord"
+                            },
+                            "parameters": {
+                              "entityName": "gap_schemes",
+                              "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                              "item/gap_findapplyapistatus": "404: There are no applications for this funding organsiation with the GGIS reference @{triggerOutputs()?['body/gap_ggisreferencenumber']}."
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      }
+                    },
+                    "Case_|_403": {
+                      "case": "403",
+                      "actions": {
+                        "Update_Find_and_Apply_API_Status_|_403": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "bb24fc0b-7625-4915-b6e3-b30f36772e4c"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "connectionName": "shared_commondataserviceforapps_2",
+                              "operationId": "UpdateOnlyRecord"
+                            },
+                            "parameters": {
+                              "entityName": "gap_schemes",
+                              "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                              "item/gap_findapplyapistatus": "403: The API Key for the Find & Apply API is invalid. Please contact the GLU Product Team."
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      }
+                    },
+                    "Case_|_500": {
+                      "case": "500",
+                      "actions": {
+                        "Update_Find_and_Apply_API_Status_|_500": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "6548aa24-8fa8-4115-9758-dc503ee5a3f4"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "connectionName": "shared_commondataserviceforapps_2",
+                              "operationId": "UpdateOnlyRecord"
+                            },
+                            "parameters": {
+                              "entityName": "gap_schemes",
+                              "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                              "item/gap_findapplyapistatus": "500: There is an internal server error with the Find & Apply API. Please contact the GLU Product Team."
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "default": {
+                    "actions": {
+                      "Update_Find_and_Apply_API_Status_|_Default_Error": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "53393ea4-cac3-478b-a998-a5c01165230c"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "UpdateOnlyRecord"
+                          },
+                          "parameters": {
+                            "entityName": "gap_schemes",
+                            "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                            "item/gap_findapplyapistatus": "An error has occurred when syncing applications from Find & Apply. Please contact the GLU Product Team."
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
+                  },
+                  "expression": "@body('Parse_JSON')?['Applications']",
+                  "metadata": {
+                    "operationMetadataId": "851a8e33-bfae-4f0e-a97d-8a3ca2afa8df"
+                  },
+                  "type": "Switch"
+                },
+                "Parse_JSON": {
+                  "runAfter": {
+                    "Stop_Loop_(1)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "9d534d19-81a0-4e17-833a-8e4edeeda67c"
+                  },
+                  "type": "ParseJson",
+                  "inputs": {
+                    "content": "@body('Get_Applications')",
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "Applications": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "runAfter": {
+                "Try": [
+                  "TimedOut",
+                  "Skipped",
+                  "Failed"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "350ec614-bfbc-42af-9eb6-7ac7e67de7ed"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "Data_|_Initialise_Is_Complete": [
+              "Succeeded"
+            ]
+          },
+          "expression": "@equals(variables('Is Complete'),true)",
+          "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+          },
+          "metadata": {
+            "operationMetadataId": "e5b412e8-8174-4ff7-8cc4-74905f11dd4a"
+          },
+          "type": "Until"
+        },
+        "Dataverse_|_Update_Scheme": {
+          "runAfter": {
+            "Do_until": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "22136482-5a5b-49c3-b9c4-e24b9efd8f14"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "UpdateRecord"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "recordId": "@triggerBody()?['gap_schemeid']",
+              "item/gap_applicationslastsyncedon": "@{utcNow()}",
+              "item/gap_documentslastsync": "@{utcNow()}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Data_|_Initialise_Application_Page_Counter": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8e0816e0-6a47-4efb-adcf-44bc618c6274"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Application Page Counter",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "8ea37372-ac31-4260-914f-5185df46b7ac"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Outputs",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Compose_1": {
+          "runAfter": {
+            "Dataverse_|_Update_Scheme": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e5e776ae-b4e5-449e-9aea-6469bf69ab0e"
+          },
+          "type": "Compose",
+          "inputs": "@variables('Outputs')"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,46 @@
+<appaction uniquename="cr48e__Mscrm.Form.{!EntityLogicalName}.SaveAsComplete!gap_DEMO!gap_query!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Mark Complete">
+    <label description="Mark Complete" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Mark Complete">
+    <label description="Mark Complete" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Save the {EntityLogicalNameMarker} and change the status to Completed.">
+    <label description="Save the {EntityLogicalNameMarker} and change the status to Completed." languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Mark Complete">
+    <label description="Mark Complete" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_query</logicalname>
+  </contextentity>
+  <contextvalue>gap_query</contextvalue>
+  <fonticon>$clientsvg:Accept</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>Mscrm.Form.{!EntityLogicalName}.SaveAsComplete</name>
+  <onclickeventjavascriptfunctionname>XrmCore.Commands.Save.saveAsCompleted</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>adea1aea-b2aa-e611-80d6-00155d88c343</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>2</origin>
+  <sequence>100100020.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>bf06db0374244af281793aeaf46d7430</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

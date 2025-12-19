@@ -1,0 +1,213 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_sharedoffice365_7664a"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "GMT Standard Time",
+            "schedule": {
+              "hours": [
+                "17"
+              ]
+            }
+          },
+          "evaluatedRecurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "GMT Standard Time",
+            "schedule": {
+              "hours": [
+                "17"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "7a4b7d33-487d-46a8-8a8d-b1a2f16f5149"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_rows": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "07a18020-cd7a-4d89-bed8-be9efe20cbb2"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "ListRecords"
+            },
+            "parameters": {
+              "entityName": "gap_feedbacksubmittalses",
+              "$select": "gap_abletodowhatyouneededtoday, gap_describetheeaseofuse,  gap_whydidyougivethisscore, gap_overallopinionsofourservice, _createdby_value",
+              "$filter": "createdon ge @{formatDateTime(convertTimeZone(utcNow(), 'UTC', 'GMT Standard Time'), 'yyyy-MM-dd')}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Condition": {
+          "actions": {
+            "Apply_to_each": {
+              "foreach": "@outputs('List_rows')?['body/value']",
+              "actions": {
+                "Get_a_row_by_ID": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "37a222ba-4934-4b1f-a9a9-59f98a27e80e"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "GetItem"
+                    },
+                    "parameters": {
+                      "entityName": "systemusers",
+                      "recordId": "@items('Apply_to_each')?['_createdby_value']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Append_to_string_variable": {
+                  "runAfter": {
+                    "Get_a_row_by_ID": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "991892e5-386d-4364-84c2-a47ab59e1f5c"
+                  },
+                  "type": "AppendToStringVariable",
+                  "inputs": {
+                    "name": "Responses",
+                    "value": "<strong>@{outputs('Get_a_row_by_ID')?['body/fullname']}</strong><br/>\n1. @{items('Apply_to_each')?['gap_abletodowhatyouneededtoday']}<br/>\n2. @{items('Apply_to_each')?['gap_describetheeaseofuse@OData.Community.Display.V1.FormattedValue']}<br/>\n3. @{items('Apply_to_each')?['gap_whydidyougivethisscore']} <br/>\n4. @{items('Apply_to_each')?['gap_overallopinionsofourservice@OData.Community.Display.V1.FormattedValue']}<br/>\n<br/>\n---<br/>\n<br/>\n"
+                  }
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "987d46f7-1e43-4f32-9055-b3d306071f43"
+              },
+              "type": "Foreach"
+            },
+            "Send_an_email_(V2)": {
+              "runAfter": {
+                "Apply_to_each": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ba967c0a-9599-4ab6-89fb-094d402c9836"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+                  "connectionName": "shared_office365_1",
+                  "operationId": "SendEmailV2"
+                },
+                "parameters": {
+                  "emailMessage/To": "contactglu@cabinetoffice.gov.uk",
+                  "emailMessage/Subject": "GLU - Feedback Submitted",
+                  "emailMessage/Body": "<p>Hi there<br>\n<br>\nNew feedback responses have been submitted, attached are the responses.<br>\n<br>\nQuestions:<br>\nQ1. Were you able to do what you needed today?<br>\nQ2. Describe the ease of use.<br>\nQ3. Why did you give this score?<br>\nQ4. Overall opinions of your service?<br>\n<br>\nResponses:<br>\n<u></u><u>@{variables('Responses')}</u><u></u><br>\n</p>",
+                  "emailMessage/Cc": "samuel.m.pollard@pwc.com",
+                  "emailMessage/Importance": "Normal"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Responses": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Terminate": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "ce411d68-655e-495f-a7c4-6e8c8e874ee3"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Succeeded"
+                }
+              }
+            }
+          },
+          "expression": {
+            "greater": [
+              "@length(outputs('List_rows')?['body/value'])",
+              0
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "db897562-d358-4e76-b7c4-6e0505683ec1"
+          },
+          "type": "If"
+        },
+        "Responses": {
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4129a9e7-5d11-4889-b92a-0ccbd4e33736"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Responses",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

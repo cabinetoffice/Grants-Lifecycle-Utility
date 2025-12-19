@@ -347,6 +347,14 @@
                         <control id="gap_paymentamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_paymentamount" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{f250d4c7-c88e-40b8-bb7a-31081545c1f7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Payment Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_paymentdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_paymentdate" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>

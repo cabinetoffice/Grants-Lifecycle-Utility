@@ -11,7 +11,7 @@
       <grid name="resultset" jump="gap_query" select="1" icon="1" preview="1">
         <row name="result" id="gap_queryid">
           <cell name="gap_query" width="300" />
-          <cell name="gap_name" width="150" />
+          <cell name="ownerid" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -26,7 +26,7 @@
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="gap_name" />
+          <attribute name="ownerid" />
         </entity>
       </fetch>
     </fetchxml>

@@ -106,7 +106,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="null_section_3" id="74fc8c1b-fd62-4f52-9eb1-872df7bdb4af" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115" visible="false">
+                <section name="null_section_3" id="74fc8c1b-fd62-4f52-9eb1-872df7bdb4af" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="111" labelwidth="115" visible="true">
                   <labels>
                     <label description="New Section" languagecode="1033" />
                   </labels>

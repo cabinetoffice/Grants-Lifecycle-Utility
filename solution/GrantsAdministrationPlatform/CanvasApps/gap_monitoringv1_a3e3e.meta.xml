@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>gap_monitoringv1_a3e3e</Name>
-  <AppVersion>2025-10-27T14:11:23Z</AppVersion>
+  <AppVersion>2025-12-10T16:12:48Z</AppVersion>
   <Status>Ready</Status>
-  <CreatedByClientVersion>3.25102.17.0</CreatedByClientVersion>
-  <MinClientVersion>3.25102.17.0</MinClientVersion>
-  <Tags>{"primaryDeviceWidth":"1744","primaryDeviceHeight":"725","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25102.17","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251023T163409Z-3.25095.13.0"}</Tags>
+  <CreatedByClientVersion>3.25121.7.0</CreatedByClientVersion>
+  <MinClientVersion>3.25121.7.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25121.7","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251027T141123Z-3.25102.17.0"}</Tags>
   <IsCdsUpgraded>0</IsCdsUpgraded>
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>

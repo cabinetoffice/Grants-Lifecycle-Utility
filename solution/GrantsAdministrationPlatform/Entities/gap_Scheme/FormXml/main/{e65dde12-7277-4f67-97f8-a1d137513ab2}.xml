@@ -36,11 +36,11 @@
                       </cell>
                     </row>
                     <row>
-                      <cell locklevel="0" id="{5615c71d-4ecf-4054-9e88-0202e15155f2}" colspan="1" rowspan="1" showlabel="false">
+                      <cell id="{237f4f50-bb9c-435c-ace8-a4f3b66b1bb5}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="Acronym" languagecode="1033" />
+                          <label description="Reference Number" languagecode="1033" />
                         </labels>
-                        <control id="gap_acronym" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_acronym" uniqueid="{e24d5147-22d9-4ca0-8d72-7d8d16af2fa6}" disabled="true" />
+                        <control id="gap_ggisreferencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_ggisreferencenumber" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -57,6 +57,38 @@
                           <label description="Application | Closing Date" languagecode="1033" />
                         </labels>
                         <control id="gap_applicationclosingdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_applicationclosingdate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{aaeb9aa7-906a-4856-8f78-4b78743915b4}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Current Stage" languagecode="1033" />
+                        </labels>
+                        <control id="gap_currentstage" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_currentstage" uniqueid="{acd5ff01-69a2-4603-aff0-633a2e742d7c}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cc9ba794-b40a-42ce-a7a1-f8548cd1fe39}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="GGIS | Scheme Start Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_ggisawardstartdate" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_ggisawardstartdate" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4f946962-e43c-4299-936b-c50da022bda0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="GGIS | Scheme End Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_ggisawardenddate" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_ggisawardenddate" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{360ba7b8-7a74-4d60-954c-e1a3eaf22905}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Payment Type" languagecode="1033" />
+                        </labels>
+                        <control id="gap_paymenttype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_paymenttype" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -89,22 +121,6 @@
                           <label description="Total Amount Paid Per Financial Year" languagecode="1033" />
                         </labels>
                         <control id="gap_totalamountpaidperfinancialyear" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="gap_totalamountpaidperfinancialyear" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{237f4f50-bb9c-435c-ace8-a4f3b66b1bb5}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Reference Number" languagecode="1033" />
-                        </labels>
-                        <control id="gap_ggisreferencenumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_ggisreferencenumber" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{360ba7b8-7a74-4d60-954c-e1a3eaf22905}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Payment Type" languagecode="1033" />
-                        </labels>
-                        <control id="gap_paymenttype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_paymenttype" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -341,22 +357,6 @@
                   <rows>
                     <row />
                     <row>
-                      <cell id="{7ec6ee61-c8f8-4974-840f-59d3ba9587d5}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Current Process" languagecode="1033" />
-                        </labels>
-                        <control id="gap_currentprocess" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_currentprocess" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{13a1e15c-be5c-47c7-bfb6-f6ec24232c67}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Current Stage" languagecode="1033" />
-                        </labels>
-                        <control id="gap_currentstage" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_currentstage" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{7db29c99-a964-4621-9d91-dd09f08e9ccb}" locklevel="0" colspan="1" rowspan="1" visible="false">
                         <labels>
                           <label description="Google Drive Folder Path" languagecode="1033" />
@@ -519,7 +519,7 @@
                     <row>
                       <cell id="{bc58ab02-66f5-44ec-8114-bff9014fa2a9}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="ID Validation Outcome" languagecode="1033" />
+                          <label description="GGIS ID Validation Outcome" languagecode="1033" />
                         </labels>
                         <control id="gap_idvalidationoutcome" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_idvalidationoutcome" disabled="true" />
                       </cell>
@@ -916,16 +916,33 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{2e03be75-5c00-4edf-9dbf-27ca99d55015}" showlabel="false">
+                      <cell locklevel="0" id="{1864e83a-5e92-49a1-8e2d-b2bed3172e10}" colspan="1" rowspan="1" showlabel="false">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Find &amp; Apply API Status" languagecode="1033" />
                         </labels>
+                        <control id="gap_findapplyapistatus" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_findapplyapistatus" uniqueid="{4201f4e2-489f-461c-8454-1300ac36e191}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{16bcb6b0-bddd-4618-ab25-c66e32e08568}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Find &amp; Apply API Status" languagecode="1033" />
+                        </labels>
+                        <control id="gap_findapplyapistatus" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_findapplyapistatus" uniqueid="{240db43c-44af-41b8-b5c7-dff7b0410274}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ffa1b050-25e2-49ce-bce8-9d7adefee266}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Find &amp; Apply API Status" languagecode="1033" />
+                        </labels>
+                        <control id="gap_findapplyapistatus" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_findapplyapistatus" disabled="true" />
                       </cell>
                     </row>
                     <row>
                       <cell locklevel="0" id="{c6623f6a-8aa2-47bf-b5d6-ff12b102d006}" rowspan="4" colspan="1" auto="false" showlabel="true">
                         <labels>
-                          <label description="Assignments" languagecode="1033" />
+                          <label description="Applications" languagecode="1033" />
                         </labels>
                         <control indicationOfSubgrid="true" id="Subgrid_new_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
                           <parameters>
@@ -939,56 +956,6 @@
                             <ViewId>{34BBB879-D18C-F011-B4CB-000D3AD60BB2}</ViewId>
                             <ViewIds>{F8328791-55C0-EE11-9079-002248004B54},{533A9110-9AC6-EE11-9079-002248004D0A},{34BBB879-D18C-F011-B4CB-000D3AD60BB2}</ViewIds>
                             <RelationshipName>gap_application_Scheme_gap_scheme</RelationshipName>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-              </sections>
-            </column>
-          </columns>
-        </tab>
-        <tab name="tab_7" id="fc008106-ca51-4151-947c-c3f8236b1fb2" IsUserDefined="0" locklevel="0" showlabel="true">
-          <labels>
-            <label description="Award" languagecode="1033" />
-          </labels>
-          <columns>
-            <column width="100%">
-              <sections>
-                <section name="tab_7_section_1" id="4e2c35cf-d20e-471b-bbc9-8b2d160ca309" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Panel | Application List" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row>
-                      <cell id="{6851e7fc-c15e-40a1-a485-d33d8c155bd9}" showlabel="false">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell locklevel="0" id="{30725ec1-3f62-416a-8b55-5c4d6180f953}" rowspan="4" colspan="1" auto="false" showlabel="false">
-                        <labels>
-                          <label description="New SG control 1711021827107" languagecode="1033" />
-                        </labels>
-                        <control indicationOfSubgrid="true" id="Subgrid_new_4" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
-                          <parameters>
-                            <RecordsPerPage>4</RecordsPerPage>
-                            <AutoExpand>Fixed</AutoExpand>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <EnableChartPicker>true</EnableChartPicker>
-                            <ChartGridMode>All</ChartGridMode>
-                            <TargetEntityType>gap_application</TargetEntityType>
-                            <ViewId>{5D785FFF-78E7-EE11-904D-6045BDD2C716}</ViewId>
-                            <ViewIds>{F8328791-55C0-EE11-9079-002248004B54},{5D785FFF-78E7-EE11-904D-6045BDD2C716}</ViewIds>
-                            <RelationshipName>gap_application_Scheme_gap_scheme</RelationshipName>
-                            <VisualizationId>{881D5E2F-33BA-EE11-A569-002248004D0A}</VisualizationId>
                           </parameters>
                         </control>
                       </cell>
@@ -1047,7 +1014,7 @@
                     <row />
                   </rows>
                 </section>
-                <section name="Documents_section_3" id="243b99cf-49bb-4b90-9490-781359a7ea01" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                <section name="Documents_section_3" id="243b99cf-49bb-4b90-9490-781359a7ea01" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="true">
                   <labels>
                     <label description="Additional Documents" languagecode="1033" />
                   </labels>
@@ -1058,12 +1025,17 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{65761756-65dc-4dd2-8fc1-c7fe2140db5e}" showlabel="false">
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{caab1e14-a46f-42af-b622-a40b9995f799}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
                     <row>
                       <cell id="{03a0dccf-f547-4937-a576-20771c0abb6f}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
                         <labels>
@@ -1083,12 +1055,39 @@
                           </parameters>
                         </control>
                       </cell>
-                      <cell locklevel="0" id="{a12bd998-3daa-451d-82f9-0ee1fbcf03b6}">
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{b5e4ba67-d87f-415c-9332-1d933cfd84db}" colspan="1" rowspan="1" showlabel="false">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Find &amp; Apply API Status" languagecode="1033" />
                         </labels>
+                        <control id="gap_findapplyapistatus" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_findapplyapistatus" uniqueid="{ee1141e4-6e21-4cf5-bc83-809da19bc918}" disabled="true" />
                       </cell>
                     </row>
+                    <row>
+                      <cell locklevel="0" id="{60bd8565-7a40-486c-8a04-21197bdf28e1}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="FAQ Documents" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_new_7" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>15</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>gap_faqdocument_RelatedScheme_gap_scheme</RelationshipName>
+                            <TargetEntityType>gap_faqdocument</TargetEntityType>
+                            <ViewId>{60CF68C5-97D8-4594-AE01-A2A98545E839}</ViewId>
+                            <ViewIds>{60CF68C5-97D8-4594-AE01-A2A98545E839}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -1179,6 +1178,14 @@
                           <label description="Applications | Refresh Interval" languagecode="1033" />
                         </labels>
                         <control id="gap_applicationsrefreshinterval" classid="{AA987274-CE4E-4271-A803-66164311A958}" datafieldname="gap_applicationsrefreshinterval" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e34c22d8-441d-40ea-8e87-59c291e537ea}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Update Objective Checklists" languagecode="1033" />
+                        </labels>
+                        <control id="gap_updateobjectivechecklists" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_updateobjectivechecklists" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -1363,42 +1370,6 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{e24d5147-22d9-4ca0-8d72-7d8d16af2fa6}">
-          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
-            <parameters>
-              <datafieldname>gap_acronym</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
-            <parameters>
-              <datafieldname>gap_acronym</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
-            <parameters>
-              <primary type="Currency">gap_acronym</primary>
-              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
-              <isBold type="TwoOptions" static="true">true</isBold>
-              <isItalic type="TwoOptions" static="true">false</isItalic>
-            </parameters>
-          </customControl>
-          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
-            <parameters>
-              <primary type="Currency">gap_acronym</primary>
-              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
-              <isBold type="TwoOptions" static="true">true</isBold>
-              <isItalic type="TwoOptions" static="true">false</isItalic>
-            </parameters>
-          </customControl>
-          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
-            <parameters>
-              <primary type="Currency">gap_acronym</primary>
-              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
-              <isBold type="TwoOptions" static="true">true</isBold>
-              <isItalic type="TwoOptions" static="true">false</isItalic>
-            </parameters>
-          </customControl>
-        </controlDescription>
         <controlDescription forControl="{fc82122a-9793-43c8-861b-d6665c6798d2}">
           <customControl id="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}">
             <parameters>
@@ -1432,6 +1403,150 @@
               <FluentUIv9Theme type="Enum" static="true">webLightTheme</FluentUIv9Theme>
               <CheckBoxShape type="Enum" static="true">square</CheckBoxShape>
               <CheckBoxSize type="Enum" static="true">large</CheckBoxSize>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{4201f4e2-489f-461c-8454-1300ac36e191}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_findapplyapistatus</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_findapplyapistatus</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">The Sync Applications button can only call the API once in 10 minutes. </labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">The Sync Applications button can only call the API once in 10 minutes. </labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">The Sync Applications button can only call the API once in 10 minutes. </labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{240db43c-44af-41b8-b5c7-dff7b0410274}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_findapplyapistatus</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_findapplyapistatus</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">Note: Please wait for 10 minutes before clicking the Sync Applications button again</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">Note: Please wait for 10 minutes before clicking the Sync Applications button again</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">Note: Please wait for 10 minutes before clicking the Sync Applications button again</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{acd5ff01-69a2-4603-aff0-633a2e742d7c}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_currentstage</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_currentstage</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_currentstage</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_currentstage</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_currentstage</primary>
+              <labelText type="SingleLine.Text" static="true">Enter a date in the following format:  DD/MM/YYYY (This is dependent on browser setting)</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{ee1141e4-6e21-4cf5-bc83-809da19bc918}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_findapplyapistatus</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_findapplyapistatus</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">Admins can manage (delete) FAQ Document entries through elevated permissions via the subgrid below</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">Admins can manage (delete) FAQ Document entries through elevated permissions via the subgrid below</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_findapplyapistatus</primary>
+              <labelText type="SingleLine.Text" static="true">Admins can manage (delete) FAQ Document entries through elevated permissions via the subgrid below</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
             </parameters>
           </customControl>
         </controlDescription>

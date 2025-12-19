@@ -20,6 +20,8 @@
           <Variable x:TypeArguments="x:Boolean" Default="False" Name="ConditionBranchStep2_condition" />
           <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep2_1" />
           <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep2_2" />
+          <Variable x:TypeArguments="x:Boolean" Default="False" Name="True" />
+          <Variable x:TypeArguments="x:Object" Name="ConditionBranchStep3_1" />
         </sco:Collection>
         <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
           <mxswa:GetEntityProperty Attribute="gap_paymentstatus" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" Value="[ConditionBranchStep2_1]">
@@ -63,11 +65,52 @@
                       <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
                       <mcwc:SetFieldRequiredLevel ControlId="gap_paymentamount" ControlType="standard" DisplayName="SetFieldRequiredLevelStep1" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" RequiredLevel="Required" />
                     </Sequence>
+                    <Sequence DisplayName="SetFieldRequiredLevelStep2: New Action">
+                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;gap_monitoringactivity&quot;)]" />
+                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
+                      <mcwc:SetFieldRequiredLevel ControlId="gap_paymentdate" ControlType="standard" DisplayName="SetFieldRequiredLevelStep2" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" RequiredLevel="Required" />
+                    </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
               </mxswa:ActivityReference>
               <x:Null x:Key="Else" />
               <x:String x:Key="Description">New Condition</x:String>
+            </mxswa:ActivityReference.Properties>
+          </mxswa:ActivityReference>
+          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EvaluateExpression, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EvaluateExpression">
+            <mxswa:ActivityReference.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="ExpressionOperator">CreateCrmType</InArgument>
+              <InArgument x:TypeArguments="s:Object[]" x:Key="Parameters">[New Object() { Microsoft.Xrm.Sdk.Workflow.WorkflowPropertyType.Boolean, "true" }]</InArgument>
+              <InArgument x:TypeArguments="s:Type" x:Key="TargetType">
+                <mxswa:ReferenceLiteral x:TypeArguments="s:Type" Value="x:Boolean" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:Object" x:Key="Result">[ConditionBranchStep3_1]</OutArgument>
+            </mxswa:ActivityReference.Arguments>
+          </mxswa:ActivityReference>
+          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.ConditionBranch, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep3">
+            <mxswa:ActivityReference.Arguments>
+              <InArgument x:TypeArguments="x:Boolean" x:Key="Condition">[True]</InArgument>
+            </mxswa:ActivityReference.Arguments>
+            <mxswa:ActivityReference.Properties>
+              <mxswa:ActivityReference x:Key="Then" AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.Composite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="ConditionBranchStep3">
+                <mxswa:ActivityReference.Properties>
+                  <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
+                  <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
+                    <Sequence DisplayName="SetFieldRequiredLevelStep_ConditionBranchStep2_3: New Action">
+                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;gap_monitoringactivity&quot;)]" />
+                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
+                      <mcwc:SetFieldRequiredLevel ControlId="gap_paymentamount" ControlType="standard" DisplayName="SetFieldRequiredLevelStep_ConditionBranchStep2_3" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" RequiredLevel="None" />
+                    </Sequence>
+                    <Sequence DisplayName="SetFieldRequiredLevelStep_ConditionBranchStep2_3_4: New Action">
+                      <Assign x:TypeArguments="mxs:Entity" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;)]" Value="[New Entity(&quot;gap_monitoringactivity&quot;)]" />
+                      <Assign x:TypeArguments="s:Guid" To="[CreatedEntities(&quot;primaryEntity#Temp&quot;).Id]" Value="[InputEntities(&quot;primaryEntity&quot;).Id]" />
+                      <mcwc:SetFieldRequiredLevel ControlId="gap_paymentdate" ControlType="standard" DisplayName="SetFieldRequiredLevelStep_ConditionBranchStep2_3_4" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" RequiredLevel="None" />
+                    </Sequence>
+                  </sco:Collection>
+                </mxswa:ActivityReference.Properties>
+              </mxswa:ActivityReference>
+              <x:Null x:Key="Else" />
+              <x:String x:Key="Description"></x:String>
             </mxswa:ActivityReference.Properties>
           </mxswa:ActivityReference>
         </sco:Collection>

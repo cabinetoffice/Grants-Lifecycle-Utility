@@ -1,8 +1,8 @@
 function toggleSubgridVisibilityOnLoad(executionContext) {
   var formContext = executionContext.getFormContext(); // Get the form context
   // Retrieve the field and subgrid controls
-  var automationTypeField = formContext.getAttribute("cr705_automationtype"); // Assuming this is the correct field name
-  // Change by Tommy: On template questions, the logical name for the AI fields have cr705 instead of gap for some reason
+  var automationTypeField = formContext.getAttribute("gap_conditionalautomationenabled"); // Assuming this is the correct field name
+
   var subgridControl = formContext.getControl("responsemappingsubgrid");
   // Ensure both the field and subgrid control are accessible
   if (automationTypeField && subgridControl) {

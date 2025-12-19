@@ -478,7 +478,10 @@
         </NavBar>
       </Navigation>
       <controlDescriptions />
-      <DisplayConditions FallbackForm="true" Order="5">
+      <DisplayConditions FallbackForm="true" Order="1">
+        <Role Id="{791FCF32-DDF7-EE11-A1FE-6045BDC1FE60}" />
+        <Role Id="{F3F9BAB3-F4C4-EE11-9079-002248004A06}" />
+        <Role Id="{295AD9C6-17C5-EE11-9079-002248004B54}" />
         <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
         <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
       </DisplayConditions>

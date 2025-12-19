@@ -20,6 +20,22 @@
                   </labels>
                   <rows>
                     <row>
+                      <cell locklevel="0" id="{daea4f3c-84a0-4e8e-938c-65c20769c5ca}" colspan="1" rowspan="1" showlabel="false" visible="true">
+                        <labels>
+                          <label description="Title" languagecode="1033" />
+                        </labels>
+                        <control id="gap_title" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_title" uniqueid="{1ac33567-ffca-4fcc-87ca-9de296a65b1d}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{2b8ce75f-66b4-4167-853e-1fe502be13b7}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Title" languagecode="1033" />
+                        </labels>
+                        <control id="gap_title" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_title" uniqueid="{2aa1c2e3-a701-49d5-a751-04753332c70e}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{a85d1426-4906-4e03-9c25-307f5a513b8e}" colspan="1" visible="true">
                         <labels>
                           <label description="Title" languagecode="1033" />
@@ -68,15 +84,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{9c16936b-030e-4b96-8b9b-97bfdbe2261d}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Scoring Template" languagecode="1033" />
-                        </labels>
-                        <control id="gap_scoringtemplate" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_scoringtemplate" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{7751da32-ab53-4b24-8975-4627577758a0}" locklevel="0" colspan="1" rowspan="1">
+                      <cell id="{6dc1e031-8cd5-418f-bb52-8317abd22a8e}" locklevel="0" colspan="1" rowspan="1" visible="true">
                         <labels>
                           <label description="Question Template Type" languagecode="1033" />
                         </labels>
@@ -127,55 +135,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="null_section_5" id="df520c92-181a-4a22-ad07-638f8cf5de5c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
-                  <labels>
-                    <label description="Conditional Automation" languagecode="1033" />
-                  </labels>
-                  <rows>
-                    <row />
-                    <row>
-                      <cell id="{4f57ccc4-bc33-4ecf-b673-5eefabb741d5}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Conditional Automation Enabled" languagecode="1033" />
-                        </labels>
-                        <control id="gap_conditionalautomationenabled" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_conditionalautomationenabled" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{54e18a46-1200-4e41-890e-f6e865c4ad12}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Conditional Applicable Question" languagecode="1033" />
-                        </labels>
-                        <control id="gap_conditionalapplicablequestion" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_conditionalapplicablequestion" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell locklevel="0" id="{b4d9bfa7-9f76-4d87-87d4-f9980711a001}" rowspan="4" colspan="1" auto="true">
-                        <labels>
-                          <label description="Response Mappings" languagecode="1033" />
-                        </labels>
-                        <control indicationOfSubgrid="true" id="responsemappingsubgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
-                          <parameters>
-                            <RecordsPerPage>4</RecordsPerPage>
-                            <AutoExpand>Auto</AutoExpand>
-                            <EnableQuickFind>false</EnableQuickFind>
-                            <EnableViewPicker>false</EnableViewPicker>
-                            <EnableChartPicker>false</EnableChartPicker>
-                            <ChartGridMode>Grid</ChartGridMode>
-                            <RelationshipName>gap_responsemapping_ScoringTemplateQuestion_gap_scoringtemplatequestion</RelationshipName>
-                            <TargetEntityType>gap_responsemapping</TargetEntityType>
-                            <ViewId>{0f34f1f1-49df-42fd-864f-316b18c54ef9}</ViewId>
-                            <ViewIds>{0f34f1f1-49df-42fd-864f-316b18c54ef9}</ViewIds>
-                          </parameters>
-                        </control>
-                      </cell>
-                    </row>
-                    <row />
-                    <row />
-                    <row />
-                  </rows>
-                </section>
-                <section name="null_section_6" id="04e88c0a-9564-4a03-b707-05caf76f3475" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                <section name="null_section_6" id="04e88c0a-9564-4a03-b707-05caf76f3475" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
                   <labels>
                     <label description="AI Automation Configuration" languagecode="1033" />
                   </labels>
@@ -211,13 +171,19 @@
                     <row />
                     <row />
                     <row>
-                      <cell id="{802cc7e4-ac32-411b-b44a-d3b44788e86c}" locklevel="0" colspan="1" rowspan="14" visible="false">
+                      <cell id="{802cc7e4-ac32-411b-b44a-d3b44788e86c}" locklevel="0" colspan="1" rowspan="20" visible="false">
                         <labels>
                           <label description="AI Prompt" languagecode="1033" />
                         </labels>
                         <control id="cr705_aiprompt" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cr705_aiprompt" disabled="false" />
                       </cell>
                     </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                     <row>
                       <cell locklevel="0" id="{5c825075-523f-4491-90b2-5ff2cd790569}">
                         <labels>
@@ -311,6 +277,54 @@
                     </row>
                   </rows>
                 </section>
+                <section name="null_section_5" id="df520c92-181a-4a22-ad07-638f8cf5de5c" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Conditional Automation" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{4f57ccc4-bc33-4ecf-b673-5eefabb741d5}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Conditional Automation Enabled" languagecode="1033" />
+                        </labels>
+                        <control id="gap_conditionalautomationenabled" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_conditionalautomationenabled" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{54e18a46-1200-4e41-890e-f6e865c4ad12}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Conditional Applicable Question" languagecode="1033" />
+                        </labels>
+                        <control id="gap_conditionalapplicablequestion" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_conditionalapplicablequestion" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{b4d9bfa7-9f76-4d87-87d4-f9980711a001}" rowspan="4" colspan="1" auto="true">
+                        <labels>
+                          <label description="Response Mappings" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="responsemappingsubgrid" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+                          <parameters>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <AutoExpand>Auto</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <RelationshipName>gap_responsemapping_ScoringTemplateQuestion_gap_scoringtemplatequestion</RelationshipName>
+                            <TargetEntityType>gap_responsemapping</TargetEntityType>
+                            <ViewId>{0f34f1f1-49df-42fd-864f-316b18c54ef9}</ViewId>
+                            <ViewIds>{0f34f1f1-49df-42fd-864f-316b18c54ef9}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
               </sections>
             </column>
           </columns>
@@ -370,13 +384,6 @@
       <formLibraries>
         <Library name="gap_ShowResponseMappingSubgrid" libraryUniqueId="{bd1f6817-118a-4bfb-be87-f258342613b9}" />
       </formLibraries>
-      <events>
-        <event name="onload" application="false" active="false">
-          <Handlers>
-            <Handler functionName="toggleSubgridVisibilityOnLoad" libraryName="gap_ShowResponseMappingSubgrid" handlerUniqueId="{d8d8e497-ca91-4b3d-9f91-381e5accabee}" enabled="true" parameters="" passExecutionContext="true" />
-          </Handlers>
-        </event>
-      </events>
       <controlDescriptions>
         <controlDescription forControl="{c0642b7e-4d71-453d-955e-954866b070f4}">
           <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
@@ -414,7 +421,86 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{1ac33567-ffca-4fcc-87ca-9de296a65b1d}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">AI Scoring can only be enabled for questions with the following type: Text, Number</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">AI Scoring can only be enabled for questions with the following type: Text, Number</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">AI Scoring can only be enabled for questions with the following type: Text, Number</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{2aa1c2e3-a701-49d5-a751-04753332c70e}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">No edits to the Title field will be possible after Title, Type, Order and Section are populated</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">No edits to the Title field will be possible after Title, Type, Order and Section are populated</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_title</primary>
+              <labelText type="SingleLine.Text" static="true">No edits to the Title field will be possible after Title, Type, Order and Section are populated</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="toggleSubgridVisibilityOnLoad" libraryName="gap_ShowResponseMappingSubgrid" handlerUniqueId="{d8d8e497-ca91-4b3d-9f91-381e5accabee}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

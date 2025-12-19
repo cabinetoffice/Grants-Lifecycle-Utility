@@ -13,46 +13,6 @@
         <Description description="" languagecode="1033" />
       </Descriptions>
       <attributes>
-        <attribute PhysicalName="cr48e_Act">
-          <Type>nvarchar</Type>
-          <Name>cr48e_act</Name>
-          <LogicalName>cr48e_act</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Act" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="What act is this grant made pursuant to" languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="cr48e_FundedActivitiesorAssuredEligibleExpenditure">
           <Type>picklist</Type>
           <Name>cr48e_fundedactivitiesorassuredeligibleexpenditure</Name>
@@ -279,310 +239,6 @@
             <Description description="Exchange rate for the currency associated with the entity with respect to the base currency." languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_AdditionalConditionsFromSubsidyControl">
-          <Type>nvarchar</Type>
-          <Name>gap_additionalconditionsfromsubsidycontrol</Name>
-          <LogicalName>gap_additionalconditionsfromsubsidycontrol</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>textarea</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Additional Conditions From Subsidy Control" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Include any specific subsidy conditions " languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_AgreedPerformanceMeasure">
-          <Type>ntext</Type>
-          <Name>gap_agreedperformancemeasure</Name>
-          <LogicalName>gap_agreedperformancemeasure</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>20000</MaxLength>
-          <displaynames>
-            <displayname description="Agreed Performance Measure" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_AimsAndObjectivesofFundedActivities">
-          <Type>ntext</Type>
-          <Name>gap_aimsandobjectivesoffundedactivities</Name>
-          <LogicalName>gap_aimsandobjectivesoffundedactivities</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>20000</MaxLength>
-          <displaynames>
-            <displayname description="Aims And Objectives of Funded Activities" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_Annex10SubsidyControl">
-          <Type>bit</Type>
-          <Name>gap_annex10subsidycontrol</Name>
-          <LogicalName>gap_annex10subsidycontrol</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>3.0.0.9</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_annex10subsidycontrol">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>3.0.0.9</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Annex 10 Subsidy Control" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Annex 10 Subsidy Control" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Is Annex 10 Subsidy Control being used?" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_Annex13RecipientSubsidiary">
-          <Type>bit</Type>
-          <Name>gap_annex13recipientsubsidiary</Name>
-          <LogicalName>gap_annex13recipientsubsidiary</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>3.0.0.9</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_annex13recipientsubsidiary">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>3.0.0.9</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Annex 13 Recipient Subsidiary" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Annex 13 Recipient Subsidiary" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Is Annex 13 Recipient Subsidiary being used?" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_Annex8DataProtection">
-          <Type>bit</Type>
-          <Name>gap_annex8dataprotection</Name>
-          <LogicalName>gap_annex8dataprotection</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>3.0.0.9</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_annex8dataprotection">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>3.0.0.9</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Annex 8 Data Protection" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Annex 8 Data Protection" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Is Annex 8 Data Protection being used?" languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_ApplicantResponsesOrder">
           <Type>ntext</Type>
           <Name>gap_applicantresponsesorder</Name>
@@ -660,68 +316,6 @@
             <Description description="File upload to store the all the application questions to order the questions." languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_AuditingandAssurance">
-          <Type>bit</Type>
-          <Name>gap_auditingandassurance</Name>
-          <LogicalName>gap_auditingandassurance</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_auditingandassurance">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Auditing and Assurance" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Auditing and Assurance" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Where the funding period is less than 1 year, this section may be selected &quot;Yes&quot; to provide audit / assurance activity carried out over a shorter timescale." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_AuthorityAddress">
           <Type>ntext</Type>
           <Name>gap_authorityaddress</Name>
@@ -758,7 +352,7 @@
             <displayname description="Authority Address" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Address associated with the Authority." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_AuthorityContactEmail">
@@ -798,7 +392,7 @@
             <displayname description="Authority Contact Email" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Email address of the authority contact." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_AuthorityContactName">
@@ -838,7 +432,7 @@
             <displayname description="Authority Contact Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The individual designated as the main point of contact within the department." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_AuthorityContactPhoneNumber">
@@ -878,7 +472,7 @@
             <displayname description="Authority Contact Phone Number" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Phone number of the authority contact." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_AuthorityName">
@@ -918,69 +512,7 @@
             <displayname description="Authority Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_BankAccountProvisionRequired">
-          <Type>bit</Type>
-          <Name>gap_bankaccountprovisionrequired</Name>
-          <LogicalName>gap_bankaccountprovisionrequired</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.44</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_bankaccountprovisionrequired">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.44</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Bank Account Provision Required" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Bank Account Provision Required" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Include the following: The bank account details listed in Your Confirmation of Bank Details form (and any alternative bank details nominated subsequently by You) must be an ordinary business bank account which is separate to any other accounts used by You to carry out Your business. All cheques from the bank account must be signed by at least two individual Representatives of Your business." languagecode="1033" />
+            <Description description="Official name of the department." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_Clause35ProvisionOfEvidence">
@@ -1043,46 +575,6 @@
           </displaynames>
           <Descriptions>
             <Description description="The Grant Recipient must provide the Authority with proof of costs/payments classified as Eligible Expenditure, which may include receipts, invoices, or other specified documents." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_DataProtectionAnnex">
-          <Type>int</Type>
-          <Name>gap_dataprotectionannex</Name>
-          <LogicalName>gap_dataprotectionannex</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>disabled</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>none</Format>
-          <MinValue>-2147483648</MinValue>
-          <MaxValue>2147483647</MaxValue>
-          <displaynames>
-            <displayname description="Data Protection Annex" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Which Annex includes terms relating to data protection" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_DepartmentAgreedAmount">
@@ -1162,7 +654,7 @@
             <displayname description="Department Signatory Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Date on which the signatory has signed the document." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_DepartmentSignatoryName">
@@ -1242,109 +734,7 @@
             <displayname description="Department Signatory Title" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_DisputeResolution">
-          <Type>bit</Type>
-          <Name>gap_disputeresolution</Name>
-          <LogicalName>gap_disputeresolution</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_disputeresolution">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Dispute Resolution" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Dispute Resolution" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Select &quot;Yes&quot; if the period for escalation of disputes to the escalation contacts is longer or shorter than 15 working days." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_DisputeResolutionWorkingDays">
-          <Type>int</Type>
-          <Name>gap_disputeresolutionworkingdays</Name>
-          <LogicalName>gap_disputeresolutionworkingdays</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>disabled</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>none</Format>
-          <MinValue>-2147483648</MinValue>
-          <MaxValue>2147483647</MaxValue>
-          <displaynames>
-            <displayname description="Dispute Resolution Working Days" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The number of working days for the period of escalation of disputes to the escalation contacts, should it be greater or less than 15 working days." languagecode="1033" />
+            <Description description="Title of the signatory person." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_EligibilityStatement">
@@ -1582,7 +972,7 @@
             <displayname description="Funded Activities Start Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Date when activities funded by grant will start." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_FundingEndDate">
@@ -1622,7 +1012,7 @@
             <displayname description="Funding End Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="End date of funding." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_FundingStartDate">
@@ -1662,7 +1052,7 @@
             <displayname description="Funding Start Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Start date of funding." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_FutureCorrespondenceAddress">
@@ -1702,7 +1092,7 @@
             <displayname description="Future Correspondence Address" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Address used to send any future communication." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_FutureCorrespondenceName">
@@ -1742,7 +1132,7 @@
             <displayname description="Future Correspondence Name" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="Department or individual to whom future correspondence should be addressed." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_GFASchemeTemplateId">
@@ -1780,158 +1170,6 @@
           </displaynames>
           <Descriptions>
             <Description description="Unique identifier for entity instances" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_GoverningLaw">
-          <Type>picklist</Type>
-          <Name>gap_governinglaw</Name>
-          <LogicalName>gap_governinglaw</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>803260000</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_governinglaw">
-            <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Governing Law" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="803260000" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="England and Wales" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-              <option value="803260001" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Scotland" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-              <option value="803260002" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Northern Ireland" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Governing Law" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The words &quot;England and Wales&quot; can be replaced with either &quot;Scotland&quot; or &quot;Northern Ireland&quot; should the governing law of the grant agreement be that of Scotland or Northern Ireland" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_GoverningLawCountry">
-          <Type>picklist</Type>
-          <Name>gap_governinglawcountry</Name>
-          <LogicalName>gap_governinglawcountry</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>803260000</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_governinglawcountry">
-            <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Governing Law Country" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="803260000" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="England and Wales" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-              <option value="803260001" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Northern Ireland" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-              <option value="803260002" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Scotland" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Governing Law Country" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_GrantClaimWorkingDaySubmission">
@@ -1974,125 +1212,6 @@
             <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_GrantEscalationContactInformation">
-          <Type>nvarchar</Type>
-          <Name>gap_grantescalationcontactinformation</Name>
-          <LogicalName>gap_grantescalationcontactinformation</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>textarea</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Grant Escalation Contact Information" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_GrantManagerInformationDetails">
-          <Type>ntext</Type>
-          <Name>gap_grantmanagerinformationdetails</Name>
-          <LogicalName>gap_grantmanagerinformationdetails</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>2000</MaxLength>
-          <displaynames>
-            <displayname description="Grant Manager Information Details" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_GrantPaymentTimeframe">
-          <Type>int</Type>
-          <Name>gap_grantpaymenttimeframe</Name>
-          <LogicalName>gap_grantpaymenttimeframe</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>disabled</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>none</Format>
-          <MinValue>-2147483648</MinValue>
-          <MaxValue>2147483647</MaxValue>
-          <displaynames>
-            <displayname description="Grant Payment Timeframe" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Timeframe for grant payment after authority approval (Default 30)" languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_GrantRecipientReportingFrequency">
           <Type>nvarchar</Type>
           <Name>gap_grantrecipientreportingfrequency</Name>
@@ -2131,215 +1250,6 @@
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_GrantReviewInterval">
-          <Type>nvarchar</Type>
-          <Name>gap_grantreviewinterval</Name>
-          <LogicalName>gap_grantreviewinterval</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Grant Review Interval" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_IncludeAnnex9">
-          <Type>bit</Type>
-          <Name>gap_includeannex9</Name>
-          <LogicalName>gap_includeannex9</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>3.0.0.12</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_includeannex9">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>3.0.0.12</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Include Annex 9" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Include Annex 9" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_IntendedOutcomesOfFundedActivities">
-          <Type>ntext</Type>
-          <Name>gap_intendedoutcomesoffundedactivities</Name>
-          <LogicalName>gap_intendedoutcomesoffundedactivities</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>20000</MaxLength>
-          <displaynames>
-            <displayname description="Intended Outcomes Of Funded Activities" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_LegalStatusofAgreement">
-          <Type>picklist</Type>
-          <Name>gap_legalstatusofagreement</Name>
-          <LogicalName>gap_legalstatusofagreement</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>-1</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_legalstatusofagreement">
-            <OptionSetType>picklist</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Legal Status of Agreement" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="803260000" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Binding" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-              <option value="803260001" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Non-binding" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Legal Status of Agreement" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Binding or non-binding contract - should this be non-binding, Paragraph 31 of ANNEX 1 shall be deleted in its entirety and replaced with the words &quot;Not Used&quot;" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_MajorAssetValue">
@@ -2425,188 +1335,6 @@
             <Description description="Value of the Major Asset Value in base currency." languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_NameOfProject">
-          <Type>nvarchar</Type>
-          <Name>gap_nameofproject</Name>
-          <LogicalName>gap_nameofproject</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Name Of Project" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_NameOrPurposeOfGrant">
-          <Type>nvarchar</Type>
-          <Name>gap_nameorpurposeofgrant</Name>
-          <LogicalName>gap_nameorpurposeofgrant</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>4000</MaxLength>
-          <Length>8000</Length>
-          <displaynames>
-            <displayname description="Name Or Purpose Of Grant" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_PreConditions">
-          <Type>nvarchar</Type>
-          <Name>gap_preconditions</Name>
-          <LogicalName>gap_preconditions</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Pre Conditions" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Any pre conditions to be met before allocation of funds" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_PreConditionsRequired">
-          <Type>bit</Type>
-          <Name>gap_preconditionsrequired</Name>
-          <LogicalName>gap_preconditionsrequired</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.44</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_preconditionsrequired">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.44</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Pre Conditions Required" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Pre Conditions Required" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Are there preconditions for this grant agreement" languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_ProjectRepresentativeInformation">
           <Type>nvarchar</Type>
           <Name>gap_projectrepresentativeinformation</Name>
@@ -2647,68 +1375,6 @@
             <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_Publicity">
-          <Type>bit</Type>
-          <Name>gap_publicity</Name>
-          <LogicalName>gap_publicity</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_publicity">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Publicity" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Publicity" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Where more detailed restrictions are required around the publicity-related activity that the Grant Recipient may undertake, the following section should be selected &quot;Yes&quot;." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_RecipientSignatoryName">
           <Type>nvarchar</Type>
           <Name>gap_recipientsignatoryname</Name>
@@ -2747,86 +1413,6 @@
           </displaynames>
           <Descriptions>
             <Description description="Name of signatory person representing the grant recipient" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_ReportingInterval">
-          <Type>int</Type>
-          <Name>gap_reportinginterval</Name>
-          <LogicalName>gap_reportinginterval</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>disabled</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>none</Format>
-          <MinValue>-2147483648</MinValue>
-          <MaxValue>2147483647</MaxValue>
-          <displaynames>
-            <displayname description="Reporting Interval" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The interval, in months, between how long performance reports need to be submitted by the grant recipient" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_ReviewInterval">
-          <Type>int</Type>
-          <Name>gap_reviewinterval</Name>
-          <LogicalName>gap_reviewinterval</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>disabled</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>none</Format>
-          <MinValue>-2147483648</MinValue>
-          <MaxValue>2147483647</MaxValue>
-          <displaynames>
-            <displayname description="Review Interval" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Frequency of grant review by the authority in months" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_SecretaryOfStateName">
@@ -2949,170 +1535,6 @@
             <Description description="Name of the signatory for the front letter" languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_StatutoryProvision">
-          <Type>nvarchar</Type>
-          <Name>gap_statutoryprovision</Name>
-          <LogicalName>gap_statutoryprovision</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>textarea</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Statutory Provision" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_SubsidyControlProvision1">
-          <Type>bit</Type>
-          <Name>gap_subsidycontrolprovision1</Name>
-          <LogicalName>gap_subsidycontrolprovision1</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.44</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_subsidycontrolprovision1">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.44</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Subsidy Control Provision 1" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Subsidy Control Provision 1" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Include the following: You acknowledge and accept that the Grant is awarded on the basis that in undertaking the Funded Activities you are not and will not be undertaking economic activities. A fundamental condition of the Grant is that the activities funded are, and that measures are (where necessary) taken, and maintained, to ensure that there is no cross-subsidy of any other economic activity you might pursue." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_SubsidyControlProvision2">
-          <Type>bit</Type>
-          <Name>gap_subsidycontrolprovision2</Name>
-          <LogicalName>gap_subsidycontrolprovision2</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.44</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_subsidycontrolprovision2">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.44</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Subsidy Control Provision 2" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Subsidy Control Provision 2" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Include the following: The Grant is awarded to You as Minimal Financial Assistance in accordance with Section 36 of Subsidy Control Act 2022 which enables You to receive up to a maximum level of subsidy within the elapsed part of the current financial year and the two preceding financial years. The amount of the Grant is £[insert amount] and is subject to the conditions in Part 1 of Annex 5 and conditional on receipt by Us of the declaration form in that Annex. On receipt of the declaration form, We will provide you with confirmation of the assistance in a separate document." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_TemplateType">
           <Type>picklist</Type>
           <Name>gap_templatetype</Name>
@@ -3194,109 +1616,7 @@
             <displayname description="Template Type" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_TerminationforConvenience">
-          <Type>bit</Type>
-          <Name>gap_terminationforconvenience</Name>
-          <LogicalName>gap_terminationforconvenience</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>0</AppDefaultValue>
-          <optionset Name="gap_gfaschemetemplate_gap_terminationforconvenience">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Termination for Convenience " languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Termination for Convenience " languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Select &quot;Yes&quot; if the notice period for termination of the Grant Agreement for convenience is longer or shorter than 3 months. " languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_TerminationforConvenienceWorkingDays">
-          <Type>int</Type>
-          <Name>gap_terminationforconvenienceworkingdays</Name>
-          <LogicalName>gap_terminationforconvenienceworkingdays</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>disabled</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>none</Format>
-          <MinValue>-2147483648</MinValue>
-          <MaxValue>2147483647</MaxValue>
-          <displaynames>
-            <displayname description="Termination for Convenience Working Days" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="How many working days the Termination for convenience notice period should be, if greater or less than 3 months." languagecode="1033" />
+            <Description description="Drop-down to record the type of GFA Template." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_Title">
@@ -3336,7 +1656,7 @@
             <displayname description="Title" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="" languagecode="1033" />
+            <Description description="The title of the GFA Template." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_TotalAmountOfGrant">
@@ -3420,46 +1740,6 @@
           </displaynames>
           <Descriptions>
             <Description description="Value of the Total Amount Of Grant in base currency." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_WorkingDaySubmissionDeadline">
-          <Type>nvarchar</Type>
-          <Name>gap_workingdaysubmissiondeadline</Name>
-          <LogicalName>gap_workingdaysubmissiondeadline</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>text</Format>
-          <MaxLength>100</MaxLength>
-          <Length>200</Length>
-          <displaynames>
-            <displayname description="Working Day Submission Deadline" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Grant claims must be submitted to the authority by the [ENTER HERE] working day of the month following the ned of the instalment period." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="ImportSequenceNumber">

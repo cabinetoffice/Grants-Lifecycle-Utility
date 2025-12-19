@@ -49,12 +49,6 @@
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{46bd320a-caa4-b0b2-76ac-6502e540538e}" showlabel="true" locklevel="0">
-                        <labels>
-                          <label description="Type" languagecode="1033" />
-                        </labels>
-                        <control id="gap_type" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="gap_type" disabled="false" />
-                      </cell>
                     </row>
                   </rows>
                 </section>

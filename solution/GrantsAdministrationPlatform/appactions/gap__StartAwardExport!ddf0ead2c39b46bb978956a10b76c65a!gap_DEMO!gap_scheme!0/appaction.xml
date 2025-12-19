@@ -37,5 +37,10 @@
   <statecode>0</statecode>
   <statuscode>1</statuscode>
   <type>0</type>
-  <visibilitytype>0</visibilitytype>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>e671482ec8ff4fd19aa58451e2ad0780</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
 </appaction>

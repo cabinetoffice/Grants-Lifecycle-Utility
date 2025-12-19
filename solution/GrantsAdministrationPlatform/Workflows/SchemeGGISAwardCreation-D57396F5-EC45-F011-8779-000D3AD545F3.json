@@ -1,16 +1,8 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_commondataserviceforapps": {
-        "runtimeSource": "embedded",
-        "connection": {
-          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_7d132"
-        },
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        }
-      },
       "shared_commondataserviceforapps_1": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "gap_Dataverse"
@@ -59,6 +51,20 @@
           "metadata": {
             "schemaName": "gap_GGISUsername"
           }
+        },
+        "GGIS Award Endpoint URL (gap_GGISAwardEndpointURL)": {
+          "defaultValue": "https://cabinetoffice--uatapi.sandbox.my.salesforce.com/services/apexrest/awardCED",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISAwardEndpointURL"
+          }
+        },
+        "GGIS Authorization Token URL (gap_GGISAuthorizationTokenURL)": {
+          "defaultValue": "https://test.salesforce.com/services/oauth2/token",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_GGISAuthorizationTokenURL"
+          }
         }
       },
       "triggers": {
@@ -69,15 +75,16 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps_1",
-              "operationId": "SubscribeWebhookTrigger",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "SubscribeWebhookTrigger"
             },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "gap_scheme",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "gap_startawarduploadon"
+              "subscriptionRequest/filteringattributes": "gap_startawarduploadon",
+              "subscriptionRequest/name": "d57396f5-ec45-f011-8779-000d3ad545f3:MTA"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -130,7 +137,7 @@
           "type": "Http",
           "inputs": {
             "method": "POST",
-            "uri": "https://test.salesforce.com/services/oauth2/token",
+            "uri": "@parameters('GGIS Authorization Token URL (gap_GGISAuthorizationTokenURL)')",
             "headers": {
               "content-type": "application/x-www-form-urlencoded"
             },
@@ -155,9 +162,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "CreateRecord",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "CreateRecord"
                 },
                 "parameters": {
                   "entityName": "gap_documents",
@@ -179,9 +186,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "connectionName": "shared_commondataserviceforapps",
-                  "operationId": "UpdateEntityFileImageFieldContent",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateEntityFileImageFieldContent"
                 },
                 "parameters": {
                   "entityName": "gap_documents",
@@ -206,7 +213,7 @@
         },
         "Get_Related_Applications": {
           "runAfter": {
-            "AwardArray": [
+            "Initialize_variable_2": [
               "Succeeded"
             ]
           },
@@ -216,9 +223,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps_1",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "ListRecords"
             },
             "parameters": {
               "entityName": "gap_applications",
@@ -230,282 +237,408 @@
         "Applications_Loop": {
           "foreach": "@outputs('Get_Related_Applications')?['body/value']",
           "actions": {
-            "Condition": {
+            "Condition_3": {
               "actions": {
-                "Successful_Award": {
+                "Condition": {
                   "actions": {
-                    "Update_a_row": {
-                      "runAfter": {},
-                      "metadata": {
-                        "operationMetadataId": "9d5baa24-8e8b-4927-93c2-024562cfde2b"
-                      },
-                      "type": "OpenApiConnection",
-                      "inputs": {
-                        "host": {
-                          "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "UpdateOnlyRecord",
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    "Failed_Award_Creation_With_Error": {
+                      "actions": {
+                        "Update_a_row_2": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "9d5baa24-8e8b-4927-93c2-024562cfde2b"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "UpdateOnlyRecord"
+                            },
+                            "parameters": {
+                              "entityName": "gap_applications",
+                              "recordId": "@items('Applications_Loop')?['gap_applicationid']",
+                              "item/gap_ggisrecordreference": "AWARD FAILED"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
                         },
-                        "parameters": {
-                          "entityName": "gap_applications",
-                          "recordId": "@items('Applications_Loop')?['gap_applicationid']",
-                          "item/gap_ggisrecordreference": "@body('Create_Award')?['created']?[0]?['name']"
-                        },
-                        "authentication": "@parameters('$authentication')"
-                      }
-                    },
-                    "Append_Application_Log": {
-                      "runAfter": {
-                        "Update_a_row": [
-                          "Succeeded"
-                        ]
-                      },
-                      "metadata": {
-                        "operationMetadataId": "defe222f-6c5e-49c3-93c8-e7b8432353b5"
-                      },
-                      "type": "AppendToArrayVariable",
-                      "inputs": {
-                        "name": "OutputLog",
-                        "value": "@{items('Applications_Loop')?['gap_id']},Award creation successful,@{body('Create_Award')?['created']?[0]?['name']},@{formatDateTime(utcNow(),'dd/MM/yyyy HH:mm')}"
-                      }
-                    }
-                  },
-                  "runAfter": {
-                    "Failed_Award_Creation_With_Error": [
-                      "Skipped"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "320a454e-e571-4302-88a9-e747eaac8daf"
-                  },
-                  "type": "Scope"
-                },
-                "Failed_Award_Creation_With_Error": {
-                  "actions": {
-                    "Update_a_row_2": {
-                      "runAfter": {},
-                      "metadata": {
-                        "operationMetadataId": "9d5baa24-8e8b-4927-93c2-024562cfde2b"
-                      },
-                      "type": "OpenApiConnection",
-                      "inputs": {
-                        "host": {
-                          "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "UpdateOnlyRecord",
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                        },
-                        "parameters": {
-                          "entityName": "gap_applications",
-                          "recordId": "@items('Applications_Loop')?['gap_applicationid']",
-                          "item/gap_ggisrecordreference": "AWARD FAILED"
-                        },
-                        "authentication": "@parameters('$authentication')"
-                      }
-                    },
-                    "Append_Application_Log_Error": {
-                      "runAfter": {
-                        "Update_a_row_2": [
-                          "Succeeded"
-                        ]
-                      },
-                      "metadata": {
-                        "operationMetadataId": "23c30b6a-fe5e-4562-943e-8f61e16aec5c"
-                      },
-                      "type": "AppendToArrayVariable",
-                      "inputs": {
-                        "name": "OutputLog",
-                        "value": "@{items('Applications_Loop')?['gap_id']},Failed: @{body('Create_Award')?['errorMessage']},,@{formatDateTime(utcNow(),'dd/MM/yyyy HH:mm')}"
-                      }
-                    },
-                    "Append_Application_Log_Error_2": {
-                      "runAfter": {
-                        "Append_Application_Log_Error": [
-                          "Failed"
-                        ]
-                      },
-                      "metadata": {
-                        "operationMetadataId": "23c30b6a-fe5e-4562-943e-8f61e16aec5c"
-                      },
-                      "type": "AppendToArrayVariable",
-                      "inputs": {
-                        "name": "OutputLog",
-                        "value": "@{items('Applications_Loop')?['gap_id']},Failed award creation,,@{formatDateTime(utcNow(), 'dd/MM/yyyy HH:mm')}"
-                      }
-                    }
-                  },
-                  "runAfter": {
-                    "Create_Award": [
-                      "Failed",
-                      "TimedOut"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "0fd21639-1037-4133-a5c2-5f8caf04ade1"
-                  },
-                  "type": "Scope"
-                },
-                "Is_Account_Type_an_Individual": {
-                  "actions": {
-                    "Set_Award_Object_-_Individual": {
-                      "runAfter": {},
-                      "metadata": {
-                        "operationMetadataId": "4fdcd6e2-b480-41bd-a328-f5d9bb2e16e4"
-                      },
-                      "type": "SetVariable",
-                      "inputs": {
-                        "name": "AwardObject",
-                        "value": {
-                          "G2_Award_name": "@{triggerOutputs()?['body/gap_title']}",
-                          "G2_Grant_Scheme": "@{triggerOutputs()?['body/gap_ggisreferencenumber']}",
-                          "G2_Recipient_name_at_award_creation": null,
-                          "G2_Recipient_ID": null,
-                          "G2_Recipient_category": null,
-                          "G2_Allocation_method": "@{triggerOutputs()?['body/_gap_paymenttype_label']}",
-                          "G2_Is_the_grant_monitored": "@{if(triggerOutputs()?['body/gap_grantmonitored'],'Yes', 'No')}",
-                          "G2_Award_approved_date": "@{formatDateTime(items('Applications_Loop')?['gap_finalgfasenton'], 'yyyy-MM-dd')}",
-                          "G2_Award_start_date": "@{formatDateTime(items('Applications_Loop')?['gap_finalgfasenton'], 'yyyy-MM-dd')}",
-                          "G2_Award_end_date": "@{formatDateTime(addDays(items('Applications_Loop')?['gap_finalgfasenton'], 364), 'yyyy-MM-dd')}",
-                          "G2_Primary_country": "@{outputs('Get_Account')?['body/value']?[0]?['address1_country']}",
-                          "G2_Primary_postal_code": "@{outputs('Get_Account')?['body/value']?[0]?['address1_postalcode']}",
-                          "G2_Number_of_recipient_s": 1,
-                          "G2_Explanation_for_not_publishing": "",
-                          "G2_Reason_for_not_publishing": "",
-                          "G2_Grant_award_aims_and_objectives": "",
-                          "G2_Risk_profile": "",
-                          "G2_Dept_ALBs_award_reference_number": "",
-                          "G2_Funding_agreement_value": "@items('Applications_Loop')?['gap_fundingagreementvalue']",
-                          "G2_Authority_act": ""
+                        "Condition_2": {
+                          "actions": {
+                            "Append_Application_Log_Error_2": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "23c30b6a-fe5e-4562-943e-8f61e16aec5c"
+                              },
+                              "type": "AppendToArrayVariable",
+                              "inputs": {
+                                "name": "OutputLog",
+                                "value": "@{items('Applications_Loop')?['gap_id']},Failed award creation: Data is missing,,@{formatDateTime(utcNow(), 'dd/MM/yyyy HH:mm')}"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Update_a_row_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Append_Application_Log_Error": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "23c30b6a-fe5e-4562-943e-8f61e16aec5c"
+                                },
+                                "type": "AppendToArrayVariable",
+                                "inputs": {
+                                  "name": "OutputLog",
+                                  "value": "@{items('Applications_Loop')?['gap_id']},\"Failed: @{body('Create_Award')?['errorMessage']}\",,@{formatDateTime(utcNow(),'dd/MM/yyyy HH:mm')}"
+                                }
+                              }
+                            }
+                          },
+                          "expression": {
+                            "equals": [
+                              "@body('Create_Award')?['errorMessage']",
+                              "@null"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "7e771d40-62ee-4ca8-9763-76d8ddaf63f6"
+                          },
+                          "type": "If"
                         }
-                      }
-                    },
-                    "Add_Award_Object_to_Array_-_Individual": {
+                      },
                       "runAfter": {
-                        "Set_Award_Object_-_Individual": [
-                          "Succeeded"
+                        "Successful_Award": [
+                          "Skipped"
                         ]
                       },
                       "metadata": {
-                        "operationMetadataId": "63766de7-f6a6-4042-a20f-e77f2d5eb24b"
+                        "operationMetadataId": "0fd21639-1037-4133-a5c2-5f8caf04ade1"
                       },
-                      "type": "AppendToArrayVariable",
-                      "inputs": {
-                        "name": "AwardArray",
-                        "value": "@variables('AwardObject')"
-                      }
-                    }
-                  },
-                  "runAfter": {
-                    "Get_Account": [
-                      "Succeeded"
-                    ]
-                  },
-                  "else": {
-                    "actions": {
-                      "Set_Award_Object_-_Org": {
-                        "runAfter": {},
-                        "metadata": {
-                          "operationMetadataId": "4fdcd6e2-b480-41bd-a328-f5d9bb2e16e4"
-                        },
-                        "type": "SetVariable",
-                        "inputs": {
-                          "name": "AwardObject",
-                          "value": {
-                            "G2_Award_name": "@{triggerOutputs()?['body/gap_title']}",
-                            "G2_Grant_Scheme": null,
-                            "G2_Grant_Scheme_Name": "@{triggerOutputs()?['body/gap_ggisreferencenumber']}",
-                            "G2_Recipient_name_at_award_creation": "@{outputs('Get_Account')?['body/name']}",
-                            "G2_Recipient_ID": "@{if(not(empty(outputs('Get_Account')?['body/gap_companieshousenumber'])),outputs('Get_Account')?['body/gap_companieshousenumber'],if(not(empty(outputs('Get_Account')?['body/gap_charitycommissionnumber'])),outputs('Get_Account')?['body/gap_charitycommissionnumber'],''))}",
-                            "G2_Recipient_category": "@{outputs('Get_Account')?['body/gap_type@OData.Community.Display.V1.FormattedValue']}",
-                            "G2_Allocation_method": "@{triggerOutputs()?['body/_gap_paymenttype_label']}",
-                            "G2_Is_the_grant_monitored": "",
-                            "G2_Award_approved_date": "@{formatDateTime(items('Applications_Loop')?['gap_finalgfasenton'], 'yyyy-MM-dd')}",
-                            "G2_Award_start_date": "@{triggerOutputs()?['body/gap_ggisawardstartdate']}",
-                            "G2_Award_end_date": "@{triggerOutputs()?['body/gap_ggisawardenddate']}",
-                            "G2_Primary_country": "@{outputs('Get_Account')?['body/address1_country']}",
-                            "G2_Primary_postal_code": "@{outputs('Get_Account')?['body/address1_postalcode']}",
-                            "G2_Number_of_recipient_s": null,
-                            "G2_Explanation_for_not_publishing": "",
-                            "G2_Reason_for_not_publishing": "",
-                            "G2_Grant_award_aims_and_objectives": "",
-                            "G2_Risk_profile": "",
-                            "G2_Dept_ALBs_award_reference_number": "@{items('Applications_Loop')?['gap_ggisawardreference']}",
-                            "G2_Funding_agreement_value": "@{items('Applications_Loop')?['gap_fundingagreementvalue']}",
-                            "G2_Authority_act": "",
-                            "Subsidy_Control_Award_Type": null
+                      "type": "Scope"
+                    },
+                    "Is_Account_Type_an_Individual": {
+                      "actions": {
+                        "Set_Award_Object_-_Individual": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "4fdcd6e2-b480-41bd-a328-f5d9bb2e16e4"
+                          },
+                          "type": "SetVariable",
+                          "inputs": {
+                            "name": "AwardObject",
+                            "value": {
+                              "G2_Award_name": "@{triggerOutputs()?['body/gap_title']}",
+                              "G2_Grant_Scheme": null,
+                              "G2_Grant_Scheme_Name": "@{triggerOutputs()?['body/gap_ggisreferencenumber']}",
+                              "G2_Recipient_name_at_award_creation": "@{outputs('Get_Account')?['body/name']}",
+                              "G2_Recipient_ID": "@{if(not(empty(outputs('Get_Account')?['body/gap_companieshousenumber'])),outputs('Get_Account')?['body/gap_companieshousenumber'],if(not(empty(outputs('Get_Account')?['body/gap_charitycommissionnumber'])),outputs('Get_Account')?['body/gap_charitycommissionnumber'],''))}",
+                              "G2_Recipient_category": "@{variables('OrgType')}",
+                              "G2_Allocation_method": "@{triggerOutputs()?['body/_gap_paymenttype_label']}",
+                              "G2_Is_the_grant_monitored": "@{if(triggerOutputs()?['body/gap_grantmonitored'], 'Yes', 'No')}",
+                              "G2_Award_approved_date": "@{formatDateTime(items('Applications_Loop')?['gap_finalgfasenton'], 'yyyy-MM-dd')}",
+                              "G2_Award_start_date": "@{triggerOutputs()?['body/gap_ggisawardstartdate']}",
+                              "G2_Award_end_date": "@{triggerOutputs()?['body/gap_ggisawardenddate']}",
+                              "G2_Primary_country": "@{if(empty(outputs('Get_Account')?['body/address1_country']),'United Kingdom', outputs('Get_Account')?['body/address1_country'])}",
+                              "G2_Primary_postal_code": "@{outputs('Get_Account')?['body/address1_postalcode']}",
+                              "G2_Number_of_recipient_s": null,
+                              "G2_Explanation_for_not_publishing": "",
+                              "G2_Reason_for_not_publishing": "",
+                              "G2_Grant_award_aims_and_objectives": "",
+                              "G2_Risk_profile": "",
+                              "G2_Dept_ALBs_award_reference_number": "@{items('Applications_Loop')?['gap_ggisawardreference']}",
+                              "G2_Funding_agreement_value": "@items('Applications_Loop')?['gap_fundingagreementvalue']",
+                              "G2_Authority_act": "",
+                              "G2_Total_amt_budgeted_per_fin_year": "@if(equals(items('Applications_Loop')?['gap_totalamountbudgetedperfinancialyear'],null), float(0), items('Applications_Loop')?['gap_totalamountbudgetedperfinancialyear'])",
+                              "G2_Total_amt_paid_per_fin_year": "@if(equals(items('Applications_Loop')?['gap_totalamountpaidperfinancialyear'],null), float(0), items('Applications_Loop')?['gap_totalamountpaidperfinancialyear'])",
+                              "Subsidy_Control_Award_Type": "@{if(equals(items('Applications_Loop')?['gap_subsidycontrolawardtype@OData.Community.Display.V1.FormattedValue'], 'N/A'), null, items('Applications_Loop')?['gap_subsidycontrolawardtype@OData.Community.Display.V1.FormattedValue'])}"
+                            }
                           }
                         }
+                      },
+                      "runAfter": {
+                        "Org._Type_Mapping": [
+                          "Succeeded"
+                        ]
+                      },
+                      "else": {
+                        "actions": {
+                          "Set_Award_Object_-_Org": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "4fdcd6e2-b480-41bd-a328-f5d9bb2e16e4"
+                            },
+                            "type": "SetVariable",
+                            "inputs": {
+                              "name": "AwardObject",
+                              "value": {
+                                "G2_Award_name": "@{triggerOutputs()?['body/gap_title']}",
+                                "G2_Grant_Scheme": null,
+                                "G2_Grant_Scheme_Name": "@{triggerOutputs()?['body/gap_ggisreferencenumber']}",
+                                "G2_Recipient_name_at_award_creation": "@{outputs('Get_Account')?['body/name']}",
+                                "G2_Recipient_ID": "@{if(not(empty(outputs('Get_Account')?['body/gap_companieshousenumber'])),outputs('Get_Account')?['body/gap_companieshousenumber'],if(not(empty(outputs('Get_Account')?['body/gap_charitycommissionnumber'])),outputs('Get_Account')?['body/gap_charitycommissionnumber'],''))}",
+                                "G2_Recipient_category": "@{variables('OrgType')}",
+                                "G2_Allocation_method": "@{triggerOutputs()?['body/_gap_paymenttype_label']}",
+                                "G2_Is_the_grant_monitored": "@{if(triggerOutputs()?['body/gap_grantmonitored'], 'Yes', 'No')}",
+                                "G2_Award_approved_date": "@{formatDateTime(items('Applications_Loop')?['gap_finalgfasenton'], 'yyyy-MM-dd')}",
+                                "G2_Award_start_date": "@{triggerOutputs()?['body/gap_ggisawardstartdate']}",
+                                "G2_Award_end_date": "@{triggerOutputs()?['body/gap_ggisawardenddate']}",
+                                "G2_Primary_country": "@{if(empty(outputs('Get_Account')?['body/address1_country']),'United Kingdom', outputs('Get_Account')?['body/address1_country'])}",
+                                "G2_Primary_postal_code": "@{outputs('Get_Account')?['body/address1_postalcode']}",
+                                "G2_Number_of_recipient_s": null,
+                                "G2_Explanation_for_not_publishing": "",
+                                "G2_Reason_for_not_publishing": "",
+                                "G2_Grant_award_aims_and_objectives": "",
+                                "G2_Risk_profile": "",
+                                "G2_Dept_ALBs_award_reference_number": "@{items('Applications_Loop')?['gap_ggisawardreference']}",
+                                "G2_Funding_agreement_value": "@items('Applications_Loop')?['gap_fundingagreementvalue']",
+                                "G2_Authority_act": "",
+                                "G2_Total_amt_budgeted_per_fin_year": "@if(equals(items('Applications_Loop')?['gap_totalamountbudgetedperfinancialyear'],null), float(0), items('Applications_Loop')?['gap_totalamountbudgetedperfinancialyear'])",
+                                "G2_Total_amt_paid_per_fin_year": "@if(equals(items('Applications_Loop')?['gap_totalamountpaidperfinancialyear'],null), float(0), items('Applications_Loop')?['gap_totalamountpaidperfinancialyear'])",
+                                "Subsidy_Control_Award_Type": "@{if(equals(items('Applications_Loop')?['gap_subsidycontrolawardtype@OData.Community.Display.V1.FormattedValue'], 'N/A'), null, items('Applications_Loop')?['gap_subsidycontrolawardtype@OData.Community.Display.V1.FormattedValue'])}"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "expression": {
+                        "equals": [
+                          "@outputs('Get_Account')?['body/gap_type@OData.Community.Display.V1.FormattedValue']",
+                          "Individual"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "0bbd9b76-e924-45d3-94f6-eba899d024bb"
+                      },
+                      "type": "If"
+                    },
+                    "Create_Award": {
+                      "runAfter": {
+                        "Is_Account_Type_an_Individual": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "0ef13a32-16af-42c6-85b8-c1095860be13"
+                      },
+                      "type": "Http",
+                      "inputs": {
+                        "method": "POST",
+                        "uri": "@parameters('GGIS Award Endpoint URL (gap_GGISAwardEndpointURL)')",
+                        "headers": {
+                          "Authorization": "Bearer @{body('Request_Authorization_Token')?['access_token']}",
+                          "Content-Type": "application/json"
+                        },
+                        "body": {
+                          "Award": [
+                            "@variables('AwardObject')"
+                          ]
+                        },
+                        "retryPolicy": {
+                          "type": "none"
+                        }
                       }
+                    },
+                    "Successful_Award": {
+                      "actions": {
+                        "Update_a_row": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "9d5baa24-8e8b-4927-93c2-024562cfde2b"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "UpdateOnlyRecord"
+                            },
+                            "parameters": {
+                              "entityName": "gap_applications",
+                              "recordId": "@items('Applications_Loop')?['gap_applicationid']",
+                              "item/gap_ggisrecordreference": "@body('Create_Award')?['created']?[0]?['name']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Append_Application_Log": {
+                          "runAfter": {
+                            "Update_a_row": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "defe222f-6c5e-49c3-93c8-e7b8432353b5"
+                          },
+                          "type": "AppendToArrayVariable",
+                          "inputs": {
+                            "name": "OutputLog",
+                            "value": "@{items('Applications_Loop')?['gap_id']},Award creation successful,@{body('Create_Award')?['created']?[0]?['name']},@{formatDateTime(utcNow(),'dd/MM/yyyy HH:mm')}"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Create_Award": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "320a454e-e571-4302-88a9-e747eaac8daf"
+                      },
+                      "type": "Scope"
+                    },
+                    "Org._Type_Mapping": {
+                      "actions": {
+                        "Get_Account": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "c420b2f5-e26d-46fb-aa7a-6a72bbada193"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "GetItem"
+                            },
+                            "parameters": {
+                              "entityName": "accounts",
+                              "recordId": "@items('Applications_Loop')?['_gap_organization_value']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Is_Charity": {
+                          "runAfter": {
+                            "Get_Account": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "9f871db5-2800-4b24-821c-b5be4450d4e2"
+                          },
+                          "type": "Compose",
+                          "inputs": "@if(contains(outputs('Get_Account')?['body/gap_type@OData.Community.Display.V1.FormattedValue'],'Charity'),'UK charity', outputs('Get_Account')?['body/gap_type@OData.Community.Display.V1.FormattedValue'])"
+                        },
+                        "Is_Public_Body": {
+                          "runAfter": {
+                            "Is_Charity": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "c11ccad6-2b57-4de2-9c36-c22c870cb84a"
+                          },
+                          "type": "Compose",
+                          "inputs": "@if(contains(outputs('Is_Charity'),'Authority'),'UK public body',outputs('Is_Charity'))"
+                        },
+                        "Is_Company": {
+                          "runAfter": {
+                            "Is_Public_Body": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "0e6a2d1f-fce9-434b-b5b9-dd5179392443"
+                          },
+                          "type": "Compose",
+                          "inputs": "@if(contains(outputs('Is_Public_Body'),'company'),'UK company',outputs('Is_Public_Body'))"
+                        },
+                        "Condition_4": {
+                          "actions": {
+                            "Set_variable": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "9ffdc175-3920-4919-96e9-b86557872374"
+                              },
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "OrgType",
+                                "value": "@{outputs('Is_Company')}"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Is_Company": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Set_variable_2": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "906d3800-124c-40fc-8949-eef3f3f6acd1"
+                                },
+                                "type": "SetVariable",
+                                "inputs": {
+                                  "name": "OrgType",
+                                  "value": "Other"
+                                }
+                              }
+                            }
+                          },
+                          "expression": {
+                            "or": [
+                              {
+                                "equals": [
+                                  "@outputs('Is_Company')",
+                                  "UK charity"
+                                ]
+                              },
+                              {
+                                "equals": [
+                                  "@outputs('Is_Company')",
+                                  "UK public body"
+                                ]
+                              },
+                              {
+                                "equals": [
+                                  "@outputs('Is_Company')",
+                                  "UK company"
+                                ]
+                              }
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "efbf9845-dd17-4cd4-87c5-71a507d9bad9"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "7d718007-ae1d-45bf-8328-607e6ba4f59a"
+                      },
+                      "type": "Scope"
                     }
                   },
+                  "runAfter": {},
                   "expression": {
                     "equals": [
-                      "@outputs('Get_Account')?['body/value']?[0]?['gap_type@OData.Community.Display.V1.FormattedValue']",
-                      "Individual"
+                      "@if(empty(items('Applications_Loop')?['gap_ggisrecordreference']),true,if(contains(items('Applications_Loop')?['gap_ggisrecordreference'],'FAILED'),true,false))",
+                      true
                     ]
                   },
                   "metadata": {
-                    "operationMetadataId": "0bbd9b76-e924-45d3-94f6-eba899d024bb"
+                    "operationMetadataId": "1ab0e4db-6214-4599-8a9a-c761fddd2bbf"
                   },
                   "type": "If"
-                },
-                "Get_Account": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "c420b2f5-e26d-46fb-aa7a-6a72bbada193"
-                  },
-                  "type": "OpenApiConnection",
-                  "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "GetItem",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
-                    "parameters": {
-                      "entityName": "accounts",
-                      "recordId": "@items('Applications_Loop')?['_gap_organization_value']"
-                    },
-                    "authentication": "@parameters('$authentication')"
-                  }
-                },
-                "Create_Award": {
-                  "runAfter": {
-                    "Is_Account_Type_an_Individual": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "0ef13a32-16af-42c6-85b8-c1095860be13"
-                  },
-                  "type": "Http",
-                  "inputs": {
-                    "method": "POST",
-                    "uri": "https://cabinetoffice--uatapi.sandbox.my.salesforce.com/services/apexrest/awardCED",
-                    "headers": {
-                      "Authorization": "Bearer @{body('Request_Authorization_Token')?['access_token']}",
-                      "Content-Type": "application/json"
-                    },
-                    "body": {
-                      "Award": [
-                        "@variables('AwardObject')"
-                      ]
-                    },
-                    "retryPolicy": {
-                      "type": "none"
-                    }
-                  }
                 }
               },
               "runAfter": {},
               "expression": {
                 "not": {
                   "equals": [
-                    "@items('Applications_Loop')?['gap_ggisrecordreference']",
-                    ""
+                    "@items('Applications_Loop')?['gap_fundingagreementvalue']",
+                    "@null"
                   ]
                 }
               },
               "metadata": {
-                "operationMetadataId": "1ab0e4db-6214-4599-8a9a-c761fddd2bbf"
+                "operationMetadataId": "f9665ad4-992b-4fc5-a161-44353b4df0c5"
               },
               "type": "If"
             }
@@ -561,10 +694,29 @@
               }
             ]
           }
+        },
+        "Initialize_variable_2": {
+          "runAfter": {
+            "AwardArray": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c33d54c2-913b-4960-b80c-b9256abc9f9a"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "OrgType",
+                "type": "string"
+              }
+            ]
+          }
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

@@ -72,7 +72,7 @@
                         <labels>
                           <label description="Alert Data" languagecode="1033" />
                         </labels>
-                        <control id="gap_alertdata" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_alertdata" disabled="false" />
+                        <control id="gap_alertdata" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_alertdata" disabled="true" />
                       </cell>
                     </row>
                     <row>
@@ -125,14 +125,6 @@
                   </labels>
                   <rows>
                     <row />
-                    <row>
-                      <cell id="{19bd7032-967b-4816-8fef-9ec4a88dc977}" locklevel="0" colspan="1" rowspan="1" visible="false">
-                        <labels>
-                          <label description="Review" languagecode="1033" />
-                        </labels>
-                        <control id="gap_review" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_review" disabled="false" />
-                      </cell>
-                    </row>
                     <row>
                       <cell locklevel="0" id="{dca4e3fe-3eab-443f-87f0-122e3128e0f8}" colspan="1" rowspan="1">
                         <labels>

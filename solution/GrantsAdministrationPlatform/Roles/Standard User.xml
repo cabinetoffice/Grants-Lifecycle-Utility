@@ -20,6 +20,8 @@
     <RolePrivilege name="prvAppendgap_DocumentAudit" level="Basic" />
     <RolePrivilege name="prvAppendgap_evidenceprocess" level="Global" />
     <RolePrivilege name="prvAppendgap_Exception" level="Basic" />
+    <RolePrivilege name="prvAppendgap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvAppendgap_FeedbackSubmittals" level="Basic" />
     <RolePrivilege name="prvAppendgap_GFASchemeTemplate" level="Basic" />
     <RolePrivilege name="prvAppendgap_InboundQuery" level="Basic" />
     <RolePrivilege name="prvAppendgap_inboundqueryprocess" level="Global" />
@@ -39,7 +41,9 @@
     <RolePrivilege name="prvAppendgap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvAppendgap_outcomeprocess" level="Global" />
     <RolePrivilege name="prvAppendgap_paymentrequestprocess" level="Global" />
+    <RolePrivilege name="prvAppendgap_Query" level="Basic" />
     <RolePrivilege name="prvAppendgap_RelatedContact" level="Basic" />
+    <RolePrivilege name="prvAppendgap_ReportIssue" level="Basic" />
     <RolePrivilege name="prvAppendgap_Response" level="Basic" />
     <RolePrivilege name="prvAppendgap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvAppendgap_Scheme" level="Basic" />
@@ -73,6 +77,8 @@
     <RolePrivilege name="prvAppendTogap_DocumentAudit" level="Basic" />
     <RolePrivilege name="prvAppendTogap_evidenceprocess" level="Global" />
     <RolePrivilege name="prvAppendTogap_Exception" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_FeedbackSubmittals" level="Basic" />
     <RolePrivilege name="prvAppendTogap_GFASchemeTemplate" level="Basic" />
     <RolePrivilege name="prvAppendTogap_InboundQuery" level="Basic" />
     <RolePrivilege name="prvAppendTogap_inboundqueryprocess" level="Global" />
@@ -92,7 +98,9 @@
     <RolePrivilege name="prvAppendTogap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvAppendTogap_outcomeprocess" level="Global" />
     <RolePrivilege name="prvAppendTogap_paymentrequestprocess" level="Global" />
+    <RolePrivilege name="prvAppendTogap_Query" level="Basic" />
     <RolePrivilege name="prvAppendTogap_RelatedContact" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_ReportIssue" level="Basic" />
     <RolePrivilege name="prvAppendTogap_Response" level="Basic" />
     <RolePrivilege name="prvAppendTogap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvAppendTogap_Scheme" level="Basic" />
@@ -128,6 +136,8 @@
     <RolePrivilege name="prvAssigngap_Document" level="Basic" />
     <RolePrivilege name="prvAssigngap_DocumentAudit" level="Basic" />
     <RolePrivilege name="prvAssigngap_Exception" level="Basic" />
+    <RolePrivilege name="prvAssigngap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvAssigngap_FeedbackSubmittals" level="Basic" />
     <RolePrivilege name="prvAssigngap_GFASchemeTemplate" level="Basic" />
     <RolePrivilege name="prvAssigngap_InboundQuery" level="Basic" />
     <RolePrivilege name="prvAssigngap_IntegrationFile" level="Basic" />
@@ -143,7 +153,9 @@
     <RolePrivilege name="prvAssigngap_MonitoringStructure" level="Basic" />
     <RolePrivilege name="prvAssigngap_MonitoringStructureTemplate" level="Basic" />
     <RolePrivilege name="prvAssigngap_OutboundQuery" level="Basic" />
+    <RolePrivilege name="prvAssigngap_Query" level="Basic" />
     <RolePrivilege name="prvAssigngap_RelatedContact" level="Basic" />
+    <RolePrivilege name="prvAssigngap_ReportIssue" level="Basic" />
     <RolePrivilege name="prvAssigngap_Response" level="Basic" />
     <RolePrivilege name="prvAssigngap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvAssigngap_Scheme" level="Basic" />
@@ -175,6 +187,8 @@
     <RolePrivilege name="prvCreategap_DocumentAudit" level="Basic" />
     <RolePrivilege name="prvCreategap_evidenceprocess" level="Global" />
     <RolePrivilege name="prvCreategap_Exception" level="Basic" />
+    <RolePrivilege name="prvCreategap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvCreategap_FeedbackSubmittals" level="Basic" />
     <RolePrivilege name="prvCreategap_GFASchemeTemplate" level="Basic" />
     <RolePrivilege name="prvCreategap_InboundQuery" level="Basic" />
     <RolePrivilege name="prvCreategap_inboundqueryprocess" level="Global" />
@@ -194,7 +208,9 @@
     <RolePrivilege name="prvCreategap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvCreategap_outcomeprocess" level="Global" />
     <RolePrivilege name="prvCreategap_paymentrequestprocess" level="Global" />
+    <RolePrivilege name="prvCreategap_Query" level="Basic" />
     <RolePrivilege name="prvCreategap_RelatedContact" level="Basic" />
+    <RolePrivilege name="prvCreategap_ReportIssue" level="Basic" />
     <RolePrivilege name="prvCreategap_Response" level="Basic" />
     <RolePrivilege name="prvCreategap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvCreategap_Scheme" level="Basic" />
@@ -251,6 +267,8 @@
     <RolePrivilege name="prvReadgap_DocumentAudit" level="Basic" />
     <RolePrivilege name="prvReadgap_evidenceprocess" level="Global" />
     <RolePrivilege name="prvReadgap_Exception" level="Basic" />
+    <RolePrivilege name="prvReadgap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvReadgap_FeedbackSubmittals" level="Basic" />
     <RolePrivilege name="prvReadgap_GFASchemeTemplate" level="Basic" />
     <RolePrivilege name="prvReadgap_InboundQuery" level="Basic" />
     <RolePrivilege name="prvReadgap_inboundqueryprocess" level="Global" />
@@ -270,7 +288,9 @@
     <RolePrivilege name="prvReadgap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvReadgap_outcomeprocess" level="Global" />
     <RolePrivilege name="prvReadgap_paymentrequestprocess" level="Global" />
+    <RolePrivilege name="prvReadgap_Query" level="Basic" />
     <RolePrivilege name="prvReadgap_RelatedContact" level="Basic" />
+    <RolePrivilege name="prvReadgap_ReportIssue" level="Basic" />
     <RolePrivilege name="prvReadgap_Response" level="Basic" />
     <RolePrivilege name="prvReadgap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvReadgap_Scheme" level="Basic" />
@@ -284,6 +304,7 @@
     <RolePrivilege name="prvReadgap_ScoringTemplateSection" level="Basic" />
     <RolePrivilege name="prvReadgap_Section" level="Basic" />
     <RolePrivilege name="prvReadgap_TimeLogging" level="Basic" />
+    <RolePrivilege name="prvReadgap_VehiclesEligibleforGrant" level="Global" />
     <RolePrivilege name="prvReadHierarchyRule" level="Global" />
     <RolePrivilege name="prvReadmsdyn_helppage" level="Global" />
     <RolePrivilege name="prvReadNewProcess" level="Global" />
@@ -294,6 +315,7 @@
     <RolePrivilege name="prvReadPluginTraceLog" level="Global" />
     <RolePrivilege name="prvReadPluginType" level="Global" />
     <RolePrivilege name="prvReadQuery" level="Global" />
+    <RolePrivilege name="prvReadQueue" level="Global" />
     <RolePrivilege name="prvReadRelationship" level="Global" />
     <RolePrivilege name="prvReadReport" level="Basic" />
     <RolePrivilege name="prvReadRole" level="Global" />
@@ -327,6 +349,8 @@
     <RolePrivilege name="prvSharegap_Document" level="Basic" />
     <RolePrivilege name="prvSharegap_DocumentAudit" level="Basic" />
     <RolePrivilege name="prvSharegap_Exception" level="Basic" />
+    <RolePrivilege name="prvSharegap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvSharegap_FeedbackSubmittals" level="Basic" />
     <RolePrivilege name="prvSharegap_GFASchemeTemplate" level="Basic" />
     <RolePrivilege name="prvSharegap_InboundQuery" level="Basic" />
     <RolePrivilege name="prvSharegap_IntegrationFile" level="Basic" />
@@ -342,7 +366,9 @@
     <RolePrivilege name="prvSharegap_MonitoringStructure" level="Basic" />
     <RolePrivilege name="prvSharegap_MonitoringStructureTemplate" level="Basic" />
     <RolePrivilege name="prvSharegap_OutboundQuery" level="Basic" />
+    <RolePrivilege name="prvSharegap_Query" level="Basic" />
     <RolePrivilege name="prvSharegap_RelatedContact" level="Basic" />
+    <RolePrivilege name="prvSharegap_ReportIssue" level="Basic" />
     <RolePrivilege name="prvSharegap_Response" level="Basic" />
     <RolePrivilege name="prvSharegap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvSharegap_Scheme" level="Basic" />
@@ -360,7 +386,7 @@
     <RolePrivilege name="prvShareWorkflow" level="Basic" />
     <RolePrivilege name="prvShareWorkflowSession" level="Basic" />
     <RolePrivilege name="prvWorkflowExecution" level="Global" />
-    <RolePrivilege name="prvWriteAccount" level="Basic" />
+    <RolePrivilege name="prvWriteAccount" level="Local" />
     <RolePrivilege name="prvWriteActivity" level="Basic" />
     <RolePrivilege name="prvWriteAsyncOperation" level="Basic" />
     <RolePrivilege name="prvWriteContact" level="Basic" />
@@ -375,6 +401,8 @@
     <RolePrivilege name="prvWritegap_Document" level="Basic" />
     <RolePrivilege name="prvWritegap_DocumentAudit" level="Basic" />
     <RolePrivilege name="prvWritegap_Exception" level="Basic" />
+    <RolePrivilege name="prvWritegap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvWritegap_FeedbackSubmittals" level="Basic" />
     <RolePrivilege name="prvWritegap_GFASchemeTemplate" level="Basic" />
     <RolePrivilege name="prvWritegap_InboundQuery" level="Basic" />
     <RolePrivilege name="prvWritegap_inboundqueryprocess" level="Global" />
@@ -394,7 +422,9 @@
     <RolePrivilege name="prvWritegap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvWritegap_outcomeprocess" level="Global" />
     <RolePrivilege name="prvWritegap_paymentrequestprocess" level="Global" />
+    <RolePrivilege name="prvWritegap_Query" level="Basic" />
     <RolePrivilege name="prvWritegap_RelatedContact" level="Basic" />
+    <RolePrivilege name="prvWritegap_ReportIssue" level="Basic" />
     <RolePrivilege name="prvWritegap_Response" level="Basic" />
     <RolePrivilege name="prvWritegap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvWritegap_Scheme" level="Basic" />

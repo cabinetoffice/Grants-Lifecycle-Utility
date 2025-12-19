@@ -308,6 +308,7 @@
     <RolePrivilege name="prvReadgap_ScoringTemplateSection" level="Global" />
     <RolePrivilege name="prvReadgap_Section" level="Global" />
     <RolePrivilege name="prvReadgap_TimeLogging" level="Global" />
+    <RolePrivilege name="prvReadgap_VehiclesEligibleforGrant" level="Global" />
     <RolePrivilege name="prvReadHierarchyRule" level="Global" />
     <RolePrivilege name="prvReadNewProcess" level="Global" />
     <RolePrivilege name="prvReadNote" level="Global" />

@@ -1,7 +1,4 @@
 <environmentvariabledefinition schemaname="gap_SchemePowerBIURL">
-  <description default="Environment variable for powerbi dashboard in scheme grid view">
-    <label description="Environment variable for powerbi dashboard in scheme grid view" languagecode="1033" />
-  </description>
   <displayname default="Scheme Power BI URL">
     <label description="Scheme Power BI URL" languagecode="1033" />
   </displayname>

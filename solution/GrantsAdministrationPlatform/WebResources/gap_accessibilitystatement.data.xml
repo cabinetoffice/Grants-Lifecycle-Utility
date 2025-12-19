@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{b68138b3-43b6-f011-bbd3-7ced8d38c68c}</WebResourceId>
+  <Name>gap_accessibilitystatement</Name>
+  <DisplayName>Accessibility Statement</DisplayName>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>5.0.0.6</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_accessibilitystatementB68138B3-43B6-F011-BBD3-7CED8D38C68C</FileName>
+</WebResource>

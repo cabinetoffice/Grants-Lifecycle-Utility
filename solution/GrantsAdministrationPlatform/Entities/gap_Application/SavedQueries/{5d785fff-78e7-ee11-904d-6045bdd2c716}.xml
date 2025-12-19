@@ -11,9 +11,6 @@
       <grid name="resultset" jump="gap_id" select="1" icon="1" preview="1">
         <row name="result" id="gap_applicationid">
           <cell name="gap_id" width="200" />
-          <cell name="gap_departmentoutcome" width="161" />
-          <cell name="gap_scoringresponse" width="141" />
-          <cell name="gap_scoringresponsenumeric" width="203" />
         </row>
       </grid>
     </layoutxml>
@@ -23,9 +20,6 @@
         <entity name="gap_application">
           <attribute name="gap_id" />
           <attribute name="gap_applicationid" />
-          <attribute name="gap_scoringresponse" />
-          <attribute name="gap_scoringresponsenumeric" />
-          <attribute name="gap_departmentoutcome" />
           <filter type="and">
             <condition attribute="gap_stage" operator="in">
               <value>803260018</value>

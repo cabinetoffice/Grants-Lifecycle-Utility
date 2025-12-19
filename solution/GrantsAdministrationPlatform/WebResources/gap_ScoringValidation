@@ -1,0 +1,27 @@
+function validateChecklistCompleteFlag(primaryControl) {
+    var formContext = primaryControl;
+    var isComplete = formContext.getAttribute("gap_checklistcomplete").getValue();
+
+   if (!isComplete) {
+    Xrm.Navigation.openAlertDialog({ text: "Please complete all checklist questions before submitting the outcome." });
+    return;
+} else {
+    var formContext = executionContext.getFormContext();
+    var recordId = formContext.data.entity.getId().replace("{", "").replace("}", "");
+    var entityLogicalName = formContext.data.entity.getEntityName();
+
+    var data = {
+        gap_CurrentStage: "Objective Scoring Quality Review Selection" // replace with your actual field schema name and value
+    };
+
+    Xrm.WebApi.updateRecord(entityLogicalName, recordId, data).then(
+        function success() {
+            Xrm.Navigation.openAlertDialog({ text: "Outcome submitted and stage updated successfully." }).then(function () {
+                formContext.data.refresh();
+            });
+        },
+        function error(error) {
+            Xrm.Navigation.openErrorDialog({ message: "Failed to update stage: " + error.message });
+        }
+    );
+}

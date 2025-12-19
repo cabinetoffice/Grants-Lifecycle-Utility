@@ -63,8 +63,11 @@
                     <Sequence DisplayName="SetDisplayModeStep1: New Action">
                       <mcwc:SetDisplayMode ControlId="gap_paymentamount" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="False" />
                     </Sequence>
-                    <Sequence DisplayName="SetDisplayModeStep_SetDisplayModeStep1_5: New Action">
+                    <Sequence DisplayName="SetDisplayModeStep5: New Action">
                       <mcwc:SetDisplayMode ControlId="gap_paymentstatus" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="False" />
+                    </Sequence>
+                    <Sequence DisplayName="SetDisplayModeStep6: New Action">
+                      <mcwc:SetDisplayMode ControlId="gap_paymentdate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="False" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
@@ -97,6 +100,9 @@
                     </Sequence>
                     <Sequence DisplayName="SetDisplayModeStep4: New Action">
                       <mcwc:SetDisplayMode ControlId="gap_paymentstatus" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="True" />
+                    </Sequence>
+                    <Sequence DisplayName="SetDisplayModeStep5324: New Action">
+                      <mcwc:SetDisplayMode ControlId="gap_paymentdate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="True" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>

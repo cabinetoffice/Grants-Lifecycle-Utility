@@ -1,0 +1,39 @@
+function openCustomPageDialog(
+  primaryControl,
+  firstSelectedItemId,
+  selectedEntityTypeName
+) {
+  var itemId = primaryControl.data.entity
+    .getId()
+    .replace("{", "")
+    .replace("}", "");
+  // Centered Dialog
+  var pageInput = {
+    pageType: "custom",
+    name: "gap_reassignmonitoringactivity_b4db1",
+    recordId: itemId,
+  };
+  console.log(itemId);
+  console.log(pageInput);
+  var navigationOptions = {
+    target: 2,
+    position: 1,
+    height: {
+      value: 260,
+      unit: "px",
+    },
+    width: {
+      value: 50,
+      unit: "%",
+    },
+    title: "Reassign the Monitoring Activity",
+  };
+  Xrm.Navigation.navigateTo(pageInput, navigationOptions)
+    .then(function () {
+      // Refresh the main form when the dialog is closed
+      primaryControl.data.refresh();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

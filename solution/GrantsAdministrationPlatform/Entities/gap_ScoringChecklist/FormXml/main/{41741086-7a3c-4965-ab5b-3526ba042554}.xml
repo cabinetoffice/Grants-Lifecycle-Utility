@@ -28,14 +28,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{21a54644-6a29-420f-b80d-d86a414de74d}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Checklist Type" languagecode="1033" />
-                        </labels>
-                        <control id="gap_checklisttype" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_checklisttype" disabled="true" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell locklevel="0" id="{79f0d4c4-7e87-43a3-9176-08b731d3775f}" rowspan="4" colspan="1" auto="false">
                         <labels>
                           <label description="Scoring Checklist Sections" languagecode="1033" />

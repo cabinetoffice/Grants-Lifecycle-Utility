@@ -549,46 +549,6 @@
             <Description description="The outcome of the department review." languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_DepartmentReviewCompletedOn">
-          <Type>datetime</Type>
-          <Name>gap_departmentreviewcompletedon</Name>
-          <LogicalName>gap_departmentreviewcompletedon</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>date</Format>
-          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
-          <Behavior>3</Behavior>
-          <displaynames>
-            <displayname description="Department Review Completed On" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The date the department completed the review of the record." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_Description">
           <Type>ntext</Type>
           <Name>gap_description</Name>
@@ -666,147 +626,6 @@
           </displaynames>
           <Descriptions>
             <Description description="The date and time the due diligence process was completed." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_DueDiligenceOutcome">
-          <Type>picklist</Type>
-          <Name>gap_duediligenceoutcome</Name>
-          <LogicalName>gap_duediligenceoutcome</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>-1</AppDefaultValue>
-          <OptionSetName>gap_duediligenceoutcome</OptionSetName>
-          <displaynames>
-            <displayname description="Due Diligence Outcome" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The outcome of the due diligence process." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_DueDiligenceRequired">
-          <Type>bit</Type>
-          <Name>gap_duediligencerequired</Name>
-          <LogicalName>gap_duediligencerequired</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>1</AppDefaultValue>
-          <optionset Name="gap_monitoringactivity_gap_duediligencerequired">
-            <OptionSetType>bit</OptionSetType>
-            <IntroducedVersion>1.0.1.39</IntroducedVersion>
-            <IsCustomizable>1</IsCustomizable>
-            <ExternalTypeName></ExternalTypeName>
-            <displaynames>
-              <displayname description="Due Diligence Required" languagecode="1033" />
-            </displaynames>
-            <Descriptions>
-              <Description description="" languagecode="1033" />
-            </Descriptions>
-            <options>
-              <option value="1" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Yes" languagecode="1033" />
-                </labels>
-              </option>
-              <option value="0" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="No" languagecode="1033" />
-                </labels>
-              </option>
-            </options>
-          </optionset>
-          <displaynames>
-            <displayname description="Due Diligence Required" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="An indication if due diligence is required for this activity." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_DueDiligenceStartedOn">
-          <Type>datetime</Type>
-          <Name>gap_duediligencestartedon</Name>
-          <LogicalName>gap_duediligencestartedon</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>datetime</Format>
-          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
-          <Behavior>1</Behavior>
-          <displaynames>
-            <displayname description="Due Diligence Started On" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The date and time the due diligence process was started on." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_EarliestPossibleSubmissionDate">
@@ -1007,45 +826,6 @@
           </displaynames>
           <Descriptions>
             <Description description="Drop-down to record result of the Final Review." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_GGMSConfirmation">
-          <Type>picklist</Type>
-          <Name>gap_ggmsconfirmation</Name>
-          <LogicalName>gap_ggmsconfirmation</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>4.1.1.6</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <AppDefaultValue>-1</AppDefaultValue>
-          <OptionSetName>gap_ggmsmonitoringconfirmation</OptionSetName>
-          <displaynames>
-            <displayname description="GGMS Confirmation" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="Provide confirmation on the outcome of the Monitoring Activity." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_InitializedStage">
@@ -1557,6 +1337,46 @@
             <Description description="Value of the Payment Amount in base currency." languagecode="1033" />
           </Descriptions>
         </attribute>
+        <attribute PhysicalName="gap_PaymentDate">
+          <Type>datetime</Type>
+          <Name>gap_paymentdate</Name>
+          <LogicalName>gap_paymentdate</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>date</Format>
+          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
+          <Behavior>3</Behavior>
+          <displaynames>
+            <displayname description="Payment Date" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="The date of the payment." languagecode="1033" />
+          </Descriptions>
+        </attribute>
         <attribute PhysicalName="gap_PaymentStatus">
           <Type>picklist</Type>
           <Name>gap_paymentstatus</Name>
@@ -1673,44 +1493,6 @@
             <Description description="Drop-down to record the result of the Peer Review." languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_QualityReview">
-          <Type>lookup</Type>
-          <Name>gap_qualityreview</Name>
-          <LogicalName>gap_qualityreview</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Quality Review" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The quality review for this activity." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_QualityReviewCompletedOn">
           <Type>datetime</Type>
           <Name>gap_qualityreviewcompletedon</Name>
@@ -1749,46 +1531,6 @@
           </displaynames>
           <Descriptions>
             <Description description="The date and time the quality review was completed." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_QualityReviewStartedOn">
-          <Type>datetime</Type>
-          <Name>gap_qualityreviewstartedon</Name>
-          <LogicalName>gap_qualityreviewstartedon</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>datetime</Format>
-          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
-          <Behavior>1</Behavior>
-          <displaynames>
-            <displayname description="Quality Review Started On" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The date and time the quality review was started." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_Scheme">
@@ -1970,44 +1712,6 @@
             <Description description="The date the submission was received." languagecode="1033" />
           </Descriptions>
         </attribute>
-        <attribute PhysicalName="gap_SubmissionReview">
-          <Type>lookup</Type>
-          <Name>gap_submissionreview</Name>
-          <LogicalName>gap_submissionreview</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>0</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0.1.39</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <LookupStyle>single</LookupStyle>
-          <LookupTypes />
-          <displaynames>
-            <displayname description="Submission Review" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The review of the documents submitted by the  recipient." languagecode="1033" />
-          </Descriptions>
-        </attribute>
         <attribute PhysicalName="gap_SubmissionReviewCompletedOn">
           <Type>datetime</Type>
           <Name>gap_submissionreviewcompletedon</Name>
@@ -2046,46 +1750,6 @@
           </displaynames>
           <Descriptions>
             <Description description="The date and time the Submission Review was completed on." languagecode="1033" />
-          </Descriptions>
-        </attribute>
-        <attribute PhysicalName="gap_SubmissionReviewStartedOn">
-          <Type>datetime</Type>
-          <Name>gap_submissionreviewstartedon</Name>
-          <LogicalName>gap_submissionreviewstartedon</LogicalName>
-          <RequiredLevel>none</RequiredLevel>
-          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-          <ImeMode>auto</ImeMode>
-          <ValidForUpdateApi>1</ValidForUpdateApi>
-          <ValidForReadApi>1</ValidForReadApi>
-          <ValidForCreateApi>1</ValidForCreateApi>
-          <IsCustomField>1</IsCustomField>
-          <IsAuditEnabled>1</IsAuditEnabled>
-          <IsSecured>0</IsSecured>
-          <IntroducedVersion>1.0</IntroducedVersion>
-          <IsCustomizable>1</IsCustomizable>
-          <IsRenameable>1</IsRenameable>
-          <CanModifySearchSettings>1</CanModifySearchSettings>
-          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-          <SourceType>0</SourceType>
-          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-          <IsSortableEnabled>0</IsSortableEnabled>
-          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-          <IsDataSourceSecret>0</IsDataSourceSecret>
-          <AutoNumberFormat></AutoNumberFormat>
-          <IsSearchable>0</IsSearchable>
-          <IsFilterable>0</IsFilterable>
-          <IsRetrievable>0</IsRetrievable>
-          <IsLocalizable>0</IsLocalizable>
-          <Format>datetime</Format>
-          <CanChangeDateTimeBehavior>1</CanChangeDateTimeBehavior>
-          <Behavior>1</Behavior>
-          <displaynames>
-            <displayname description="Submission Review Started On" languagecode="1033" />
-          </displaynames>
-          <Descriptions>
-            <Description description="The date and time the Submission Review was created." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_Type">

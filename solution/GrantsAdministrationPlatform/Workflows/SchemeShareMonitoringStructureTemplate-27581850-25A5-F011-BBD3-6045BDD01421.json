@@ -2,13 +2,14 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps": {
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        },
+        "impersonation": {},
+        "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "gap_Dataverse"
         },
-        "runtimeSource": "embedded"
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
       }
     },
     "definition": {
@@ -26,6 +27,9 @@
       },
       "triggers": {
         "Dataverse_|_Trigger": {
+          "metadata": {
+            "operationMetadataId": "35b4fb72-40b9-44e1-9823-969dcfdb1f41"
+          },
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "parameters": {
@@ -40,14 +44,15 @@
               "operationId": "SubscribeWebhookTrigger",
               "connectionName": "shared_commondataserviceforapps"
             }
-          },
-          "metadata": {
-            "operationMetadataId": "35b4fb72-40b9-44e1-9823-969dcfdb1f41"
           }
         }
       },
       "actions": {
         "Get_Scheme": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "cb32102e-a092-4a82-acbd-e882be256105"
+          },
           "type": "OpenApiConnection",
           "inputs": {
             "parameters": {
@@ -60,17 +65,15 @@
               "operationId": "ListRecords",
               "connectionName": "shared_commondataserviceforapps"
             }
-          },
-          "runAfter": {},
-          "metadata": {
-            "operationMetadataId": "cb32102e-a092-4a82-acbd-e882be256105"
           }
         },
         "Apply_to_each": {
-          "type": "Foreach",
           "foreach": "@outputs('Get_Scheme')?['body/value']",
           "actions": {
             "Get_Administrator_Team": {
+              "metadata": {
+                "operationMetadataId": "d651c288-ffaf-4e40-aba0-7e85a7f5775f"
+              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -82,12 +85,17 @@
                   "operationId": "GetItem",
                   "connectionName": "shared_commondataserviceforapps"
                 }
-              },
-              "metadata": {
-                "operationMetadataId": "d651c288-ffaf-4e40-aba0-7e85a7f5775f"
               }
             },
             "Get_Reviewers_Team": {
+              "runAfter": {
+                "Get_Administrator_Team": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "228d3e18-308b-4e85-912c-b2a5b49ff9c2"
+              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -99,17 +107,17 @@
                   "operationId": "GetItem",
                   "connectionName": "shared_commondataserviceforapps"
                 }
-              },
+              }
+            },
+            "Get_Quality_Controllers_Team": {
               "runAfter": {
-                "Get_Administrator_Team": [
+                "Get_Reviewers_Team": [
                   "Succeeded"
                 ]
               },
               "metadata": {
-                "operationMetadataId": "228d3e18-308b-4e85-912c-b2a5b49ff9c2"
-              }
-            },
-            "Get_Quality_Controllers_Team": {
+                "operationMetadataId": "37fdd03c-f720-465f-8c85-22c863e14b4d"
+              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -121,17 +129,17 @@
                   "operationId": "GetItem",
                   "connectionName": "shared_commondataserviceforapps"
                 }
-              },
+              }
+            },
+            "Grant_Access_to_Administrators": {
               "runAfter": {
-                "Get_Reviewers_Team": [
+                "Get_Quality_Controllers_Team": [
                   "Succeeded"
                 ]
               },
               "metadata": {
-                "operationMetadataId": "37fdd03c-f720-465f-8c85-22c863e14b4d"
-              }
-            },
-            "Grant_Access_to_Administrators": {
+                "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -150,17 +158,17 @@
                   "operationId": "PerformUnboundAction",
                   "connectionName": "shared_commondataserviceforapps"
                 }
-              },
+              }
+            },
+            "Grant_Access_to_Reviewers": {
               "runAfter": {
-                "Get_Quality_Controllers_Team": [
+                "Grant_Access_to_Administrators": [
                   "Succeeded"
                 ]
               },
               "metadata": {
-                "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
-              }
-            },
-            "Grant_Access_to_Reviewers": {
+                "operationMetadataId": "7d5674f4-c87c-40b2-be42-cd5784159357"
+              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -179,17 +187,17 @@
                   "operationId": "PerformUnboundAction",
                   "connectionName": "shared_commondataserviceforapps"
                 }
-              },
+              }
+            },
+            "Perform_an_unbound_action": {
               "runAfter": {
-                "Grant_Access_to_Administrators": [
+                "Grant_Access_to_Reviewers": [
                   "Succeeded"
                 ]
               },
               "metadata": {
-                "operationMetadataId": "7d5674f4-c87c-40b2-be42-cd5784159357"
-              }
-            },
-            "Perform_an_unbound_action": {
+                "operationMetadataId": "f1c0ae76-dee7-4188-bf6c-a4027fb3b5a0"
+              },
               "type": "OpenApiConnection",
               "inputs": {
                 "parameters": {
@@ -208,14 +216,6 @@
                   "operationId": "PerformUnboundAction",
                   "connectionName": "shared_commondataserviceforapps"
                 }
-              },
-              "runAfter": {
-                "Grant_Access_to_Reviewers": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "f1c0ae76-dee7-4188-bf6c-a4027fb3b5a0"
               }
             }
           },
@@ -226,7 +226,8 @@
           },
           "metadata": {
             "operationMetadataId": "9c47c830-7472-46f2-9334-b35c24b3218a"
-          }
+          },
+          "type": "Foreach"
         }
       },
       "outputs": {}

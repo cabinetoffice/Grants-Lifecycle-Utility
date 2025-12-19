@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{ccccf18a-46cb-43cd-9808-23477092894f}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{59403666-e209-4e3b-b7ea-4a2dc033d102}">
           <labels>
@@ -19,14 +19,7 @@
                     <label description="Scoring" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{9978ef77-1108-4124-ac11-a590aca1d4a8}" showlabel="true" visible="true" labelid="{8cc1f216-01c7-4a6d-a754-eb80a6b05610}">
-                        <labels>
-                          <label description="Scoring Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_application_gap_assessmentprocess:gap_scoringcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_scoringcompletedon" disabled="false" relationship="bpf_gap_application_gap_assessmentprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -45,14 +38,7 @@
                     <label description="Peer Review" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{0a9d9907-9803-4d4c-81d5-066032d5c3bd}" showlabel="true" visible="true" labelid="{77aa80d9-e330-4667-a64e-5bfd4fc6c4e3}">
-                        <labels>
-                          <label description="Peer Review Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_application_gap_assessmentprocess:gap_peerreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_peerreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_assessmentprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -71,14 +57,7 @@
                     <label description="Due Diligence" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{07bd40c2-82a3-41f4-9b97-82232fb9251a}" showlabel="true" visible="true" labelid="{7dbda1fd-965f-4e64-abfe-e95f8c08dc1f}">
-                        <labels>
-                          <label description="Due Diligence Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_application_gap_assessmentprocess:gap_duediligencecompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_duediligencecompletedon" disabled="false" relationship="bpf_gap_application_gap_assessmentprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -97,14 +76,7 @@
                     <label description="Application Quality Review" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{afa71da4-a625-408e-a069-45a7f9c3c2b4}" showlabel="true" visible="true" labelid="{71349e6d-99a4-4bed-aa6b-be2cc427e433}">
-                        <labels>
-                          <label description="Quality Review Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_application_gap_assessmentprocess:gap_qualityreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_qualityreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_assessmentprocess" isrequired="false" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -123,14 +95,7 @@
                     <label description="Department Confirmation" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{a2e78e18-20f0-477e-bf06-f59cdf96eab3}" showlabel="true" visible="true" labelid="{6f4c9000-4488-4fec-92f3-8e4a1f3d9409}">
-                        <labels>
-                          <label description="Department Outcome" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_application_gap_assessmentprocess:gap_departmentoutcome" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_departmentoutcome" disabled="false" relationship="bpf_gap_application_gap_assessmentprocess" isrequired="false" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -138,6 +103,51 @@
           </columns>
         </tab>
       </tabs>
+      <header id="{89e9a846-d35e-4c39-8911-cd1ab67b65a6}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{333be0b5-b6da-4c82-a289-74518fca422a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{337d390a-8145-4d91-a21e-be1de7d50acc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fef9d59d-628a-4001-b08b-601ee61fa3db}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{75092a72-506d-41fe-a347-0bfd9b3d36d9}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9a6c2562-a1a1-4d06-a563-37dfae7692de}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a8876ae2-e99f-4589-977b-7c24cd21af52}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{7cb3dd5a-8186-42af-bbda-b27fc5e91eef}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

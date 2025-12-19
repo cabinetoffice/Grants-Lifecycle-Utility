@@ -1,0 +1,11 @@
+<aiskillconfig uniquename="ais_FormFillFieldOptOut_gap_application_gap_scoringhistory">
+  <aiskill>FormFillFieldOptOut</aiskill>
+  <description>gap_application - Scoring History Form fill opt out</description>
+  <entity>
+    <logicalname>gap_application</logicalname>
+  </entity>
+  <iscustomizable>1</iscustomizable>
+  <scope>1</scope>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</aiskillconfig>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Connector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <connectorid>685f5bf7-438f-4974-89aa-2d98d88b498c</connectorid>
+  <description>Used to find relevant information on vehicles from DVLA's Vehicle Enquiry Service API.</description>
+  <displayname>DVLA API</displayname>
+  <iconbrandcolor>#007ee5</iconbrandcolor>
+  <name>gap_5Fdvla-20api</name>
+  <connectortype>1</connectortype>
+  <openapidefinition>/Connector/gap_5Fdvla-20api_openapidefinition.json</openapidefinition>
+  <connectionparameters>/Connector/gap_5Fdvla-20api_connectionparameters.json</connectionparameters>
+  <policytemplateinstances>/Connector/gap_5Fdvla-20api_policytemplateinstances.json</policytemplateinstances>
+  <iconblob>/Connector/gap_5Fdvla-20api_iconblob.Png</iconblob>
+</Connector>

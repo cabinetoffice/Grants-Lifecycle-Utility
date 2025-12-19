@@ -44,14 +44,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{a71b33f7-5d3c-4935-82ad-cf7e4823598f}">
-                        <labels>
-                          <label description="Amount" languagecode="1033" />
-                        </labels>
-                        <control id="gap_amount" classid="{533b9e00-756b-4312-95a0-dc888637ac78}" datafieldname="gap_amount" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{e4c286fc-471b-4d24-bf45-fdf7ff5df154}" visible="false">
                         <labels>
                           <label description="Expected Payment Structure" languagecode="1033" />
@@ -93,14 +85,6 @@
                           <label description="Monitor Stage Started" languagecode="1033" />
                         </labels>
                         <control id="gap_monitorstagestarted" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_monitorstagestarted" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{bcce677c-ab20-4d3b-bdbc-6620281d0e69}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Payment Request Sent On" languagecode="1033" />
-                        </labels>
-                        <control id="gap_senton" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_senton" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -171,20 +155,6 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
-      <formLibraries>
-        <Library name="cr48e_SetPaymentBPF" libraryUniqueId="{f4e0242f-2536-454e-951d-c8367afd4798}" />
-        <Library name="gap_lockFields.js" libraryUniqueId="{33cbca6a-a83b-42fb-964c-e2ac2622c8e4}" />
-        <Library name="gap_LockRequestFields" libraryUniqueId="{b1801858-d493-45d0-b731-251badb083fb}" />
-      </formLibraries>
-      <events>
-        <event name="onload" application="false" active="false">
-          <Handlers>
-            <Handler functionName="setPaymentBPF" libraryName="cr48e_SetPaymentBPF" handlerUniqueId="{1dc0a888-c62f-46be-a187-619c23fc2f2f}" enabled="true" parameters="" passExecutionContext="true" />
-            <Handler functionName="lockFields" libraryName="gap_lockFields.js" handlerUniqueId="{49e73464-252b-4597-956b-8bbe70f92ba8}" enabled="true" parameters="" passExecutionContext="true" />
-            <Handler functionName="LockRequestFields" libraryName="gap_LockRequestFields" handlerUniqueId="{ed5434f1-1754-4523-9640-b26af2346949}" enabled="true" parameters="" passExecutionContext="true" />
-          </Handlers>
-        </event>
-      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

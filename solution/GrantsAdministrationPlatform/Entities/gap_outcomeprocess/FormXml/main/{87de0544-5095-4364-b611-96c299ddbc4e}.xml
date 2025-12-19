@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{67c89487-e3df-46a1-8e8a-8fa0aff77978}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{33d6d155-3cdf-41b9-9231-59f1a388ea7f}">
           <labels>
@@ -19,14 +19,7 @@
                     <label description="Notification Letter Generation" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{4f641082-e118-49f7-8d44-13763a8d9285}" showlabel="true" visible="true" labelid="{b919c8a0-ed6e-45b2-befc-c044170ddff6}">
-                        <labels>
-                          <label description="Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_application_gap_outcomeprocess:gap_notificationletterdraftreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_notificationletterdraftreviewcompletedon" disabled="false" relationship="bpf_gap_application_gap_outcomeprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -86,6 +79,51 @@
           </columns>
         </tab>
       </tabs>
+      <header id="{805a84ee-f5dd-4bf9-8e9f-ce1272366be7}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{d49502e9-d27b-4f62-a8a6-ddbe616f224b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c84d489c-a76e-48ad-b9ed-ce1f37b2a6f8}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{382190a9-1489-4982-9225-c2c3cd549c3c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{a3261779-7451-4036-9987-653197fd9bae}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{791c3fe9-40ad-40e8-aa6a-d4368b15da83}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{533d82aa-aacd-41a4-9311-41864c359edc}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a19b944d-4e70-4430-ae54-c9b67fd078a2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

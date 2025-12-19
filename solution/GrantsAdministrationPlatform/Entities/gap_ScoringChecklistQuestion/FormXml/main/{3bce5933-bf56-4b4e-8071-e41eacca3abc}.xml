@@ -44,14 +44,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{1375c736-ae71-44d7-b7de-03808ea5a454}" locklevel="0" rowspan="1" colspan="1" visible="false">
-                        <labels>
-                          <label description="Comments" languagecode="1033" />
-                        </labels>
-                        <control id="gap_comments" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_comments" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell locklevel="0" id="{34768103-77ee-49c6-aee2-25f5d48b94fd}">
                         <labels>
                           <label description="" languagecode="1033" />
@@ -78,14 +70,6 @@
                           <label description="Order" languagecode="1033" />
                         </labels>
                         <control id="gap_order" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="gap_order" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{6c94547b-23c0-41a3-9e99-f85bbf6269f6}" locklevel="0" colspan="1" rowspan="1" visible="false">
-                        <labels>
-                          <label description="Answer" languagecode="1033" />
-                        </labels>
-                        <control id="gap_answer" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_answer" disabled="true" />
                       </cell>
                     </row>
                     <row>
@@ -194,20 +178,6 @@
                   </labels>
                   <rows>
                     <row />
-                    <row>
-                      <cell id="{9b8aa18e-59b0-4e1b-a0cf-524c460166b3}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Enable Maximum Value" languagecode="1033" />
-                        </labels>
-                        <control id="gap_enablemaximumvalue" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_enablemaximumvalue" disabled="true" />
-                      </cell>
-                      <cell id="{e28f2049-1d0a-432e-8d15-a1df76a98b56}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Enable Minimum Value" languagecode="1033" />
-                        </labels>
-                        <control id="gap_enableminimumvalue" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_enableminimumvalue" disabled="true" />
-                      </cell>
-                    </row>
                   </rows>
                 </section>
                 <section name="null_section_4" id="109fba00-9049-49bc-af0f-b3ab3b7c0bd1" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
@@ -222,6 +192,38 @@
                           <label description="Choice Options" languagecode="1033" />
                         </labels>
                         <control id="gap_choiceoptions" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_choiceoptions" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_6" id="17e86279-efcd-4454-ab15-fa277443159e" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="AI Configuration" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{a2286af1-ecf1-45e2-9354-2d9dab8bf397}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="AI Automation Enabled" languagecode="1033" />
+                        </labels>
+                        <control id="gap_automationenabled" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="gap_automationenabled" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aed7f1ae-44fb-417b-b19c-4ab76dbcc4f7}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="AI Applicable Question" languagecode="1033" />
+                        </labels>
+                        <control id="gap_applicablequestion" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_applicablequestion" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1b50c377-9d20-435f-932e-93f89986231e}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="AI Prompt" languagecode="1033" />
+                        </labels>
+                        <control id="gap_aiprompt" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_aiprompt" disabled="false" />
                       </cell>
                     </row>
                   </rows>

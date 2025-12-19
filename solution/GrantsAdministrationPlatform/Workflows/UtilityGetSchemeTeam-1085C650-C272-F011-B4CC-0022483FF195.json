@@ -1,10 +1,11 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_commondataserviceforapps_1": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "gap_Dataverse"
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
         },
         "api": {
           "name": "shared_commondataserviceforapps"
@@ -78,9 +79,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_commondataserviceforapps_1",
-              "operationId": "GetItem",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem"
             },
             "parameters": {
               "entityName": "gap_schemes",
@@ -101,9 +102,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_commondataserviceforapps_1",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords"
             },
             "parameters": {
               "entityName": "teammemberships",
@@ -254,7 +255,7 @@
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

@@ -130,7 +130,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell locklevel="0" id="{d5262ab9-ad6b-4f79-adbd-33cad77dac61}">
+                      <cell locklevel="0" id="{1fe74c5f-ad34-43a1-a9be-229d124d4b27}">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -140,6 +140,19 @@
                           <label description="Quality Review Risk Threshold" languagecode="1033" />
                         </labels>
                         <control id="gap_qualityreviewriskthreshold" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="gap_qualityreviewriskthreshold" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{89219147-8bcf-466a-977e-c6264a51c783}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell id="{c5e89a79-14ef-46f3-b195-a9706f30d86f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Expected Payment Date" languagecode="1033" />
+                        </labels>
+                        <control id="gap_expectedpaymentdate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_expectedpaymentdate" disabled="false" />
                       </cell>
                     </row>
                   </rows>

@@ -85,6 +85,9 @@
                     <Sequence DisplayName="SetVisibilityStep1: New Action">
                       <mcwc:SetVisibility ControlId="gap_paymentamount" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsVisible="True" />
                     </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep1_3: New Action">
+                      <mcwc:SetVisibility ControlId="gap_paymentdate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsVisible="True" />
+                    </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
               </mxswa:ActivityReference>
@@ -113,6 +116,9 @@
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
                     <Sequence DisplayName="SetVisibilityStep2: New Action">
                       <mcwc:SetVisibility ControlId="gap_paymentamount" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsVisible="False" />
+                    </Sequence>
+                    <Sequence DisplayName="SetVisibilityStep_SetVisibilityStep2_4: New Action">
+                      <mcwc:SetVisibility ControlId="gap_paymentdate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsVisible="False" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>

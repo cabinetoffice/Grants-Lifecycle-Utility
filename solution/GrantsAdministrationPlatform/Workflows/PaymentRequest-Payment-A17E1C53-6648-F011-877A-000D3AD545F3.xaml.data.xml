@@ -47,4 +47,5 @@
       <label languagecode="1033" description="Request Submitted On" />
     </steplabels>
   </labels>
+  <ProcessTriggers />
 </Workflow>

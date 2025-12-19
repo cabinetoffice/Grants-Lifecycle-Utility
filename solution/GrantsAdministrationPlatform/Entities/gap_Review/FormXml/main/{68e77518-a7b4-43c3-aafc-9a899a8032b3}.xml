@@ -176,22 +176,6 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{384ebd4d-f528-444f-9c4a-1db55b40638c}" locklevel="0" colspan="1" rowspan="1" showlabel="true" visible="false">
-                        <labels>
-                          <label description="Configuration | Completed Field" languagecode="1033" />
-                        </labels>
-                        <control id="gap_configurationcompletedfield" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_configurationcompletedfield" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{3f6acc2e-0723-4e3b-86be-eb78a78de01d}" locklevel="0" colspan="1" rowspan="1" visible="false">
-                        <labels>
-                          <label description="Configuration | Lookup Field" languagecode="1033" />
-                        </labels>
-                        <control id="gap_configurationlookupfield" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_configurationlookupfield" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
                       <cell id="{177562a6-7ff8-4a47-ae21-d6f5aa1942e8}" locklevel="0" colspan="1" rowspan="1" visible="false">
                         <labels>
                           <label description="Configuration | Relationship" languagecode="1033" />
@@ -215,14 +199,6 @@
                         <control id="gap_assignedteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_assignedteam" disabled="true">
                           <parameters />
                         </control>
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{ce4302df-ae2d-4a07-9ac6-97ffb7f9326c}" locklevel="0" colspan="1" rowspan="1" visible="false">
-                        <labels>
-                          <label description="Reviewer Option Array" languagecode="1033" />
-                        </labels>
-                        <control id="gap_revieweroptionarray" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_revieweroptionarray" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -326,26 +302,6 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
-      <formLibraries>
-        <Library name="gap_togglesubgrid" libraryUniqueId="{170edd3a-e451-4b56-b36b-f8c8bba89138}" />
-        <Library name="gap_SetDropdownVisibility" libraryUniqueId="{1229fd2d-707f-49f7-8af3-6612a09b032e}" />
-        <Library name="gap_SetCustomView" libraryUniqueId="{695d52f5-113a-4321-af4f-41b0de37136b}" />
-        <Library name="gap_FilterUserLookup" libraryUniqueId="{989e53d8-8f92-4f63-867d-70f5306909b9}" />
-        <Library name="gap_reviewButtonVisibility" libraryUniqueId="{b9667260-fb3a-4435-9070-b6bae673042e}" />
-      </formLibraries>
-      <events>
-        <event name="onload" application="false" active="false">
-          <Handlers>
-            <Handler functionName="ShowhideControl" libraryName="gap_togglesubgrid" handlerUniqueId="{96cf5905-90b0-49aa-8ce7-30a1903219f9}" enabled="true" parameters="&quot;Referral_SubGrid&quot;,&quot;gap_enablereferrals&quot;" passExecutionContext="true" />
-            <Handler functionName="setButtonsVisibility" libraryName="gap_reviewButtonVisibility" handlerUniqueId="{8340114e-cf18-4110-9741-2dd5470d5ec6}" enabled="true" parameters="" passExecutionContext="true" />
-          </Handlers>
-        </event>
-        <event name="onchange" application="false" active="false" attribute="gap_reviewreassignswitch">
-          <Handlers>
-            <Handler functionName="filterLookupOptions" libraryName="gap_FilterUserLookup" handlerUniqueId="{a30018f1-6493-4178-a1e7-56296f6e0967}" enabled="true" parameters="" passExecutionContext="true" />
-          </Handlers>
-        </event>
-      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

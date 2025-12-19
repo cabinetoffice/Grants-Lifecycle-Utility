@@ -184,50 +184,6 @@
               </sco:Collection>
               <x:String x:Key="StageId">eff048e7-6560-48a7-bc12-babd1cfb8c3e</x:String>
               <x:String x:Key="StageCategory">-1</x:String>
-              <x:String x:Key="NextStageId">1d88c9cb-20da-41a6-9a86-05297d5cf53b</x:String>
-            </mxswa:ActivityReference.Properties>
-          </mxswa:ActivityReference>
-        </sco:Collection>
-        <x:Null x:Key="RelationshipName" />
-        <x:Null x:Key="AttributeName" />
-        <x:Boolean x:Key="IsClosedLoop">False</x:Boolean>
-      </mxswa:ActivityReference.Properties>
-    </mxswa:ActivityReference>
-    <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.EntityComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="EntityStep6: gap_application">
-      <mxswa:ActivityReference.Properties>
-        <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
-        <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-          <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StageComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StageStep19: Department Confirmation">
-            <mxswa:ActivityReference.Properties>
-              <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
-              <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                <mxswa:ActivityReference AssemblyQualifiedName="Microsoft.Crm.Workflow.Activities.StepComposite, Microsoft.Crm.Workflow, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" DisplayName="StepStep20: New Step">
-                  <mxswa:ActivityReference.Properties>
-                    <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
-                    <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
-                      <Sequence DisplayName="ControlStep21">
-                        <mcwb:Control ClassId="3ef39988-22bb-4f0b-bbbe-64b5a3748aee" ControlDisplayName="Department Outcome" ControlId="gap_departmentoutcome" DataFieldName="gap_departmentoutcome" IsSystemControl="False" IsUnbound="False" SystemStepType="0">
-                          <mcwb:Control.Parameters>
-                            <InArgument x:TypeArguments="x:String">
-                              <Literal x:TypeArguments="x:String" Value="" />
-                            </InArgument>
-                          </mcwb:Control.Parameters>
-                        </mcwb:Control>
-                      </Sequence>
-                    </sco:Collection>
-                    <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                      <mcwo:StepLabel Description="Department Outcome" LabelId="a2e78e18-20f0-477e-bf06-f59cdf96eab3" LanguageCode="1033" />
-                    </sco:Collection>
-                    <x:String x:Key="ProcessStepId">a2e78e18-20f0-477e-bf06-f59cdf96eab3</x:String>
-                    <x:Boolean x:Key="IsProcessRequired">False</x:Boolean>
-                  </mxswa:ActivityReference.Properties>
-                </mxswa:ActivityReference>
-              </sco:Collection>
-              <sco:Collection x:TypeArguments="mcwo:StepLabel" x:Key="StepLabels">
-                <mcwo:StepLabel Description="Department Confirmation" LabelId="1d88c9cb-20da-41a6-9a86-05297d5cf53b" LanguageCode="1033" />
-              </sco:Collection>
-              <x:String x:Key="StageId">1d88c9cb-20da-41a6-9a86-05297d5cf53b</x:String>
-              <x:String x:Key="StageCategory">-1</x:String>
               <x:Null x:Key="NextStageId" />
             </mxswa:ActivityReference.Properties>
           </mxswa:ActivityReference>

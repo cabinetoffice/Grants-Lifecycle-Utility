@@ -26,16 +26,25 @@
     <RolePrivilege name="prvCreateSharePointData" level="Global" />
     <RolePrivilege name="prvDeleteActivity" level="Basic" />
     <RolePrivilege name="prvDeletegap_Application" level="Basic" />
+    <RolePrivilege name="prvDeletegap_FAQDocument" level="Basic" />
+    <RolePrivilege name="prvDeletegap_MonitoringChecklistQuestionTemplate" level="Basic" />
+    <RolePrivilege name="prvDeletegap_MonitoringChecklistSectionTemplate" level="Basic" />
+    <RolePrivilege name="prvDeletegap_MonitoringChecklistTemplate" level="Basic" />
     <RolePrivilege name="prvDeletegap_Response" level="Basic" />
     <RolePrivilege name="prvDeletegap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvDeletegap_Scheme" level="Basic" />
+    <RolePrivilege name="prvDeletegap_ScoringTemplate" level="Basic" />
+    <RolePrivilege name="prvDeletegap_ScoringTemplateQuestion" level="Basic" />
+    <RolePrivilege name="prvDeletegap_ScoringTemplateSection" level="Basic" />
     <RolePrivilege name="prvReadActivity" level="Basic" />
     <RolePrivilege name="prvReadgap_Application" level="Basic" />
     <RolePrivilege name="prvReadgap_Response" level="Basic" />
     <RolePrivilege name="prvReadgap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvReadgap_Scheme" level="Basic" />
+    <RolePrivilege name="prvReadgap_VehiclesEligibleforGrant" level="Global" />
     <RolePrivilege name="prvReadPluginAssembly" level="Global" />
     <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadQueue" level="Global" />
     <RolePrivilege name="prvReadSdkMessage" level="Global" />
     <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
     <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />

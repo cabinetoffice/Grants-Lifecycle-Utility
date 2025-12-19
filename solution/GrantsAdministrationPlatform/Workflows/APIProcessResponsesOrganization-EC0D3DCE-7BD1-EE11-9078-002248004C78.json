@@ -2,32 +2,40 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps-2": {
-        "api": {
-          "name": "shared_commondataserviceforapps"
-        },
+        "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "gap_Dataverse"
         },
-        "runtimeSource": "embedded"
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
       }
     },
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$authentication": {
-          "defaultValue": {},
-          "type": "SecureObject"
-        },
         "$connections": {
           "defaultValue": {},
           "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
         }
       },
       "triggers": {
         "Dataverse_|_Trigger": {
+          "metadata": {
+            "operationMetadataId": "2781ea76-0b59-4a5d-be70-8e602c5e903d"
+          },
           "type": "OpenApiConnectionWebhook",
           "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps-2",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "gap_application",
@@ -35,20 +43,12 @@
               "subscriptionRequest/filteringattributes": "gap_importcompletedon",
               "subscriptionRequest/filterexpression": "gap_importcompletedon ne null and _gap_organization_value eq null\n"
             },
-            "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger",
-              "connectionName": "shared_commondataserviceforapps-2"
-            }
-          },
-          "metadata": {
-            "operationMetadataId": "2781ea76-0b59-4a5d-be70-8e602c5e903d"
+            "authentication": "@parameters('$authentication')"
           }
         }
       },
       "actions": {
         "Scope_|_Error_Handling": {
-          "type": "Scope",
           "actions": {},
           "runAfter": {
             "Scope_|_Core_Process": [
@@ -59,24 +59,12 @@
           },
           "metadata": {
             "operationMetadataId": "903ccf33-9f0e-4a46-9d41-5304856b8ddb"
-          }
+          },
+          "type": "Scope"
         },
         "Scope_|_Core_Process": {
-          "type": "Scope",
           "actions": {
             "Dataverse_|_Get_Accounts": {
-              "type": "OpenApiConnection",
-              "inputs": {
-                "parameters": {
-                  "entityName": "accounts",
-                  "$filter": "name eq '@{encodeUriComponent(first(outputs('Get_Name')?['body/value'])['gap_answer'])}'"
-                },
-                "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "operationId": "ListRecords",
-                  "connectionName": "shared_commondataserviceforapps-2"
-                }
-              },
               "runAfter": {
                 "Get_Name": [
                   "Succeeded"
@@ -84,150 +72,50 @@
               },
               "metadata": {
                 "operationMetadataId": "55d70a57-f101-4115-ae3f-a021e3fdf2eb"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps-2",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "accounts",
+                  "$filter": "name eq '@{encodeUriComponent(first(outputs('Get_Name')?['body/value'])['gap_answer'])}'"
+                },
+                "authentication": "@parameters('$authentication')"
               }
             },
             "Switch_|_On_Match": {
-              "type": "Switch",
-              "expression": "@length(outputs('Dataverse_|_Get_Accounts')?['body/value'])",
-              "default": {
-                "actions": {
-                  "Dataverse_|_Update_Application_(Existing)_1": {
-                    "type": "OpenApiConnection",
-                    "inputs": {
-                      "parameters": {
-                        "entityName": "gap_applications",
-                        "recordId": "@triggerBody()?['gap_applicationid']",
-                        "item/gap_Organization@odata.bind": "accounts(@{first(outputs('Dataverse_|_Get_Accounts')?['body/value'])['accountid']})"
-                      },
-                      "host": {
-                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                        "operationId": "UpdateRecord",
-                        "connectionName": "shared_commondataserviceforapps-2"
-                      }
-                    },
-                    "metadata": {
-                      "operationMetadataId": "d420fde9-f423-46d0-b0ad-e5369b55a000"
-                    }
-                  }
-                }
+              "runAfter": {
+                "Dataverse_|_Get_Accounts": [
+                  "Succeeded"
+                ]
               },
               "cases": {
                 "Case_|_No_Match_": {
+                  "case": 0,
                   "actions": {
                     "Switch_|_On_Application_Type": {
-                      "type": "Switch",
-                      "expression": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
-                      "default": {
-                        "actions": {
-                          "Get_Address": {
-                            "type": "OpenApiConnection",
-                            "inputs": {
-                              "parameters": {
-                                "entityName": "gap_responses",
-                                "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
-                              },
-                              "host": {
-                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                "operationId": "ListRecords",
-                                "connectionName": "shared_commondataserviceforapps-2"
-                              }
-                            },
-                            "metadata": {
-                              "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
-                            }
-                          },
-                          "Data_|_Parse_Address": {
-                            "type": "ParseJson",
-                            "inputs": {
-                              "content": "@string(first(outputs('Get_Address')?['body/value'])['gap_answer'])",
-                              "schema": {
-                                "type": "object",
-                                "properties": {
-                                  "addressLine1": {
-                                    "type": "string"
-                                  },
-                                  "addressLine2": {
-                                    "type": "string"
-                                  },
-                                  "town": {
-                                    "type": "string"
-                                  },
-                                  "county": {
-                                    "type": "string"
-                                  },
-                                  "postcode": {
-                                    "type": "string"
-                                  }
-                                }
-                              }
-                            },
-                            "runAfter": {
-                              "Get_Address": [
-                                "SUCCEEDED"
-                              ]
-                            },
-                            "metadata": {
-                              "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
-                            }
-                          },
-                          "Dataverse_|_Create_Account": {
-                            "type": "OpenApiConnection",
-                            "inputs": {
-                              "parameters": {
-                                "entityName": "accounts",
-                                "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
-                                "item/address1_city": "@body('Data_|_Parse_Address')?['town']",
-                                "item/address1_line1": "@body('Data_|_Parse_Address')?['addressLine1']",
-                                "item/address1_line2": "@body('Data_|_Parse_Address')?['addressLine2']",
-                                "item/address1_postalcode": "@body('Data_|_Parse_Address')?['postcode']",
-                                "item/address1_county": "@body('Data_|_Parse_Address')?['county']",
-                                "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
-                                "item/gap_type": 803260005
-                              },
-                              "host": {
-                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                "operationId": "CreateRecord",
-                                "connectionName": "shared_commondataserviceforapps-2"
-                              }
-                            },
-                            "runAfter": {
-                              "Data_|_Parse_Address": [
-                                "SUCCEEDED"
-                              ]
-                            },
-                            "metadata": {
-                              "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
-                            }
-                          },
-                          "Dataverse_|_Update_Application": {
-                            "type": "OpenApiConnection",
-                            "inputs": {
-                              "parameters": {
-                                "entityName": "gap_applications",
-                                "recordId": "@triggerBody()?['gap_applicationid']",
-                                "item/gap_Organization@odata.bind": "accounts(@{outputs('Dataverse_|_Create_Account')?['body/accountid']})"
-                              },
-                              "host": {
-                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                "operationId": "UpdateOnlyRecord",
-                                "connectionName": "shared_commondataserviceforapps-2"
-                              }
-                            },
-                            "runAfter": {
-                              "Dataverse_|_Create_Account": [
-                                "SUCCEEDED"
-                              ]
-                            },
-                            "metadata": {
-                              "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
-                            }
-                          }
-                        }
+                      "runAfter": {
+                        "Get_Application_Type": [
+                          "Succeeded"
+                        ]
                       },
                       "cases": {
                         "Case_|_Individual": {
+                          "case": "I am applying as an individual",
                           "actions": {
                             "Data_|_Parse_Address_(Individual)": {
+                              "runAfter": {
+                                "Get_Address_(Individual)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "3b948017-5cf5-49af-bc62-0578e02145f5"
+                              },
                               "type": "ParseJson",
                               "inputs": {
                                 "content": "@string(first(outputs('Get_Address_(Individual)')?['body/value'])['gap_answer'])",
@@ -251,19 +139,24 @@
                                     }
                                   }
                                 }
-                              },
+                              }
+                            },
+                            "Dataverse_|_Create_Individual_Account": {
                               "runAfter": {
-                                "Get_Address_(Individual)": [
+                                "Data_|_Parse_Address_(Individual)": [
                                   "Succeeded"
                                 ]
                               },
                               "metadata": {
-                                "operationMetadataId": "3b948017-5cf5-49af-bc62-0578e02145f5"
-                              }
-                            },
-                            "Dataverse_|_Create_Individual_Account": {
+                                "operationMetadataId": "edf22d3d-16fa-4442-a629-852280ae2c64"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "accounts",
                                   "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
@@ -272,38 +165,14 @@
                                   "item/address1_line2": "@body('Data_|_Parse_Address_(Individual)')?['addressLine2']",
                                   "item/address1_postalcode": "@body('Data_|_Parse_Address_(Individual)')?['postcode']",
                                   "item/address1_county": "@body('Data_|_Parse_Address_(Individual)')?['county']",
+                                  "item/gap_ggisrecipientcategory": "Other",
                                   "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                                   "item/gap_type": 803260006
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "CreateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Data_|_Parse_Address_(Individual)": [
-                                  "Succeeded"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "edf22d3d-16fa-4442-a629-852280ae2c64"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Update_Application_(New_Individual)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_applications",
-                                  "recordId": "@triggerBody()?['gap_applicationid']",
-                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Individual_Account')?['accountid']})"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "UpdateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Dataverse_|_Create_Individual_Account": [
                                   "Succeeded"
@@ -311,31 +180,55 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "78f444fa-001e-48bc-99e9-a165530c1560"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "UpdateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_applications",
+                                  "recordId": "@triggerBody()?['gap_applicationid']",
+                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Individual_Account')?['accountid']})"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Address_(Individual)": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             }
-                          },
-                          "case": "I am applying as an individual"
+                          }
                         },
                         "Case_|_Limited_Company": {
+                          "case": "Limited company",
                           "actions": {
                             "Data_|_Parse_Address_(Limited_Company)": {
+                              "runAfter": {
+                                "Get_Address_(Limited_Company)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "7fcb11a8-f9f9-491b-b3ec-25f8aba28549"
+                              },
                               "type": "ParseJson",
                               "inputs": {
                                 "content": "@string(first(outputs('Get_Address_(Limited_Company)')?['body/value'])['gap_answer'])",
@@ -359,19 +252,24 @@
                                     }
                                   }
                                 }
-                              },
+                              }
+                            },
+                            "Dataverse_|_Create_Limited_Company_Account": {
                               "runAfter": {
-                                "Get_Address_(Limited_Company)": [
+                                "Get_Companies_House_Number_(Limited_Company)": [
                                   "Succeeded"
                                 ]
                               },
                               "metadata": {
-                                "operationMetadataId": "7fcb11a8-f9f9-491b-b3ec-25f8aba28549"
-                              }
-                            },
-                            "Dataverse_|_Create_Limited_Company_Account": {
+                                "operationMetadataId": "8d607af3-c923-49e6-b9e7-6c715d9d6e4a"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "accounts",
                                   "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
@@ -382,38 +280,14 @@
                                   "item/address1_county": "@body('Data_|_Parse_Address_(Limited_Company)')?['county']",
                                   "item/gap_charitycommissionnumber": "@string(first(outputs('Get_Charity_Commission_Number_(Limited_Company)')?['body/value'])?['gap_answer'])",
                                   "item/gap_companieshousenumber": "@string(first(outputs('Get_Companies_House_Number_(Limited_Company)')?['body/value'])?['gap_answer'])",
+                                  "item/gap_ggisrecipientcategory": "UK company",
                                   "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                                   "item/gap_type": 899930004
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "CreateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Companies_House_Number_(Limited_Company)": [
-                                  "Succeeded"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "8d607af3-c923-49e6-b9e7-6c715d9d6e4a"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Update_Application_(New_Limited_Company)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_applications",
-                                  "recordId": "@triggerBody()?['gap_applicationid']",
-                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Limited_Company_Account')?['accountid']})"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "UpdateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Dataverse_|_Create_Limited_Company_Account": [
                                   "Succeeded"
@@ -421,38 +295,42 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "557e5316-38ae-41dd-8c5b-f79b742c3cae"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "UpdateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_applications",
+                                  "recordId": "@triggerBody()?['gap_applicationid']",
+                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Limited_Company_Account')?['accountid']})"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Address_(Limited_Company)": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Charity_Commission_Number_(Limited_Company)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_responses",
-                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Data_|_Parse_Address_(Limited_Company)": [
                                   "Succeeded"
@@ -460,21 +338,22 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_responses",
+                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Companies_House_Number_(Limited_Company)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_responses",
-                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Get_Charity_Commission_Number_(Limited_Company)": [
                                   "Succeeded"
@@ -482,16 +361,42 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
-                              }
-                            }
-                          },
-                          "case": "Limited company"
-                        },
-                        "Case_|_Charity": {
-                          "actions": {
-                            "Dataverse_|_Create_Charity_Account": {
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_responses",
+                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            }
+                          }
+                        },
+                        "Case_|_Charity": {
+                          "case": "Charity",
+                          "actions": {
+                            "Dataverse_|_Create_Charity_Account": {
+                              "runAfter": {
+                                "Get_Companies_House_Number_(Charity)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "98e812da-b76c-49b3-bbe0-9f94369524f9"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "accounts",
                                   "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
@@ -502,38 +407,14 @@
                                   "item/address1_county": "@body('Data_|_Parse_Address_(Charity)')?['county']",
                                   "item/gap_charitycommissionnumber": "@string(first(outputs('Get_Charity_Commission_Number_(Charity)')?['body/value'])?['gap_answer'])",
                                   "item/gap_companieshousenumber": "@string(first(outputs('Get_Companies_House_Number_(Charity)')?['body/value'])?['gap_answer'])",
+                                  "item/gap_ggisrecipientcategory": "UK charity",
                                   "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                                   "item/gap_type": 899930001
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "CreateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Companies_House_Number_(Charity)": [
-                                  "Succeeded"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "98e812da-b76c-49b3-bbe0-9f94369524f9"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Update_Application_(New_Charity)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_applications",
-                                  "recordId": "@triggerBody()?['gap_applicationid']",
-                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Charity_Account')?['accountid']})"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "UpdateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Dataverse_|_Create_Charity_Account": [
                                   "Succeeded"
@@ -541,26 +422,50 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "8c1b9ee6-6223-4ace-844c-24cc13c8c568"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "UpdateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_applications",
+                                  "recordId": "@triggerBody()?['gap_applicationid']",
+                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Charity_Account')?['accountid']})"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Address_(Charity)": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Data_|_Parse_Address_(Charity)": {
+                              "runAfter": {
+                                "Get_Address_(Charity)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "410ca262-fb4c-43e8-ba98-13f675579d89"
+                              },
                               "type": "ParseJson",
                               "inputs": {
                                 "content": "@string(first(outputs('Get_Address_(Charity)')?['body/value'])['gap_answer'])",
@@ -584,29 +489,9 @@
                                     }
                                   }
                                 }
-                              },
-                              "runAfter": {
-                                "Get_Address_(Charity)": [
-                                  "Succeeded"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "410ca262-fb4c-43e8-ba98-13f675579d89"
                               }
                             },
                             "Get_Charity_Commission_Number_(Charity)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_responses",
-                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Data_|_Parse_Address_(Charity)": [
                                   "Succeeded"
@@ -614,21 +499,22 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_responses",
+                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Companies_House_Number_(Charity)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_responses",
-                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Get_Charity_Commission_Number_(Charity)": [
                                   "Succeeded"
@@ -636,14 +522,35 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_responses",
+                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             }
-                          },
-                          "case": "Charity"
+                          }
                         },
                         "Case_|_Other": {
+                          "case": "Other",
                           "actions": {
                             "Data_|_Parse_Address_(Other)": {
+                              "runAfter": {
+                                "Get_Address_(Other)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
+                              },
                               "type": "ParseJson",
                               "inputs": {
                                 "content": "@string(first(outputs('Get_Address_(Other)')?['body/value'])['gap_answer'])",
@@ -667,19 +574,24 @@
                                     }
                                   }
                                 }
-                              },
+                              }
+                            },
+                            "Dataverse_|_Create_Other_Account": {
                               "runAfter": {
-                                "Get_Address_(Other)": [
+                                "Get_Companies_House_Number_(Other)": [
                                   "Succeeded"
                                 ]
                               },
                               "metadata": {
-                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
-                              }
-                            },
-                            "Dataverse_|_Create_Other_Account": {
+                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "accounts",
                                   "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
@@ -690,38 +602,14 @@
                                   "item/address1_county": "@body('Data_|_Parse_Address_(Other)')?['county']",
                                   "item/gap_charitycommissionnumber": "@string(first(outputs('Get_Charity_Commission_Number_(Other)')?['body/value'])?['gap_answer'])",
                                   "item/gap_companieshousenumber": "@string(first(outputs('Get_Companies_House_Number_(Other)')?['body/value'])?['gap_answer'])",
+                                  "item/gap_ggisrecipientcategory": "Other",
                                   "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                                   "item/gap_type": 803260005
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "CreateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Companies_House_Number_(Other)": [
-                                  "Succeeded"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Update_Application_(Other)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_applications",
-                                  "recordId": "@triggerBody()?['gap_applicationid']",
-                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Other_Account')?['accountid']})"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "UpdateOnlyRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Dataverse_|_Create_Other_Account": [
                                   "Succeeded"
@@ -729,38 +617,42 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "UpdateOnlyRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_applications",
+                                  "recordId": "@triggerBody()?['gap_applicationid']",
+                                  "item/gap_Organization@odata.bind": "accounts(@{body('Dataverse_|_Create_Other_Account')?['accountid']})"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Address_(Other)": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Charity_Commission_Number_(Other)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_responses",
-                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Data_|_Parse_Address_(Other)": [
                                   "Succeeded"
@@ -768,21 +660,22 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_responses",
+                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
+                                },
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Get_Companies_House_Number_(Other)": {
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "parameters": {
-                                  "entityName": "gap_responses",
-                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
-                                },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
                               "runAfter": {
                                 "Get_Charity_Commission_Number_(Other)": [
                                   "Succeeded"
@@ -790,31 +683,54 @@
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
-                              }
-                            }
-                          },
-                          "case": "Other"
-                        },
-                        "Case_|_Local_Authority": {
-                          "actions": {
-                            "Get_Address_(Local_Authority)": {
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_responses",
+                                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            }
+                          }
+                        },
+                        "Case_|_Local_Authority": {
+                          "case": "Local authority",
+                          "actions": {
+                            "Get_Address_(Local_Authority)": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Data_|_Parse_Address_(Local_Authority)": {
+                              "runAfter": {
+                                "Get_Address_(Local_Authority)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
+                              },
                               "type": "ParseJson",
                               "inputs": {
                                 "content": "@string(first(outputs('Get_Address_(Local_Authority)')?['body/value'])['gap_answer'])",
@@ -838,63 +754,70 @@
                                     }
                                   }
                                 }
-                              },
-                              "runAfter": {
-                                "Get_Address_(Local_Authority)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
                               }
                             },
                             "Get_Charity_Commission_Number_(Local_Authority)": {
+                              "runAfter": {
+                                "Data_|_Parse_Address_(Local_Authority)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Get_Companies_House_Number_(Local_Authority)": {
                               "runAfter": {
-                                "Data_|_Parse_Address_(Local_Authority)": [
-                                  "SUCCEEDED"
+                                "Get_Charity_Commission_Number_(Local_Authority)": [
+                                  "Succeeded"
                                 ]
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
-                              }
-                            },
-                            "Get_Companies_House_Number_(Local_Authority)": {
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Charity_Commission_Number_(Local_Authority)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Create_Local_Authority_Account": {
+                              "runAfter": {
+                                "Get_Companies_House_Number_(Local_Authority)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "accounts",
                                   "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
@@ -905,70 +828,70 @@
                                   "item/address1_county": "@body('Data_|_Parse_Address_(Local_Authority)')?['county']",
                                   "item/gap_charitycommissionnumber": "@string(first(outputs('Get_Charity_Commission_Number_(Local_Authority)')?['body/value'])?['gap_answer'])",
                                   "item/gap_companieshousenumber": "@string(first(outputs('Get_Companies_House_Number_(Local_Authority)')?['body/value'])?['gap_answer'])",
+                                  "item/gap_ggisrecipientcategory": "UK public body",
                                   "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                                   "item/gap_type": 899930003
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "CreateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Companies_House_Number_(Local_Authority)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Update_Application_(Local_Authority)": {
+                              "runAfter": {
+                                "Dataverse_|_Create_Local_Authority_Account": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "UpdateOnlyRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_applications",
                                   "recordId": "@triggerBody()?['gap_applicationid']",
                                   "item/gap_Organization@odata.bind": "accounts(@{outputs('Dataverse_|_Create_Local_Authority_Account')?['body/accountid']})"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "UpdateOnlyRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Dataverse_|_Create_Local_Authority_Account": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
+                                "authentication": "@parameters('$authentication')"
                               }
                             }
-                          },
-                          "case": "Local authority"
+                          }
                         },
                         "Case_|_Non-Limited_Company": {
+                          "case": "Non-limited company",
                           "actions": {
                             "Get_Address_(Non-Limited_Company)": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Data_|_Parse_Address_(Non-Limited)": {
+                              "runAfter": {
+                                "Get_Address_(Non-Limited_Company)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
+                              },
                               "type": "ParseJson",
                               "inputs": {
                                 "content": "@string(first(outputs('Get_Address_(Non-Limited_Company)')?['body/value'])['gap_answer'])",
@@ -992,63 +915,70 @@
                                     }
                                   }
                                 }
-                              },
-                              "runAfter": {
-                                "Get_Address_(Non-Limited_Company)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
                               }
                             },
                             "Get_Charity_Commission_Number_(Non-Limited_Company)": {
+                              "runAfter": {
+                                "Data_|_Parse_Address_(Non-Limited)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Get_Companies_House_Number_(Non-Limited_Company)": {
                               "runAfter": {
-                                "Data_|_Parse_Address_(Non-Limited)": [
-                                  "SUCCEEDED"
+                                "Get_Charity_Commission_Number_(Non-Limited_Company)": [
+                                  "Succeeded"
                                 ]
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
-                              }
-                            },
-                            "Get_Companies_House_Number_(Non-Limited_Company)": {
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Charity_Commission_Number_(Non-Limited_Company)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Create_Non-Limited_Company_Account": {
+                              "runAfter": {
+                                "Get_Companies_House_Number_(Non-Limited_Company)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "accounts",
                                   "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
@@ -1059,70 +989,70 @@
                                   "item/address1_county": "@body('Data_|_Parse_Address_(Non-Limited)')?['county']",
                                   "item/gap_charitycommissionnumber": "@string(first(outputs('Get_Charity_Commission_Number_(Non-Limited_Company)')?['body/value'])?['gap_answer'])",
                                   "item/gap_companieshousenumber": "@string(first(outputs('Get_Companies_House_Number_(Non-Limited_Company)')?['body/value'])?['gap_answer'])",
+                                  "item/gap_ggisrecipientcategory": "UK company",
                                   "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                                   "item/gap_type": 899930005
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "CreateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Companies_House_Number_(Non-Limited_Company)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Update_Application_(Non-Limited_Company)": {
+                              "runAfter": {
+                                "Dataverse_|_Create_Non-Limited_Company_Account": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "UpdateOnlyRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_applications",
                                   "recordId": "@triggerBody()?['gap_applicationid']",
                                   "item/gap_Organization@odata.bind": "accounts(@{outputs('Dataverse_|_Create_Non-Limited_Company_Account')?['body/accountid']})"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "UpdateOnlyRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Dataverse_|_Create_Non-Limited_Company_Account": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
+                                "authentication": "@parameters('$authentication')"
                               }
                             }
-                          },
-                          "case": "Non-limited company"
+                          }
                         },
                         "Case_|_Registered_Charity": {
+                          "case": "Registered charity",
                           "actions": {
                             "Get_Address_(Registered_Charity)": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Data_|_Parse_Address_(Registered_Charity)": {
+                              "runAfter": {
+                                "Get_Address_(Registered_Charity)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
+                              },
                               "type": "ParseJson",
                               "inputs": {
                                 "content": "@string(first(outputs('Get_Address_(Registered_Charity)')?['body/value'])['gap_answer'])",
@@ -1146,63 +1076,70 @@
                                     }
                                   }
                                 }
-                              },
-                              "runAfter": {
-                                "Get_Address_(Registered_Charity)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
                               }
                             },
                             "Get_Charity_Commission_Number_(Registered_Charity)": {
+                              "runAfter": {
+                                "Data_|_Parse_Address_(Registered_Charity)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_CHARITY_NUMBER'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Get_Companies_House_Number_(Registered_Charity)": {
                               "runAfter": {
-                                "Data_|_Parse_Address_(Registered_Charity)": [
-                                  "SUCCEEDED"
+                                "Get_Charity_Commission_Number_(Registered_Charity)": [
+                                  "Succeeded"
                                 ]
                               },
                               "metadata": {
                                 "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
-                              }
-                            },
-                            "Get_Companies_House_Number_(Registered_Charity)": {
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_responses",
                                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_COMPANIES_HOUSE'"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "ListRecords",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Charity_Commission_Number_(Registered_Charity)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Create_Registered_Charity_Account": {
+                              "runAfter": {
+                                "Get_Companies_House_Number_(Registered_Charity)": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "CreateRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "accounts",
                                   "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
@@ -1213,140 +1150,265 @@
                                   "item/address1_county": "@body('Data_|_Parse_Address_(Registered_Charity)')?['county']",
                                   "item/gap_charitycommissionnumber": "@string(first(outputs('Get_Charity_Commission_Number_(Registered_Charity)')?['body/value'])?['gap_answer'])",
                                   "item/gap_companieshousenumber": "@string(first(outputs('Get_Companies_House_Number_(Registered_Charity)')?['body/value'])?['gap_answer'])",
+                                  "item/gap_ggisrecipientcategory": "UK charity",
                                   "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                                   "item/gap_type": 899930002
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "CreateRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
-                                }
-                              },
-                              "runAfter": {
-                                "Get_Companies_House_Number_(Registered_Charity)": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                                "authentication": "@parameters('$authentication')"
                               }
                             },
                             "Dataverse_|_Update_Application_(Registered_Charity)": {
+                              "runAfter": {
+                                "Dataverse_|_Create_Registered_Charity_Account": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
+                              },
                               "type": "OpenApiConnection",
                               "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-2",
+                                  "operationId": "UpdateOnlyRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
                                 "parameters": {
                                   "entityName": "gap_applications",
                                   "recordId": "@triggerBody()?['gap_applicationid']",
                                   "item/gap_Organization@odata.bind": "accounts(@{outputs('Dataverse_|_Create_Registered_Charity_Account')?['body/accountid']})"
                                 },
-                                "host": {
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                                  "operationId": "UpdateOnlyRecord",
-                                  "connectionName": "shared_commondataserviceforapps-2"
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "default": {
+                        "actions": {
+                          "Get_Address": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps-2",
+                                "operationId": "ListRecords",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "gap_responses",
+                                "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_ADDRESS'"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          },
+                          "Data_|_Parse_Address": {
+                            "runAfter": {
+                              "Get_Address": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "27206189-07eb-4cb3-b267-46139d950394"
+                            },
+                            "type": "ParseJson",
+                            "inputs": {
+                              "content": "@string(first(outputs('Get_Address')?['body/value'])['gap_answer'])",
+                              "schema": {
+                                "type": "object",
+                                "properties": {
+                                  "addressLine1": {
+                                    "type": "string"
+                                  },
+                                  "addressLine2": {
+                                    "type": "string"
+                                  },
+                                  "town": {
+                                    "type": "string"
+                                  },
+                                  "county": {
+                                    "type": "string"
+                                  },
+                                  "postcode": {
+                                    "type": "string"
+                                  }
                                 }
-                              },
-                              "runAfter": {
-                                "Dataverse_|_Create_Registered_Charity_Account": [
-                                  "SUCCEEDED"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
                               }
                             }
                           },
-                          "case": "Registered charity"
+                          "Dataverse_|_Create_Account": {
+                            "runAfter": {
+                              "Data_|_Parse_Address": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "eb84f054-5e51-4c19-b69a-1f99ac40401f"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps-2",
+                                "operationId": "CreateRecord",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "accounts",
+                                "item/name": "@first(outputs('Get_Name')?['body/value'])['gap_answer']",
+                                "item/address1_city": "@body('Data_|_Parse_Address')?['town']",
+                                "item/address1_line1": "@body('Data_|_Parse_Address')?['addressLine1']",
+                                "item/address1_line2": "@body('Data_|_Parse_Address')?['addressLine2']",
+                                "item/address1_postalcode": "@body('Data_|_Parse_Address')?['postcode']",
+                                "item/address1_county": "@body('Data_|_Parse_Address')?['county']",
+                                "item/gap_ggisrecipientcategory": "Other",
+                                "item/gap_subtype": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
+                                "item/gap_type": 803260005
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          },
+                          "Dataverse_|_Update_Application": {
+                            "runAfter": {
+                              "Dataverse_|_Create_Account": [
+                                "Succeeded"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "4a3e7752-9bdf-4f3f-8289-1bb4ddfacf59"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps-2",
+                                "operationId": "UpdateOnlyRecord",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "gap_applications",
+                                "recordId": "@triggerBody()?['gap_applicationid']",
+                                "item/gap_Organization@odata.bind": "accounts(@{outputs('Dataverse_|_Create_Account')?['body/accountid']})"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          }
                         }
                       },
-                      "runAfter": {
-                        "Get_Application_Type": [
-                          "Succeeded"
-                        ]
-                      },
+                      "expression": "@first(outputs('Get_Application_Type')?['body/value'])['gap_answer']",
                       "metadata": {
                         "operationMetadataId": "e7c8a027-2502-4da4-a182-8dde559d4409"
-                      }
+                      },
+                      "type": "Switch"
                     },
                     "Get_Application_Type": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                      },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-2",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
                           "entityName": "gap_responses",
                           "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_TYPE'"
                         },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "operationId": "ListRecords",
-                          "connectionName": "shared_commondataserviceforapps-2"
-                        }
-                      },
-                      "metadata": {
-                        "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                        "authentication": "@parameters('$authentication')"
                       }
                     }
-                  },
-                  "case": 0
+                  }
                 },
                 "Case_|_Single_Match": {
+                  "case": 1,
                   "actions": {
                     "Dataverse_|_Update_Application_(Existing)": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "d420fde9-f423-46d0-b0ad-e5369b55a000"
+                      },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-2",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
                           "entityName": "gap_applications",
                           "recordId": "@triggerBody()?['gap_applicationid']",
                           "item/gap_Organization@odata.bind": "accounts(@{first(outputs('Dataverse_|_Get_Accounts')?['body/value'])['accountid']})"
                         },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "operationId": "UpdateRecord",
-                          "connectionName": "shared_commondataserviceforapps-2"
-                        }
-                      },
-                      "metadata": {
-                        "operationMetadataId": "d420fde9-f423-46d0-b0ad-e5369b55a000"
+                        "authentication": "@parameters('$authentication')"
                       }
                     }
-                  },
-                  "case": 1
+                  }
                 }
               },
-              "runAfter": {
-                "Dataverse_|_Get_Accounts": [
-                  "Succeeded"
-                ]
+              "default": {
+                "actions": {
+                  "Dataverse_|_Update_Application_(Existing)_1": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "d420fde9-f423-46d0-b0ad-e5369b55a000"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps-2",
+                        "operationId": "UpdateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "gap_applications",
+                        "recordId": "@triggerBody()?['gap_applicationid']",
+                        "item/gap_Organization@odata.bind": "accounts(@{first(outputs('Dataverse_|_Get_Accounts')?['body/value'])['accountid']})"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
               },
+              "expression": "@length(outputs('Dataverse_|_Get_Accounts')?['body/value'])",
               "metadata": {
                 "operationMetadataId": "59a51748-02bd-4f4b-af08-76539bfc189d"
-              }
+              },
+              "type": "Switch"
             },
             "Get_Name": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+              },
               "type": "OpenApiConnection",
               "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps-2",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
                 "parameters": {
                   "entityName": "gap_responses",
                   "$filter": "_gap_application_value eq @{triggerOutputs()?['body/gap_applicationid']} and gap_id eq 'APPLICANT_ORG_NAME'"
                 },
-                "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "operationId": "ListRecords",
-                  "connectionName": "shared_commondataserviceforapps-2"
-                }
-              },
-              "metadata": {
-                "operationMetadataId": "355517cf-6f1c-4ca3-bb5a-5b5326cde389"
+                "authentication": "@parameters('$authentication')"
               }
             }
           },
           "runAfter": {},
           "metadata": {
             "operationMetadataId": "0cbfc8ba-46c0-4309-b42e-b5b62e8a0594"
-          }
+          },
+          "type": "Scope"
         }
       },
       "outputs": {}
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

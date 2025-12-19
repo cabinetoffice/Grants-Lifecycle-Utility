@@ -18,6 +18,54 @@
         <CanCreate>4</CanCreate>
         <CanReadUnmasked>0</CanReadUnmasked>
       </FieldPermission>
+      <FieldPermission>
+        <EntityName>gap_bankingdetails</EntityName>
+        <AttributeName>gap_bankorbuildingsocietyname</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
+      <FieldPermission>
+        <EntityName>gap_bankingdetails</EntityName>
+        <AttributeName>gap_contacttelephonenumber</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
+      <FieldPermission>
+        <EntityName>gap_bankingdetails</EntityName>
+        <AttributeName>gap_addressofgrantholder</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
+      <FieldPermission>
+        <EntityName>gap_bankingdetails</EntityName>
+        <AttributeName>gap_accountnumber</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
+      <FieldPermission>
+        <EntityName>gap_bankingdetails</EntityName>
+        <AttributeName>gap_buildingsocietyrollnumber</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
+      <FieldPermission>
+        <EntityName>gap_bankingdetails</EntityName>
+        <AttributeName>gap_banksortcode</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>4</CanUpdate>
+        <CanCreate>4</CanCreate>
+        <CanReadUnmasked>0</CanReadUnmasked>
+      </FieldPermission>
     </FieldPermissions>
   </FieldSecurityProfile>
 </FieldSecurityProfiles>

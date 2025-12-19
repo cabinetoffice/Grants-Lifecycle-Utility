@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>gap_ozevvehicleeligibilitycsvupload_2e1ee</Name>
+  <AppVersion>2025-12-18T13:53:09Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.25122.8.0</CreatedByClientVersion>
+  <MinClientVersion>3.25122.8.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25122.8","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251218T134110Z-3.25122.8.0","coauthoringEnabled":"true","multipleWritersEnabled":"true","acceptedCoauthoringTerms":"true"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>OZEV Vehicle Eligibility - CSV Upload</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"2aa4f6fc-e760-455e-93e0-bd2a4a67d139":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1774/1.0.1774.4397/logicflows/icon.png","dataSources":["CSVImport-VehiclesEligibleforGrants"],"dependencies":["377a6a7d-ff9d-4a73-8ea0-102d2dc06f66"],"dependents":[],"parameterHints":{"workflowName":{"value":"a40579c3-5efd-49cb-96c2-89dbe5d814e7"},"workflowEntityId":{"value":"41c9a49d-e6d5-f011-8543-7c1e5209bbb7"},"workflowDisplayName":{"value":"CSV Import - Vehicles Eligible for Grants"},"377a6a7d-ff9d-4a73-8ea0-102d2dc06f66":{"value":"shared_commondataserviceforapps"}},"parameterHintsV2":{"workflowName":{"value":"a40579c3-5efd-49cb-96c2-89dbe5d814e7"},"workflowEntityId":{"value":"41c9a49d-e6d5-f011-8543-7c1e5209bbb7"},"workflowDisplayName":{"value":"CSV Import - Vehicles Eligible for Grants"},"shared_commondataserviceforapps":{"value":"377a6a7d-ff9d-4a73-8ea0-102d2dc06f66"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"377a6a7d-ff9d-4a73-8ea0-102d2dc06f66":{"id":"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps","displayName":"Microsoft Dataverse","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1789/1.0.1789.4525/commondataserviceforapps/icon.png","dataSources":[],"dependencies":[],"dependents":["2aa4f6fc-e760-455e-93e0-bd2a4a67d139"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium","authenticationType":"Oauth"}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Vehicles Eligible for Grants":{"entitySetName":"gap_vehicleseligibleforgrants","logicalName":"gap_vehicleseligibleforgrant"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"dependencyid":"41c9a49d-e6d5-f011-8543-7c1e5209bbb7","componenttype":29,"componenttypeplatformname":"Workflow"},{"logicalname":"gap_vehicleseligibleforgrant","componenttype":1}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/gap_ozevvehicleeligibilitycsvupload_2e1ee_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/gap_ozevvehicleeligibilitycsvupload_2e1ee_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/gap_ozevvehicleeligibilitycsvupload_2e1ee_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>

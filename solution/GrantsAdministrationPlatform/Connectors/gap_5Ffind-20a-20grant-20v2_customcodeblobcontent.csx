@@ -8,7 +8,7 @@ public class Script : ScriptBase {
             if (response.StatusCode != HttpStatusCode.OK) {
                 response.Content = CreateJsonContent(
                     JsonConvert.SerializeObject(
-                        new { Applications = new List<object>() }
+                           new { Applications = ((int)response.StatusCode).ToString() }
                     )
                 );
                 return response;

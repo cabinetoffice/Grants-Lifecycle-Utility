@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7f9e44c3-3fd4-f011-8543-7c1e5209bbb7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_id" select="1" icon="1" preview="1">
+        <row name="result" id="gap_applicationid">
+          <cell name="gap_id" width="200" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="gap_application">
+          <attribute name="gap_id" />
+          <attribute name="gap_applicationid" />
+          <filter type="and">
+            <filter type="or">
+              <condition attribute="gap_awardfinalreviewer" operator="eq-userid" />
+              <condition attribute="gap_awardinitialreviewer" operator="eq-userid" />
+              <condition attribute="ownerid" operator="eq-userid" />
+            </filter>
+            <filter type="or">
+              <condition attribute="gap_currentstage" operator="eq" value="GFA Generation" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA (Unsigned) Quality Review Selection" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA (Unsigned) Quality Review" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA (Unsigned) Distribution" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA Signing" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA Completeness Review" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA Email Review" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA Email Quality Review Selection" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA Email Quality Review" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA Confirmation" />
+              <condition attribute="gap_currentstage" operator="eq" value="GFA (Signed) Distribution" />
+            </filter>
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>6.0.2.2</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Applications (Award)" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{92a86b12-896f-4fd1-80f3-779cd9e6671a}" IsUserDefined="1">
           <labels>
@@ -20,7 +20,15 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{7730ec5f-e169-41c7-b77c-808cbade447b}">
+                      <cell id="{706a7231-490d-4925-8226-d4a53dcf7ee0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="gap_faqdocument" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="gap_faqdocument" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7730ec5f-e169-41c7-b77c-808cbade447b}" visible="false">
                         <labels>
                           <label description="Question" languagecode="1033" />
                         </labels>
@@ -28,7 +36,31 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{3f0e1cd7-cafb-4412-8c34-8ea25b4a0d11}">
+                      <cell id="{a46df0fb-2beb-42ba-8ef2-9cce57c75e2e}" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Answer" languagecode="1033" />
+                        </labels>
+                        <control id="gap_answer" classid="{e0dece4b-6fc8-4a8f-a065-082708572369}" datafieldname="gap_answer" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1be63fb2-ec99-4726-817f-f2b311da38e4}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Tags" languagecode="1033" />
+                        </labels>
+                        <control id="gap_tags" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_tags" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{03889bd2-65e1-467f-96b6-a7c6322b20e9}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="Related Scheme (Text)" languagecode="1033" />
+                        </labels>
+                        <control id="gap_relatedschemetext" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_relatedschemetext" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3f0e1cd7-cafb-4412-8c34-8ea25b4a0d11}" visible="false">
                         <labels>
                           <label description="Owner" languagecode="1033" />
                         </labels>
@@ -36,11 +68,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{a46df0fb-2beb-42ba-8ef2-9cce57c75e2e}">
+                      <cell id="{3ded191c-dd7f-4c79-a2f3-c08bdfcfd92c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Question" languagecode="1033" />
+                        </labels>
+                        <control id="gap_question" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_question" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{310c0f01-d4bc-4e45-8939-da1bd438142e}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Answer" languagecode="1033" />
                         </labels>
-                        <control id="gap_answer" classid="{e0dece4b-6fc8-4a8f-a065-082708572369}" datafieldname="gap_answer" />
+                        <control id="gap_answer" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_answer" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -50,6 +90,51 @@
           </columns>
         </tab>
       </tabs>
+      <header id="{186d3e38-9837-4f84-a776-cd03fca5ddf3}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{4f31aaab-1ced-412a-9e40-eb3f81c48720}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a6ca20be-3c6c-4ba7-a257-4093afdf8797}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5ff2f180-ba21-44f8-8cd6-c26167c80d26}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{490eacf9-2176-4592-b13b-efab521aa907}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{e4ef7a0f-467b-4b3f-a026-21ab5551a5e2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f9a226c0-8004-4e9e-90d5-d942596c6d68}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{92e629f5-3108-424c-8d01-df3580f33d4c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

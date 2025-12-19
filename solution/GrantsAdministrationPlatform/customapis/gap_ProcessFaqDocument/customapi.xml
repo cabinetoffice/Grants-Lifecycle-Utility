@@ -1,0 +1,19 @@
+<customapi uniquename="gap_ProcessFaqDocument">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>1</bindingtype>
+  <boundentitylogicalname>gap_faqdocument</boundentitylogicalname>
+  <description default="ProcessFaqDocument">
+    <label description="ProcessFaqDocument" languagecode="1033" />
+  </description>
+  <displayname default="ProcessFaqDocument">
+    <label description="ProcessFaqDocument" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>ProcessFaqDocument</name>
+  <plugintypeid>
+    <plugintypeexportkey>c1cf256a-13ca-4685-9102-5a7538758545</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

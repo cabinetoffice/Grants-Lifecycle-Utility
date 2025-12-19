@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{47141977-6b8c-419d-ad45-adbb55441602}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{caff59ac-8068-4437-ac2b-ea1f7dc0f046}" IsUserDefined="1">
+          <labels>
+            <label description="" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{d1c67aac-0fcb-46ef-92ae-f8d5ef242de7}">
+                  <labels>
+                    <label description="GENERAL" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0ed2ae26-e710-4cda-b18b-e7e779e90c55}">
+                        <labels>
+                          <label description="FAQ Document Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_faqdocumentname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="gap_faqdocumentname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ef112250-647e-41b9-a961-8d4d1dca4c6f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Related Scheme" languagecode="1033" />
+                        </labels>
+                        <control id="gap_relatedscheme" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_relatedscheme" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3a1357a8-8e25-48ed-b73e-311224b5c83d}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+  </systemform>
+</forms>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LocalizedNames>
+    <LocalizedName description="My Work Items" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{2cba2bce-43d4-f011-8543-0022483faf54}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab showlabel="false" verticallayout="true" id="{18e84922-8d1f-457c-ac00-458166a2109b}">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section showlabel="false" showbar="false" columns="111" id="{92fe00d3-0fcc-4dc0-aa4e-b0e0b4aa40bc}">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell colspan="1" rowspan="12" showlabel="true" id="{77d1d296-0dca-4fba-8ae4-7cde8c68f615}" auto="false">
+                          <labels>
+                            <label description="Applications (Outcome)" languagecode="1033" />
+                          </labels>
+                          <control id="Componentfbe1ba8" uniqueid="{ce123a11-0e0b-013a-b786-6b7912ba7a56}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>gap_application</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{EEC655B9-3BD4-F011-8543-7C1E522D7494}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{DA9795B8-C9FC-EE11-A1FE-6045BDFC99DD}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="true" id="{9636044e-e705-4deb-84d2-48f9cc73d797}" auto="false">
+                          <labels>
+                            <label description="Applications (Award)" languagecode="1033" />
+                          </labels>
+                          <control id="Component5758a40" uniqueid="{a9b07162-971d-a18a-b87d-b10cb8d44368}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>gap_application</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{7F9E44C3-3FD4-F011-8543-7C1E5209BBB7}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{DA9795B8-C9FC-EE11-A1FE-6045BDFC99DD}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="true" id="{b1f451d5-fe9b-444b-a588-db7c748b798c}" auto="false">
+                          <labels>
+                            <label description="Applications (Monitoring)" languagecode="1033" />
+                          </labels>
+                          <control id="Componentb5ac07e" uniqueid="{ae595777-9e31-a4c1-59c8-77542a4191ca}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>gap_application</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{24FF5049-40D4-F011-8543-0022483FAF54}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{DA9795B8-C9FC-EE11-A1FE-6045BDFC99DD}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell colspan="1" rowspan="12" showlabel="true" id="{f31baa21-e698-48bc-8a80-96195e620296}" auto="false">
+                          <labels>
+                            <label description="Applications (Peer Review)" languagecode="1033" />
+                          </labels>
+                          <control id="Component1ae9c86" uniqueid="{2414ca15-3258-b899-e365-8aea6c49a09c}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>gap_application</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{C86C3A53-D28C-F011-B4CB-7C1E52028308}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{DA9795B8-C9FC-EE11-A1FE-6045BDFC99DD}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="true" id="{9ab3558b-d59f-439d-8a7f-5c2bfbe82c0f}" auto="false">
+                          <labels>
+                            <label description="Applications (Scoring)" languagecode="1033" />
+                          </labels>
+                          <control id="Component17d9c67" uniqueid="{dee83a16-6452-2999-0ec5-be2b8e94b636}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>gap_application</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>9</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{90EC2C1D-D28C-F011-B4CB-7C1E52028308}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{DA9795B8-C9FC-EE11-A1FE-6045BDFC99DD}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell colspan="1" rowspan="12" showlabel="false" id="{662746df-5afa-4907-8aba-2d38fd0647df}" auto="false">
+                          <labels>
+                            <label description="Applications (Quality)" languagecode="1033" />
+                          </labels>
+                          <control id="Component6603f13" uniqueid="{49a4d23c-554d-8dd5-040c-c439861aa48a}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>gap_application</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>10</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{E4DDB86D-D28C-F011-B4CB-000D3AD60BB2}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds />
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{DA9795B8-C9FC-EE11-A1FE-6045BDFC99DD}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>6.0.2.2</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

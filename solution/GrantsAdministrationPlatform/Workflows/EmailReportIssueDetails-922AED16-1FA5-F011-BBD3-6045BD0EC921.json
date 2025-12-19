@@ -1,0 +1,235 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_sharedoffice365_7664a"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added": {
+          "metadata": {
+            "operationMetadataId": "f15da53b-c72f-4f1c-beef-8cdcea83d971"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "gap_reportissue",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/name": "922aed16-1fa5-f011-bbd3-6045bd0ec921:MTA"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "List_rows": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "74a6a069-0d40-4150-96b8-7f8dc968c299"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "ListRecords"
+            },
+            "parameters": {
+              "entityName": "gap_reportissues",
+              "$select": "_createdby_value, _gap_selecttheschemeyouareworkingwith_value"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f616c8d9-fbb5-4de3-917b-0dbc0acafb0d"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "User",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Send_an_email_(V2)": {
+          "runAfter": {
+            "Condition": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2ef94d5b-f3a0-44a5-88d9-e4b2c20ee114"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+              "connectionName": "shared_office365_1",
+              "operationId": "SendEmailV2"
+            },
+            "parameters": {
+              "emailMessage/To": "contactglu@cabinetoffice.gov.uk",
+              "emailMessage/Subject": "GLU - User Issue Reported",
+              "emailMessage/Body": "<p>Hi there,<br>\n<br>\nAn issue has been reported, details are attached below.<br>\n<br>\n@{variables('User')}<br>\n</p>"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_a_row_by_ID_|_Users": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c8230b77-3d21-420a-8a6f-19873f55ad87"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "GetItem"
+            },
+            "parameters": {
+              "entityName": "systemusers",
+              "recordId": "@triggerOutputs()?['body/_createdby_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Append_to_string_variable": {
+          "runAfter": {
+            "Get_a_row_by_ID_|_Users": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "43724321-9b8b-4570-8013-3fe7708b9e6f"
+          },
+          "type": "AppendToStringVariable",
+          "inputs": {
+            "name": "User",
+            "value": "<strong>@{outputs('Get_a_row_by_ID_|_Users')?['body/fullname']} - @{outputs('Get_a_row_by_ID_|_Users')?['body/internalemailaddress']} </strong><br/>\n<br/>\n<b>Issue:</b> @{triggerOutputs()?['body/gap_pleasedetailtheissueyouencountered']}<br/>"
+          }
+        },
+        "Condition": {
+          "actions": {
+            "Get_a_row_by_ID_|_Schemes": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "6cd3d40c-e022-408f-8369-41226a77fa32"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps-1",
+                  "operationId": "GetItem"
+                },
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@triggerOutputs()?['body/_gap_selecttheschemeyouareworkingwith_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Append_to_string_variable_|_Yes": {
+              "runAfter": {
+                "Get_a_row_by_ID_|_Schemes": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "47c31617-767b-4b76-b169-88df09bd9a21"
+              },
+              "type": "AppendToStringVariable",
+              "inputs": {
+                "name": "User",
+                "value": "\n<b>Scheme name:</b>  @{outputs('Get_a_row_by_ID_|_Schemes')?['body/gap_title']}\n"
+              }
+            }
+          },
+          "runAfter": {
+            "Append_to_string_variable": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Append_to_string_variable_|_No": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "49ae41bd-b579-493c-8758-6a1351405a36"
+                },
+                "type": "AppendToStringVariable",
+                "inputs": {
+                  "name": "User",
+                  "value": "<b>Scheme name:</b> Issue is not scheme specific"
+                }
+              }
+            }
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@triggerOutputs()?['body/_gap_selecttheschemeyouareworkingwith_value']",
+                null
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "6da2aaa1-0fab-4318-b7ec-5b19af6c319d"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

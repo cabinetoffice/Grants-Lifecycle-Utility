@@ -43,6 +43,14 @@
                         <control id="gap_pleasedetailtheissueyouencountered" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_pleasedetailtheissueyouencountered" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{8466f798-efde-42e9-8219-c32a14939c85}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="If applicable, select the related scheme" languagecode="1033" />
+                        </labels>
+                        <control id="gap_selecttheschemeyouareworkingwith" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_selecttheschemeyouareworkingwith" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
               </sections>

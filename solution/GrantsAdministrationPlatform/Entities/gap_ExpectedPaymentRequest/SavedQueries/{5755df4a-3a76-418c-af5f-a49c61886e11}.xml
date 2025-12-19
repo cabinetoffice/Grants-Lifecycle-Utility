@@ -14,9 +14,7 @@
           <cell name="gap_type" width="150" />
           <cell name="gap_deadlineforevidence" width="150" />
           <cell name="gap_deadlineforpaymentrequest" width="150" />
-          <cell name="gap_amount" width="150" />
           <cell name="gap_receivedon" width="150" />
-          <cell name="gap_senton" width="150" />
           <cell name="gap_expectedpaymentstructure" width="150" />
         </row>
       </grid>
@@ -35,9 +33,7 @@
           <attribute name="gap_type" />
           <attribute name="gap_deadlineforevidence" />
           <attribute name="gap_deadlineforpaymentrequest" />
-          <attribute name="gap_amount" />
           <attribute name="gap_receivedon" />
-          <attribute name="gap_senton" />
           <attribute name="gap_expectedpaymentstructure" />
         </entity>
       </fetch>

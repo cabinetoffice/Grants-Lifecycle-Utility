@@ -142,6 +142,9 @@
                     <Sequence DisplayName="SetDisplayModeStep5: New Action">
                       <mcwc:SetDisplayMode ControlId="gap_latestpossiblesubmissiondate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="False" />
                     </Sequence>
+                    <Sequence DisplayName="SetDisplayModeStep_SetDisplayModeStep5_11: New Action">
+                      <mcwc:SetDisplayMode ControlId="gap_monitoringchecklist" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="False" />
+                    </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
               </mxswa:ActivityReference>
@@ -182,6 +185,9 @@
                     </Sequence>
                     <Sequence DisplayName="SetDisplayModeStep10: New Action">
                       <mcwc:SetDisplayMode ControlId="gap_latestpossiblesubmissiondate" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="True" />
+                    </Sequence>
+                    <Sequence DisplayName="SetDisplayModeStep_SetDisplayModeStep10_12: New Action">
+                      <mcwc:SetDisplayMode ControlId="gap_monitoringchecklist" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="True" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>

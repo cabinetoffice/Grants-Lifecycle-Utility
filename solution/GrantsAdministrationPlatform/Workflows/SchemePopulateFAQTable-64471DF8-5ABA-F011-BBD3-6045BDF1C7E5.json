@@ -1,0 +1,269 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Trigger_|_When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "71475557-d44b-469a-9580-fa99fa094856"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_faqdocument",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_faqdocument"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Scope": {
+          "actions": {
+            "Apply_to_each": {
+              "foreach": "@body('Parse_JSON')",
+              "actions": {
+                "Add_new_row_to_FAQ_Table": {
+                  "metadata": {
+                    "operationMetadataId": "df977345-a0d0-42f9-befd-ab2352ac6271"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "gap_faqdocuments",
+                      "item/gap_faqdocumentname": "@concat(triggerOutputs()?['body/gap_faqdocumentname'], '- Q', variables('QuestionIndex'))",
+                      "item/gap_answer": "@items('Apply_to_each')?['Answer']",
+                      "item/gap_question": "@items('Apply_to_each')?['Question']",
+                      "item/gap_RelatedScheme@odata.bind": "/gap_schemes(@{triggerOutputs()?['body/_gap_relatedscheme_value']})",
+                      "item/gap_tags": "@items('Apply_to_each')?['Tags']",
+                      "item/gap_uploadstatus": 803260000
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "connectionName": "shared_commondataserviceforapps-1"
+                    }
+                  }
+                },
+                "Increment_variable": {
+                  "runAfter": {
+                    "Add_new_row_to_FAQ_Table": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "e15d7c65-b23e-469e-8e00-fd7bc241ea3e"
+                  },
+                  "type": "IncrementVariable",
+                  "inputs": {
+                    "name": "QuestionIndex",
+                    "value": 1
+                  }
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "85315b95-54e2-4e98-b355-56f414ca7358"
+              },
+              "type": "Foreach"
+            },
+            "Success_Path_|_Update_Upload_Status": {
+              "runAfter": {
+                "Apply_to_each": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c0dc029f-14fd-4dce-9a25-fe95ec9f2772"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_faqdocuments",
+                  "recordId": "@triggerOutputs()?['body/gap_faqdocumentid']",
+                  "item/gap_uploadstatus": 803260000
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b5ecd634-463f-42d3-860e-95cc7566d912"
+          },
+          "type": "Scope"
+        },
+        "Fail_Path": {
+          "actions": {
+            "Update_Upload_Status": {
+              "metadata": {
+                "operationMetadataId": "400465a2-a388-40e4-92ce-8fc6870b5a0c"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_faqdocuments",
+                  "recordId": "@triggerOutputs()?['body/gap_faqdocumentid']",
+                  "item/gap_uploadstatus": 803260001
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Scope": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "46f08337-6147-4299-98a3-9a054f1454f3"
+          },
+          "type": "Scope"
+        },
+        "Process_CSV": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "656c258a-d610-4131-8893-f9006a96da99"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "gap_faqdocuments",
+              "actionName": "Microsoft.Dynamics.CRM.gap_ProcessFaqDocument",
+              "recordId": "@triggerOutputs()?['body/gap_faqdocumentid']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "PerformBoundAction",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          }
+        },
+        "Parse_Output": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "83c61a13-f45f-46c4-afc5-1845969cf51e"
+          },
+          "type": "Compose",
+          "inputs": "@json(outputs('Process_CSV')?['body/outputCsv'])"
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "Select": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "eaf30ae4-36ad-40e7-8ad6-a23fae4b2968"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('Select')",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Question": {
+                    "type": "string"
+                  },
+                  "Answer": {
+                    "type": "string"
+                  },
+                  "Tags": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Select": {
+          "runAfter": {
+            "Parse_Output": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a5dbb763-8529-4a9c-b133-b2165e2e19f0"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@skip(outputs('Parse_Output'),1)",
+            "select": {
+              "Question": "@item()[0]",
+              "Answer": "@item()[1]",
+              "Tags": "@item()[2]"
+            }
+          }
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "Process_CSV": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c16fcbe2-a751-4643-be3b-d37a3a8ceef6"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "QuestionIndex",
+                "type": "integer",
+                "value": 1
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

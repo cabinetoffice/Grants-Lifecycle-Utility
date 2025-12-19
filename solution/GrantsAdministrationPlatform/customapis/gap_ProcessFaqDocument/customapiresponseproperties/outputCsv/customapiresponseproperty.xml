@@ -1,0 +1,11 @@
+<customapiresponseproperty uniquename="outputCsv">
+  <description default="outputCsv">
+    <label description="outputCsv" languagecode="1033" />
+  </description>
+  <displayname default="outputCsv">
+    <label description="outputCsv" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>outputCsv</name>
+  <type>10</type>
+</customapiresponseproperty>

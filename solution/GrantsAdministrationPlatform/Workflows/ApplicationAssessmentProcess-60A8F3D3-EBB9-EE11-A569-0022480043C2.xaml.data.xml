@@ -40,58 +40,10 @@
     <steplabels id="{5368d660-9ca8-4ef4-8e22-856d65ababf0}">
       <label languagecode="1033" description="Completed On" />
     </steplabels>
-    <steplabels id="{1fdd611f-3882-4381-b98e-06b299ab90a3}">
-      <label languagecode="1033" description="Sample Review" />
-    </steplabels>
-    <steplabels id="{75dc3c50-7e87-46f9-9fd6-3d2e67dafb17}">
-      <label languagecode="1033" description="Completed On" />
-    </steplabels>
     <steplabels id="{b9dace7f-5922-455d-9e40-8c3b304e37e9}">
       <label languagecode="1033" description="Quality Control" />
     </steplabels>
     <steplabels id="{df407351-15a8-4682-a67d-8a21884db44d}">
-      <label languagecode="1033" description="Completed On" />
-    </steplabels>
-    <steplabels id="{4b81f495-7ddb-4d9d-b673-cef20c0baa96}">
-      <label languagecode="1033" description="Panel Review" />
-    </steplabels>
-    <steplabels id="{5f7cdbe1-8bc3-4ba6-8993-c1d6a79c8c7a}">
-      <label languagecode="1033" description="Completed On" />
-    </steplabels>
-    <steplabels id="{399bf0ea-1872-4295-8f75-56bce742fc60}">
-      <label languagecode="1033" description="Panel Decision" />
-    </steplabels>
-    <steplabels id="{59743ba5-767c-4d81-9cf2-3faa8e7d54c6}">
-      <label languagecode="1033" description="Panel Decision" />
-    </steplabels>
-    <steplabels id="{aaab3732-c647-44fd-96e2-368b2a2cc852}">
-      <label languagecode="1033" description="Rejected" />
-    </steplabels>
-    <steplabels id="{4c2807b8-aedd-448c-9f0b-33edd12f6ee3}">
-      <label languagecode="1033" description="Decision" />
-    </steplabels>
-    <steplabels id="{baacfec4-3e04-49e7-b72c-20589f81a795}">
-      <label languagecode="1033" description="Outcome Review" />
-    </steplabels>
-    <steplabels id="{16eb766e-6197-4995-9554-6b1a6b32c5fd}">
-      <label languagecode="1033" description="Completed On" />
-    </steplabels>
-    <steplabels id="{98aa1cd4-cccb-46dd-954b-0fa745b93e33}">
-      <label languagecode="1033" description="GFA" />
-    </steplabels>
-    <steplabels id="{18ec0d08-eae9-4ecc-b73c-0fa7ef478128}">
-      <label languagecode="1033" description="GFA" />
-    </steplabels>
-    <steplabels id="{0401e86d-22ba-425b-8bfc-0aaefb47fc8c}">
-      <label languagecode="1033" description="GFA Review" />
-    </steplabels>
-    <steplabels id="{da1e409a-c05d-4f20-950a-7d8d4143591d}">
-      <label languagecode="1033" description="Completed On" />
-    </steplabels>
-    <steplabels id="{0dd169f6-f730-475b-970d-98ac1a9c211b}">
-      <label languagecode="1033" description="Offer" />
-    </steplabels>
-    <steplabels id="{8b6ac07f-bf3a-4be0-b485-ae2117eb3348}">
       <label languagecode="1033" description="Completed On" />
     </steplabels>
   </labels>

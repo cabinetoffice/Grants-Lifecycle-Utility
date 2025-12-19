@@ -17,12 +17,12 @@
   <isgrouptitlehidden>0</isgrouptitlehidden>
   <location>1</location>
   <name>BulkReassign!489a36778ea340bfaa75af9345f7804f</name>
-  <onclickeventformulacomponentlibraryid>
-    <name>gap_demodefaultcommandlibrary_7c943</name>
-  </onclickeventformulacomponentlibraryid>
-  <onclickeventformulacomponentname>ceaa7a75638546b1b5ca59a9e811b981</onclickeventformulacomponentname>
-  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
-  <onclickeventtype>1</onclickeventtype>
+  <onclickeventjavascriptfunctionname>openCustomPageDialog</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5},{"type":23}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>95eb1578-73cb-f011-8543-7c1e5209bbb7</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
   <origin>0</origin>
   <sequence>1125200010.0000000000</sequence>
   <statecode>0</statecode>

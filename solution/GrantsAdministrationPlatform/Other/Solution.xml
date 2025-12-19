@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25092.152" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25092.152" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25101.00151">
+<ImportExportXml version="9.2.25113.150" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25113.150" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25113.00150">
   <SolutionManifest>
     <UniqueName>GrantsAdministrationPlatform</UniqueName>
     <LocalizedNames>
       <LocalizedName description="Grants Administration Platform" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>5.0.0.6</Version>
+    <Version>7.0.0.0</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>GAP</UniqueName>
@@ -98,6 +98,7 @@
       <RootComponent type="1" schemaName="gap_expectedpaymentrequest" behavior="0" />
       <RootComponent type="1" schemaName="gap_expectedpaymentstructure" behavior="0" />
       <RootComponent type="1" schemaName="gap_extensionmapping" behavior="0" />
+      <RootComponent type="1" schemaName="gap_faqdocument" behavior="0" />
       <RootComponent type="1" schemaName="gap_feedbacksubmittals" behavior="0" />
       <RootComponent type="1" schemaName="gap_gfaschemetemplate" behavior="0" />
       <RootComponent type="1" schemaName="gap_inboundquery" behavior="0" />
@@ -132,7 +133,6 @@
       <RootComponent type="1" schemaName="gap_responsemapping" behavior="0" />
       <RootComponent type="1" schemaName="gap_review" behavior="0" />
       <RootComponent type="1" schemaName="gap_reviewconfiguration" behavior="0" />
-      <RootComponent type="1" schemaName="gap_reviewoutcomeconfiguration" behavior="0" />
       <RootComponent type="1" schemaName="gap_scheme" behavior="0" />
       <RootComponent type="1" schemaName="gap_schemeadministrationprocess" behavior="0" />
       <RootComponent type="1" schemaName="gap_schemetemplate" behavior="0" />
@@ -144,182 +144,171 @@
       <RootComponent type="1" schemaName="gap_scoringtemplatesection" behavior="0" />
       <RootComponent type="1" schemaName="gap_section" behavior="0" />
       <RootComponent type="1" schemaName="gap_timelogging" behavior="0" />
+      <RootComponent type="1" schemaName="gap_vehicleseligibleforgrant" behavior="0" />
       <RootComponent type="1" schemaName="systemuser" behavior="2" />
       <RootComponent type="1" schemaName="team" behavior="2" />
       <RootComponent type="20" id="{295ad9c6-17c5-ee11-9079-002248004b54}" behavior="0" />
       <RootComponent type="20" id="{791fcf32-ddf7-ee11-a1fe-6045bdc1fe60}" behavior="0" />
       <RootComponent type="20" id="{f3f9bab3-f4c4-ee11-9079-002248004a06}" behavior="0" />
-      <RootComponent type="29" id="{01b6c37b-4120-f011-9989-0022481b0f48}" behavior="0" />
+      <RootComponent type="29" id="{015a8bf1-aace-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{027b823e-b7e6-ee11-904d-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{044dddca-c3b0-f011-bbd3-7ced8d38c68c}" behavior="0" />
-      <RootComponent type="29" id="{05f3a302-a968-f011-bec2-0022483ff195}" behavior="0" />
-      <RootComponent type="29" id="{05f93746-3892-f011-b4cb-000d3ad61ba8}" behavior="0" />
-      <RootComponent type="29" id="{0667b250-cbea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{07e21bf6-f5a4-f011-bbd3-7c1e52654c81}" behavior="0" />
       <RootComponent type="29" id="{07ebdcc3-6e6c-f011-b4cb-7ced8d3ad3ea}" behavior="0" />
-      <RootComponent type="29" id="{093d6e42-fd89-f011-b4cb-7ced8d6b4176}" behavior="0" />
       <RootComponent type="29" id="{096c26b1-179d-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{0a3853a1-179d-f011-bbd2-7ced8d38c68c}" behavior="0" />
+      <RootComponent type="29" id="{0aba1be9-38d4-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{0d19c106-708d-f011-b4cb-000d3a7f48f2}" behavior="0" />
-      <RootComponent type="29" id="{0dd64423-fa89-f011-b4cb-7ced8d6b42c7}" behavior="0" />
       <RootComponent type="29" id="{0dffb339-ccea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
-      <RootComponent type="29" id="{0e3f76ab-85dc-ee11-904d-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{1085c650-c272-f011-b4cc-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{10be9397-b9ea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{12945489-bcb0-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{13aa7bfd-766c-f011-b4cb-0022483ff195}" behavior="0" />
+      <RootComponent type="29" id="{150aeb28-e3bb-f011-bbd3-6045bd13df5f}" behavior="0" />
+      <RootComponent type="29" id="{15ad3ab2-f6d5-f011-8543-0022483faf54}" behavior="0" />
+      <RootComponent type="29" id="{1846a6ce-67cf-f011-8543-7c1e5209bbb7}" behavior="0" />
       <RootComponent type="29" id="{18c12c13-ebe6-ee11-904d-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{19f27970-99ea-ee11-a1fe-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{1a763ced-3e92-f011-b4cc-000d3a7f477d}" behavior="0" />
-      <RootComponent type="29" id="{1b51066c-b1dc-ee11-904d-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{1b684e2c-81d1-ee11-9079-0022480043c2}" behavior="0" />
-      <RootComponent type="29" id="{1ba3cfed-e7e6-ee11-904d-6045bdf1ea43}" behavior="0" />
-      <RootComponent type="29" id="{1bf4a8da-a073-f011-b4cd-6045bd1102ef}" behavior="0" />
       <RootComponent type="29" id="{1c9450a5-f5a4-f011-bbd3-7ced8d38c68c}" behavior="0" />
-      <RootComponent type="29" id="{1d32d7f5-bc89-f011-b4cb-7c1e522db721}" behavior="0" />
-      <RootComponent type="29" id="{1e90ee93-8d5d-f011-bec2-00224840fbec}" behavior="0" />
+      <RootComponent type="29" id="{1fd83311-b0ce-f011-8543-7c1e522d7494}" behavior="0" />
+      <RootComponent type="29" id="{20ba28f7-6ad0-f011-8543-7ced8d995195}" behavior="0" />
       <RootComponent type="29" id="{2158b761-eee6-ee11-904d-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{21c845b5-6b6c-f011-b4cb-002248433196}" behavior="0" />
-      <RootComponent type="29" id="{221fa896-f989-f011-b4cc-0022484334b8}" behavior="0" />
+      <RootComponent type="29" id="{22e43ddf-d8ce-f011-8543-7c1e5209bbb7}" behavior="0" />
       <RootComponent type="29" id="{2373c176-86dc-ee11-904d-6045bdf1ea43}" behavior="0" />
       <RootComponent type="29" id="{23c46bcb-3da4-f011-bbd3-6045bdf1cfcf}" behavior="0" />
       <RootComponent type="29" id="{242b379f-c4d7-ee11-904d-6045bdd0e669}" behavior="0" />
-      <RootComponent type="29" id="{24ee0a7c-974a-f011-877b-7c1e5279c40a}" behavior="0" />
-      <RootComponent type="29" id="{25d43207-4392-f011-b4cb-7ced8d6ca6ae}" behavior="0" />
       <RootComponent type="29" id="{2688f2a4-3ff7-ee11-a1fe-6045bdc1fe60}" behavior="0" />
       <RootComponent type="29" id="{26b8d423-c2b0-f011-bbd2-6045bd13df5f}" behavior="0" />
       <RootComponent type="29" id="{27581850-25a5-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{278f179a-3ba4-f011-bbd3-7ced8d38e853}" behavior="0" />
       <RootComponent type="29" id="{29181382-d0ea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
-      <RootComponent type="29" id="{2ab7bb91-8e89-f011-b4cb-7ced8d6b42c7}" behavior="0" />
+      <RootComponent type="29" id="{29e26b3f-21bb-f011-bbd3-6045bdd01421}" behavior="0" />
+      <RootComponent type="29" id="{2bc40693-b0ce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{2ec5b823-26a5-f011-bbd3-7ced8d38c68c}" behavior="0" />
-      <RootComponent type="29" id="{2f449d0e-e8e6-ee11-904d-6045bdf1ea43}" behavior="0" />
       <RootComponent type="29" id="{2f55425c-a2b8-ee11-9078-002248004b54}" behavior="0" />
-      <RootComponent type="29" id="{2f85522c-af8c-f011-b4cb-000d3ad60bb2}" behavior="0" />
-      <RootComponent type="29" id="{306a3fb0-eb89-f011-b4cc-7ced8d3ad3ea}" behavior="0" />
       <RootComponent type="29" id="{3154ae08-753c-f011-8c4d-002248c6f33a}" behavior="0" />
       <RootComponent type="29" id="{32a40fcf-6e8d-f011-b4cb-000d3a7f48f2}" behavior="0" />
       <RootComponent type="29" id="{331da36b-1bc4-ee11-9079-002248004dbc}" behavior="0" />
       <RootComponent type="29" id="{34939b5a-6e8d-f011-b4cb-6045bdf1bb64}" behavior="0" />
       <RootComponent type="29" id="{34dcbbbc-d030-f011-8c4d-6045bd0d3ff5}" behavior="0" />
       <RootComponent type="29" id="{382869cf-6c6c-f011-b4cb-002248433196}" behavior="0" />
-      <RootComponent type="29" id="{38896909-446d-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{3a003aa8-d130-f011-8c4d-6045bd0d3ff5}" behavior="0" />
       <RootComponent type="29" id="{3a4fd22e-4de5-ee11-904d-6045bdd0e669}" behavior="0" />
-      <RootComponent type="29" id="{3aa9f6db-ac8c-f011-b4cb-6045bdf1bb64}" behavior="0" />
       <RootComponent type="29" id="{3ec0d886-46f7-ee11-a1fe-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{3eca273f-716c-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{3efb4e59-8ca2-f011-bbd3-7ced8d9ad036}" behavior="0" />
+      <RootComponent type="29" id="{41c9a49d-e6d5-f011-8543-7c1e5209bbb7}" behavior="0" />
       <RootComponent type="29" id="{4223d0f2-9c55-f011-bec2-00224840fbec}" behavior="0" />
+      <RootComponent type="29" id="{4344d646-a3ce-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{44e21c29-cead-f011-bbd3-6045bdd01421}" behavior="0" />
-      <RootComponent type="29" id="{46939bc9-475b-f011-bec2-00224840fbec}" behavior="0" />
-      <RootComponent type="29" id="{46c53c96-a98c-f011-b4cb-000d3a7f48f2}" behavior="0" />
       <RootComponent type="29" id="{48115653-14c5-ee11-9079-002248004d0a}" behavior="0" />
       <RootComponent type="29" id="{4ec55dca-d0ea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{4ec86dd6-bab0-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{50d656db-6f8d-f011-b4cb-000d3a7f48f2}" behavior="0" />
       <RootComponent type="29" id="{5231e7e5-7cd5-ee11-904d-6045bdf1ea43}" behavior="0" />
-      <RootComponent type="29" id="{52d926a3-2bec-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
-      <RootComponent type="29" id="{53122a27-1acc-ee11-9079-002248004b54}" behavior="0" />
+      <RootComponent type="29" id="{54c3f0d3-b9ce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{55da12a2-97ad-f011-bbd3-6045bdd01421}" behavior="0" />
+      <RootComponent type="29" id="{56420878-63b9-f011-bbd3-6045bd13df5f}" behavior="0" />
       <RootComponent type="29" id="{57916cdb-43e8-ee11-904c-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{580d3b32-63e8-ee11-904c-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{585693a5-b6e6-ee11-904d-6045bdf1ea43}" behavior="0" />
       <RootComponent type="29" id="{5963c528-7bd5-ee11-904d-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{5a5ffa7b-e8a4-f011-bbd2-6045bd13df5f}" behavior="0" />
-      <RootComponent type="29" id="{5a7a6be2-90f6-ee11-a1fe-6045bdcf482e}" behavior="0" />
       <RootComponent type="29" id="{5bb29513-c0b0-f011-bbd3-6045bdd01421}" behavior="0" />
+      <RootComponent type="29" id="{5d331147-b0ce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{5dc07ed3-c5b0-f011-bbd3-7ced8d38c68c}" behavior="0" />
       <RootComponent type="29" id="{5debe08a-bbb0-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{5f903675-bfb0-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{5fa0d8f3-2d9d-f011-bbd2-7c1e52654c81}" behavior="0" />
+      <RootComponent type="29" id="{5fafd986-c1b8-f011-bbd3-6045bd13df5f}" behavior="0" />
       <RootComponent type="29" id="{60a8f3d3-ebb9-ee11-a569-0022480043c2}" behavior="0" />
       <RootComponent type="29" id="{63ac591e-c4b0-f011-bbd3-7ced8d38c68c}" behavior="0" />
+      <RootComponent type="29" id="{64471df8-5aba-f011-bbd3-6045bdf1c7e5}" behavior="0" />
       <RootComponent type="29" id="{65ab98f2-46a0-f011-bbd2-6045bdf1c966}" behavior="0" />
+      <RootComponent type="29" id="{66a7ab95-b6ce-f011-8543-7c1e5209bbb7}" behavior="0" />
+      <RootComponent type="29" id="{6823d9f0-e3bb-f011-bbd3-6045bd13df5f}" behavior="0" />
       <RootComponent type="29" id="{68ab547e-864b-f011-877b-7c1e522e917b}" behavior="0" />
+      <RootComponent type="29" id="{68ec2d35-b6ce-f011-8543-7c1e5209bbb7}" behavior="0" />
+      <RootComponent type="29" id="{69c740c6-b0ce-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{6a43ef1f-9234-f011-8c4c-002248c6f33a}" behavior="0" />
-      <RootComponent type="29" id="{6a9f3e16-8c6c-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{6b734448-6f6c-f011-b4cb-0022483ff195}" behavior="0" />
-      <RootComponent type="29" id="{6bde2ef0-2578-f011-b4cb-0022483ff195}" behavior="0" />
-      <RootComponent type="29" id="{6d05b45f-52f6-ee11-a1fe-7c1e5204175a}" behavior="0" />
       <RootComponent type="29" id="{6d1c2566-638a-f011-b4cc-0022484334b8}" behavior="0" />
       <RootComponent type="29" id="{6de42f00-6253-f011-877b-7c1e5204cc9b}" behavior="0" />
       <RootComponent type="29" id="{70a8c19f-ecf8-ee11-a1fe-6045bdcf482e}" behavior="0" />
-      <RootComponent type="29" id="{71c1a2ea-f5e6-ee11-904d-6045bdf1ea43}" behavior="0" />
-      <RootComponent type="29" id="{73779c35-e8e6-ee11-904d-6045bdf1ea43}" behavior="0" />
       <RootComponent type="29" id="{75540682-24c0-ee11-9079-002248004b54}" behavior="0" />
-      <RootComponent type="29" id="{76b38ef0-aa8c-f011-b4cb-000d3a7f48f2}" behavior="0" />
       <RootComponent type="29" id="{7950a1d3-7a9f-f011-bbd3-6045bdd01421}" behavior="0" />
-      <RootComponent type="29" id="{7a49503c-e6e6-ee11-904d-6045bdf1ea43}" behavior="0" />
-      <RootComponent type="29" id="{7ba90875-fa6d-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{7ea5da21-2e9d-f011-bbd3-6045bd13df5f}" behavior="0" />
-      <RootComponent type="29" id="{7eb66d8b-36a0-f011-bbd3-6045bdd01421}" behavior="0" />
+      <RootComponent type="29" id="{80aedb95-b6ce-f011-8543-7c1e522d7494}" behavior="0" />
+      <RootComponent type="29" id="{8126b3f9-afce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{816c7aaa-6f8d-f011-b4cb-000d3a7f48f2}" behavior="0" />
-      <RootComponent type="29" id="{8188cca3-ab8c-f011-b4cb-0022483ff24b}" behavior="0" />
-      <RootComponent type="29" id="{83ba5644-3492-f011-b4cb-7c1e521d5e1a}" behavior="0" />
-      <RootComponent type="29" id="{841ec9fa-3b92-f011-b4cc-000d3a7f477d}" behavior="0" />
-      <RootComponent type="29" id="{847181cf-7026-f011-8c4d-002248c6f33a}" behavior="0" />
-      <RootComponent type="29" id="{85149cb7-8d89-f011-b4cb-7ced8d6b4222}" behavior="0" />
+      <RootComponent type="29" id="{81b20196-fcbb-f011-bbd3-7ced8d38c68c}" behavior="0" />
+      <RootComponent type="29" id="{851baead-4dbf-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{85d2eee3-c2b0-f011-bbd3-7ced8d38c68c}" behavior="0" />
+      <RootComponent type="29" id="{874ec66c-42c9-f011-8543-0022483faf54}" behavior="0" />
+      <RootComponent type="29" id="{87ddd4ea-f2c9-f011-8543-7c1e5209bbb7}" behavior="0" />
+      <RootComponent type="29" id="{88c62d92-cdd5-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{89178607-6f6c-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{89602479-7e26-f011-8c4d-002248c6f33a}" behavior="0" />
+      <RootComponent type="29" id="{89e7ee51-e1be-f011-bbd3-7ced8d38c68c}" behavior="0" />
       <RootComponent type="29" id="{8a42c7d9-c872-f011-b4cc-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{8b81f50d-d49a-f011-b41b-7ced8d6ca6ae}" behavior="0" />
       <RootComponent type="29" id="{8c9ef63c-9c55-f011-bec2-00224840fbec}" behavior="0" />
       <RootComponent type="29" id="{8d0c10ca-41f7-ee11-a1fe-6045bdd19f4f}" behavior="0" />
       <RootComponent type="29" id="{8d3083fb-6c6c-f011-b4cb-002248433196}" behavior="0" />
       <RootComponent type="29" id="{8f4f9220-fca4-f011-bbd3-7ced8d9ad036}" behavior="0" />
-      <RootComponent type="29" id="{918c4724-f6e6-ee11-904d-6045bdf1ea43}" behavior="0" />
+      <RootComponent type="29" id="{91118859-f6c9-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{922aed16-1fa5-f011-bbd3-6045bd0ec921}" behavior="0" />
       <RootComponent type="29" id="{92a0cda8-ccad-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{9364be02-9ca2-f011-bbd3-6045bd0ec921}" behavior="0" />
       <RootComponent type="29" id="{93c7ade6-af8f-f011-b4cb-7ced8d6ca6ae}" behavior="0" />
+      <RootComponent type="29" id="{9598570f-48d0-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{96ac0330-11a5-f011-bbd3-7ced8d38c68c}" behavior="0" />
+      <RootComponent type="29" id="{9811c1f3-b0ce-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{99e61844-ffda-ee11-904d-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{9aa9c642-c13f-f011-877a-7c1e522e917b}" behavior="0" />
-      <RootComponent type="29" id="{9bf85a0b-f6e6-ee11-904d-6045bdf1ea43}" behavior="0" />
-      <RootComponent type="29" id="{9c6f6901-c579-f011-b4cb-002248433196}" behavior="0" />
+      <RootComponent type="29" id="{9c96806c-b5ce-f011-8543-7c1e5209bbb7}" behavior="0" />
+      <RootComponent type="29" id="{9e83608d-d8ce-f011-8543-7c1e5209bbb7}" behavior="0" />
       <RootComponent type="29" id="{a097c9de-ea2c-f011-8c4d-0022481b0f48}" behavior="0" />
       <RootComponent type="29" id="{a0dd0c79-3915-f011-9989-6045bd0f82f8}" behavior="0" />
       <RootComponent type="29" id="{a17e1c53-6648-f011-877a-000d3ad545f3}" behavior="0" />
       <RootComponent type="29" id="{a221252f-50f7-ee11-a1fe-6045bdcf482e}" behavior="0" />
-      <RootComponent type="29" id="{a2283662-7235-f011-8c4c-6045bd0d3ff5}" behavior="0" />
       <RootComponent type="29" id="{a23afc22-f5a4-f011-bbd3-7ced8d38c68c}" behavior="0" />
       <RootComponent type="29" id="{a28dd844-c4b0-f011-bbd3-7ced8d38c68c}" behavior="0" />
       <RootComponent type="29" id="{a5d2246d-c33f-f011-877a-7c1e522e917b}" behavior="0" />
       <RootComponent type="29" id="{a67d85d2-4153-f011-877b-7c1e5204cc9b}" behavior="0" />
       <RootComponent type="29" id="{a708dff2-38a0-f011-bbd3-6045bdd01421}" behavior="0" />
       <RootComponent type="29" id="{a7d5a6ed-6e8d-f011-b4cb-000d3a7f48f2}" behavior="0" />
-      <RootComponent type="29" id="{a8f08dd3-52f6-ee11-a1fe-7c1e5204175a}" behavior="0" />
+      <RootComponent type="29" id="{a8493992-e6bf-f011-bbd3-7ced8d38c68c}" behavior="0" />
       <RootComponent type="29" id="{a9cc4bdc-caea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{aba5fc70-7c6c-f011-b4cb-002248433196}" behavior="0" />
+      <RootComponent type="29" id="{ac03af31-b6ce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{ad06cede-5e98-f011-b41b-000d3a7e960c}" behavior="0" />
       <RootComponent type="29" id="{aeef0a39-de93-f011-b4cb-000d3ad61ba8}" behavior="0" />
       <RootComponent type="29" id="{afc3d90f-2e9d-f011-bbd3-6045bdf1c7e5}" behavior="0" />
-      <RootComponent type="29" id="{b00f6b9c-52f6-ee11-a1fe-7c1e5204175a}" behavior="0" />
-      <RootComponent type="29" id="{b04cc165-fb89-f011-b4cb-002248433196}" behavior="0" />
+      <RootComponent type="29" id="{b09bc76e-fdc9-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{b1dedeb0-a167-f011-bec2-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{b2ee5379-5aa0-f011-bbd3-6045bdf1c7e5}" behavior="0" />
+      <RootComponent type="29" id="{b3b155bb-48be-f011-bbd3-6045bd13df5f}" behavior="0" />
       <RootComponent type="29" id="{b4578c43-7bc6-ee11-9079-002248004dbc}" behavior="0" />
       <RootComponent type="29" id="{b4a626a6-b1e6-ee11-904d-6045bdf1ea43}" behavior="0" />
       <RootComponent type="29" id="{b6f554ce-aa47-f011-877a-7c1e522e917b}" behavior="0" />
       <RootComponent type="29" id="{b7c8d9c1-cdad-f011-bbd3-6045bdd01421}" behavior="0" />
+      <RootComponent type="29" id="{b7dfc947-45c9-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{b8dcd99c-d0ea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
       <RootComponent type="29" id="{ba0b7c22-0ad0-ee11-9079-002248004ea0}" behavior="0" />
       <RootComponent type="29" id="{bae01225-7899-f011-b41c-6045bd0f9625}" behavior="0" />
       <RootComponent type="29" id="{baee0df5-f9da-ee11-904d-6045bdf1ea43}" behavior="0" />
-      <RootComponent type="29" id="{bba5eb77-c06e-f011-b4cb-0022484334b8}" behavior="0" />
-      <RootComponent type="29" id="{bd20192a-3a62-f011-bec2-7c1e5204cc9b}" behavior="0" />
       <RootComponent type="29" id="{bdcb42cc-b0f5-ee11-a1fe-000d3ad53744}" behavior="0" />
+      <RootComponent type="29" id="{bdd9079d-b9ce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{be39d875-a38d-f011-b4cb-6045bdf1bb64}" behavior="0" />
-      <RootComponent type="29" id="{beb0c870-c8f5-ee11-a1fe-000d3ad53744}" behavior="0" />
-      <RootComponent type="29" id="{bf535699-f089-f011-b4cc-0022484334b8}" behavior="0" />
-      <RootComponent type="29" id="{bf774f7c-4292-f011-b4cc-000d3a7f477d}" behavior="0" />
       <RootComponent type="29" id="{bfdb01e5-5f48-f011-877a-000d3ad545f3}" behavior="0" />
       <RootComponent type="29" id="{c013227d-716c-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{c16093a2-36a0-f011-bbd3-6045bdd01421}" behavior="0" />
+      <RootComponent type="29" id="{c5946e83-e251-f011-877b-002248c6f33a}" behavior="0" />
       <RootComponent type="29" id="{c5c65201-2e9d-f011-bbd2-7c1e52654c81}" behavior="0" />
-      <RootComponent type="29" id="{c607c37e-4883-f011-b4cb-002248433196}" behavior="0" />
       <RootComponent type="29" id="{c777e49b-a7d0-ee11-9079-002248004b54}" behavior="0" />
       <RootComponent type="29" id="{c79918d0-b279-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{c9eccdf2-64e8-ee11-904d-6045bdd2c716}" behavior="0" />
@@ -328,34 +317,33 @@
       <RootComponent type="29" id="{ce97a580-a734-f011-8c4c-0022481b0f48}" behavior="0" />
       <RootComponent type="29" id="{cf7e86bf-eba1-f011-bbd2-6045bd13df5f}" behavior="0" />
       <RootComponent type="29" id="{d251da56-97dc-ee11-904d-6045bdf1ea43}" behavior="0" />
-      <RootComponent type="29" id="{d36d19a6-9bea-ee11-a1fd-7c1e5209d7fb}" behavior="0" />
-      <RootComponent type="29" id="{d3b14c3a-ec89-f011-b4cb-7c1e522ec4bc}" behavior="0" />
       <RootComponent type="29" id="{d3f07090-3792-f011-b4cc-000d3a7f477d}" behavior="0" />
-      <RootComponent type="29" id="{d4ac7d4a-7126-f011-8c4d-002248c6f33a}" behavior="0" />
       <RootComponent type="29" id="{d57396f5-ec45-f011-8779-000d3ad545f3}" behavior="0" />
       <RootComponent type="29" id="{d5c3333e-87f6-ee11-a1fe-6045bdcf482e}" behavior="0" />
-      <RootComponent type="29" id="{d74b4ce1-48c0-ee11-9079-0022480043c2}" behavior="0" />
       <RootComponent type="29" id="{d78186cf-63d2-ee11-9079-002248004ea0}" behavior="0" />
-      <RootComponent type="29" id="{d8a2ce7e-3a62-f011-bec2-00224840fbec}" behavior="0" />
       <RootComponent type="29" id="{d8b93792-2ef7-ee11-a1fe-7c1e521d42a5}" behavior="0" />
       <RootComponent type="29" id="{d8ff3cc4-9ba2-f011-bbd3-7ced8d38e853}" behavior="0" />
-      <RootComponent type="29" id="{d9afec36-d78f-f011-b4cb-6045bd0f9625}" behavior="0" />
+      <RootComponent type="29" id="{d9d6d788-04ca-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{decee1f2-f4a4-f011-bbd3-7ced8d38c68c}" behavior="0" />
-      <RootComponent type="29" id="{df34a542-fc89-f011-b4cb-0022483ff195}" behavior="0" />
-      <RootComponent type="29" id="{df558ed3-ac8c-f011-b4cb-000d3ad60bb2}" behavior="0" />
+      <RootComponent type="29" id="{e0138634-b6ce-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{e01ee8fd-19a5-f011-bbd3-7c1e52654c81}" behavior="0" />
-      <RootComponent type="29" id="{e0441600-5b4c-f011-877b-6045bd0d3ff5}" behavior="0" />
+      <RootComponent type="29" id="{e05c9298-12d5-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{e15d6fdc-6bca-ee11-9079-002248004b54}" behavior="0" />
       <RootComponent type="29" id="{e292a128-a38d-f011-b4cb-6045bdf1bb64}" behavior="0" />
+      <RootComponent type="29" id="{e546a14d-f4c9-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{e5540580-6f8d-f011-b4cb-000d3a7f48f2}" behavior="0" />
       <RootComponent type="29" id="{e617825a-708d-f011-b4cb-0022483ff24b}" behavior="0" />
       <RootComponent type="29" id="{e71fcee5-7f26-f011-8c4d-6045bd0d3ff5}" behavior="0" />
       <RootComponent type="29" id="{e8090a67-f4a4-f011-bbd3-7ced8d38c68c}" behavior="0" />
-      <RootComponent type="29" id="{ebfa1e10-53f6-ee11-a1fe-7c1e5204175a}" behavior="0" />
+      <RootComponent type="29" id="{e8b9675f-b0ce-f011-8543-7c1e5209bbb7}" behavior="0" />
+      <RootComponent type="29" id="{eb61e920-69cf-f011-8543-7c1e5278ff0f}" behavior="0" />
       <RootComponent type="29" id="{ec0d3dce-7bd1-ee11-9078-002248004c78}" behavior="0" />
+      <RootComponent type="29" id="{ed03a0a3-62b9-f011-bbd3-6045bd13df5f}" behavior="0" />
+      <RootComponent type="29" id="{ee876284-54d7-f011-8543-7c1e5209bbb7}" behavior="0" />
       <RootComponent type="29" id="{ef0e1a2c-0de6-ee11-904d-6045bdf1ea43}" behavior="0" />
       <RootComponent type="29" id="{efafdb85-e1e6-ee11-904d-6045bdf1ea43}" behavior="0" />
       <RootComponent type="29" id="{f2b9de08-a6e6-ee11-904d-6045bdf1ea43}" behavior="0" />
+      <RootComponent type="29" id="{f3a80abd-e4bb-f011-bbd3-6045bd13df5f}" behavior="0" />
       <RootComponent type="29" id="{f3dc77c0-7999-f011-b41b-7ced8d9c519d}" behavior="0" />
       <RootComponent type="29" id="{f4c20c26-6c6c-f011-b4cb-002248433196}" behavior="0" />
       <RootComponent type="29" id="{f58a0f82-a5e6-ee11-904d-6045bdd0e669}" behavior="0" />
@@ -365,24 +353,32 @@
       <RootComponent type="29" id="{f81d20b9-b342-f011-877a-7c1e522e8518}" behavior="0" />
       <RootComponent type="29" id="{f902b66e-776c-f011-b4cb-0022483ff195}" behavior="0" />
       <RootComponent type="29" id="{f95e1f99-06a5-f011-bbd3-7ced8d9ad036}" behavior="0" />
-      <RootComponent type="29" id="{f9e6e2ed-08a5-f011-bbd3-6045bdf1c7e5}" behavior="0" />
       <RootComponent type="29" id="{fabede4d-5ce8-ee11-904d-6045bdd2c716}" behavior="0" />
+      <RootComponent type="29" id="{fae1258b-82cf-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{fbda33b7-b1ea-ee11-a1fe-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{fbf24a72-926c-f011-b4cb-0022483ff195}" behavior="0" />
+      <RootComponent type="29" id="{ffb06d5a-60cf-f011-8543-7c1e5203cfd2}" behavior="0" />
       <RootComponent type="300" schemaName="gap_components_4d806" behavior="0" />
       <RootComponent type="300" schemaName="gap_demodefaultcommandlibrary_7c943" behavior="0" />
       <RootComponent type="300" schemaName="gap_integratedscoringchecklist_a1c7f" behavior="0" />
       <RootComponent type="300" schemaName="gap_monitoringv1_a3e3e" behavior="0" />
-      <RootComponent type="300" schemaName="gap_reassignapplicationownerform_4b3a9" behavior="0" />
+      <RootComponent type="300" schemaName="gap_ozevvehicleeligibilitycsvupload_2e1ee" behavior="0" />
       <RootComponent type="300" schemaName="gap_reassignapplicationownerv2_50e5b" behavior="0" />
       <RootComponent type="300" schemaName="gap_reassignapplicationownerv2bulk_11c68" behavior="0" />
-      <RootComponent type="300" schemaName="gap_reassignreviewerform_eacd7" behavior="0" />
+      <RootComponent type="300" schemaName="gap_reassignmonitoringactivity_b4db1" behavior="0" />
       <RootComponent type="300" schemaName="gap_responseexplorer_05ff6" behavior="0" />
       <RootComponent type="300" schemaName="gap_scoringchecklistv2_d0366" behavior="0" />
+      <RootComponent type="372" id="{685f5bf7-438f-4974-89aa-2d98d88b498c}" schemaName="gap_5Fdvla-20api" behavior="0" />
       <RootComponent type="372" id="{c54c6ec0-6a7f-489d-8350-b8d0d9b70d49}" schemaName="gap_5Ffind-20a-20grant-20v2" behavior="0" />
+      <RootComponent type="372" id="{e015c558-ef73-4985-945f-4d030402250d}" schemaName="gap_mot-20history-20api" behavior="0" />
+      <RootComponent type="401" id="{191865a6-e948-453c-a66f-5cce61375bfe}" behavior="0" />
       <RootComponent type="401" id="{19818f02-5d19-4d7f-9936-9c8e37b3b4d4}" behavior="0" />
+      <RootComponent type="401" id="{9a351205-3ebc-4410-b7cb-fcae3b5770fe}" behavior="0" />
+      <RootComponent type="401" id="{b209ee48-a409-4e7d-9be1-61df27379c4b}" behavior="0" />
       <RootComponent type="401" id="{d8f4d672-0aa0-4c1b-955b-8569e9b1f343}" behavior="0" />
       <RootComponent type="401" id="{ed40d2e5-6aa5-4c28-a54c-4814b19f5563}" behavior="0" />
+      <RootComponent type="401" id="{ff17da6a-32f9-434a-9b32-fa437990eab8}" behavior="0" />
+      <RootComponent type="60" id="{2cba2bce-43d4-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="60" id="{5d3ff66d-628d-f011-b4cb-7c1e52028308}" />
       <RootComponent type="60" id="{8a8d9b2b-a28d-f011-b4cb-7c1e52028308}" behavior="0" />
       <RootComponent type="60" id="{9e050435-7edc-ee11-904d-6045bdf1ea43}" behavior="0" />
@@ -390,40 +386,26 @@
       <RootComponent type="60" id="{a9b98327-1c8e-f011-b4cb-7ced8d6ca6ae}" behavior="0" />
       <RootComponent type="60" id="{d4fb80e1-d28c-f011-b4cb-7ced8d6be8f0}" behavior="0" />
       <RootComponent type="60" id="{ff0fb09d-b9d7-ee11-904d-6045bdd0e669}" behavior="0" />
-      <RootComponent type="61" schemaName="cr48e_SetPaymentBPF" behavior="0" />
-      <RootComponent type="61" schemaName="gap_accessibilitystatus" behavior="0" />
+      <RootComponent type="61" schemaName="gap_accessibilitystatement" behavior="0" />
       <RootComponent type="61" schemaName="gap_co_logo.jpg" behavior="0" />
       <RootComponent type="61" schemaName="gap_erroricon" behavior="0" />
-      <RootComponent type="61" schemaName="gap_FilterUserLookup" behavior="0" />
       <RootComponent type="61" schemaName="gap_hideSectionsScheme" behavior="0" />
-      <RootComponent type="61" schemaName="gap_inboundicon" behavior="0" />
-      <RootComponent type="61" schemaName="gap_IntegratedScoringDialog" behavior="0" />
       <RootComponent type="61" schemaName="gap_IntegratedScoringDialogObjective" behavior="0" />
       <RootComponent type="61" schemaName="gap_IntegratedScoringDialogSubjective" behavior="0" />
       <RootComponent type="61" schemaName="gap_lockFields.js" behavior="0" />
-      <RootComponent type="61" schemaName="gap_LockRequestFields" behavior="0" />
       <RootComponent type="61" schemaName="gap_MonitoringActivityFormComponentVisibility" behavior="0" />
       <RootComponent type="61" schemaName="gap_MonitoringChecklistDialog" behavior="0" />
       <RootComponent type="61" schemaName="gap_OpenReassignApplication" behavior="0" />
-      <RootComponent type="61" schemaName="gap_OpenReassignReviewerForm" behavior="0" />
-      <RootComponent type="61" schemaName="gap_outboundicon" behavior="0" />
-      <RootComponent type="61" schemaName="gap_quickcreate" behavior="0" />
-      <RootComponent type="61" schemaName="gap_reviewButtonVisibility" behavior="0" />
+      <RootComponent type="61" schemaName="gap_OpenReassignApplicationBulk" behavior="0" />
+      <RootComponent type="61" schemaName="gap_openreassignmonitoringactivity" behavior="0" />
+      <RootComponent type="61" schemaName="gap_ScoringValidation" behavior="0" />
       <RootComponent type="61" schemaName="gap_setAwardTabVisibility" behavior="0" />
-      <RootComponent type="61" schemaName="gap_SetCustomView" behavior="0" />
-      <RootComponent type="61" schemaName="gap_SetDropdownVisibility" behavior="0" />
       <RootComponent type="61" schemaName="gap_SetGfaTab" behavior="0" />
       <RootComponent type="61" schemaName="gap_setIFrameSource" behavior="0" />
       <RootComponent type="61" schemaName="gap_setvisibilityofoutcometab" behavior="0" />
       <RootComponent type="61" schemaName="gap_ShowResponseMappingSubgrid" behavior="0" />
-      <RootComponent type="61" schemaName="gap_statusmessage" behavior="0" />
       <RootComponent type="61" schemaName="gap_timelogger" behavior="0" />
       <RootComponent type="61" schemaName="gap_toggleBPF" behavior="0" />
-      <RootComponent type="61" schemaName="gap_toggleMonitoringActivityBPF" behavior="0" />
-      <RootComponent type="61" schemaName="gap_togglesubgrid" behavior="0" />
-      <RootComponent type="61" schemaName="gap_Untitleddesign" behavior="0" />
-      <RootComponent type="61" schemaName="gap_usericon" behavior="0" />
-      <RootComponent type="61" schemaName="gap_usericonv2" behavior="0" />
       <RootComponent type="61" schemaName="gap_usericonv3" behavior="0" />
       <RootComponent type="62" schemaName="gap_DEMO" behavior="0" />
       <RootComponent type="66" schemaName="gap_GGMS.InlineFrame" behavior="0" />
@@ -445,6 +427,7 @@
       <RootComponent type="9" schemaName="gap_decisionoptions" behavior="0" />
       <RootComponent type="9" schemaName="gap_duediligencecategories" behavior="0" />
       <RootComponent type="9" schemaName="gap_duediligenceoutcome" behavior="0" />
+      <RootComponent type="9" schemaName="gap_fileuploadstatus" behavior="0" />
       <RootComponent type="9" schemaName="gap_ggmsmonitoringconfirmation" behavior="0" />
       <RootComponent type="9" schemaName="gap_inboundquerystages" behavior="0" />
       <RootComponent type="9" schemaName="gap_inboundquerytheme" behavior="0" />
@@ -486,6 +469,7 @@
       <RootComponent type="91" id="{c5f5a70c-e622-411b-9f58-3ab00ec3c154}" schemaName="ProcessGfaPdf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5d610c3e41c6fcc9" behavior="0" />
       <RootComponent type="91" id="{4194526e-c492-4890-bc9c-1a7355d2e476}" schemaName="ProcessGfaPdfMerged, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5d610c3e41c6fcc9" behavior="0" />
       <RootComponent type="91" id="{b7edb9ac-6bf4-4d1a-8de8-2979144c561d}" schemaName="updateSchemeBPFActiveStage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a5e31ed67497dffe" behavior="0" />
+      <RootComponent type="91" id="{96e19a7f-8fdc-448f-b764-266fe455da2f}" schemaName="UtilityProcessCSV, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b913a881b375f4a4" behavior="0" />
       <RootComponent type="92" id="{00d5d32e-d566-f011-b4cb-7ced8d3ad3ea}" behavior="0" />
       <RootComponent type="92" id="{03319600-d266-f011-bec2-0022483ff195}" behavior="0" />
       <RootComponent type="92" id="{0ce01219-d166-f011-bec2-0022483ff195}" behavior="0" />
@@ -537,7 +521,7 @@
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="systemuser" displayName="SystemUser" parentSchemaName="" solution="msdyn_PowerAdminSettingsEmail (1.1.1.2473)" />
+        <Required type="1" schemaName="systemuser" displayName="SystemUser" parentSchemaName="" solution="msdyn_UserShareSecuredFields (1.0.0.0)" />
         <Dependent type="1" schemaName="systemuser" displayName="SystemUser" />
       </MissingDependency>
       <MissingDependency>
@@ -617,31 +601,571 @@
         <Dependent type="2" schemaName="address1_utcoffset" displayName="address1_utcoffset" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="20" displayName="BusinessApplicationPlatformRole" solution="S2SApplicationRoles (1.0.0.115)" id="{02123b67-66ae-4a69-8cdc-6473b94ad1a9}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Help Page Author" solution="msdyn_ContextualHelp (1.0.0.0)" id="{0e72f536-3a3a-4e74-96e9-3cab5effe10c}">
+          <package appName="ContextualHelp" version="1.0.0.0">msdyn_ContextualHelpAnchor (1.0.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Knowledge Quality Service Role" solution="S2SApplicationRoles (1.0.0.115)" id="{13589093-0aa6-40c1-894d-4486d5dd479f}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flows Machine User" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{169ead94-a7e8-42c5-9ae8-d81205dfee77}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Sustainability BusinessUnit - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3.99)" id="{180b3494-0503-ed11-82e6-000d3a33db7e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3.99">InsightsAppPlatformApp_Anchor (1.0.3.99)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="App Deployment Orchestration Role" solution="S2SApplicationRoles (1.0.0.115)" id="{1bb44f6d-15a5-48aa-a2f2-8d2cb0095d2d}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Dataflow Maker" solution="msdyn_InsightsAppPlatform (1.0.3.99)" id="{1f6c957f-9851-4dbe-ab1c-508c06faa8be}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3.99">InsightsAppPlatformApp_Anchor (1.0.3.99)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Bot Transcript Viewer" solution="PowerVirtualAgentsPrivilegeOverrides (2025.9.5.18195533)" id="{20902168-ee38-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2025.9.5.18195533">msdynce_CustomerCareIntelligenceBots_Anchor (2025.9.5.18195533)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Project Background Services App Role" solution="S2SApplicationRoles (1.0.0.115)" id="{209a44f9-636e-40bb-8cb0-67a34459f39a}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="EAC App Access" solution="AdvancedAnalyticsInfra (1.0.10.0)" id="{2c321cf0-f096-ea11-a81a-000d3a6ecd99}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Tour Author" solution="msdyn_ContextualHelp (1.0.0.0)" id="{2d8b17d9-643c-40b1-9f7d-a6ba95063906}">
+          <package appName="ContextualHelp" version="1.0.0.0">msdyn_ContextualHelpAnchor (1.0.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Bot Contributor" solution="PowerVirtualAgentsPrivilegeOverrides (2025.9.5.18195533)" id="{2fe4d72e-e538-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2025.9.5.18195533">msdynce_CustomerCareIntelligenceBots_Anchor (2025.9.5.18195533)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Tour Consumer" solution="msdyn_ContextualHelp (1.0.0.0)" id="{30db5b2f-b1c6-4892-ba03-5e532ab8534e}">
+          <package appName="ContextualHelp" version="1.0.0.0">msdyn_ContextualHelpAnchor (1.0.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flows Machine Owner" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{313995f9-4a4a-4d4a-afd1-c892da78e13e}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Omnichannel CDS Flush Role" solution="S2SApplicationRoles (1.0.0.115)" id="{36491c22-df5c-4155-927c-b1d8d2848e3b}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Service Deleter" solution="AuthorizationCore (1.127.0.0)" id="{3b305bc7-5cf5-464b-985e-d6237f6496f1}">
+          <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Microsoft Copilot User" solution="msft_AIPlatformExtensionsCore (1.0.0.96)" id="{3d110294-4481-42bc-9882-ec2d526aa369}">
+          <package appName="AIPlatformExtensionss Package" version="1.0.0.8">msft_AIPlatformExtensionsCoreData (1.0.0.8)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="AIB SML Roles" solution="msdyn_AIPrivilegeOverridesSolution (202509.2.2.1)" id="{3f199ebd-977e-43e5-abe5-fe865a1f2904}">
+          <package appName="PowerAI" version="202509.2.2.1">msdyn_AISolutionAnchor (202509.2.2.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Process Mining User" solution="ProcessMining (1.14.8.0)" id="{474523e6-dff7-46f1-9072-ff30802d3eb3}">
+          <package appName="PowerPlatformProcessMining" version="1.14.8.0">ProcessMiningOOBTemplates (1.14.8.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Export Customizations (Solution Checker)" solution="PowerVirtualAgentsPrivilegeOverrides (2025.9.5.18195533)" id="{4931681d-8163-e811-a965-000d3a11fe32}">
+          <package appName="CCI Bots" version="2025.9.5.18195533">msdynce_CustomerCareIntelligenceBots_Anchor (2025.9.5.18195533)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Service Reader" solution="AuthorizationCore (1.127.0.0)" id="{494d392f-d3f4-42ba-af49-30c6f41e6093}">
+          <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="SupportUserCustomAPI Role" solution="S2SApplicationRoles (1.0.0.115)" id="{4a434894-a4a4-48bf-b939-7b6327529e2e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="ContextualAIS2SRole" solution="S2SApplicationRoles (1.0.0.115)" id="{4f9dbfce-f797-40d8-a8ac-902e441e371b}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Dataverse as a Cluster App Role" solution="msft_DaacMetadata (1.0.17.0)" id="{5225adeb-859b-42f3-8289-a399e47512d5}">
+          <package appName="Data Modeling Partner Extensions App Package" version="1.0.17.0">msft_DaacMetadata (1.0.17.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.0.322)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
+          <package appName="Source Control Integration Package" version="9.1.0.322">SourceControlIntegration_Anchor (9.1.0.322)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Power Automate Operator" solution="PowerPlatformConnectionReferences (1.3.11.0)" id="{5575634d-da16-4a50-90a8-cde589bccb32}">
+          <package appName="PowerPlatformConnectionReferences" version="1.12.17.0">PowerPlatformConnectionReferencesAnchor (1.12.17.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Power Platform Data Analytics Role" solution="msdyn_AnalyticsMDL (9.1.0.201)" id="{57e714ae-debb-4164-9380-58b8585358a8}">
+          <package appName="ManagedAnalyticsApp" version="9.1.0.201">msdyn_AnalyticsMDLTst (9.1.0.201)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Global Active Metrics Monitoring Alerting Custom Role" solution="S2SApplicationRoles (1.0.0.115)" id="{60b66ae1-fd75-44ca-b494-10169bb07998}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Non-Relational Data App Access" solution="S2SApplicationRoles (1.0.0.115)" id="{6543ef96-37ab-4add-8c31-6dcd7cfa12ab}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Service Writer" solution="AuthorizationCore (1.127.0.0)" id="{68f2d372-e1a5-4298-9a93-4b39757caf93}">
+          <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flow Machine Configuration Admin" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{6b860c71-0e4e-ec11-b1b5-000d3a6ed5b3}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="RPE Role" solution="S2SApplicationRoles (1.0.0.115)" id="{6e33f75d-802e-4d79-b9e7-1fcdd2b3122e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Sustainability all - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3.99)" id="{72322043-f211-ed11-b83e-00224832b6bb}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3.99">InsightsAppPlatformApp_Anchor (1.0.3.99)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flows AI Application User" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{726d11d6-d9cf-4503-ade9-d6a4be7fa095}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Process Mining Application" solution="ProcessMining (1.14.8.0)" id="{737c8c79-7411-4eef-8f7d-e2abe7e7faec}">
+          <package appName="PowerPlatformProcessMining" version="1.14.8.0">ProcessMiningOOBTemplates (1.14.8.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="EAC Reader App Access" solution="AdvancedAnalyticsInfra (1.0.10.0)" id="{7be5a395-6b58-4f8c-908f-97dc8810fc50}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Knowledge Quality Service" solution="msdyn_PowerAIExtensionsBase (1.0.1.1247)" id="{7ca59d1b-b547-f011-877a-6045bd0653f0}">
+          <package appName="PowerAIExtensions Package" version="1.0.1.1247">PowerAIExtensions_Anchor (1.0.1.1247)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Power BI Embedded App Access" solution="S2SApplicationRoles (1.0.0.115)" id="{8278be3d-dd12-4187-aac6-69a0543ebd85}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Power Automate AI Flows Application User" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{84012ef2-00bd-412e-8654-b1e3a90feafc}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Approvals Administrator" solution="msdyn_FlowApprovalsCore (2.2.8.0)" id="{854af338-f3c5-e711-8122-000d3aa01c52}">
+          <package appName="msdyn_FlowApprovals" version="2.2.8.0">msdyn_FlowApprovals (2.2.8.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="BizQAApp" solution="S2SApplicationRoles (1.0.0.115)" id="{88b87c37-1472-4798-ac48-d56509eb6e1d}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="DataProcessingConfigTableAppAccess" solution="datalakeworkspaces (1.0.77.0)" id="{896a28e5-678d-4fa8-ad59-c606d1aa98ce}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Bulk Archival Role" solution="S2SApplicationRoles (1.0.0.115)" id="{8a2f35d9-e447-4285-974c-81382317ca21}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Flow-CDS Native Connector Role" solution="S2SApplicationRoles (1.0.0.115)" id="{8be3e3ca-a304-451f-9dc1-2478d224ea0e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Microsoft Copilot Administrator" solution="msft_AIPlatformExtensionsCore (1.0.0.96)" id="{947229e9-e868-45cf-a361-5635eaf35ee2}">
+          <package appName="AIPlatformExtensionss Package" version="1.0.0.8">msft_AIPlatformExtensionsCoreData (1.0.0.8)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Sustainability all - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3.99)" id="{96aa4895-5ac2-ec11-a7b6-00224830446f}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3.99">InsightsAppPlatformApp_Anchor (1.0.3.99)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="App Opener" solution="AuthorizationCore (1.127.0.0)" id="{979144c2-989b-41a5-a146-6b3ea4130e8c}">
+          <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="ApolloServiceRole" solution="S2SApplicationRoles (1.0.0.115)" id="{99b7f9c4-5c1e-4b9a-b756-fdfa137b6f85}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flows Machine Application User" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{9f572d55-6090-493b-904a-3956bdc55343}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="DataLakeFolderEntityContributor" solution="msdyn_AnalyticsMDL (9.1.0.201)" id="{a0537877-879d-4b70-a391-bb07b94fbba2}">
+          <package appName="ManagedAnalyticsApp" version="9.1.0.201">msdyn_AnalyticsMDLTst (9.1.0.201)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Dataverse Search Role" solution="S2SApplicationRoles (1.0.0.115)" id="{a0a59a4a-b5a8-4e6f-a094-a866573c17d4}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="CCI admin" solution="msdynce_CustomerCareIntelligenceBots (2025.9.5.18195533)" id="{a1801436-efd6-e811-a96e-000d3a3ab886}">
+          <package appName="CCI Bots" version="2025.9.5.18195533">msdynce_CustomerCareIntelligenceBots_Anchor (2025.9.5.18195533)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="SuggestedActionS2SRole" solution="S2SApplicationRoles (1.0.0.115)" id="{a543aafd-bd67-463d-9ef6-721bb8e471b1}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Portal Application User" solution="S2SApplicationRoles (1.0.0.115)" id="{a75a6d67-1730-4298-8fc7-af7e93064fa1}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Global Discovery Service Role" solution="S2SApplicationRoles (1.0.0.115)" id="{a855e539-7253-43d3-9ee5-43ea042b7823}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Async ingestion" solution="msdyn_SmartDataImportProd (1.0.45.18)" id="{ab8b8c58-1f50-4037-8b26-7523d6145cc3}">
+          <package appName="SmartDataImportApp Package" version="1.0.45.18">SmartDataImportApp_Anchor (1.0.45.18)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Data Sync Framework Role" solution="S2SApplicationRoles (1.0.0.115)" id="{b21a7144-299d-4c21-a116-30f60e9c159a}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Insights Apps Platform Role" solution="S2SApplicationRoles (1.0.0.115)" id="{b8299fc3-f7a2-4655-a2d9-48ca2dec0346}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Approvals User" solution="msdyn_FlowApprovalsCore (2.2.8.0)" id="{b9b08637-acf6-e711-a95a-000d3a11f5ee}">
+          <package appName="msdyn_FlowApprovals" version="2.2.8.0">msdyn_FlowApprovals (2.2.8.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.25095.5007)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.25093.5003">msdynce_KnowledgeManagementAnchor (9.0.25093.5003)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Cards Basic Role" solution="msft_PowerAppsCards (1.0.0.14)" id="{bdf1780b-2867-4c3e-8957-dce785eac543}">
+          <package appName="PowerAppsCards" version="1.0.0.14">msft_PowerAppsCardsAnchor (1.0.0.14)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Report Service Role" solution="S2SApplicationRoles (1.0.0.115)" id="{c8f8c510-2421-4d63-965b-91a7e722d6a0}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Deflection Service Role" solution="S2SApplicationRoles (1.0.0.115)" id="{c95980b3-97dc-4762-a037-c15fe02dae8c}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Portal RP Service Role" solution="PowerPages_CoreBase (1.1.2508.1)" id="{cc181d27-3ce6-41e8-b0f4-d951496afcfd}">
+          <package appName="Power Pages Core Package" version="1.1.2508.192">PowerPages_Core (1.1.2508.192)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="FileStoreService App Access" solution="FileStoreServiceExtension (1.0.8.0)" id="{d110d819-9b72-430f-894a-94dc87e04519}">
+          <package appName="FileStoreExtensionApp Package" version="1.0.2.0">FileStoreServiceExtensionXrm (1.0.2.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Delegated Mailbox Approver" solution="msft_ServerSideSync_Extensions (1.0.0.40)" id="{d19d7df9-96e3-440a-ada1-7f469d2a00d1}">
+          <package appName="ServerSideSync Package" version="1.0.0.0">msft_ServerSideSync_Anchor (1.0.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="20" displayName="Environment Maker" solution="SolutionComponentConfiguration (9.1.1.1)" id="{d58407f2-48d5-e711-a82c-000d3a37c848}">
           <package appName="Solution History Package" version="9.1.0.10">SolutionHistoryAnchor (9.1.0.10)</package>
         </Required>
         <Dependent type="60" displayName="Overview v0.1" id="{9e18f10e-c9fc-ee11-a1fe-6045bdfc99dd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Power Pages Users" displayName="Power Pages Users" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.126.0.0)" id="{1fe05f14-0074-49e3-b55d-0af1fd0a2b85}">
+        <Required type="20" displayName="Environment Maker" solution="SolutionComponentConfiguration (9.1.1.1)" id="{d58407f2-48d5-e711-a82c-000d3a37c848}">
+          <package appName="Solution History Package" version="9.1.0.10">SolutionHistoryAnchor (9.1.0.10)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Power Apps Checker Service Role" solution="S2SApplicationRoles (1.0.0.115)" id="{d6b2bb0d-8b41-41ba-86ee-a0c6e5954b30}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Fabric AI Skill Role" solution="msdyn_InsightsAppPlatform (1.0.3.99)" id="{d6e926ad-4afc-42fb-97f1-6e50c2ef174e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3.99">InsightsAppPlatformApp_Anchor (1.0.3.99)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.25095.5007)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.25093.5003">msdynce_KnowledgeManagementAnchor (9.0.25093.5003)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Purview Label Role" solution="S2SApplicationRoles (1.0.0.115)" id="{df3185a3-3141-4361-fb29-6eaa33dd0169}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Solution Checker" solution="msdyn_PowerAppsChecker (2.0.0.11)" id="{e05075eb-9d74-e811-a95c-000d3a1c53e4}">
+          <package appName="PowerAppsChecker" version="2.0.0.11">msdyn_PowerAppsCheckerAnchor (2.0.0.11)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Bot Author" solution="msdynce_CustomerCareIntelligenceBots (2025.9.5.18195533)" id="{e0d2794e-82f3-e811-a951-000d3a1bcf17}">
+          <package appName="CCI Bots" version="2025.9.5.18195533">msdynce_CustomerCareIntelligenceBots_Anchor (2025.9.5.18195533)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="AIB Roles" solution="msdyn_AIPrivilegeOverridesSolution (202509.2.2.1)" id="{e57bff35-58b4-4725-aee2-40fb18f4c8bd}">
+          <package appName="PowerAI" version="202509.2.2.1">msdyn_AISolutionAnchor (202509.2.2.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Office Collaborator" solution="AccessTeam (1.5.18.0)" id="{e8fb3146-7717-ec11-b1b7-000d3af68e17}">
+          <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Power Policy App User Role" solution="msft_powerpolicy (1.0.0.219)" id="{e9a54b07-f763-45a1-88e7-0b67bbe18cf2}">
+          <package appName="PowerPolicyApp Package" version="1.0.0.219">msft_powerpolicyProd (1.0.0.219)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Synapse Link Service Access" solution="msdyn_SynapseLink (1.0.7.13)" id="{eaeff5e8-8e5b-ec11-b1b6-0022487b9f36}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="DataLakeWorkspaceAppAccess" solution="datalakeworkspaces (1.0.77.0)" id="{edfcbfd2-358f-ea11-a81f-000d3a6eafd3}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Sustainability BusinessUnit - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3.99)" id="{ee0bc8b2-4bfe-ec11-82e5-0022482d500e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3.99">InsightsAppPlatformApp_Anchor (1.0.3.99)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flows Machine User Can Share" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{ee18dcf2-6f83-4cd7-aa5c-1d8a88947d51}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flows Runtime Application User" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{ee2c8e11-6d57-4c5d-9f84-659c0db132bb}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Desktop Flows Module Developer" solution="MicrosoftFlowExtensionsCore (1.9.28.1)" id="{ee7bc749-3dd6-45ac-b95d-a3031463380b}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.9.28.1">MicrosoftFlowExtensionsAnchor (1.9.28.1)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Power Platform Dataflows Service Role" solution="S2SApplicationRoles (1.0.0.115)" id="{f2550a3a-f9c6-4409-bf77-8d4ceadb27ab}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="PowerPlatformInsightsRole" solution="S2SApplicationRoles (1.0.0.115)" id="{f2e9feb0-adc5-47e5-8dc1-d0e4529befe7}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Help Page Consumer" solution="msdyn_ContextualHelp (1.0.0.0)" id="{f3d2098f-9eb0-45b3-9c7d-96526af614c4}">
+          <package appName="ContextualHelp" version="1.0.0.0">msdyn_ContextualHelpAnchor (1.0.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Flow-RP Role" solution="msft_DelegatedAuthorization (1.0.6.0)" id="{f75f4034-068a-463c-ba85-0ae80ad5aecd}">
+          <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Cards Role" solution="msft_PowerAppsCards (1.0.0.14)" id="{f9e46d0f-d53e-4d5c-b06b-24948b4606ed}">
+          <package appName="PowerAppsCards" version="1.0.0.14">msft_PowerAppsCardsAnchor (1.0.0.14)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Data Sync Service Role" solution="S2SApplicationRoles (1.0.0.115)" id="{fc3e65d9-450a-4301-933b-f9bcaee20521}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Teams Chat Sync App Access" solution="S2SApplicationRoles (1.0.0.115)" id="{fe46802a-88ae-4c6d-b452-7a024d8c294e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="Federated Knowledge Role" solution="msdyn_PowerAIExtensionsBase (1.0.1.1247)" id="{ffadce64-3542-4bf1-a83a-ac9941104680}">
+          <package appName="PowerAIExtensions Package" version="1.0.1.1247">PowerAIExtensions_Anchor (1.0.1.1247)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Power Pages Users" displayName="Power Pages Users" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.127.0.0)" id="{1fe05f14-0074-49e3-b55d-0af1fd0a2b85}">
           <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Review" id="{68e77518-a7b4-43c3-aafc-9a899a8032b3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Soft deleted Users" displayName="Soft deleted Users" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.126.0.0)" id="{5fda842a-004b-42b4-a611-b93c2c69667e}">
+        <Required type="26" schemaName="Soft deleted Users" displayName="Soft deleted Users" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.127.0.0)" id="{5fda842a-004b-42b4-a611-b93c2c69667e}">
           <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Review" id="{68e77518-a7b4-43c3-aafc-9a899a8032b3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Stub Users" displayName="Stub Users" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.126.0.0)" id="{490b1410-d231-46b0-b5fa-60017b21ab14}">
+        <Required type="26" schemaName="Stub Users" displayName="Stub Users" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.127.0.0)" id="{490b1410-d231-46b0-b5fa-60017b21ab14}">
           <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Review" id="{68e77518-a7b4-43c3-aafc-9a899a8032b3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Users deleted in tenant but exist in the environment" displayName="Users deleted in tenant but exist in the environment" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.126.0.0)" id="{19487f2f-8405-4d59-8f8b-4eda98d4f302}">
+        <Required type="26" schemaName="Users deleted in tenant but exist in the environment" displayName="Users deleted in tenant but exist in the environment" parentSchemaName="systemuser" parentDisplayName="User" solution="AuthorizationCore (1.127.0.0)" id="{19487f2f-8405-4d59-8f8b-4eda98d4f302}">
           <package appName="Authorization Package" version="1.7.0.0">msft_PrivilegeChecker (1.7.0.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Review" id="{68e77518-a7b4-43c3-aafc-9a899a8032b3}" />
@@ -695,25 +1219,39 @@
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (1.1.1.2473)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="1.1.1.2473">PowerPlatformEnvironmentSettingsApp_Anchor (1.1.1.2473)</package>
+        </Required>
+        <Dependent type="62" schemaName="gap_DEMO" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="61" schemaName="cc_MscrmControls.AppCommon.AppManagement.ApplicationManagementControl/ApplicationManagementControl.js" displayName="cc_MscrmControls.AppCommon.AppManagement.ApplicationManagementControl/ApplicationManagementControl.js" solution="msdynce_AppCommon (9.0.4.0066)">
           <package appName="msdynce_AppCommon" version="9.0.25101.10001">msdynce_AppCommonAnchor (9.0.25101.10001)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_CopilotIcon.svg" displayName="msdyn_CopilotIcon.svg" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)">
+        <Required type="61" schemaName="msdyn_CopilotIcon.svg" displayName="msdyn_CopilotIcon.svg" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction" displayName="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_CopilotSummarizeLibrary.js" displayName="msdyn_CopilotSummarizeLibrary.js" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)">
+        <Required type="61" schemaName="msdyn_CopilotSummarizeLibrary.js" displayName="msdyn_CopilotSummarizeLibrary.js" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction" displayName="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="mspp_entity_forms.svg" displayName="mspp_entity_forms.svg" solution="PowerPages_AppResources (1.0.2505.0)">
+          <package appName="Power Pages Core Package" version="1.1.2508.192">PowerPages_Core (1.1.2508.192)</package>
+        </Required>
+        <Dependent type="62" schemaName="gap_DEMO" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="mspp_entity_permissions.svg" displayName="mspp_entity_permissions.svg" solution="PowerPages_AppResources (1.0.2505.0)">
           <package appName="Power Pages Core Package" version="1.1.2508.192">PowerPages_Core (1.1.2508.192)</package>
         </Required>
         <Dependent type="62" schemaName="gap_DEMO" />
@@ -725,20 +1263,28 @@
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2510.1012)">
-          <package appName="Base Custom Controls" version="9.0.2509.2012">BaseCustomControlsCore (9.0.2509.2012)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2511.3007)">
+          <package appName="Base Custom Controls" version="9.0.2511.3007">BaseCustomControlsCore (9.0.2511.3007)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2510.1012)">
-          <package appName="Base Custom Controls" version="9.0.2509.2012">BaseCustomControlsCore (9.0.2509.2012)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2511.3007)">
+          <package appName="Base Custom Controls" version="9.0.2511.3007">BaseCustomControlsCore (9.0.2511.3007)</package>
         </Required>
         <Dependent type="68" id="{0ccc4cd6-c969-4486-b426-bf8b19402e53}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="pmav_Maverick.Controls.CustomLabel" displayName="pmav_Maverick.Controls.CustomLabel" solution="Active" />
         <Dependent type="60" displayName="Information" parentDisplayName="Scoring Template Question" id="{05140fa2-a370-4dcd-912f-3e929f692d52}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="pmav_Maverick.Controls.CustomLabel" displayName="pmav_Maverick.Controls.CustomLabel" solution="Active" />
+        <Dependent type="60" displayName="Admin FAQ Form" parentDisplayName="FAQ Document" id="{08fc6eac-78c1-f011-bbd2-7c1e5209bbb7}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="pmav_Maverick.Controls.CustomLabel" displayName="pmav_Maverick.Controls.CustomLabel" solution="Active" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Query" id="{0e936def-04c6-4415-94ab-8d5527119fb3}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="pmav_Maverick.Controls.CustomLabel" displayName="pmav_Maverick.Controls.CustomLabel" solution="Active" />
@@ -762,6 +1308,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="pmav_Maverick.Controls.CustomLabel" displayName="pmav_Maverick.Controls.CustomLabel" solution="Active" />
+        <Dependent type="60" displayName="Information" parentDisplayName="Scoring Template Section" id="{b7150740-5c5c-4e88-8005-6708c056a4de}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="pmav_Maverick.Controls.CustomLabel" displayName="pmav_Maverick.Controls.CustomLabel" solution="Active" />
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
@@ -769,24 +1319,31 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Scheme" id="{e65dde12-7277-4f67-97f8-a1d137513ab2}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="66" schemaName="pmav_Maverick.Controls.CustomLabel" displayName="pmav_Maverick.Controls.CustomLabel" solution="Active" />
+        <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="66" schemaName="psg_psg369.ChoicePcf.MultiSelectOptionset" displayName="psg_psg369.ChoicePcf.MultiSelectOptionset" solution="FluentUIChoicePcf (1.0)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Scheme" id="{e65dde12-7277-4f67-97f8-a1d137513ab2}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.CopilotClientApi!1" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)" id.uniquename="msdyn_Mscrm.CopilotClientApi!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.CopilotClientApi!1" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)" id.uniquename="msdyn_Mscrm.CopilotClientApi!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.CopilotClientApi!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.CopilotClientApi!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" />
       </MissingDependency>
@@ -797,22 +1354,45 @@
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.FormStateNotNew!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.FormStateNotNew!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.HideOnMobile!0" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)" id.uniquename="msdyn_Mscrm.HideOnMobile!0">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.HideOnMobile!0" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)" id.uniquename="msdyn_Mscrm.HideOnMobile!0">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.HideOnMobile!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.HideOnMobile!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)" id.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)" id.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.IsAppCopilotEnabled!0" solution="msdyn_AppCopilotFeatures (9.2.2025062.250606027)" id.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.IsAppCopilotEnabled!0" solution="msdyn_AppCopilotFeatures (9.2.2025113.251106044)" id.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.0">msdyn_M365CopilotAppInfraSettings (9.2.0.0)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.IsAppCopilotEnabled!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="gap_DVLAEndpointURL" solution="Active" id.schemaname="gap_DVLAEndpointURL" />
+        <Dependent type="372" schemaName="gap_5Fdvla-20api" displayName="DVLA API" id="{685f5bf7-438f-4974-89aa-2d98d88b498c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="gap_MOTHistoryAPIKey" solution="Active" id.schemaname="gap_MOTHistoryAPIKey" />
+        <Dependent type="29" displayName="VRN | Electric Vehicle Schemes" id="{b7dfc947-45c9-f011-8543-0022483faf54}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="gap_MOTHistoryClientID" solution="Active" id.schemaname="gap_MOTHistoryClientID" />
+        <Dependent type="372" schemaName="gap_mot-20history-20api" displayName="MOT History API" id="{e015c558-ef73-4985-945f-4d030402250d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="gap_MOTHistoryClientSecret" solution="Active" id.schemaname="gap_MOTHistoryClientSecret" />
+        <Dependent type="372" schemaName="gap_mot-20history-20api" displayName="MOT History API" id="{e015c558-ef73-4985-945f-4d030402250d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="gap_MOTHistoryEndpointURL" solution="Active" id.schemaname="gap_MOTHistoryEndpointURL" />
+        <Dependent type="372" schemaName="gap_mot-20history-20api" displayName="MOT History API" id="{e015c558-ef73-4985-945f-4d030402250d}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.15)" id.uniquename="AppChannel">

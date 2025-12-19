@@ -28,7 +28,7 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{7f35b9e4-b531-4ccb-98fe-a02563e15e60}" locklevel="0" colspan="1" rowspan="1">
+                      <cell id="{d6f84c12-9e44-4272-84de-dd334bd61514}" locklevel="0" colspan="1" rowspan="1" visible="true">
                         <labels>
                           <label description="Template Type" languagecode="1033" />
                         </labels>

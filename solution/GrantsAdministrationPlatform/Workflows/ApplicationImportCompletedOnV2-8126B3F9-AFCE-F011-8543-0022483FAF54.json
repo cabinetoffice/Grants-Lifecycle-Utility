@@ -1,0 +1,841 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Application_Imported": {
+          "metadata": {
+            "operationMetadataId": "2a218320-da32-403a-94a7-7b2e171433b7"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_importcompletedon",
+              "subscriptionRequest/filterexpression": "gap_importcompletedon ne null and gap_currentstage eq null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Try": {
+          "actions": {
+            "Condition_|_Objective_Scoring": {
+              "actions": {
+                "Dataverse_|_Get_Scoring_Template_(Objective)": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "880e2ea6-0723-431f-9aaf-d05de7d9a2f7"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringtemplates",
+                      "recordId": "@outputs('Get_Scheme')?['body/_gap_objectivescoringtemplate_value']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Add_New_Checklist_(Objective)": {
+                  "runAfter": {
+                    "Dataverse_|_Get_Scoring_Template_(Objective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "af6b0e39-da91-4e78-943f-a40c3f36671e"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringchecklists",
+                      "item/gap_scoringchecklistname": "@{replace(replace(outputs('Dataverse_|_Get_Scoring_Template_(Objective)')?['body/gap_name'], 'Template', 'Checklist'), 'template', 'checklist')} - @{triggerOutputs()?['body/gap_id']} (@{formatDateTime(utcNow(), 'dd/MM/yyyy HH:mm:ss')})",
+                      "item/gap_checklisttype": "@outputs('Dataverse_|_Get_Scoring_Template_(Objective)')?['body/gap_templatetype']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Update_Application_Checklist_Column_(Objective)": {
+                  "runAfter": {
+                    "Add_New_Checklist_(Objective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "fb907e82-f452-450c-9bbc-1a5c8f7fe7a9"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_ObjectiveScoringChecklist@odata.bind": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Objective)')?['body/gap_scoringchecklistid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Dataverse_|_Get_Related_Sections_(Objective)": {
+                  "runAfter": {
+                    "Update_Application_Checklist_Column_(Objective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f6cbb289-ba3d-4056-8996-c330406e4bd2"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringtemplatesections",
+                      "$filter": "_gap_template_value eq @{outputs('Dataverse_|_Get_Scoring_Template_(Objective)')?['body/gap_scoringtemplateid']}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Add_Section_(Objective)": {
+                  "foreach": "@outputs('Dataverse_|_Get_Related_Sections_(Objective)')?['body/value']",
+                  "actions": {
+                    "Add_New_Section_(Objective)": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "2aea4f82-9857-448a-8f1f-0c3288fd502f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklistsections",
+                          "item/gap_order": "@items('Add_Section_(Objective)')?['gap_order']",
+                          "item/gap_scoringchecklistsectionname": "@items('Add_Section_(Objective)')?['gap_name']",
+                          "item/gap_Checklist@odata.bind": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Objective)')?['body/gap_scoringchecklistid']})",
+                          "item/gap_sectionchecklisttype": "@items('Add_Section_(Objective)')?['gap_sectiontemplatetype']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Add_Question_(Objective)": {
+                      "foreach": "@outputs('Dataverse_|_Get_Related_Questions_(Objective)')?['body/value']",
+                      "actions": {
+                        "Add_New_Question_(Objective)": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "a8a629d6-4bb2-4fe9-9bff-378470184725"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistquestions",
+                              "item/gap_Checklist@odata.bind": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Objective)')?['body/gap_scoringchecklistid']})",
+                              "item/gap_title": "@items('Add_Question_(Objective)')?['gap_title']",
+                              "item/gap_applicablequestion": "@items('Add_Question_(Objective)')?['cr705_applicablequestion']",
+                              "item/gap_automationenabled": "@items('Add_Question_(Objective)')?['cr705_automatedenabled']",
+                              "item/gap_aiprompt": "@items('Add_Question_(Objective)')?['cr705_aiprompt']",
+                              "item/gap_Application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})",
+                              "item/gap_automationtype": "@items('Add_Question_(Objective)')?['cr705_automationtype']",
+                              "item/gap_checklistquestiontype": "@items('Add_Question_(Objective)')?['gap_questiontemplatetype@OData.Community.Display.V1.FormattedValue']",
+                              "item/gap_choiceoptions": "@items('Add_Question_(Objective)')?['gap_choiceoptions']",
+                              "item/gap_conditionalapplicablequestion": "@items('Add_Question_(Objective)')?['gap_conditionalapplicablequestion']",
+                              "item/gap_conditionalautomationenabled": "@items('Add_Question_(Objective)')?['gap_conditionalautomationenabled']",
+                              "item/gap_datatype": "@items('Add_Question_(Objective)')?['gap_type']",
+                              "item/gap_description": "@items('Add_Question_(Objective)')?['gap_description']",
+                              "item/gap_maximumvalue": "@items('Add_Question_(Objective)')?['gap_maximumvalue']",
+                              "item/gap_minimumvalue": "@items('Add_Question_(Objective)')?['gap_minimumvalue']",
+                              "item/gap_order": "@items('Add_Question_(Objective)')?['gap_order']",
+                              "item/gap_responsemappingjson": "@items('Add_Question_(Objective)')?['gap_responsemappingjson']",
+                              "item/gap_reviewrequired": "@items('Add_Question_(Objective)')?['gap_reviewrequired']",
+                              "item/gap_Section@odata.bind": "gap_scoringchecklistsections(@{outputs('Add_New_Section_(Objective)')?['body/gap_scoringchecklistsectionid']})",
+                              "item/gap_weight": "@items('Add_Question_(Objective)')?['gap_weight']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Dataverse_|_Get_Related_Questions_(Objective)": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "0c94fe2f-5805-4547-b7f4-31b8e68192b4"
+                      },
+                      "type": "Foreach"
+                    },
+                    "Dataverse_|_Get_Related_Questions_(Objective)": {
+                      "runAfter": {
+                        "Add_New_Section_(Objective)": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "09b943aa-4c71-4d8f-8d8f-82e81753bfcc"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringtemplatequestions",
+                          "$filter": "_gap_section_value eq @{items('Add_Section_(Objective)')?['gap_scoringtemplatesectionid']}"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Dataverse_|_Get_Related_Sections_(Objective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a021937f-5290-4c54-b268-37836d0cf117"
+                  },
+                  "type": "Foreach"
+                },
+                "Grant_Access_to_Reviewers_(Objective)": {
+                  "runAfter": {
+                    "Grant_Access_to_Administrators_(Objective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "GrantAccess",
+                      "item/Target": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Objective)')?['body/gap_scoringchecklistid']})",
+                      "item/PrincipalAccess": {
+                        "Principal": {
+                          "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                          "teamid": "@{outputs('Get_Scheme')?['body/_gap_reviewers_value']}"
+                        },
+                        "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                      }
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Grant_Access_to_Quality_Controllers_(Objective)": {
+                  "runAfter": {
+                    "Grant_Access_to_Reviewers_(Objective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "GrantAccess",
+                      "item/Target": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Objective)')?['body/gap_scoringchecklistid']})",
+                      "item/PrincipalAccess": {
+                        "Principal": {
+                          "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                          "teamid": "@{outputs('Get_Scheme')?['body/_gap_qualitycontrollers_value']}"
+                        },
+                        "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                      }
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Grant_Access_to_Administrators_(Objective)": {
+                  "runAfter": {
+                    "Add_Section_(Objective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "GrantAccess",
+                      "item/Target": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Objective)')?['body/gap_scoringchecklistid']})",
+                      "item/PrincipalAccess": {
+                        "Principal": {
+                          "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                          "teamid": "@{outputs('Get_Scheme')?['body/_ownerid_value']}"
+                        },
+                        "AccessMask": "WriteAccess,ReadAccess,AppendAccess,AppendToAccess,AssignAccess"
+                      }
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Scheme": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@outputs('Get_Scheme')?['body/_gap_objectivescoringtemplate_value']",
+                        "@null"
+                      ]
+                    }
+                  },
+                  {
+                    "equals": [
+                      "@triggerOutputs()?['body/_gap_objectivescoringchecklist_value']",
+                      "@null"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ca48dea9-0f51-4650-8b6f-b02601d3c919"
+              },
+              "type": "If"
+            },
+            "Get_Scheme": {
+              "runAfter": {
+                "Condition_1": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "84d69fc9-1402-426e-abff-fa2470f74f44"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_schemes",
+                  "recordId": "@triggerOutputs()?['body/_gap_scheme_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Condition_|_Subjective_Scoring": {
+              "actions": {
+                "Dataverse_|_Get_Scoring_Template_(Subjective)": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "880e2ea6-0723-431f-9aaf-d05de7d9a2f7"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringtemplates",
+                      "recordId": "@outputs('Get_Scheme')?['body/_gap_subjectivescoringtemplate_value']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Add_New_Checklist_(Subjective)": {
+                  "runAfter": {
+                    "Dataverse_|_Get_Scoring_Template_(Subjective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "af6b0e39-da91-4e78-943f-a40c3f36671e"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringchecklists",
+                      "item/gap_scoringchecklistname": "@{replace(replace(outputs('Dataverse_|_Get_Scoring_Template_(Subjective)')?['body/gap_name'], 'Template', 'Checklist'), 'template', 'checklist')} - @{triggerOutputs()?['body/gap_id']} (@{formatDateTime(utcNow(), 'dd/MM/yyyy HH:mm:ss')})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Update_Application_Checklist_Column_(Subjective)": {
+                  "runAfter": {
+                    "Add_New_Checklist_(Subjective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "fb907e82-f452-450c-9bbc-1a5c8f7fe7a9"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_SubjectiveScoringChecklist@odata.bind": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Subjective)')?['body/gap_scoringchecklistid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Dataverse_|_Get_Related_Sections_(Subjective)": {
+                  "runAfter": {
+                    "Update_Application_Checklist_Column_(Subjective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f6cbb289-ba3d-4056-8996-c330406e4bd2"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_scoringtemplatesections",
+                      "$filter": "_gap_template_value eq @{outputs('Dataverse_|_Get_Scoring_Template_(Subjective)')?['body/gap_scoringtemplateid']}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Add_Section_(Subjective)": {
+                  "foreach": "@outputs('Dataverse_|_Get_Related_Sections_(Subjective)')?['body/value']",
+                  "actions": {
+                    "Add_Question_(Subjective)": {
+                      "foreach": "@outputs('Dataverse_|_Get_Related_Questions_(Subjective)')?['body/value']",
+                      "actions": {
+                        "Add_New_Question_(Subjective)": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "a8a629d6-4bb2-4fe9-9bff-378470184725"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistquestions",
+                              "item/gap_Checklist@odata.bind": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Subjective)')?['body/gap_scoringchecklistid']})",
+                              "item/gap_title": "@items('Add_Question_(Subjective)')?['gap_title']",
+                              "item/gap_applicablequestion": "@items('Add_Question_(Subjective)')?['cr705_applicablequestion']",
+                              "item/gap_automationenabled": "@items('Add_Question_(Subjective)')?['cr705_automatedenabled']",
+                              "item/gap_aiprompt": "@items('Add_Question_(Subjective)')?['cr705_aiprompt']",
+                              "item/gap_Application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})",
+                              "item/gap_automationtype": "@items('Add_Question_(Subjective)')?['cr705_automationtype']",
+                              "item/gap_checklistquestiontype": "@items('Add_Question_(Subjective)')?['gap_questiontemplatetype@OData.Community.Display.V1.FormattedValue']",
+                              "item/gap_choiceoptions": "@items('Add_Question_(Subjective)')?['gap_choiceoptions']",
+                              "item/gap_datatype": "@items('Add_Question_(Subjective)')?['gap_type']",
+                              "item/gap_description": "@items('Add_Question_(Subjective)')?['gap_description']",
+                              "item/gap_maximumvalue": "@items('Add_Question_(Subjective)')?['gap_maximumvalue']",
+                              "item/gap_minimumvalue": "@items('Add_Question_(Subjective)')?['gap_minimumvalue']",
+                              "item/gap_order": "@items('Add_Question_(Subjective)')?['gap_order']",
+                              "item/gap_responsemappingjson": "@items('Add_Question_(Subjective)')?['gap_responsemappingjson']",
+                              "item/gap_reviewrequired": "@items('Add_Question_(Subjective)')?['gap_reviewrequired']",
+                              "item/gap_Section@odata.bind": "gap_scoringchecklistsections(@{outputs('Add_New_Section_(Subjective)')?['body/gap_scoringchecklistsectionid']})",
+                              "item/gap_weight": "@items('Add_Question_(Subjective)')?['gap_weight']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Dataverse_|_Get_Related_Questions_(Subjective)": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "0c94fe2f-5805-4547-b7f4-31b8e68192b4"
+                      },
+                      "type": "Foreach"
+                    },
+                    "Dataverse_|_Get_Related_Questions_(Subjective)": {
+                      "runAfter": {
+                        "Add_New_Section_(Subjective)": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "09b943aa-4c71-4d8f-8d8f-82e81753bfcc"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringtemplatequestions",
+                          "$filter": "_gap_section_value eq @{items('Add_Section_(Subjective)')?['gap_scoringtemplatesectionid']}"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Add_New_Section_(Subjective)": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "2aea4f82-9857-448a-8f1f-0c3288fd502f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklistsections",
+                          "item/gap_order": "@item()?['gap_order']",
+                          "item/gap_scoringchecklistsectionname": "@item()?['gap_name']",
+                          "item/gap_Checklist@odata.bind": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Subjective)')?['body/gap_scoringchecklistid']})",
+                          "item/gap_sectionchecklisttype": "@items('Add_Section_(Subjective)')?['gap_sectiontemplatetype']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Dataverse_|_Get_Related_Sections_(Subjective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a021937f-5290-4c54-b268-37836d0cf117"
+                  },
+                  "type": "Foreach"
+                },
+                "Grant_Access_to_Administrators_(Subjective)": {
+                  "runAfter": {
+                    "Add_Section_(Subjective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "GrantAccess",
+                      "item/Target": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Subjective)')?['body/gap_scoringchecklistid']})",
+                      "item/PrincipalAccess": {
+                        "Principal": {
+                          "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                          "teamid": "@{outputs('Get_Scheme')?['body/_ownerid_value']}"
+                        },
+                        "AccessMask": "WriteAccess,ReadAccess,AppendAccess,AppendToAccess,AssignAccess"
+                      }
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Grant_Access_to_Reviewers_(Subjective)": {
+                  "runAfter": {
+                    "Grant_Access_to_Administrators_(Subjective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "GrantAccess",
+                      "item/Target": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Subjective)')?['body/gap_scoringchecklistid']})",
+                      "item/PrincipalAccess": {
+                        "Principal": {
+                          "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                          "teamid": "@{outputs('Get_Scheme')?['body/_gap_reviewers_value']}"
+                        },
+                        "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                      }
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Grant_Access_to_Quality_Controllers_(Subjective)": {
+                  "runAfter": {
+                    "Grant_Access_to_Reviewers_(Subjective)": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "252e523c-7d8a-4df9-8343-038ef59eb586"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "PerformUnboundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "actionName": "GrantAccess",
+                      "item/Target": "gap_scoringchecklists(@{outputs('Add_New_Checklist_(Subjective)')?['body/gap_scoringchecklistid']})",
+                      "item/PrincipalAccess": {
+                        "Principal": {
+                          "@@odata.type": "Microsoft.Dynamics.CRM.team",
+                          "teamid": "@{outputs('Get_Scheme')?['body/_gap_qualitycontrollers_value']}"
+                        },
+                        "AccessMask": "ReadAccess,AppendAccess,AppendToAccess"
+                      }
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Condition_|_Objective_Scoring": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@outputs('Get_Scheme')?['body/_gap_subjectivescoringtemplate_value']",
+                        "@null"
+                      ]
+                    }
+                  },
+                  {
+                    "equals": [
+                      "@triggerOutputs()?['body/_gap_subjectivescoringchecklist_value']",
+                      "@null"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "0661b3d4-c742-4f22-847d-753f03712057"
+              },
+              "type": "If"
+            },
+            "Condition": {
+              "actions": {
+                "Update_Application_Stage": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "e660304d-ba8e-4a10-8553-6be4e9dbd72f"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_currentstage": "Objective Scoring"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Condition_|_Subjective_Scoring": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@triggerOutputs()?['body/gap_currentstage']",
+                      "@null"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a83be133-c7e7-408c-91fb-f7808cfb9395"
+              },
+              "type": "If"
+            },
+            "Condition_1": {
+              "actions": {},
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Terminate": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "017e4d8f-74d6-4757-b22a-0004ea8f03b3"
+                    },
+                    "type": "Terminate",
+                    "inputs": {
+                      "runStatus": "Cancelled"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "and": [
+                  {
+                    "greaterOrEquals": [
+                      "@triggerOutputs()?['body/gap_importcompletedon']",
+                      "@subtractFromTime(utcNow(), 10, 'Minute')"
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "43b5cdd2-2f9c-4607-9ea9-85aa55bf19a1"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c08d91af-15a5-4c53-8b83-5592ec71f84a"
+          },
+          "type": "Scope"
+        },
+        "Catch": {
+          "actions": {
+            "Add_Note": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "2932c9bd-2e65-4662-9053-5438c7ba0fe4"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "annotations",
+                  "item/subject": "An error occurred.",
+                  "item/notetext": "Flow Name: @{workflow()['name']}\nRun ID: @{workflow()['run']['name']}\nDate & Time: @{utcNow()}\nLink: @{concat('https://make.powerautomate.com/environments/', workflow()['tags']['environmentName'], '/solutions/', split(workflow()['tags']['environmentWorkflowId'], '-')[1], '/flows/', workflow()['tags']['xrmWorkflowId'])\r\n}",
+                  "item/objectid_gap_application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Try": [
+              "Failed",
+              "TimedOut",
+              "Skipped"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8b2b4886-cc2b-4f76-967b-51c40291d221"
+          },
+          "type": "Scope"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

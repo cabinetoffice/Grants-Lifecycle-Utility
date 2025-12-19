@@ -1,10 +1,11 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_commondataserviceforapps": {
+      "shared_commondataserviceforapps-1": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_7d132"
+          "connectionReferenceLogicalName": "gap_Dataverse"
         },
         "api": {
           "name": "shared_commondataserviceforapps"
@@ -32,45 +33,189 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "SubscribeWebhookTrigger"
             },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "gap_application",
               "subscriptionRequest/scope": 4,
               "subscriptionRequest/filteringattributes": "gap_startbankdetailsextraction",
-              "subscriptionRequest/filterexpression": "gap_startbankdetailsextraction ne null"
+              "subscriptionRequest/filterexpression": "gap_startbankdetailsextraction ne null",
+              "subscriptionRequest/name": "b1dedeb0-a167-f011-bec2-0022483ff195:MTA"
             },
             "authentication": "@parameters('$authentication')"
           }
         }
       },
       "actions": {
-        "Perform_a_bound_action": {
+        "AI_Model_Extraction": {
+          "actions": {
+            "Download_PDF": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "023051aa-aff8-4f42-8989-3449f8db744f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps-1",
+                  "operationId": "GetEntityFileImageFieldContent"
+                },
+                "parameters": {
+                  "entityName": "gap_documents",
+                  "recordId": "@triggerOutputs()?['body/_gap_gfabankdetailsform_value']",
+                  "fileImageFieldName": "gap_documentupload"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Process_Banking_Form": {
+              "runAfter": {
+                "Download_PDF": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "43389431-5175-4064-a222-0b47f0246761",
+                "flowSystemMetadata": {
+                  "portalOperationId": "aibuilderpredict_formsprocessing",
+                  "portalOperationGroup": "aibuilder",
+                  "portalOperationApiDisplayNameOverride": "AI Builder",
+                  "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                  "portalOperationBrandColorOverride": "#0A76C4",
+                  "portalOperationApiTierOverride": "Standard"
+                }
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps-1",
+                  "operationId": "aibuilderpredict_formsprocessing"
+                },
+                "parameters": {
+                  "recordId": "191865a6-e948-453c-a66f-5cce61375bfe",
+                  "item/requestv2/mimeType": "application/pdf",
+                  "item/requestv2/base64Encoded": "@body('Download_PDF')"
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "runtimeConfiguration": {
+                "secureData": {
+                  "properties": [
+                    "inputs",
+                    "outputs"
+                  ]
+                }
+              }
+            },
+            "Create_Banking_Details_Record": {
+              "runAfter": {
+                "Process_Banking_Form": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "feda12a8-4168-45e3-837a-31c2c02b60e6"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps-1",
+                  "operationId": "CreateRecord"
+                },
+                "parameters": {
+                  "entityName": "gap_bankingdetailses",
+                  "item/gap_accountname": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Account_038440b0a1ea0043a7be90b5fe35a340/value']",
+                  "item/gap_accountnumber": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Account_a4783e73a66eeba767acfc16d93dd656/value']",
+                  "item/gap_accounttype": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Account_dce81c5bf1aafe275f2559ec37e6075d/value']",
+                  "item/gap_addressofgrantholder": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Address_db83ab028d1755aef5965671cd5d903b/value']",
+                  "item/gap_banksortcode": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Bank_002a5aed2718895b3825897427e52030ce0/value']",
+                  "item/gap_bankorbuildingsocietyname": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Bank_002e6d86ac29b74e80157618a2647984698/value']",
+                  "item/gap_branchaddress": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Branch_049a8bc7bbbb2d55f8ac1d81c188281fe/value']",
+                  "item/gap_branchname": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Branch_03c320a1d7d4ecc838d90384d90a2e770/value']",
+                  "item/gap_buildingsocietyrollnumber": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Building5feae2ac1c498241890bb66a784817fb/value']",
+                  "item/gap_contacttelephonenumber": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Contact_3af1aa0b54ab1d913a0a971eb85d71a6/value']",
+                  "item/gap_grantdeterminationnumber": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Grant_0029012fe6e3463f5a7cb985fab4913a18/value']",
+                  "item/gap_grantname": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Grant_00479c07bc26842c649ce4bd0fd54158ce/value']",
+                  "item/gap_nameofmaingrantholder": "@outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Name_0026190315138f23bed86d263e0f84bd298/value']",
+                  "item/gap_title": "Bank details for @{outputs('Process_Banking_Form')?['body/responsev2/predictionOutput/labels/Name_0026190315138f23bed86d263e0f84bd298/value']}"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Assign_Banking_Details": {
+              "runAfter": {
+                "Create_Banking_Details_Record": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "9d96d301-db95-4dc4-85ac-55e5a72e99d6"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps-1",
+                  "operationId": "UpdateOnlyRecord"
+                },
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                  "item/gap_BankingDetails@odata.bind": "gap_bankingdetailses(@{outputs('Create_Banking_Details_Record')?['body/gap_bankingdetailsid']})"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
           "runAfter": {},
           "metadata": {
-            "operationMetadataId": "6f85c04e-4ce3-4bf0-ad20-19217bbde2cb"
+            "operationMetadataId": "bdb69b94-9cb6-41fb-8230-3094c0f57c70"
           },
-          "type": "OpenApiConnection",
-          "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "PerformBoundAction",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
-            "parameters": {
-              "entityName": "gap_applications",
-              "actionName": "Microsoft.Dynamics.CRM.gap_ProcessGfaPdfV2",
-              "recordId": "@triggerOutputs()?['body/gap_applicationid']"
-            },
-            "authentication": "@parameters('$authentication')"
-          }
+          "type": "Scope"
+        },
+        "Scope": {
+          "actions": {
+            "Add_a_new_row": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "2cf28bc1-d96c-4943-b3da-ddf5f48c8ca1"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps-1",
+                  "operationId": "CreateRecord"
+                },
+                "parameters": {
+                  "entityName": "annotations",
+                  "item/subject": "Failed: Bank Details Extraction",
+                  "item/notetext": "Please check a Bank Details form has been assigned to the 'GFA Banking Details Form' field in the Award tab. Make sure the correct document has been uploaded as a PDF.",
+                  "item/objectid_gap_application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "AI_Model_Extraction": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "365859a9-b526-4026-82e7-64c6a59d7edd"
+          },
+          "type": "Scope"
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

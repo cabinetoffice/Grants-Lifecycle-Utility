@@ -75,11 +75,10 @@
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
                       </cell>
-                      <cell id="{c4502281-b304-408a-a9a5-ebea9537c522}" showlabel="true" locklevel="0">
+                      <cell id="{90b2c8a5-e4a8-4d9f-a0a5-eeaa4bf9ebfd}" showlabel="false" locklevel="0">
                         <labels>
-                          <label description="Created On" languagecode="1033" />
+                          <label description="" languagecode="1033" />
                         </labels>
-                        <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>
                       <cell id="{e15cceb8-d71f-410a-b3d0-29731e06412a}" showlabel="true" locklevel="0">
                         <labels>

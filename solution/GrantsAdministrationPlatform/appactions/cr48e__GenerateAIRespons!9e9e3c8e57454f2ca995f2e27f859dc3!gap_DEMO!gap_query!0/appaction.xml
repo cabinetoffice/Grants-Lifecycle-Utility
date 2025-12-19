@@ -1,0 +1,46 @@
+<appaction uniquename="cr48e__GenerateAIRespons!9e9e3c8e57454f2ca995f2e27f859dc3!gap_DEMO!gap_query!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Generate AI Response button">
+    <label description="Generate AI Response button" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Generate AI Response">
+    <label description="Generate AI Response" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="To generate an AI response to a query">
+    <label description="To generate an AI response to a query" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Generate AI Response button">
+    <label description="Generate AI Response button" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_query</logicalname>
+  </contextentity>
+  <contextvalue>gap_query</contextvalue>
+  <fonticon>Bot</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>GenerateAIRespons!9e9e3c8e57454f2ca995f2e27f859dc3</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>63ec305e4464423dbed673bee9fc8fa5</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100037.5000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>63ec305e4464423dbed673bee9fc8fa5</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

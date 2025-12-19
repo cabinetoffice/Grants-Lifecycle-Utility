@@ -1,0 +1,10 @@
+<environmentvariabledefinition schemaname="gap_GGISAwardEndpointURL">
+  <displayname default="GGIS Award Endpoint URL">
+    <label description="GGIS Award Endpoint URL" languagecode="1033" />
+  </displayname>
+  <introducedversion>5.0.0.6</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

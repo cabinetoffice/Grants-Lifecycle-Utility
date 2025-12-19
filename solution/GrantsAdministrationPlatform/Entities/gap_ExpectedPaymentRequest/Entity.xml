@@ -175,7 +175,7 @@
           <Type>money</Type>
           <Name>gap_amount</Name>
           <LogicalName>gap_amount</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>auto</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>

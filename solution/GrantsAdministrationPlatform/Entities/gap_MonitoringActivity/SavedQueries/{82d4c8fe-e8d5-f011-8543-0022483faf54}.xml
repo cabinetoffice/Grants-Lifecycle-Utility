@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{82d4c8fe-e8d5-f011-8543-0022483faf54}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="gap_name" select="1" icon="1" preview="1">
+        <row name="result" id="gap_monitoringactivityid">
+          <cell name="gap_name" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="gap_monitoringactivity">
+          <attribute name="gap_monitoringactivityid" />
+          <filter type="and">
+            <filter type="or">
+              <condition attribute="gap_currentstage" operator="eq" value="Initial Review" />
+              <condition attribute="gap_currentstage" operator="eq" value="Peer Review" />
+              <condition attribute="gap_currentstage" operator="eq" value="Quality Review" />
+              <condition attribute="gap_currentstage" operator="eq" value="Payment Confirmation" />
+              <condition attribute="gap_currentstage" operator="eq" value="Drafting" />
+              <condition attribute="gap_currentstage" operator="eq" value="Error (Drafting)" />
+            </filter>
+            <filter type="or">
+              <condition attribute="gap_initialreviewer" operator="eq-userid" />
+              <condition attribute="gap_finalreviewer" operator="eq-userid" />
+              <condition attribute="gap_peerreviewer" operator="eq-userid" />
+              <condition attribute="gap_decisionmaker" operator="eq-userid" />
+            </filter>
+          </filter>
+          <attribute name="gap_name" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>6.0.2.2</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="My Applications (Monitoring Activities)" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

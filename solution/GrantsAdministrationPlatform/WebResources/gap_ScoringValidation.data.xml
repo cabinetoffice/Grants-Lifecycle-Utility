@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{3807db97-9acb-f011-8543-7c1e5209bbb7}</WebResourceId>
+  <Name>gap_ScoringValidation</Name>
+  <DisplayName>Scoring Validation Message</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>5.0.1.18</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/gap_ScoringValidation3807DB97-9ACB-F011-8543-7C1E5209BBB7</FileName>
+</WebResource>

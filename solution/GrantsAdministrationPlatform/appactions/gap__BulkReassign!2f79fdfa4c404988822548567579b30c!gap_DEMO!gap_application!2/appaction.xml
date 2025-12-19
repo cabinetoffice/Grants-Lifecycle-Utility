@@ -1,0 +1,40 @@
+<appaction uniquename="gap__BulkReassign!2f79fdfa4c404988822548567579b30c!gap_DEMO!gap_application!2">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Bulk Reassign">
+    <label description="Bulk Reassign" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltiptitle default="Reassign Applications in Bulk">
+    <label description="Reassign Applications in Bulk" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>AddMembers</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>2</location>
+  <name>BulkReassign!2f79fdfa4c404988822548567579b30c</name>
+  <onclickeventjavascriptfunctionname>openCustomPageDialog</onclickeventjavascriptfunctionname>
+  <onclickeventjavascriptparameters>[{"type":5},{"type":10},{"type":8},{"type":23}]</onclickeventjavascriptparameters>
+  <onclickeventjavascriptwebresourceid>
+    <webresourceid>95eb1578-73cb-f011-8543-7c1e5209bbb7</webresourceid>
+  </onclickeventjavascriptwebresourceid>
+  <onclickeventtype>2</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100065.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>91b57d39909e4159b8f00c03bf29453a</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

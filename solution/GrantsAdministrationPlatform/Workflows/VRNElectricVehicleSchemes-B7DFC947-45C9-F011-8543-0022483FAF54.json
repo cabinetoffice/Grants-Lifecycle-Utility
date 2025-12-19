@@ -1,0 +1,488 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_gap-5fdvla-20api-5fd78db9986efe513d": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_sharedgap5fdvla20api5fd78db9986efe513d_0e4e8"
+        },
+        "api": {
+          "name": "shared_gap-5fdvla-20api-5fd78db9986efe513d",
+          "logicalName": "gap_5Fdvla-20api"
+        }
+      },
+      "shared_mot-20history-20api-5fd78db9986efe513d-5f414a657dd3328abf_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_sharedmot20history20api5fd78db9986efe513d5f414a657dd3328abf_43077"
+        },
+        "api": {
+          "name": "shared_mot-20history-20api-5fd78db9986efe513d-5f414a657dd3328abf",
+          "logicalName": "gap_mot-20history-20api"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "MOT History API Key (gap_MOTHistoryAPIKey)": {
+          "defaultValue": "IubYEbTwZw9OgWHNTPRkSaAK5nEiBcFf5O6pAIbr",
+          "type": "String",
+          "metadata": {
+            "schemaName": "gap_MOTHistoryAPIKey"
+          }
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "ef614a5e-0841-4760-816e-5599d7f98b65"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_importcompletedon",
+              "subscriptionRequest/filterexpression": "gap_importcompletedon ne null and _gap_organization_value eq null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Scope": {
+          "actions": {
+            "List_rows": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "3e9c422b-6d0d-4526-9a77-94c2f0d6123e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_responses",
+                  "$filter": "_gap_application_value eq '@{triggerOutputs()?['body/gap_applicationid']}' and gap_question eq '@{variables('Question Text')}'",
+                  "$top": 1
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Condition": {
+              "actions": {
+                "Compose_|_Trim_Value": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "b0e17c11-ea5d-44ad-b53e-27ada037d38d"
+                  },
+                  "type": "Compose",
+                  "inputs": "@replace(replace(trim(first(outputs('List_rows')?['body/value'])?['gap_answer']), '-', ''), ' ', '')"
+                },
+                "Update_VRN": {
+                  "runAfter": {
+                    "Compose_|_Trim_Value": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5e964da7-ddab-4777-aaab-33102abbcbd5"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_vrn": "@outputs('Compose_|_Trim_Value')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "DVLA_VehicleEnquiry": {
+                  "runAfter": {
+                    "Update_VRN": [
+                      "Succeeded"
+                    ]
+                  },
+                  "limit": {
+                    "timeout": "PT30M"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "78ba56b4-1c17-4caa-afc5-501bff19116c"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_gap-5fdvla-20api-5fd78db9986efe513d",
+                      "operationId": "VehicleEnquiry",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_gap-5fdvla-20api-5fd78db9986efe513d"
+                    },
+                    "parameters": {
+                      "Content-Type": "application/json",
+                      "body/registrationNumber": "@outputs('Compose_|_Trim_Value')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  },
+                  "description": "Test sample: AA19AAA"
+                },
+                "Condition_|_Vehicle_is_eligible": {
+                  "actions": {
+                    "Set_variable_|_Verification_Outcome_Eligible": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "38b33d87-570d-4810-828c-c965b95205d0"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "Verification Outcome",
+                        "value": "803260000"
+                      }
+                    },
+                    "Set_variable_|_Verification_Response_Success": {
+                      "runAfter": {
+                        "Set_variable_|_Verification_Outcome_Eligible": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "0af79944-e64c-40b1-986f-59e33deb9e67"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "Verification Response",
+                        "value": "Initial Check - Eligible"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_rows_|_Vehicles_Eligible_for_Grants": [
+                      "Succeeded"
+                    ]
+                  },
+                  "else": {
+                    "actions": {
+                      "Set_variable_|_Verification_Outcome_Not_Eligible": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "df48f1ba-1cfd-4059-bc30-de79e1ba733d"
+                        },
+                        "type": "SetVariable",
+                        "inputs": {
+                          "name": "Verification Outcome",
+                          "value": "803260001"
+                        }
+                      },
+                      "Set_variable_|_Verification_Response_Invalid": {
+                        "runAfter": {
+                          "Set_variable_|_Verification_Outcome_Not_Eligible": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "f34f388e-fad3-4f36-b8ed-75d37ff0f8af"
+                        },
+                        "type": "SetVariable",
+                        "inputs": {
+                          "name": "Verification Response",
+                          "value": "Initial Check - Not Eligible"
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "greaterOrEquals": [
+                      "@length(outputs('List_rows_|_Vehicles_Eligible_for_Grants')?['body/value'])",
+                      1
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "04ee110b-0d5f-4db3-8cf1-cc4c6eab1cb5"
+                  },
+                  "type": "If"
+                },
+                "Update_Application": {
+                  "runAfter": {
+                    "Condition_|_Vehicle_is_eligible": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f2e9ac33-6b52-40ea-9a12-5247d28d3ceb"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_fueltype": "@outputs('Get_MOT_Tests')?['body/fuelType']",
+                      "item/gap_make": "@outputs('Get_MOT_Tests')?['body/make']",
+                      "item/gap_model": "@outputs('Get_MOT_Tests')?['body/model']",
+                      "item/gap_typeapproval": "@outputs('DVLA_VehicleEnquiry')?['body/typeApproval']",
+                      "item/gap_verificationoutcome": "@variables('Verification Outcome')",
+                      "item/gap_verificationresponse": "@variables('Verification Response')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Get_MOT_Tests": {
+                  "runAfter": {
+                    "Update_VRN": [
+                      "Succeeded"
+                    ]
+                  },
+                  "limit": {
+                    "timeout": "PT30M"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a1a9fb84-6ba5-4497-9921-eb37d5e91922"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_mot-20history-20api-5fd78db9986efe513d-5f414a657dd3328abf_1",
+                      "operationId": "GetMOTTests",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_mot-20history-20api-5fd78db9986efe513d-5f414a657dd3328abf"
+                    },
+                    "parameters": {
+                      "registrationNumber": "@outputs('Compose_|_Trim_Value')",
+                      "accept": "application/json",
+                      "X-API-Key": "@parameters('MOT History API Key (gap_MOTHistoryAPIKey)')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  },
+                  "description": "Test sample: AA51AAA",
+                  "runtimeConfiguration": {
+                    "secureData": {
+                      "properties": [
+                        "inputs"
+                      ]
+                    }
+                  }
+                },
+                "List_rows_|_Vehicles_Eligible_for_Grants": {
+                  "runAfter": {
+                    "Get_MOT_Tests": [
+                      "Succeeded"
+                    ],
+                    "DVLA_VehicleEnquiry": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "64ec6705-bae5-4f8d-8afa-fdf3c8d92941"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_vehicleseligibleforgrants",
+                      "$filter": "gap_make eq '@{outputs('Get_MOT_Tests')?['body/make']}' and gap_model eq '@{outputs('Get_MOT_Tests')?['body/model']}'",
+                      "$top": 1
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "List_rows": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Terminate": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "333dbf99-412d-43f0-9cfc-41b65da41a5b"
+                    },
+                    "type": "Terminate",
+                    "inputs": {
+                      "runStatus": "Cancelled"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "and": [
+                  {
+                    "greaterOrEquals": [
+                      "@length(outputs('List_rows')?['body/value'])",
+                      1
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f106fd8e-d06d-4862-9171-284877926511"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_|_Verification_Response": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a891211e-6145-4ac2-9fc4-3dfd302f675c"
+          },
+          "type": "Scope"
+        },
+        "Initialize_variable_|_'Question_Plaintext'": {
+          "runAfter": {
+            "Initialize_variable_|_Verification_Outcome": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1bed694b-ecf9-449e-9882-03d4b5a88a50"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Question Plaintext",
+                "type": "string",
+                "value": "Enter the vehicle's registration number, if known."
+              }
+            ]
+          }
+        },
+        "Initialize_variable_|_Question_Text": {
+          "runAfter": {
+            "Initialize_variable_|_'Question_Plaintext'": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3230ea60-e2dc-4f2b-9920-ee89a0844465"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Question Text",
+                "type": "string",
+                "value": "@replace(variables('Question Plaintext'), '''', '''''')"
+              }
+            ]
+          },
+          "description": "Required to correctly include single quotes (') in question text"
+        },
+        "Error_Handling": {
+          "actions": {
+            "Update_error_status": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "b7cc6574-5416-40eb-8653-b5d4adfe5bed"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateOnlyRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                  "item/gap_verificationresponse": "@coalesce(body('Get_MOT_Tests')?['errorMessage'], first(body('DVLA_VehicleEnquiry')?['errors'])?['detail'], 'Could not retrieve verification outcome')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Scope": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1e1c214a-2e63-44a4-bab2-88a65d3f59de"
+          },
+          "type": "Scope"
+        },
+        "Initialize_variable_|_Verification_Response": {
+          "runAfter": {
+            "Initialize_variable_|_Question_Text": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "797e0b4b-8479-47b6-b595-bb70669ec7ae"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Verification Response",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_|_Verification_Outcome": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "0cdc44b4-250c-41ae-b279-b0a28279efb8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Verification Outcome",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

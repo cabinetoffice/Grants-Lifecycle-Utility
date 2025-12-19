@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{851baead-4dbf-f011-bbd3-6045bdd01421}" Name="Find &amp; Apply Error Messages" Description="Click to add description" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/FindApplyErrorMessages-851BAEAD-4DBF-F011-BBD3-6045BDD01421.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>5.0.0.23</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>2</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>gap_Scheme</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Find &amp; Apply Error Messages" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Click to add description" />
+  </Descriptions>
+  <labels>
+    <steplabels id="{92dc2393-0edc-477c-8bf9-dee797b36b9f}">
+      <label languagecode="1033" description="No applications found for the funding organisation with the GGIS reference provided." />
+    </steplabels>
+    <steplabels id="{5c8a8837-18b8-433c-afaf-e1e17e32552f}">
+      <label languagecode="1033" description="No applications found for the funding organisation with the GGIS reference provided." />
+    </steplabels>
+    <steplabels id="{e292541b-3adf-4aae-ad84-cc3a4a67de77}">
+      <label languagecode="1033" description="The API Key for the Find &amp; Apply API is invalid. Please contact the GLU Product Team." />
+    </steplabels>
+    <steplabels id="{6389487e-7322-4cca-8c32-bbe73f82bc53}">
+      <label languagecode="1033" description="There is an internal server error with the Find &amp; Apply API. Please contact the GLU Product Team." />
+    </steplabels>
+  </labels>
+</Workflow>

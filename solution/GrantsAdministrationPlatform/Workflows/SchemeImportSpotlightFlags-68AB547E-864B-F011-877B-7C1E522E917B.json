@@ -2,6 +2,7 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps_1": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "gap_Dataverse"
@@ -32,15 +33,16 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps_1",
-              "operationId": "SubscribeWebhookTrigger",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "SubscribeWebhookTrigger"
             },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "gap_integrationfile",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "gap_startimporton"
+              "subscriptionRequest/filteringattributes": "gap_startimporton",
+              "subscriptionRequest/name": "68ab547e-864b-f011-877b-7c1e522e917b:MTA"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -55,9 +57,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps_1",
-              "operationId": "PerformBoundAction",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "PerformBoundAction"
             },
             "parameters": {
               "entityName": "gap_integrationfiles",
@@ -69,7 +71,7 @@
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

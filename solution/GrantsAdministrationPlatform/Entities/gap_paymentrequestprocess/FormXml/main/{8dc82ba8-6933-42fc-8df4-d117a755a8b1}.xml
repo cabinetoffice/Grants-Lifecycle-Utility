@@ -5,7 +5,7 @@
     <IntroducedVersion>1.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form>
+    <form headerdensity="HighWithControls">
       <tabs>
         <tab verticallayout="true" id="{9c7ceb37-ff69-4911-b2b2-60136fcaa476}" name="StageStep3" locklevel="0" expanded="true" visible="false" labelid="{551b754c-4fa1-4ac8-82e8-1f3637572a3a}">
           <labels>
@@ -19,14 +19,7 @@
                     <label description="Process Payment Request" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{d3123f90-442c-4cb2-a51d-e3d3da992f12}" showlabel="true" visible="true" labelid="{994ccf94-824b-4822-bbf7-282c87160bf4}">
-                        <labels>
-                          <label description="Submission Review Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_submissionreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_submissionreviewcompletedon" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -45,14 +38,7 @@
                     <label description="Payment Request Due Diligence" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{8ddb28be-041d-472a-9f12-24cd6b2b2ccf}" showlabel="true" visible="true" labelid="{ae35a0c0-7bd9-4bca-975e-c2781a67a653}">
-                        <labels>
-                          <label description="Due Diligence Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_duediligencecompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_duediligencecompletedon" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -71,14 +57,7 @@
                     <label description="Payment Request Quality Review" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{0b511bf1-8bfb-4668-ac12-b1a31fc48c9a}" showlabel="true" visible="true" labelid="{b6958c3d-7c40-457b-abd8-238011406d9b}">
-                        <labels>
-                          <label description="Quality Review Completed On" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_qualityreviewcompletedon" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="gap_qualityreviewcompletedon" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -97,14 +76,7 @@
                     <label description="Outcome" languagecode="1033" />
                   </labels>
                   <rows>
-                    <row>
-                      <cell id="{21ff6dff-7d0c-4067-8090-42d1391b224f}" showlabel="true" visible="true" labelid="{74963f22-dced-4904-8d37-2c450c779df3}">
-                        <labels>
-                          <label description="Department Outcome" languagecode="1033" />
-                        </labels>
-                        <control id="bpf_gap_monitoringactivity_gap_paymentrequestprocess:gap_departmentoutcome" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="gap_departmentoutcome" disabled="false" relationship="bpf_gap_monitoringactivity_gap_paymentrequestprocess" isrequired="true" />
-                      </cell>
-                    </row>
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -112,6 +84,51 @@
           </columns>
         </tab>
       </tabs>
+      <header id="{309ef1e1-232d-4d7f-94a2-9e65f2dbec8c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{f444bb60-ef5b-43b8-8742-7ede7a36d443}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d70a1e0e-d34a-4b22-95fd-1dfbac0e0ec0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fa8333d9-1fc2-44a1-b067-7f6bce037060}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{70df8331-077e-4415-aff5-f0f23d707ee4}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{ca816acb-96d7-4bcc-b226-9cc5a244cd52}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5c99c6cc-064a-4b97-ac65-87901853c987}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e266a6f7-301e-4f53-b895-88179308b4bb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

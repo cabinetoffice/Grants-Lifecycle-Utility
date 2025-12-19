@@ -1,0 +1,49 @@
+<appaction uniquename="cr48e__MarkChecklistasCo!a9774bafb4b94056ae085535a6f13d65!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Verify Checklist Completion">
+    <label description="Verify Checklist Completion" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Verify Checklist Completion">
+    <label description="Verify Checklist Completion" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Button to validate checklist">
+    <label description="Button to validate checklist" languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Verify Checklist Completion button">
+    <label description="Verify Checklist Completion button" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Accept</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>MarkChecklistasCo!a9774bafb4b94056ae085535a6f13d65</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>8f480c45ccd44fd39b62cb51ae6864b0</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <parentappactionid>
+    <uniquename>gap__NewGroup!16007fcd8bc145dc8e65ef7e8b696df1!gap_DEMO!gap_application!0</uniquename>
+  </parentappactionid>
+  <sequence>115000.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>8f480c45ccd44fd39b62cb51ae6864b0</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

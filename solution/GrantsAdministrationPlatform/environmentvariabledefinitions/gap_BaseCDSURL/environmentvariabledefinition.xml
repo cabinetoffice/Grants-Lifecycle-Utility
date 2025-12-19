@@ -1,7 +1,4 @@
 <environmentvariabledefinition schemaname="gap_BaseCDSURL">
-  <description default="Environment variable for environment link">
-    <label description="Environment variable for environment link" languagecode="1033" />
-  </description>
   <displayname default="Base CDS URL">
     <label description="Base CDS URL" languagecode="1033" />
   </displayname>

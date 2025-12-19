@@ -14,17 +14,17 @@
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="true" showbar="false" IsUserDefined="0" id="{b9a950a6-ae0e-4639-bd6f-9a10a06e02f5}" name="Query Details">
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{b9a950a6-ae0e-4639-bd6f-9a10a06e02f5}" name="Query Details" locklevel="1">
                   <labels>
                     <label description="Query Details" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{63db6d77-6e26-4dcf-bf76-92ea73cb50fd}" locklevel="0" colspan="1" rowspan="1">
+                      <cell locklevel="0" id="{a7ad2f8b-eb9f-4928-a1ee-fc70d13fdf8d}" colspan="1" rowspan="1" visible="true" showlabel="false">
                         <labels>
-                          <label description="Applicant Name" languagecode="1033" />
+                          <label description="Predicted Tag" languagecode="1033" />
                         </labels>
-                        <control id="gap_applicant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_applicant" disabled="false" />
+                        <control id="gap_predictedtag" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_predictedtag" uniqueid="{a36b9084-eeff-4ef3-be8f-97b78c781ae6}" disabled="true" />
                       </cell>
                     </row>
                     <row>
@@ -36,11 +36,19 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{00b769ac-2ca7-4adb-9db3-abf2c524c67f}" locklevel="0" colspan="1" rowspan="1">
+                      <cell id="{00b769ac-2ca7-4adb-9db3-abf2c524c67f}" locklevel="0" colspan="1" rowspan="1" visible="true">
                         <labels>
-                          <label description="Related Scheme" languagecode="1033" />
+                          <label description="Scheme" languagecode="1033" />
                         </labels>
                         <control id="gap_scheme" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_scheme" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{63db6d77-6e26-4dcf-bf76-92ea73cb50fd}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Applicant Name" languagecode="1033" />
+                        </labels>
+                        <control id="gap_applicant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="gap_applicant" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -60,11 +68,53 @@
                   <rows>
                     <row />
                     <row>
-                      <cell id="{9dea6b57-f9a5-477e-ab97-efa1dfe981f0}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                      <cell locklevel="0" id="{d8642970-d060-4f92-9080-b3befb60cdd9}" colspan="1" rowspan="1" showlabel="false">
+                        <labels>
+                          <label description="Query" languagecode="1033" />
+                        </labels>
+                        <control id="gap_query" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_query" uniqueid="{868bc478-e509-4b29-9746-c349b3dd05b5}" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4f786ce9-20b2-44b5-b674-e849bc253ef4}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="AI Generation Started On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_responsesenton" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_responsesenton" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9dea6b57-f9a5-477e-ab97-efa1dfe981f0}" locklevel="0" colspan="1" rowspan="11" visible="false">
                         <labels>
                           <label description="AI Suggested Answer" languagecode="1033" />
                         </labels>
                         <control id="gap_answer" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_answer" disabled="true" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{32244a06-6994-4b81-b0f7-04bb0cd97df3}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="AI Predicted Tag" languagecode="1033" />
+                        </labels>
+                        <control id="gap_predictedtag" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_predictedtag" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0c3aedbe-a700-461c-a20b-9f5df02d859f}" locklevel="0" colspan="1" rowspan="1" visible="false">
+                        <labels>
+                          <label description="AI Response Confidence Level" languagecode="1033" />
+                        </labels>
+                        <control id="gap_confidence" classid="{0D2C745A-E5A8-4C8F-BA63-C6D3BB604660}" datafieldname="gap_confidence" disabled="true" />
                       </cell>
                     </row>
                   </rows>
@@ -76,19 +126,19 @@
                   <rows>
                     <row />
                     <row>
+                      <cell id="{c2da3d34-971b-45f4-b3ec-dc24c3dfe6f7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Response Sent On" languagecode="1033" />
+                        </labels>
+                        <control id="gap_responsesentondate" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_responsesentondate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{7e32a461-a289-46e3-8c8f-57c720b4c85a}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Response Sent" languagecode="1033" />
                         </labels>
                         <control id="gap_responsesent" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_responsesent" disabled="false" />
-                      </cell>
-                    </row>
-                    <row>
-                      <cell id="{9a1539c8-5b45-4076-bafc-ac8b01f0bc95}" locklevel="0" colspan="1" rowspan="1">
-                        <labels>
-                          <label description="Response Sent On" languagecode="1033" />
-                        </labels>
-                        <control id="gap_responsesenton" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="gap_responsesenton" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -143,6 +193,80 @@
       <DisplayConditions Order="0" FallbackForm="true">
         <Everyone />
       </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{868bc478-e509-4b29-9746-c349b3dd05b5}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_query</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_query</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_query</primary>
+              <labelText type="SingleLine.Text" static="true">Guidance: AI Suggested Responses should always be reviewed</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_query</primary>
+              <labelText type="SingleLine.Text" static="true">Guidance: AI Suggested Responses should always be reviewed</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_query</primary>
+              <labelText type="SingleLine.Text" static="true">Guidance: AI Suggested Responses should always be reviewed</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{a36b9084-eeff-4ef3-be8f-97b78c781ae6}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_predictedtag</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>gap_predictedtag</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_predictedtag</primary>
+              <labelText type="SingleLine.Text" static="true">Guidance: Enter one question per query record for best outcomes</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_predictedtag</primary>
+              <labelText type="SingleLine.Text" static="true">Guidance: Enter one question per query record for best outcomes</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="pmav_Maverick.Controls.CustomLabel">
+            <parameters>
+              <primary type="Currency">gap_predictedtag</primary>
+              <labelText type="SingleLine.Text" static="true">Guidance: Enter one question per query record for best outcomes</labelText>
+              <isBold type="TwoOptions" static="true">true</isBold>
+              <isItalic type="TwoOptions" static="true">false</isItalic>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>

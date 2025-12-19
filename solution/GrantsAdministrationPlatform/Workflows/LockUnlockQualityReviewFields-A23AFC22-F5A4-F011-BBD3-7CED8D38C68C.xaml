@@ -61,7 +61,7 @@
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
                     <Sequence DisplayName="SetDisplayModeStep1: New Action">
-                      <mcwc:SetDisplayMode ControlId="gap_qualityreview" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="False" />
+                      <mcwc:SetDisplayMode ControlId="gap_finalreviewoutcome" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="False" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
@@ -90,7 +90,7 @@
                   <sco:Collection x:TypeArguments="Variable" x:Key="Variables" />
                   <sco:Collection x:TypeArguments="Activity" x:Key="Activities">
                     <Sequence DisplayName="SetDisplayModeStep2: New Action">
-                      <mcwc:SetDisplayMode ControlId="gap_qualityreview" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="True" />
+                      <mcwc:SetDisplayMode ControlId="gap_finalreviewoutcome" ControlType="standard" Entity="[InputEntities(&quot;primaryEntity&quot;)]" EntityName="gap_monitoringactivity" IsReadOnly="True" />
                     </Sequence>
                   </sco:Collection>
                 </mxswa:ActivityReference.Properties>
