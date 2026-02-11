@@ -68,7 +68,7 @@
                                 <ShowAsTiles>false</ShowAsTiles>
                                 <StreamObject id="{510b39c1-458e-6a80-dd6a-c1b810abbb70}" type="1">
                                   <LogicalEntityName>gap_application</LogicalEntityName>
-                                  <EntityViewId>{45059E10-D2D5-F011-8543-7C1E5203CFD2}</EntityViewId>
+                                  <EntityViewId>{45059e10-d2d5-f011-8543-7c1e5203cfd2}</EntityViewId>
                                 </StreamObject>
                                 <StreamObject id="{03a8731e-b484-52de-386c-346ab15aaaa6}" type="1">
                                   <LogicalEntityName>gap_application</LogicalEntityName>

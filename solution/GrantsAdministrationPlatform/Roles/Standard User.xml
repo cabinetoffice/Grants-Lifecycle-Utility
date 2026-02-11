@@ -28,15 +28,15 @@
     <RolePrivilege name="prvAppendgap_IntegrationFile" level="Basic" />
     <RolePrivilege name="prvAppendgap_Log" level="Basic" />
     <RolePrivilege name="prvAppendgap_MonitoringActivity" level="Basic" />
-    <RolePrivilege name="prvAppendgap_MonitoringActivityTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendgap_MonitoringActivityTemplate" level="Global" />
     <RolePrivilege name="prvAppendgap_MonitoringChecklist" level="Basic" />
     <RolePrivilege name="prvAppendgap_MonitoringChecklistQuestion" level="Basic" />
-    <RolePrivilege name="prvAppendgap_MonitoringChecklistQuestionTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendgap_MonitoringChecklistQuestionTemplate" level="Global" />
     <RolePrivilege name="prvAppendgap_MonitoringChecklistSection" level="Basic" />
-    <RolePrivilege name="prvAppendgap_MonitoringChecklistSectionTemplate" level="Basic" />
-    <RolePrivilege name="prvAppendgap_MonitoringChecklistTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendgap_MonitoringChecklistSectionTemplate" level="Global" />
+    <RolePrivilege name="prvAppendgap_MonitoringChecklistTemplate" level="Global" />
     <RolePrivilege name="prvAppendgap_MonitoringStructure" level="Basic" />
-    <RolePrivilege name="prvAppendgap_MonitoringStructureTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendgap_MonitoringStructureTemplate" level="Global" />
     <RolePrivilege name="prvAppendgap_OutboundQuery" level="Basic" />
     <RolePrivilege name="prvAppendgap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvAppendgap_outcomeprocess" level="Global" />
@@ -48,19 +48,19 @@
     <RolePrivilege name="prvAppendgap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvAppendgap_Scheme" level="Basic" />
     <RolePrivilege name="prvAppendgap_schemeadministrationprocess" level="Global" />
-    <RolePrivilege name="prvAppendgap_SchemeTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendgap_SchemeTemplate" level="Global" />
     <RolePrivilege name="prvAppendgap_ScoringChecklist" level="Basic" />
     <RolePrivilege name="prvAppendgap_ScoringChecklistQuestion" level="Basic" />
     <RolePrivilege name="prvAppendgap_ScoringChecklistSection" level="Basic" />
-    <RolePrivilege name="prvAppendgap_ScoringTemplate" level="Basic" />
-    <RolePrivilege name="prvAppendgap_ScoringTemplateQuestion" level="Basic" />
-    <RolePrivilege name="prvAppendgap_ScoringTemplateSection" level="Basic" />
+    <RolePrivilege name="prvAppendgap_ScoringTemplate" level="Global" />
+    <RolePrivilege name="prvAppendgap_ScoringTemplateQuestion" level="Global" />
+    <RolePrivilege name="prvAppendgap_ScoringTemplateSection" level="Global" />
     <RolePrivilege name="prvAppendgap_Section" level="Basic" />
     <RolePrivilege name="prvAppendgap_TimeLogging" level="Basic" />
     <RolePrivilege name="prvAppendNewProcess" level="Global" />
     <RolePrivilege name="prvAppendNote" level="Basic" />
     <RolePrivilege name="prvAppendTeam" level="Global" />
-    <RolePrivilege name="prvAppendToAccount" level="Basic" />
+    <RolePrivilege name="prvAppendToAccount" level="Local" />
     <RolePrivilege name="prvAppendToActivity" level="Basic" />
     <RolePrivilege name="prvAppendToAsyncOperation" level="Basic" />
     <RolePrivilege name="prvAppendToContact" level="Basic" />
@@ -85,15 +85,15 @@
     <RolePrivilege name="prvAppendTogap_IntegrationFile" level="Basic" />
     <RolePrivilege name="prvAppendTogap_Log" level="Basic" />
     <RolePrivilege name="prvAppendTogap_MonitoringActivity" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_MonitoringActivityTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_MonitoringActivityTemplate" level="Global" />
     <RolePrivilege name="prvAppendTogap_MonitoringChecklist" level="Basic" />
     <RolePrivilege name="prvAppendTogap_MonitoringChecklistQuestion" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_MonitoringChecklistQuestionTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_MonitoringChecklistQuestionTemplate" level="Global" />
     <RolePrivilege name="prvAppendTogap_MonitoringChecklistSection" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_MonitoringChecklistSectionTemplate" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_MonitoringChecklistTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_MonitoringChecklistSectionTemplate" level="Global" />
+    <RolePrivilege name="prvAppendTogap_MonitoringChecklistTemplate" level="Global" />
     <RolePrivilege name="prvAppendTogap_MonitoringStructure" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_MonitoringStructureTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_MonitoringStructureTemplate" level="Global" />
     <RolePrivilege name="prvAppendTogap_OutboundQuery" level="Basic" />
     <RolePrivilege name="prvAppendTogap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvAppendTogap_outcomeprocess" level="Global" />
@@ -105,13 +105,13 @@
     <RolePrivilege name="prvAppendTogap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvAppendTogap_Scheme" level="Basic" />
     <RolePrivilege name="prvAppendTogap_schemeadministrationprocess" level="Global" />
-    <RolePrivilege name="prvAppendTogap_SchemeTemplate" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_SchemeTemplate" level="Global" />
     <RolePrivilege name="prvAppendTogap_ScoringChecklist" level="Basic" />
     <RolePrivilege name="prvAppendTogap_ScoringChecklistQuestion" level="Basic" />
     <RolePrivilege name="prvAppendTogap_ScoringChecklistSection" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_ScoringTemplate" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_ScoringTemplateQuestion" level="Basic" />
-    <RolePrivilege name="prvAppendTogap_ScoringTemplateSection" level="Basic" />
+    <RolePrivilege name="prvAppendTogap_ScoringTemplate" level="Global" />
+    <RolePrivilege name="prvAppendTogap_ScoringTemplateQuestion" level="Global" />
+    <RolePrivilege name="prvAppendTogap_ScoringTemplateSection" level="Global" />
     <RolePrivilege name="prvAppendTogap_Section" level="Basic" />
     <RolePrivilege name="prvAppendTogap_TimeLogging" level="Basic" />
     <RolePrivilege name="prvAppendToNewProcess" level="Global" />
@@ -275,15 +275,15 @@
     <RolePrivilege name="prvReadgap_IntegrationFile" level="Basic" />
     <RolePrivilege name="prvReadgap_Log" level="Basic" />
     <RolePrivilege name="prvReadgap_MonitoringActivity" level="Basic" />
-    <RolePrivilege name="prvReadgap_MonitoringActivityTemplate" level="Basic" />
+    <RolePrivilege name="prvReadgap_MonitoringActivityTemplate" level="Global" />
     <RolePrivilege name="prvReadgap_MonitoringChecklist" level="Basic" />
     <RolePrivilege name="prvReadgap_MonitoringChecklistQuestion" level="Basic" />
-    <RolePrivilege name="prvReadgap_MonitoringChecklistQuestionTemplate" level="Basic" />
+    <RolePrivilege name="prvReadgap_MonitoringChecklistQuestionTemplate" level="Global" />
     <RolePrivilege name="prvReadgap_MonitoringChecklistSection" level="Basic" />
-    <RolePrivilege name="prvReadgap_MonitoringChecklistSectionTemplate" level="Basic" />
-    <RolePrivilege name="prvReadgap_MonitoringChecklistTemplate" level="Basic" />
+    <RolePrivilege name="prvReadgap_MonitoringChecklistSectionTemplate" level="Global" />
+    <RolePrivilege name="prvReadgap_MonitoringChecklistTemplate" level="Global" />
     <RolePrivilege name="prvReadgap_MonitoringStructure" level="Basic" />
-    <RolePrivilege name="prvReadgap_MonitoringStructureTemplate" level="Basic" />
+    <RolePrivilege name="prvReadgap_MonitoringStructureTemplate" level="Global" />
     <RolePrivilege name="prvReadgap_OutboundQuery" level="Basic" />
     <RolePrivilege name="prvReadgap_outboundqueryprocess" level="Global" />
     <RolePrivilege name="prvReadgap_outcomeprocess" level="Global" />
@@ -295,13 +295,13 @@
     <RolePrivilege name="prvReadgap_ResponseMapping" level="Basic" />
     <RolePrivilege name="prvReadgap_Scheme" level="Basic" />
     <RolePrivilege name="prvReadgap_schemeadministrationprocess" level="Global" />
-    <RolePrivilege name="prvReadgap_SchemeTemplate" level="Basic" />
+    <RolePrivilege name="prvReadgap_SchemeTemplate" level="Global" />
     <RolePrivilege name="prvReadgap_ScoringChecklist" level="Basic" />
-    <RolePrivilege name="prvReadgap_ScoringChecklistQuestion" level="Basic" />
+    <RolePrivilege name="prvReadgap_ScoringChecklistQuestion" level="Local" />
     <RolePrivilege name="prvReadgap_ScoringChecklistSection" level="Basic" />
-    <RolePrivilege name="prvReadgap_ScoringTemplate" level="Basic" />
-    <RolePrivilege name="prvReadgap_ScoringTemplateQuestion" level="Basic" />
-    <RolePrivilege name="prvReadgap_ScoringTemplateSection" level="Basic" />
+    <RolePrivilege name="prvReadgap_ScoringTemplate" level="Global" />
+    <RolePrivilege name="prvReadgap_ScoringTemplateQuestion" level="Global" />
+    <RolePrivilege name="prvReadgap_ScoringTemplateSection" level="Global" />
     <RolePrivilege name="prvReadgap_Section" level="Basic" />
     <RolePrivilege name="prvReadgap_TimeLogging" level="Basic" />
     <RolePrivilege name="prvReadgap_VehiclesEligibleforGrant" level="Global" />
@@ -431,7 +431,7 @@
     <RolePrivilege name="prvWritegap_schemeadministrationprocess" level="Global" />
     <RolePrivilege name="prvWritegap_SchemeTemplate" level="Basic" />
     <RolePrivilege name="prvWritegap_ScoringChecklist" level="Basic" />
-    <RolePrivilege name="prvWritegap_ScoringChecklistQuestion" level="Basic" />
+    <RolePrivilege name="prvWritegap_ScoringChecklistQuestion" level="Local" />
     <RolePrivilege name="prvWritegap_ScoringChecklistSection" level="Basic" />
     <RolePrivilege name="prvWritegap_ScoringTemplate" level="Basic" />
     <RolePrivilege name="prvWritegap_ScoringTemplateQuestion" level="Basic" />

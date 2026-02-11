@@ -29,6 +29,11 @@
           "recurrence": {
             "frequency": "Day",
             "interval": 1,
+            "startTime": "2024-03-25T01:15:00Z"
+          },
+          "evaluatedRecurrence": {
+            "frequency": "Day",
+            "interval": 1,
             "startTime": "2024-03-25T00:15:00Z"
           },
           "metadata": {
@@ -71,7 +76,7 @@
             },
             "parameters": {
               "entityName": "gap_schemes",
-              "$filter": "gap_stage eq 803260008 and gap_applicationclosingdate lt @{utcNow()}"
+              "$filter": "gap_stage eq 803260008 and gap_applicationclosingdate lt @{startOfDay(utcNow())}"
             },
             "authentication": "@parameters('$authentication')"
           }
