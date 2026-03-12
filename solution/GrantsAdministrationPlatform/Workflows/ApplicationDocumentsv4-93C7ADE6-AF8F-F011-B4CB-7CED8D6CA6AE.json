@@ -2,7 +2,6 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps_1": {
-        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "gap_Dataverse"
@@ -53,17 +52,16 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps_1",
-              "operationId": "SubscribeWebhookTrigger"
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "gap_application",
               "subscriptionRequest/scope": 4,
               "subscriptionRequest/filteringattributes": "gap_importcompletedon",
-              "subscriptionRequest/filterexpression": "gap_importcompletedon ne null and (gap_googledrivefolderpath eq null or gap_googledrivefolderid eq null)\n",
-              "subscriptionRequest/name": "93c7ade6-af8f-f011-b4cb-7ced8d6ca6ae:MTA"
+              "subscriptionRequest/filterexpression": "gap_importcompletedon ne null and (gap_googledrivefolderpath eq null or gap_googledrivefolderid eq null)\n"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -84,9 +82,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps_1",
-                  "operationId": "UpdateOnlyRecord"
+                  "operationId": "UpdateOnlyRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "gap_applications",
@@ -134,9 +132,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
                       "connectionName": "shared_googledrive-1",
-                      "operationId": "CreateFile"
+                      "operationId": "CreateFile",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
                     },
                     "parameters": {
                       "folderPath": "@{body('Google_Drive_Root_Configuration')?['path']}@{outputs('Get_Scheme')?['body/gap_googledrivefolderpath']}@{outputs('Get_Latest_Application')?['body/gap_googledrivefolderpath']}",
@@ -158,9 +156,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "CreateRecord"
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "gap_documents",
@@ -185,9 +183,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "UpdateOnlyRecord"
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "gap_responses",
@@ -220,9 +218,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps_1",
-                  "operationId": "ListRecords"
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "gap_responses",
@@ -295,9 +293,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps_1",
-                  "operationId": "GetItem"
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "gap_applications",
@@ -318,9 +316,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps_1",
-                  "operationId": "UpdateOnlyRecord"
+                  "operationId": "UpdateOnlyRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "gap_applications",
@@ -343,9 +341,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps_1",
-                  "operationId": "CreateRecord"
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "gap_documents",
@@ -387,9 +385,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
                   "connectionName": "shared_googledrive-1",
-                  "operationId": "ListFolder"
+                  "operationId": "ListFolder",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
                 },
                 "parameters": {
                   "id": "@outputs('Get_Scheme')?['body/gap_googledrivefolderid']"
@@ -399,7 +397,7 @@
             },
             "Create_Dummy_File": {
               "runAfter": {
-                "Get_Dummy_File": [
+                "Condition_3": [
                   "Succeeded"
                 ]
               },
@@ -409,9 +407,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
                   "connectionName": "shared_googledrive-1",
-                  "operationId": "CreateFile"
+                  "operationId": "CreateFile",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
                 },
                 "parameters": {
                   "folderPath": "@{body('Google_Drive_Root_Configuration')?['path']}@{outputs('Get_Scheme')?['body/gap_googledrivefolderpath']}/@{outputs('Name')}",
@@ -433,9 +431,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive",
                   "connectionName": "shared_googledrive-1",
-                  "operationId": "GetFileContentByPath"
+                  "operationId": "GetFileContentByPath",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
                 },
                 "parameters": {
                   "path": "@body('Google_Drive_Root_Configuration')?['dummy']",
@@ -456,9 +454,9 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                   "connectionName": "shared_commondataserviceforapps_1",
-                  "operationId": "GetItem"
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                 },
                 "parameters": {
                   "entityName": "gap_schemes",
@@ -562,6 +560,49 @@
               },
               "type": "Compose",
               "inputs": "@triggerOutputs()?['body/gap_importcompletedon']"
+            },
+            "Condition_3": {
+              "actions": {
+                "Terminate_2": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "6c18d9e4-3c4e-454e-b1f9-13da3c87bc2c"
+                  },
+                  "type": "Terminate",
+                  "inputs": {
+                    "runStatus": "Failed",
+                    "runError": {
+                      "code": "500",
+                      "message": "Scheme @{outputs('Get_Scheme')?['body/gap_title']} has no Google Drive folder available"
+                    }
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Dummy_File": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "or": [
+                  {
+                    "equals": [
+                      "@outputs('Get_Scheme')?['body/gap_googledrivefolderpath']",
+                      "@null"
+                    ]
+                  },
+                  {
+                    "equals": [
+                      "@outputs('Get_Scheme')?['body/gap_googledrivefolderpath']",
+                      ""
+                    ]
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "69288d7b-241b-44e0-860c-4d09c608208c"
+              },
+              "type": "If"
             }
           },
           "runAfter": {
@@ -601,9 +642,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                       "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "CreateRecord"
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                     },
                     "parameters": {
                       "entityName": "annotations",
@@ -626,9 +667,9 @@
                     "type": "OpenApiConnection",
                     "inputs": {
                       "host": {
-                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                         "connectionName": "shared_commondataserviceforapps_1",
-                        "operationId": "CreateRecord"
+                        "operationId": "CreateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
                       },
                       "parameters": {
                         "entityName": "annotations",
@@ -674,7 +715,7 @@
       },
       "outputs": {}
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

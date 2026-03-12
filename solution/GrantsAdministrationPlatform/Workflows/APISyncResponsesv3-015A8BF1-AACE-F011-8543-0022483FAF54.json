@@ -278,68 +278,101 @@
                       "actions": {
                         "New_Application": {
                           "actions": {
-                            "Compose": {
+                            "Try_2": {
+                              "actions": {
+                                "Compose": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "ac859ba8-5056-4e29-951d-1fd8e582bd81"
+                                  },
+                                  "type": "Compose",
+                                  "inputs": "@items('Per_Application')"
+                                },
+                                "Perform_a_bound_action": {
+                                  "runAfter": {
+                                    "Compose": [
+                                      "Succeeded"
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "7c62f6c2-13d5-4a00-b28c-8339c3f457fe"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps_2",
+                                      "operationId": "PerformBoundAction",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_schemes",
+                                      "actionName": "Microsoft.Dynamics.CRM.gap_CreateApplicationAndRelatedRecords",
+                                      "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+                                      "item/Body": "@items('Per_Application')"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                },
+                                "Append_to_array_variable": {
+                                  "runAfter": {
+                                    "Perform_a_bound_action": [
+                                      "Succeeded"
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "0b9865b9-f7b9-4b62-9607-b15e77cbf76c"
+                                  },
+                                  "type": "AppendToArrayVariable",
+                                  "inputs": {
+                                    "name": "Outputs",
+                                    "value": "@outputs('Perform_a_bound_action')?['body/Output']"
+                                  }
+                                },
+                                "Increment_Application_Counter": {
+                                  "runAfter": {
+                                    "Append_to_array_variable": [
+                                      "Succeeded"
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "dc511440-5641-4519-9725-909f8e4ba663"
+                                  },
+                                  "type": "IncrementVariable",
+                                  "inputs": {
+                                    "name": "Application Counter",
+                                    "value": 1
+                                  }
+                                }
+                              },
                               "runAfter": {},
                               "metadata": {
-                                "operationMetadataId": "ac859ba8-5056-4e29-951d-1fd8e582bd81"
+                                "operationMetadataId": "127d90fe-ee50-43b8-9100-a27e8a5dc453"
                               },
-                              "type": "Compose",
-                              "inputs": "@items('Per_Application')"
+                              "type": "Scope"
                             },
-                            "Perform_a_bound_action": {
+                            "Catch_2": {
+                              "actions": {
+                                "Append_to_array_variable_2": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "b75b248d-0841-48e4-849b-333076a49879"
+                                  },
+                                  "type": "AppendToArrayVariable",
+                                  "inputs": {
+                                    "name": "Outputs",
+                                    "value": "Failed @{items('Per_Application')?['SubmissionId']}"
+                                  }
+                                }
+                              },
                               "runAfter": {
-                                "Compose": [
-                                  "Succeeded"
+                                "Try_2": [
+                                  "Failed"
                                 ]
                               },
                               "metadata": {
-                                "operationMetadataId": "7c62f6c2-13d5-4a00-b28c-8339c3f457fe"
+                                "operationMetadataId": "3d61fc94-268b-44d9-8840-223167092ab0"
                               },
-                              "type": "OpenApiConnection",
-                              "inputs": {
-                                "host": {
-                                  "connectionName": "shared_commondataserviceforapps_2",
-                                  "operationId": "PerformBoundAction",
-                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                                },
-                                "parameters": {
-                                  "entityName": "gap_schemes",
-                                  "actionName": "Microsoft.Dynamics.CRM.gap_CreateApplicationAndRelatedRecords",
-                                  "recordId": "@triggerOutputs()?['body/gap_schemeid']",
-                                  "item/Body": "@items('Per_Application')"
-                                },
-                                "authentication": "@parameters('$authentication')"
-                              }
-                            },
-                            "Append_to_array_variable": {
-                              "runAfter": {
-                                "Perform_a_bound_action": [
-                                  "Succeeded"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "0b9865b9-f7b9-4b62-9607-b15e77cbf76c"
-                              },
-                              "type": "AppendToArrayVariable",
-                              "inputs": {
-                                "name": "Outputs",
-                                "value": "@outputs('Perform_a_bound_action')?['body/Output']"
-                              }
-                            },
-                            "Increment_Application_Counter": {
-                              "runAfter": {
-                                "Append_to_array_variable": [
-                                  "Succeeded"
-                                ]
-                              },
-                              "metadata": {
-                                "operationMetadataId": "dc511440-5641-4519-9725-909f8e4ba663"
-                              },
-                              "type": "IncrementVariable",
-                              "inputs": {
-                                "name": "Application Counter",
-                                "value": 1
-                              }
+                              "type": "Scope"
                             }
                           },
                           "runAfter": {},

@@ -1,0 +1,390 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "e0a0e51c-90dd-4c6f-a179-b51f1fad3154"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_refreshedteamcounts, gap_stage",
+              "subscriptionRequest/runas": 3
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "If_Admin_Team_Exists": {
+          "actions": {
+            "List_Admin_Users": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "036f5de8-5223-4dbd-8963-948541436312"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "fetchXml": "<fetch distinct=\"true\" mapping=\"logical\">\n  <entity name=\"systemuser\">\n    <attribute name=\"systemuserid\" />\n    <link-entity name=\"teammembership\" from=\"systemuserid\" to=\"systemuserid\" intersect=\"true\">\n      <link-entity name=\"team\" from=\"teamid\" to=\"teamid\">\n        <filter>\n          <condition attribute=\"teamid\" operator=\"eq\" value=\"@{outputs('Get_Admin_Team')?['body/teamid']}\" />\n        </filter>\n      </link-entity>\n    </link-entity>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Set_Admin_Count": {
+              "runAfter": {
+                "List_Admin_Users": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a5133781-c4e3-426e-8b97-8bdf6fce6172"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "AdminCount",
+                "value": "@length(outputs('List_Admin_Users')?['body/value'])"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Admin_Team": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@outputs('Get_Admin_Team')?['body/teamid']",
+                "@null"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "9f7e48d1-c069-47e8-9026-2042732ec241"
+          },
+          "type": "If"
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "Initialize_QualityControllerCount": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2336e6a0-9b6a-474d-b26a-be9a6c8ec8e2"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "reviewTeam",
+                "type": "string",
+                "value": "@triggerOutputs()?['body/_gap_reviewers_value']"
+              }
+            ]
+          }
+        },
+        "Initialize_ReviewerCount": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "38dee304-6018-4638-b52f-9ba196dde8fe"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ReviewerCount",
+                "type": "integer"
+              }
+            ]
+          }
+        },
+        "Initialize_AdminCount": {
+          "runAfter": {
+            "Initialize_ReviewerCount": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2048949e-4386-4718-85ea-e6fce521ef75"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "AdminCount",
+                "type": "integer"
+              }
+            ]
+          }
+        },
+        "Initialize_QualityControllerCount": {
+          "runAfter": {
+            "Initialize_AdminCount": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2b4e7331-fe37-405a-9c1e-74ed2196e963"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "QualityControllerCount",
+                "type": "integer"
+              }
+            ]
+          }
+        },
+        "Get_Reviewer_Team": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ac7606f2-9b3d-4375-991a-6366ee11b9ce"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "recordId": "@triggerOutputs()?['body/_gap_reviewers_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Quality_Controller_Team": {
+          "runAfter": {
+            "Get_Reviewer_Team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5f8bb254-ce4b-4e64-90ca-e0969f01c849"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "recordId": "@triggerOutputs()?['body/_gap_qualitycontrollers_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Update_a_row": {
+          "runAfter": {
+            "If_Quality_Team_Exists": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b22e9fd8-b87e-484d-bb99-357e59cf2d93"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateOnlyRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_schemes",
+              "recordId": "@triggerOutputs()?['body/gap_schemeid']",
+              "item/gap_admincount": "@variables('AdminCount')",
+              "item/gap_qualitycontrollercount": "@variables('QualityControllerCount')",
+              "item/gap_reviewercount": "@variables('ReviewerCount')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "If_Reviewer_Team_Exists": {
+          "actions": {
+            "List_Reviewer_Users": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "43f1ac09-d953-4058-9246-eb8dc25f8fa9"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "fetchXml": "<fetch distinct=\"true\" mapping=\"logical\">\n  <entity name=\"systemuser\">\n    <attribute name=\"systemuserid\" />\n    <link-entity name=\"teammembership\" from=\"systemuserid\" to=\"systemuserid\" intersect=\"true\">\n      <link-entity name=\"team\" from=\"teamid\" to=\"teamid\">\n        <filter>\n          <condition attribute=\"teamid\" operator=\"eq\" value=\"{@{outputs('Get_Reviewer_Team')?['body/teamid']}}\" />\n        </filter>\n      </link-entity>\n    </link-entity>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Set_Reviewer_Count": {
+              "runAfter": {
+                "List_Reviewer_Users": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "94708761-7efa-43bf-bb42-ec3a70dcd023"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "ReviewerCount",
+                "value": "@length(outputs('List_Reviewer_Users')?['body/value'])"
+              }
+            }
+          },
+          "runAfter": {
+            "If_Admin_Team_Exists": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@outputs('Get_Reviewer_Team')?['body/teamid']",
+                "@null"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "7cfb985e-e387-4977-9820-a3c8223a1a67"
+          },
+          "type": "If"
+        },
+        "If_Quality_Team_Exists": {
+          "actions": {
+            "List_Quality_Controller_Users": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "f3418646-1f59-4d19-9571-2df68dcfbd47"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "systemusers",
+                  "fetchXml": "<fetch distinct=\"true\" mapping=\"logical\">\n  <entity name=\"systemuser\">\n    <attribute name=\"systemuserid\" />\n    <link-entity name=\"teammembership\" from=\"systemuserid\" to=\"systemuserid\" intersect=\"true\">\n      <link-entity name=\"team\" from=\"teamid\" to=\"teamid\">\n        <filter>\n          <condition attribute=\"teamid\" operator=\"eq\" value=\"{@{outputs('Get_Quality_Controller_Team')?['body/teamid']}}\" />\n        </filter>\n      </link-entity>\n    </link-entity>\n  </entity>\n</fetch>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Set_Quality_Controller_Count": {
+              "runAfter": {
+                "List_Quality_Controller_Users": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "534ee511-f672-4f90-b593-d9dd0fc32478"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "QualityControllerCount",
+                "value": "@length(outputs('List_Quality_Controller_Users')?['body/value'])"
+              }
+            }
+          },
+          "runAfter": {
+            "If_Reviewer_Team_Exists": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@outputs('Get_Quality_Controller_Team')?['body/teamid']",
+                "@null"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "ba1fab05-4630-4f53-9985-f8b5b8c09946"
+          },
+          "type": "If"
+        },
+        "Get_Admin_Team": {
+          "runAfter": {
+            "Get_Quality_Controller_Team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7fb3606f-c917-49de-ae16-a0c88d71283d"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "teams",
+              "recordId": "@triggerOutputs()?['body/_ownerid_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

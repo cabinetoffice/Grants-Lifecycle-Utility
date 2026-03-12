@@ -1,0 +1,15 @@
+<aiskillconfig uniquename="ais_FormFillFieldOptOut_gap_scheme_gap_qualitycontrollercount">
+  <aiskill>FormFillFieldOptOut</aiskill>
+  <attribute>
+    <entityid.logicalname>gap_scheme</entityid.logicalname>
+    <logicalname>gap_qualitycontrollercount</logicalname>
+  </attribute>
+  <description>gap_scheme - Quality Controller Count Form fill opt out</description>
+  <entity>
+    <logicalname>gap_scheme</logicalname>
+  </entity>
+  <iscustomizable>1</iscustomizable>
+  <scope>1</scope>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</aiskillconfig>
