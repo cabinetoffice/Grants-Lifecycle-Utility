@@ -17,6 +17,7 @@
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>6.0.1.2</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
+  <RendererObjectTypeCode>0</RendererObjectTypeCode>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
   <ModernFlowType>0</ModernFlowType>

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>gap_monitoringv1_a3e3e</Name>
-  <AppVersion>2025-12-10T16:12:48Z</AppVersion>
+  <AppVersion>2026-04-13T14:57:39Z</AppVersion>
   <Status>Ready</Status>
-  <CreatedByClientVersion>3.25121.7.0</CreatedByClientVersion>
-  <MinClientVersion>3.25121.7.0</MinClientVersion>
-  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25121.7","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251027T141123Z-3.25102.17.0"}</Tags>
+  <CreatedByClientVersion>3.26035.11.0</CreatedByClientVersion>
+  <MinClientVersion>3.26035.11.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1985","primaryDeviceHeight":"1318","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"true","publisherVersion":"3.26035.11","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20251210T161248Z-3.25121.7.0","m365CopilotSettingValue":"0"}</Tags>
   <IsCdsUpgraded>0</IsCdsUpgraded>
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>

@@ -475,7 +475,7 @@
                 "operationMetadataId": "456adc5b-254b-4a42-ad89-29b544ec9fb6"
               },
               "type": "Compose",
-              "inputs": "@{formatNumber(rand(0,99999),'00000')}-Application: @{triggerOutputs()?['body/gap_id']}"
+              "inputs": "@{formatNumber(rand(0,99999),'00000')}-Application: @{replace(\r\n  replace(\r\n    replace(\r\n      replace(\r\n        replace(\r\n          replace(\r\n            replace(\r\n              replace(\r\n                replace(\r\n                  replace(\r\n                    triggerOutputs()?['body/gap_id'],\r\n                    '/', '|'\r\n                  ),\r\n                  '\\', '|'\r\n                ),\r\n                ':', '-'\r\n              ),\r\n              '*', ' '\r\n            ),\r\n            '?', ' '\r\n          ),\r\n          '\"', ' '\r\n        ),\r\n        '<', '-'\r\n      ),\r\n      '>', '-'\r\n    ),\r\n    '#', ''\r\n  ),\r\n  '%', '_'\r\n)}"
             },
             "Google_Drive_Root_Configuration": {
               "runAfter": {

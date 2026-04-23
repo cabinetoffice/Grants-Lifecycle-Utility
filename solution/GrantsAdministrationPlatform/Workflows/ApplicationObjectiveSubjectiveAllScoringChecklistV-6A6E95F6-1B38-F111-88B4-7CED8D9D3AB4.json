@@ -1,0 +1,348 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Trigger_|_When_a_row_is_added,_modified_or_deleted": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "gap_scoringchecklistquestion",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_finalanswer,gap_peeranswer,gap_initialanswer",
+              "subscriptionRequest/name": "b4abe01d-0d38-f111-88b4-7ced8d9d38d0:MTA"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "a12d588b-98c5-437c-9ba4-556876c27740"
+          }
+        }
+      },
+      "actions": {
+        "Scope": {
+          "type": "Scope",
+          "actions": {
+            "List_rows_from_Scoring_Checklist_Questions_Table": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_scoringchecklistquestions",
+                  "$select": "gap_finalanswer,gap_peeranswer,gap_initialanswer,_gap_application_value,gap_checklistquestiontype  ",
+                  "$filter": "_gap_application_value eq @{triggerOutputs()?['body/_gap_application_value']} and gap_checklistquestiontype eq '@{triggerOutputs()?['body/gap_checklistquestiontype']}'"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "aa817a83-af73-4347-af46-80d60eab6803"
+              }
+            },
+            "Get_Application": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@triggerOutputs()?['body/_gap_application_value']"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps-1"
+                }
+              },
+              "runAfter": {
+                "List_rows_from_Scoring_Checklist_Questions_Table": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ceb62c87-b618-4b8e-b39b-8feb36c97060"
+              }
+            },
+            "Is_Valid_Objective_or_Subjective_Scoring_stage": {
+              "type": "If",
+              "expression": {
+                "or": [
+                  {
+                    "equals": [
+                      "@outputs('Get_Application')?['body/gap_currentstage']",
+                      "@variables('ValidStage')"
+                    ]
+                  },
+                  {
+                    "equals": [
+                      "@outputs('Get_Application')?['body/gap_currentstage']",
+                      "@variables('ValidFinalStage')"
+                    ]
+                  },
+                  {
+                    "equals": [
+                      "@outputs('Get_Application')?['body/gap_currentstage']",
+                      "@variables('ValidSubjectivePeerReviewStage')"
+                    ]
+                  }
+                ]
+              },
+              "actions": {
+                "Filter_array_|_Blank_Initial_Answer": {
+                  "type": "Query",
+                  "inputs": {
+                    "from": "@outputs('List_rows_from_Scoring_Checklist_Questions_Table')?['body/value']",
+                    "where": "@empty(\n  coalesce(\n    if(\n      equals(outputs('Get_Application')?['body/gap_currentstage'], variables('ValidFinalStage')),\n      item()?['gap_finalanswer'],\n      if(\n        equals(outputs('Get_Application')?['body/gap_currentstage'], variables('ValidSubjectivePeerReviewStage')),\n        item()?['gap_peeranswer'],\n        item()?['gap_initialanswer']\n      )\n    ),\n    ''\n  )\n)"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "da0c8378-24f9-4570-9703-236a73220c11"
+                  }
+                },
+                "Count_Blank_Answers": {
+                  "type": "Compose",
+                  "inputs": "@length(body('Filter_array_|_Blank_Initial_Answer'))",
+                  "runAfter": {
+                    "Filter_array_|_Blank_Initial_Answer": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "693be1fd-2b02-4b56-aa12-0fd9f39f09f5"
+                  }
+                },
+                "Update_application_table_with_count": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/_gap_application_value']",
+                      "item/gap_blankchecklistcount": "@outputs('Count_Blank_Answers')"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "connectionName": "shared_commondataserviceforapps-1"
+                    }
+                  },
+                  "runAfter": {
+                    "Count_Blank_Answers": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "0fa5a18a-f185-489e-9312-b137aa32e1b9"
+                  }
+                }
+              },
+              "else": {
+                "actions": {}
+              },
+              "runAfter": {
+                "Get_Application": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2bcd3c2b-8d17-47bd-b7cf-961555fc2a11"
+              }
+            }
+          },
+          "runAfter": {
+            "Question_Type_is_Subjective_or_Objective": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cb92e3fb-a7a4-4350-bbb1-40c3a98acb66"
+          }
+        },
+        "Terminate_if_no_Application_Attached_to_Question": {
+          "type": "If",
+          "expression": {
+            "or": [
+              {
+                "equals": [
+                  "@triggerOutputs()?['body/_gap_application_value']",
+                  ""
+                ]
+              },
+              {
+                "equals": [
+                  "@triggerOutputs()?['body/_gap_application_value']",
+                  "@null"
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "Terminate": {
+              "type": "Terminate",
+              "inputs": {
+                "runStatus": "Failed",
+                "runError": {
+                  "message": " Checklist Question @{triggerOutputs()?['body/gap_scoringchecklistquestionid']}, has no Application Attached"
+                }
+              }
+            }
+          },
+          "else": {
+            "actions": {}
+          },
+          "runAfter": {
+            "Initialize_ValidSubjectivePeerReviewStage": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Question_Type_is_Subjective_or_Objective": {
+          "type": "Switch",
+          "expression": "@triggerOutputs()?['body/gap_checklistquestiontype']",
+          "default": {
+            "actions": {
+              "Terminate_1": {
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed",
+                  "runError": {
+                    "message": " Checklist Question @{triggerOutputs()?['body/gap_scoringchecklistquestionid']} has an invalid Question Type"
+                  }
+                }
+              }
+            }
+          },
+          "cases": {
+            "Question_is_Objective_Scoring": {
+              "actions": {
+                "Set_Valid_Stage_to_Objective_Scoring": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "ValidStage",
+                    "value": "Objective Scoring"
+                  }
+                },
+                "Set_ValidFinalStage_to_Objective_Scoring_QR": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "ValidFinalStage",
+                    "value": "Objective Scoring Quality Review"
+                  },
+                  "runAfter": {
+                    "Set_Valid_Stage_to_Objective_Scoring": [
+                      "Succeeded"
+                    ]
+                  }
+                }
+              },
+              "case": "Objective Scoring"
+            },
+            "Question_is_Subjective_Scoring": {
+              "actions": {
+                "Set_ValidFinalStage_to_Subjective_Scoring_QR": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "ValidFinalStage",
+                    "value": "Subjective Scoring Quality Review"
+                  },
+                  "runAfter": {
+                    "Set_ValidStage_to_Subjective_Scoring": [
+                      "Succeeded"
+                    ]
+                  }
+                },
+                "Set_ValidStage_to_Subjective_Scoring": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "ValidStage",
+                    "value": "Subjective Scoring"
+                  }
+                }
+              },
+              "case": "Subjective Scoring"
+            }
+          },
+          "runAfter": {
+            "Terminate_if_no_Application_Attached_to_Question": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Initialize_ValidStage": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ValidStage",
+                "type": "string",
+                "value": "Objective Scoring"
+              }
+            ]
+          },
+          "runAfter": {}
+        },
+        "Initialize_ValidFinalStage": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ValidFinalStage",
+                "type": "string",
+                "value": "Objective Scoring Quality Review"
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_ValidStage": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Initialize_ValidSubjectivePeerReviewStage": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ValidSubjectivePeerReviewStage",
+                "type": "string",
+                "value": "Subjective Scoring Peer Review"
+              }
+            ]
+          },
+          "runAfter": {
+            "Initialize_ValidFinalStage": [
+              "Succeeded"
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
