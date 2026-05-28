@@ -272,7 +272,7 @@
                   }
                 },
                 "Per_Application": {
-                  "foreach": "@outputs('Get_Applications')?['body/Applications']",
+                  "foreach": "@body('Filtered_List_of_Imported_Apps')",
                   "actions": {
                     "Below_Limit": {
                       "actions": {
@@ -442,7 +442,7 @@
                     }
                   },
                   "runAfter": {
-                    "Select_Submission_IDs": [
+                    "Filtered_List_of_Imported_Apps": [
                       "Succeeded"
                     ]
                   },
@@ -454,44 +454,6 @@
                     "concurrency": {
                       "repetitions": 1
                     }
-                  }
-                },
-                "List_Existing_Applications": {
-                  "runAfter": {
-                    "Reset_Application_Page_Counter": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "627c35d2-d75a-4a87-a4fd-c5613b19b2b6"
-                  },
-                  "type": "OpenApiConnection",
-                  "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps_2",
-                      "operationId": "ListRecords",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
-                    "parameters": {
-                      "entityName": "gap_applications",
-                      "$filter": "_gap_scheme_value eq @{triggerOutputs()?['body/gap_schemeid']}"
-                    },
-                    "authentication": "@parameters('$authentication')"
-                  }
-                },
-                "Select_Submission_IDs": {
-                  "runAfter": {
-                    "List_Existing_Applications": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "faeca579-4260-4aaa-90a8-69880c2ed61f"
-                  },
-                  "type": "Select",
-                  "inputs": {
-                    "from": "@outputs('List_Existing_Applications')?['body/value']",
-                    "select": "@item()?['gap_submissionid']"
                   }
                 },
                 "Update_Find_and_Apply_API_Status_|_200": {
@@ -516,6 +478,21 @@
                       "item/gap_findapplyapistatus": "200"
                     },
                     "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Filtered_List_of_Imported_Apps": {
+                  "runAfter": {
+                    "Reset_Application_Page_Counter": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d0bf3f9a-256b-44ef-9740-bd95cfc0ec74"
+                  },
+                  "type": "Query",
+                  "inputs": {
+                    "from": "@outputs('Get_Applications')?['body/Applications']",
+                    "where": "@not(\n  contains(\n    outputs('Existing_Submission_IDs_delimited'),\n    concat('|', item()?['SubmissionId'], '|')\n  )\n)"
                   }
                 }
               },
@@ -688,14 +665,14 @@
             }
           },
           "runAfter": {
-            "Data_|_Initialise_Is_Complete": [
+            "Existing_Submission_IDs_delimited": [
               "Succeeded"
             ]
           },
           "expression": "@equals(variables('Is Complete'),true)",
           "limit": {
             "count": 60,
-            "timeout": "PT1H"
+            "timeout": "PT5H"
           },
           "metadata": {
             "operationMetadataId": "e5b412e8-8174-4ff7-8cc4-74905f11dd4a"
@@ -773,6 +750,56 @@
           },
           "type": "Compose",
           "inputs": "@variables('Outputs')"
+        },
+        "List_Existing_Applications": {
+          "runAfter": {
+            "Data_|_Initialise_Is_Complete": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "627c35d2-d75a-4a87-a4fd-c5613b19b2b6"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "$filter": "_gap_scheme_value eq @{triggerOutputs()?['body/gap_schemeid']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Select_Submission_IDs": {
+          "runAfter": {
+            "List_Existing_Applications": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "faeca579-4260-4aaa-90a8-69880c2ed61f"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('List_Existing_Applications')?['body/value']",
+            "select": "@item()?['gap_submissionid']"
+          }
+        },
+        "Existing_Submission_IDs_delimited": {
+          "runAfter": {
+            "Select_Submission_IDs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5526ba25-7753-4bb9-b2e3-ae1f780cbf22"
+          },
+          "type": "Compose",
+          "inputs": "@concat('|', join(body('Select_Submission_IDs'), '|'), '|')"
         }
       }
     },

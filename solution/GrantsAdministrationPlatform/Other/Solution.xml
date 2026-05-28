@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26035.178" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26035.178" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26035.00182">
+<ImportExportXml version="9.2.26044.149" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26044.149" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26051.00148">
   <SolutionManifest>
     <UniqueName>GrantsAdministrationPlatform</UniqueName>
     <LocalizedNames>
@@ -622,8 +622,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine User" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{169ead94-a7e8-42c5-9ae8-d81205dfee77}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine User" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{169ead94-a7e8-42c5-9ae8-d81205dfee77}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -646,8 +646,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Transcript Viewer" solution="PowerVirtualAgentsPrivilegeOverrides (2026.3.2.19372844)" id="{20902168-ee38-ea11-a81c-000d3ac3e6d8}">
-          <package appName="CCI Bots" version="2026.3.2.19372844">msdynce_CustomerCareIntelligenceBots_Anchor (2026.3.2.19372844)</package>
+        <Required type="20" displayName="Bot Transcript Viewer" solution="PowerVirtualAgentsPrivilegeOverrides (2026.4.1.19568070)" id="{20902168-ee38-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -659,7 +659,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="EAC App Access" solution="AdvancedAnalyticsInfra (1.0.10.0)" id="{2c321cf0-f096-ea11-a81a-000d3a6ecd99}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -670,8 +670,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Contributor" solution="PowerVirtualAgentsPrivilegeOverrides (2026.3.2.19372844)" id="{2fe4d72e-e538-ea11-a81c-000d3ac3e6d8}">
-          <package appName="CCI Bots" version="2026.3.2.19372844">msdynce_CustomerCareIntelligenceBots_Anchor (2026.3.2.19372844)</package>
+        <Required type="20" displayName="Bot Contributor" solution="PowerVirtualAgentsPrivilegeOverrides (2026.4.1.19568070)" id="{2fe4d72e-e538-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -682,8 +682,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine Owner" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{313995f9-4a4a-4d4a-afd1-c892da78e13e}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine Owner" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{313995f9-4a4a-4d4a-afd1-c892da78e13e}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -706,8 +706,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="AIB SML Roles" solution="msdyn_AIPrivilegeOverridesSolution (202603.3.10.1)" id="{3f199ebd-977e-43e5-abe5-fe865a1f2904}">
-          <package appName="PowerAI" version="202603.3.10.1">msdyn_AISolutionAnchor (202603.3.10.1)</package>
+        <Required type="20" displayName="AIB SML Roles" solution="msdyn_AIPrivilegeOverridesSolution (202604.2.7.1)" id="{3f199ebd-977e-43e5-abe5-fe865a1f2904}">
+          <package appName="PowerAI" version="202604.2.7.1">msdyn_AISolutionAnchor (202604.2.7.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -718,8 +718,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Export Customizations (Solution Checker)" solution="PowerVirtualAgentsPrivilegeOverrides (2026.3.2.19372844)" id="{4931681d-8163-e811-a965-000d3a11fe32}">
-          <package appName="CCI Bots" version="2026.3.2.19372844">msdynce_CustomerCareIntelligenceBots_Anchor (2026.3.2.19372844)</package>
+        <Required type="20" displayName="Export Customizations (Solution Checker)" solution="PowerVirtualAgentsPrivilegeOverrides (2026.4.1.19568070)" id="{4931681d-8163-e811-a965-000d3a11fe32}">
+          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -742,15 +742,15 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Dataverse as a Cluster App Role" solution="msft_DaacMetadata (1.0.17.0)" id="{5225adeb-859b-42f3-8289-a399e47512d5}">
+        <Required type="20" displayName="Dataverse as a Cluster App Role" solution="msft_DaacMetadata (1.0.18.0)" id="{5225adeb-859b-42f3-8289-a399e47512d5}">
           <package appName="Data Modeling Partner Extensions App Package" version="1.0.17.0">msft_DaacMetadata (1.0.17.0)</package>
           <package appName="Data Modeling Partner Extensions App Package" version="1.0.0.0">msft_DaaC_EntityClusterConfigData_Xrm (1.0.0.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3370.2)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
-          <package appName="Source Control Integration Package" version="9.1.3370.2">SourceControlIntegration_Anchor (9.1.3370.2)</package>
+        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3391.2)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
+          <package appName="Source Control Integration Package" version="9.1.3391.2">SourceControlIntegration_Anchor (9.1.3391.2)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -785,8 +785,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flow Machine Configuration Admin" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{6b860c71-0e4e-ec11-b1b5-000d3a6ed5b3}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flow Machine Configuration Admin" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{6b860c71-0e4e-ec11-b1b5-000d3a6ed5b3}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -803,8 +803,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows AI Application User" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{726d11d6-d9cf-4503-ade9-d6a4be7fa095}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flows AI Application User" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{726d11d6-d9cf-4503-ade9-d6a4be7fa095}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -816,14 +816,14 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="EAC Reader App Access" solution="AdvancedAnalyticsInfra (1.0.10.0)" id="{7be5a395-6b58-4f8c-908f-97dc8810fc50}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Knowledge Quality Service" solution="msdyn_PowerAIExtensionsBase (1.0.1.1588)" id="{7ca59d1b-b547-f011-877a-6045bd0653f0}">
+        <Required type="20" displayName="Knowledge Quality Service" solution="msdyn_PowerAIExtensionsBase (1.1.3407.3)" id="{7ca59d1b-b547-f011-877a-6045bd0653f0}">
           <package appName="PowerAIExtensions Package" version="1.0.1.1524">PowerAIExtensions_Anchor (1.0.1.1524)</package>
-          <package appName="PowerAIExtensions Package" version="1.0.1.1588">msdyn_PowerAIExtensionsSC (1.0.1.1588)</package>
+          <package appName="PowerAIExtensions Package" version="1.1.3407.3">msdyn_PowerAIExtensionsSC (1.1.3407.3)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -834,8 +834,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Power Automate AI Flows Application User" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{84012ef2-00bd-412e-8654-b1e3a90feafc}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Power Automate AI Flows Application User" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{84012ef2-00bd-412e-8654-b1e3a90feafc}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -853,7 +853,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="DataProcessingConfigTableAppAccess" solution="datalakeworkspaces (1.0.77.0)" id="{896a28e5-678d-4fa8-ad59-c606d1aa98ce}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -894,8 +894,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine Application User" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{9f572d55-6090-493b-904a-3956bdc55343}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine Application User" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{9f572d55-6090-493b-904a-3956bdc55343}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -912,8 +912,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="CCI admin" solution="msdynce_CustomerCareIntelligenceBots (2026.3.2.19372844)" id="{a1801436-efd6-e811-a96e-000d3a3ab886}">
-          <package appName="CCI Bots" version="2026.3.2.19372844">msdynce_CustomerCareIntelligenceBots_Anchor (2026.3.2.19372844)</package>
+        <Required type="20" displayName="CCI admin" solution="msdynce_CustomerCareIntelligenceBots (2026.4.1.19568070)" id="{a1801436-efd6-e811-a96e-000d3a3ab886}">
+          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -960,8 +960,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.26033.1003)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26033.1003">msdynce_KnowledgeManagementAnchor (9.0.26033.1003)</package>
+        <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.26042.3016)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26042.3016">msdynce_KnowledgeManagementAnchor (9.0.26042.3016)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1026,8 +1026,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.26033.1003)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26033.1003">msdynce_KnowledgeManagementAnchor (9.0.26033.1003)</package>
+        <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.26042.3016)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26042.3016">msdynce_KnowledgeManagementAnchor (9.0.26042.3016)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1044,14 +1044,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Author" solution="msdynce_CustomerCareIntelligenceBots (2026.3.2.19372844)" id="{e0d2794e-82f3-e811-a951-000d3a1bcf17}">
-          <package appName="CCI Bots" version="2026.3.2.19372844">msdynce_CustomerCareIntelligenceBots_Anchor (2026.3.2.19372844)</package>
+        <Required type="20" displayName="Bot Author" solution="msdynce_CustomerCareIntelligenceBots (2026.4.1.19568070)" id="{e0d2794e-82f3-e811-a951-000d3a1bcf17}">
+          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="AIB Roles" solution="msdyn_AIPrivilegeOverridesSolution (202603.3.10.1)" id="{e57bff35-58b4-4725-aee2-40fb18f4c8bd}">
-          <package appName="PowerAI" version="202603.3.10.1">msdyn_AISolutionAnchor (202603.3.10.1)</package>
+        <Required type="20" displayName="AIB Roles" solution="msdyn_AIPrivilegeOverridesSolution (202604.2.7.1)" id="{e57bff35-58b4-4725-aee2-40fb18f4c8bd}">
+          <package appName="PowerAI" version="202604.2.7.1">msdyn_AISolutionAnchor (202604.2.7.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1068,14 +1068,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Synapse Link Service Access" solution="msdyn_SynapseLink (1.0.7.13)" id="{eaeff5e8-8e5b-ec11-b1b6-0022487b9f36}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+        <Required type="20" displayName="Synapse Link Service Access" solution="msdyn_SynapseLink (1.0.7.15)" id="{eaeff5e8-8e5b-ec11-b1b6-0022487b9f36}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="DataLakeWorkspaceAppAccess" solution="datalakeworkspaces (1.0.77.0)" id="{edfcbfd2-358f-ea11-a81f-000d3a6eafd3}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.13">msdyn_SynapseLink (1.0.7.13)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1086,20 +1086,20 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine User Can Share" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{ee18dcf2-6f83-4cd7-aa5c-1d8a88947d51}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine User Can Share" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{ee18dcf2-6f83-4cd7-aa5c-1d8a88947d51}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Runtime Application User" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{ee2c8e11-6d57-4c5d-9f84-659c0db132bb}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flows Runtime Application User" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{ee2c8e11-6d57-4c5d-9f84-659c0db132bb}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Module Developer" solution="MicrosoftFlowExtensionsCore (1.10.0.0)" id="{ee7bc749-3dd6-45ac-b95d-a3031463380b}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.0.0">MicrosoftFlowExtensionsAnchor (1.10.0.0)</package>
+        <Required type="20" displayName="Desktop Flows Module Developer" solution="MicrosoftFlowExtensionsCore (1.10.4.0)" id="{ee7bc749-3dd6-45ac-b95d-a3031463380b}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.4.0">MicrosoftFlowExtensionsAnchor (1.10.4.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1146,9 +1146,9 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Federated Knowledge Role" solution="msdyn_PowerAIExtensionsBase (1.0.1.1588)" id="{ffadce64-3542-4bf1-a83a-ac9941104680}">
+        <Required type="20" displayName="Federated Knowledge Role" solution="msdyn_PowerAIExtensionsBase (1.1.3407.3)" id="{ffadce64-3542-4bf1-a83a-ac9941104680}">
           <package appName="PowerAIExtensions Package" version="1.0.1.1524">PowerAIExtensions_Anchor (1.0.1.1524)</package>
-          <package appName="PowerAIExtensions Package" version="1.0.1.1588">msdyn_PowerAIExtensionsSC (1.0.1.1588)</package>
+          <package appName="PowerAIExtensions Package" version="1.1.3407.3">msdyn_PowerAIExtensionsSC (1.1.3407.3)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1178,75 +1178,75 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="account contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.26033.10001)" id="{449faa0e-f471-48ec-87d0-4719909546d2}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+        <Required type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.26043.10001)" id="{449faa0e-f471-48ec-87d0-4719909546d2}">
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Quick Create" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Social Profiles" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{7bb87dfd-ec3e-4ed9-8e3e-5725d3067295}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Quick Form" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Reference Panel" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Recent Cases and Entitlements" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e}">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (1.1.1.3118)">
-          <package appName="PowerPlatformEnvironmentSettingsApp" version="1.1.1.3118">PowerPlatformEnvironmentSettingsApp_Anchor (1.1.1.3118)</package>
+        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (2.2.3391.2)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="2.2.3391.2">PowerPlatformEnvironmentSettingsApp_Anchor (2.2.3391.2)</package>
         </Required>
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="cc_MscrmControls.AppCommon.AppManagement.ApplicationManagementControl/ApplicationManagementControl.js" displayName="cc_MscrmControls.AppCommon.AppManagement.ApplicationManagementControl/ApplicationManagementControl.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26033.10001">msdynce_AppCommonAnchor (9.0.26033.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26043.10001">msdynce_AppCommonAnchor (9.0.26043.10001)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_CopilotIcon.svg" displayName="msdyn_CopilotIcon.svg" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)">
+        <Required type="61" schemaName="msdyn_CopilotIcon.svg" displayName="msdyn_CopilotIcon.svg" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction" displayName="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_CopilotSummarizeLibrary.js" displayName="msdyn_CopilotSummarizeLibrary.js" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)">
+        <Required type="61" schemaName="msdyn_CopilotSummarizeLibrary.js" displayName="msdyn_CopilotSummarizeLibrary.js" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction" displayName="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" />
       </MissingDependency>
@@ -1269,14 +1269,14 @@
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2603.5011)">
-          <package appName="Base Custom Controls" version="9.0.2603.5011">BaseCustomControlsCore (9.0.2603.5011)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2604.4004)">
+          <package appName="Base Custom Controls" version="9.0.2604.4004">BaseCustomControlsCore (9.0.2604.4004)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2603.5011)">
-          <package appName="Base Custom Controls" version="9.0.2603.5011">BaseCustomControlsCore (9.0.2603.5011)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2604.4004)">
+          <package appName="Base Custom Controls" version="9.0.2604.4004">BaseCustomControlsCore (9.0.2604.4004)</package>
         </Required>
         <Dependent type="68" id="{0ccc4cd6-c969-4486-b426-bf8b19402e53}" />
       </MissingDependency>
@@ -1333,23 +1333,23 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Scheme" id="{e65dde12-7277-4f67-97f8-a1d137513ab2}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.CopilotClientApi!1" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)" id.uniquename="msdyn_Mscrm.CopilotClientApi!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.CopilotClientApi!1" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)" id.uniquename="msdyn_Mscrm.CopilotClientApi!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.CopilotClientApi!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.CopilotClientApi!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" />
       </MissingDependency>
@@ -1360,23 +1360,23 @@
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.FormStateNotNew!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.FormStateNotNew!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.HideOnMobile!0" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)" id.uniquename="msdyn_Mscrm.HideOnMobile!0">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.HideOnMobile!0" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)" id.uniquename="msdyn_Mscrm.HideOnMobile!0">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.HideOnMobile!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.HideOnMobile!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)" id.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)" id.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.IsAppCopilotEnabled!0" solution="msdyn_AppCopilotFeatures (9.2.2026033.260316057)" id.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.IsAppCopilotEnabled!0" solution="msdyn_AppCopilotFeatures (9.2.2026052.260501061)" id.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
-          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.4">msdyn_M365CopilotAppInfraSettings (9.2.0.4)</package>
+          <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.IsAppCopilotEnabled!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0" />
       </MissingDependency>
