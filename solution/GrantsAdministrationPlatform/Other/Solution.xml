@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26044.149" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26044.149" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26051.00148">
+<ImportExportXml version="9.2.26061.143" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26061.143" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26061.00143">
   <SolutionManifest>
     <UniqueName>GrantsAdministrationPlatform</UniqueName>
     <LocalizedNames>
@@ -360,6 +360,7 @@
       <RootComponent type="29" id="{fae1258b-82cf-f011-8543-7c1e522d7494}" behavior="0" />
       <RootComponent type="29" id="{fbda33b7-b1ea-ee11-a1fe-6045bdd0e669}" behavior="0" />
       <RootComponent type="29" id="{fbf24a72-926c-f011-b4cb-0022483ff195}" behavior="0" />
+      <RootComponent type="29" id="{fc066673-9f64-f111-ab0d-7ced8d9d38d0}" behavior="0" />
       <RootComponent type="29" id="{ffb06d5a-60cf-f011-8543-7c1e5203cfd2}" behavior="0" />
       <RootComponent type="300" schemaName="gap_components_4d806" behavior="0" />
       <RootComponent type="300" schemaName="gap_demodefaultcommandlibrary_7c943" behavior="0" />
@@ -428,6 +429,7 @@
       <RootComponent type="9" schemaName="gap_complaintthemechoice" behavior="0" />
       <RootComponent type="9" schemaName="gap_contactrelationship" behavior="0" />
       <RootComponent type="9" schemaName="gap_decisionoptions" behavior="0" />
+      <RootComponent type="9" schemaName="gap_documenttemplatetype" behavior="0" />
       <RootComponent type="9" schemaName="gap_duediligencecategories" behavior="0" />
       <RootComponent type="9" schemaName="gap_duediligenceoutcome" behavior="0" />
       <RootComponent type="9" schemaName="gap_fileuploadstatus" behavior="0" />
@@ -518,6 +520,14 @@
         <Dependent type="300" schemaName="gap_integratedscoringchecklist_a1c7f" displayName="Integrated Scoring Checklist" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="1" schemaName="gap_documenttemplate" displayName="Document Template" solution="Active" />
+        <Dependent type="aiskillconfig" displayName="ais_FormFillFieldOptOut_gap_documenttemplate_gap_configurationjson" id.uniquename="ais_FormFillFieldOptOut_gap_documenttemplate_gap_configurationjson" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="gap_documenttemplate" displayName="Document Template" solution="Active" />
+        <Dependent type="aiskillconfig" displayName="ais_FormFillFieldOptOut_gap_documenttemplate_gap_documentid" id.uniquename="ais_FormFillFieldOptOut_gap_documenttemplate_gap_documentid" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="1" schemaName="mspp_entityform" displayName="Basic Form" solution="PowerPages_Apps (1.0.2510.2)">
           <package appName="Power Pages Core Package" version="1.1.2510.212">PowerPages_Core (1.1.2510.212)</package>
         </Required>
@@ -604,6 +614,14 @@
         <Dependent type="2" schemaName="address1_utcoffset" displayName="address1_utcoffset" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="2" schemaName="gap_configurationjson" displayName="Configuration JSON" parentSchemaName="gap_documenttemplate" parentDisplayName="Document Template" solution="Active" />
+        <Dependent type="aiskillconfig" displayName="ais_FormFillFieldOptOut_gap_documenttemplate_gap_configurationjson" id.uniquename="ais_FormFillFieldOptOut_gap_documenttemplate_gap_configurationjson" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="gap_documentid" displayName="Document ID" parentSchemaName="gap_documenttemplate" parentDisplayName="Document Template" solution="Active" />
+        <Dependent type="aiskillconfig" displayName="ais_FormFillFieldOptOut_gap_documenttemplate_gap_documentid" id.uniquename="ais_FormFillFieldOptOut_gap_documenttemplate_gap_documentid" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="20" displayName="BusinessApplicationPlatformRole" solution="S2SApplicationRoles (1.0.0.126)" id="{02123b67-66ae-4a69-8cdc-6473b94ad1a9}">
           <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
         </Required>
@@ -646,8 +664,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Transcript Viewer" solution="PowerVirtualAgentsPrivilegeOverrides (2026.4.1.19568070)" id="{20902168-ee38-ea11-a81c-000d3ac3e6d8}">
-          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
+        <Required type="20" displayName="Bot Transcript Viewer" solution="PowerVirtualAgentsPrivilegeOverrides (2026.5.4.20551445)" id="{20902168-ee38-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2026.5.4.20551445">msdynce_CustomerCareIntelligenceBots_Anchor (2026.5.4.20551445)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -659,7 +677,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="EAC App Access" solution="AdvancedAnalyticsInfra (1.0.10.0)" id="{2c321cf0-f096-ea11-a81a-000d3a6ecd99}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -670,8 +688,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Contributor" solution="PowerVirtualAgentsPrivilegeOverrides (2026.4.1.19568070)" id="{2fe4d72e-e538-ea11-a81c-000d3ac3e6d8}">
-          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
+        <Required type="20" displayName="Bot Contributor" solution="PowerVirtualAgentsPrivilegeOverrides (2026.5.4.20551445)" id="{2fe4d72e-e538-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2026.5.4.20551445">msdynce_CustomerCareIntelligenceBots_Anchor (2026.5.4.20551445)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -718,8 +736,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Export Customizations (Solution Checker)" solution="PowerVirtualAgentsPrivilegeOverrides (2026.4.1.19568070)" id="{4931681d-8163-e811-a965-000d3a11fe32}">
-          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
+        <Required type="20" displayName="Export Customizations (Solution Checker)" solution="PowerVirtualAgentsPrivilegeOverrides (2026.5.4.20551445)" id="{4931681d-8163-e811-a965-000d3a11fe32}">
+          <package appName="CCI Bots" version="2026.5.4.20551445">msdynce_CustomerCareIntelligenceBots_Anchor (2026.5.4.20551445)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -749,8 +767,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3391.2)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
-          <package appName="Source Control Integration Package" version="9.1.3391.2">SourceControlIntegration_Anchor (9.1.3391.2)</package>
+        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3421.2)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
+          <package appName="Source Control Integration Package" version="9.1.3421.2">SourceControlIntegration_Anchor (9.1.3421.2)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -816,7 +834,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="EAC Reader App Access" solution="AdvancedAnalyticsInfra (1.0.10.0)" id="{7be5a395-6b58-4f8c-908f-97dc8810fc50}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -840,8 +858,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Approvals Administrator" solution="msdyn_FlowApprovalsCore (2.2.8.0)" id="{854af338-f3c5-e711-8122-000d3aa01c52}">
-          <package appName="msdyn_FlowApprovals" version="2.2.8.0">msdyn_FlowApprovals (2.2.8.0)</package>
+        <Required type="20" displayName="Approvals Administrator" solution="msdyn_FlowApprovalsCore (2.2.15.0)" id="{854af338-f3c5-e711-8122-000d3aa01c52}">
+          <package appName="msdyn_FlowApprovals" version="2.2.15.0">msdyn_FlowApprovals (2.2.15.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -853,7 +871,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="DataProcessingConfigTableAppAccess" solution="datalakeworkspaces (1.0.77.0)" id="{896a28e5-678d-4fa8-ad59-c606d1aa98ce}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -912,8 +930,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="CCI admin" solution="msdynce_CustomerCareIntelligenceBots (2026.4.1.19568070)" id="{a1801436-efd6-e811-a96e-000d3a3ab886}">
-          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
+        <Required type="20" displayName="CCI admin" solution="msdynce_CustomerCareIntelligenceBots (2026.5.4.20551445)" id="{a1801436-efd6-e811-a96e-000d3a3ab886}">
+          <package appName="CCI Bots" version="2026.5.4.20551445">msdynce_CustomerCareIntelligenceBots_Anchor (2026.5.4.20551445)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -954,14 +972,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Approvals User" solution="msdyn_FlowApprovalsCore (2.2.8.0)" id="{b9b08637-acf6-e711-a95a-000d3a11f5ee}">
-          <package appName="msdyn_FlowApprovals" version="2.2.8.0">msdyn_FlowApprovals (2.2.8.0)</package>
+        <Required type="20" displayName="Approvals User" solution="msdyn_FlowApprovalsCore (2.2.15.0)" id="{b9b08637-acf6-e711-a95a-000d3a11f5ee}">
+          <package appName="msdyn_FlowApprovals" version="2.2.15.0">msdyn_FlowApprovals (2.2.15.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.26042.3016)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26042.3016">msdynce_KnowledgeManagementAnchor (9.0.26042.3016)</package>
+        <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.26054.3029)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26054.3029">msdynce_KnowledgeManagementAnchor (9.0.26054.3029)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1026,8 +1044,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.26042.3016)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26042.3016">msdynce_KnowledgeManagementAnchor (9.0.26042.3016)</package>
+        <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.26054.3029)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26054.3029">msdynce_KnowledgeManagementAnchor (9.0.26054.3029)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1044,8 +1062,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Author" solution="msdynce_CustomerCareIntelligenceBots (2026.4.1.19568070)" id="{e0d2794e-82f3-e811-a951-000d3a1bcf17}">
-          <package appName="CCI Bots" version="2026.4.1.19568070">msdynce_CustomerCareIntelligenceBots_Anchor (2026.4.1.19568070)</package>
+        <Required type="20" displayName="Bot Author" solution="msdynce_CustomerCareIntelligenceBots (2026.5.4.20551445)" id="{e0d2794e-82f3-e811-a951-000d3a1bcf17}">
+          <package appName="CCI Bots" version="2026.5.4.20551445">msdynce_CustomerCareIntelligenceBots_Anchor (2026.5.4.20551445)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1068,14 +1086,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Synapse Link Service Access" solution="msdyn_SynapseLink (1.0.7.15)" id="{eaeff5e8-8e5b-ec11-b1b6-0022487b9f36}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
+        <Required type="20" displayName="Synapse Link Service Access" solution="msdyn_SynapseLink (1.0.7.17)" id="{eaeff5e8-8e5b-ec11-b1b6-0022487b9f36}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="DataLakeWorkspaceAppAccess" solution="datalakeworkspaces (1.0.77.0)" id="{edfcbfd2-358f-ea11-a81f-000d3a6eafd3}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.15">msdyn_SynapseLink (1.0.7.15)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1225,8 +1243,8 @@
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (2.2.3391.2)">
-          <package appName="PowerPlatformEnvironmentSettingsApp" version="2.2.3391.2">PowerPlatformEnvironmentSettingsApp_Anchor (2.2.3391.2)</package>
+        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (2.2.3433.1)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="2.2.3433.1">PowerPlatformEnvironmentSettingsApp_Anchor (2.2.3433.1)</package>
         </Required>
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
@@ -1269,14 +1287,14 @@
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2604.4004)">
-          <package appName="Base Custom Controls" version="9.0.2604.4004">BaseCustomControlsCore (9.0.2604.4004)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2606.1006)">
+          <package appName="Base Custom Controls" version="9.0.2606.1006">BaseCustomControlsCore (9.0.2606.1006)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2604.4004)">
-          <package appName="Base Custom Controls" version="9.0.2604.4004">BaseCustomControlsCore (9.0.2604.4004)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2606.1006)">
+          <package appName="Base Custom Controls" version="9.0.2606.1006">BaseCustomControlsCore (9.0.2606.1006)</package>
         </Required>
         <Dependent type="68" id="{0ccc4cd6-c969-4486-b426-bf8b19402e53}" />
       </MissingDependency>
@@ -1401,13 +1419,13 @@
         <Dependent type="372" schemaName="gap_mot-20history-20api" displayName="MOT History API" id="{e015c558-ef73-4985-945f-4d030402250d}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.16)" id.uniquename="AppChannel">
+        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.17)" id.uniquename="AppChannel">
           <package appName="PowerAppsAppFramework Package" version="1.0.0.25">PowerAppsAppFramework_Anchor (1.0.0.25)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=gap_DEMO,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="gap_DEMO" id.settingdefinitionid.uniquename="AppChannel" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="NewLookModernExperienceOct2023" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.16)" id.uniquename="NewLookModernExperienceOct2023">
+        <Required type="SettingDefinition" displayName="NewLookModernExperienceOct2023" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.17)" id.uniquename="NewLookModernExperienceOct2023">
           <package appName="PowerAppsAppFramework Package" version="1.0.0.25">PowerAppsAppFramework_Anchor (1.0.0.25)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=gap_DEMO,settingdefinitionid.uniquename=NewLookModernExperienceOct2023" id.parentappmoduleid.uniquename="gap_DEMO" id.settingdefinitionid.uniquename="NewLookModernExperienceOct2023" />

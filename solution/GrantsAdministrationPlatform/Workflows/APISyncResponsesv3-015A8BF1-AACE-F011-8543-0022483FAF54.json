@@ -69,7 +69,7 @@
       "actions": {
         "Data_|_Initialise_Application_Counter": {
           "runAfter": {
-            "Data_|_Initialise_Application_Page_Counter": [
+            "Data_|_Initialise_ApplicationsInCurrentPage": [
               "Succeeded"
             ]
           },
@@ -211,7 +211,7 @@
                     }
                   }
                 },
-                "Reset_Application_Page_Counter": {
+                "Set_ApplicationsInCurrentPage_Value": {
                   "runAfter": {
                     "Get_Applications": [
                       "Succeeded"
@@ -222,8 +222,8 @@
                   },
                   "type": "SetVariable",
                   "inputs": {
-                    "name": "Application Page Counter",
-                    "value": 0
+                    "name": "ApplicationsInCurrentPage",
+                    "value": "@length(coalesce(outputs('Get_Applications')?['body/Applications'], json('[]')))"
                   }
                 },
                 "Last_Page": {
@@ -249,7 +249,7 @@
                     "or": [
                       {
                         "equals": [
-                          "@variables('Application Page Counter')",
+                          "@variables('ApplicationsInCurrentPage')",
                           0
                         ]
                       }
@@ -424,21 +424,6 @@
                         "operationMetadataId": "32ae829c-fdfc-4ae9-ab70-cad6e7fa2907"
                       },
                       "type": "If"
-                    },
-                    "Increment_Application_Page_Counter": {
-                      "runAfter": {
-                        "Below_Limit": [
-                          "Succeeded"
-                        ]
-                      },
-                      "metadata": {
-                        "operationMetadataId": "611a02fb-3c30-4175-8fa4-ef41a9cc7cc0"
-                      },
-                      "type": "IncrementVariable",
-                      "inputs": {
-                        "name": "Application Page Counter",
-                        "value": 1
-                      }
                     }
                   },
                   "runAfter": {
@@ -482,7 +467,7 @@
                 },
                 "Filtered_List_of_Imported_Apps": {
                   "runAfter": {
-                    "Reset_Application_Page_Counter": [
+                    "Set_ApplicationsInCurrentPage_Value": [
                       "Succeeded"
                     ]
                   },
@@ -493,7 +478,8 @@
                   "inputs": {
                     "from": "@outputs('Get_Applications')?['body/Applications']",
                     "where": "@not(\n  contains(\n    outputs('Existing_Submission_IDs_delimited'),\n    concat('|', item()?['SubmissionId'], '|')\n  )\n)"
-                  }
+                  },
+                  "description": "This filters out any applications from Find and Apply that are already in Dataverse"
                 }
               },
               "runAfter": {},
@@ -704,7 +690,7 @@
             "authentication": "@parameters('$authentication')"
           }
         },
-        "Data_|_Initialise_Application_Page_Counter": {
+        "Data_|_Initialise_ApplicationsInCurrentPage": {
           "runAfter": {
             "Initialize_variable": [
               "Succeeded"
@@ -717,7 +703,7 @@
           "inputs": {
             "variables": [
               {
-                "name": "Application Page Counter",
+                "name": "ApplicationsInCurrentPage",
                 "type": "integer",
                 "value": 0
               }
