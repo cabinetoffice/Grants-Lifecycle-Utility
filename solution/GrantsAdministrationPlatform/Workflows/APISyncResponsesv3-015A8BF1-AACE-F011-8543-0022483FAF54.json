@@ -758,6 +758,11 @@
               "$filter": "_gap_scheme_value eq @{triggerOutputs()?['body/gap_schemeid']}"
             },
             "authentication": "@parameters('$authentication')"
+          },
+          "runtimeConfiguration": {
+            "paginationPolicy": {
+              "minimumItemCount": 100000
+            }
           }
         },
         "Select_Submission_IDs": {
