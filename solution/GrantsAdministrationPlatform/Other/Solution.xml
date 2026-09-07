@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26074.146" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26074.146" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26074.00146">
+<ImportExportXml version="9.2.26083.157" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26083.157" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26083.00157">
   <SolutionManifest>
     <UniqueName>GrantsAdministrationPlatform</UniqueName>
     <LocalizedNames>
@@ -189,6 +189,7 @@
       <RootComponent type="29" id="{2ec5b823-26a5-f011-bbd3-7ced8d38c68c}" behavior="0" />
       <RootComponent type="29" id="{2f55425c-a2b8-ee11-9078-002248004b54}" behavior="0" />
       <RootComponent type="29" id="{3154ae08-753c-f011-8c4d-002248c6f33a}" behavior="0" />
+      <RootComponent type="29" id="{327f4641-46a6-f111-aaad-002248423392}" behavior="0" />
       <RootComponent type="29" id="{32a40fcf-6e8d-f011-b4cb-000d3a7f48f2}" behavior="0" />
       <RootComponent type="29" id="{331da36b-1bc4-ee11-9079-002248004dbc}" behavior="0" />
       <RootComponent type="29" id="{34939b5a-6e8d-f011-b4cb-6045bdf1bb64}" behavior="0" />
@@ -307,6 +308,7 @@
       <RootComponent type="29" id="{bdcb42cc-b0f5-ee11-a1fe-000d3ad53744}" behavior="0" />
       <RootComponent type="29" id="{bdd9079d-b9ce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{be39d875-a38d-f011-b4cb-6045bdf1bb64}" behavior="0" />
+      <RootComponent type="29" id="{bfba9347-08a6-f111-aaad-002248423392}" behavior="0" />
       <RootComponent type="29" id="{bfc55281-d786-f111-8077-000d3ad684d9}" behavior="0" />
       <RootComponent type="29" id="{bfdb01e5-5f48-f011-877a-000d3ad545f3}" behavior="0" />
       <RootComponent type="29" id="{c013227d-716c-f011-b4cb-0022483ff195}" behavior="0" />
@@ -374,6 +376,7 @@
       <RootComponent type="300" schemaName="gap_scoringchecklistv2_d0366" behavior="0" />
       <RootComponent type="372" id="{685f5bf7-438f-4974-89aa-2d98d88b498c}" schemaName="gap_5Fdvla-20api" behavior="0" />
       <RootComponent type="372" id="{c54c6ec0-6a7f-489d-8350-b8d0d9b70d49}" schemaName="gap_5Ffind-20a-20grant-20v2" behavior="0" />
+      <RootComponent type="372" id="{a40a84b2-24f9-4860-b063-63338714ea84}" schemaName="gap_5Fgoogle-20drive-20api" behavior="0" />
       <RootComponent type="372" id="{e015c558-ef73-4985-945f-4d030402250d}" schemaName="gap_mot-20history-20api" behavior="0" />
       <RootComponent type="401" id="{191865a6-e948-453c-a66f-5cce61375bfe}" behavior="0" />
       <RootComponent type="401" id="{19818f02-5d19-4d7f-9936-9c8e37b3b4d4}" behavior="0" />
@@ -607,8 +610,8 @@
         <Dependent type="2" schemaName="address1_utcoffset" displayName="address1_utcoffset" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="BusinessApplicationPlatformRole" solution="S2SApplicationRoles (1.0.0.132)" id="{02123b67-66ae-4a69-8cdc-6473b94ad1a9}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="BusinessApplicationPlatformRole" solution="S2SApplicationRoles (1.0.0.134)" id="{02123b67-66ae-4a69-8cdc-6473b94ad1a9}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -619,50 +622,50 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Knowledge Quality Service Role" solution="S2SApplicationRoles (1.0.0.132)" id="{13589093-0aa6-40c1-894d-4486d5dd479f}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Knowledge Quality Service Role" solution="S2SApplicationRoles (1.0.0.134)" id="{13589093-0aa6-40c1-894d-4486d5dd479f}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine User" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{169ead94-a7e8-42c5-9ae8-d81205dfee77}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{169ead94-a7e8-42c5-9ae8-d81205dfee77}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability BusinessUnit - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3501.1)" id="{180b3494-0503-ed11-82e6-000d3a33db7e}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3501.1">InsightsAppPlatformApp_Anchor (1.0.3501.1)</package>
+        <Required type="20" displayName="Sustainability BusinessUnit - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{180b3494-0503-ed11-82e6-000d3a33db7e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="App Deployment Orchestration Role" solution="S2SApplicationRoles (1.0.0.132)" id="{1bb44f6d-15a5-48aa-a2f2-8d2cb0095d2d}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="App Deployment Orchestration Role" solution="S2SApplicationRoles (1.0.0.134)" id="{1bb44f6d-15a5-48aa-a2f2-8d2cb0095d2d}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Dataflow Maker" solution="msdyn_InsightsAppPlatform (1.0.3501.1)" id="{1f6c957f-9851-4dbe-ab1c-508c06faa8be}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3501.1">InsightsAppPlatformApp_Anchor (1.0.3501.1)</package>
+        <Required type="20" displayName="Dataflow Maker" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{1f6c957f-9851-4dbe-ab1c-508c06faa8be}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Transcript Viewer" solution="PowerVirtualAgentsPrivilegeOverrides (2026.6.3.21205269)" id="{20902168-ee38-ea11-a81c-000d3ac3e6d8}">
-          <package appName="CCI Bots" version="2026.6.3.21205269">msdynce_CustomerCareIntelligenceBots_Anchor (2026.6.3.21205269)</package>
+        <Required type="20" displayName="Bot Transcript Viewer" solution="PowerVirtualAgentsPrivilegeOverrides (2026.7.4.21345069)" id="{20902168-ee38-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2026.7.4.21345069">msdynce_CustomerCareIntelligenceBots_Anchor (2026.7.4.21345069)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Project Background Services App Role" solution="S2SApplicationRoles (1.0.0.132)" id="{209a44f9-636e-40bb-8cb0-67a34459f39a}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Project Background Services App Role" solution="S2SApplicationRoles (1.0.0.134)" id="{209a44f9-636e-40bb-8cb0-67a34459f39a}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="EAC App Access" solution="AdvancedAnalyticsInfra (1.0.12.2)" id="{2c321cf0-f096-ea11-a81a-000d3a6ecd99}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.18">msdyn_SynapseLink (1.0.7.18)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -673,8 +676,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Contributor" solution="PowerVirtualAgentsPrivilegeOverrides (2026.6.3.21205269)" id="{2fe4d72e-e538-ea11-a81c-000d3ac3e6d8}">
-          <package appName="CCI Bots" version="2026.6.3.21205269">msdynce_CustomerCareIntelligenceBots_Anchor (2026.6.3.21205269)</package>
+        <Required type="20" displayName="Bot Contributor" solution="PowerVirtualAgentsPrivilegeOverrides (2026.7.4.21345069)" id="{2fe4d72e-e538-ea11-a81c-000d3ac3e6d8}">
+          <package appName="CCI Bots" version="2026.7.4.21345069">msdynce_CustomerCareIntelligenceBots_Anchor (2026.7.4.21345069)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -685,14 +688,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine Owner" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{313995f9-4a4a-4d4a-afd1-c892da78e13e}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine Owner" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{313995f9-4a4a-4d4a-afd1-c892da78e13e}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Omnichannel CDS Flush Role" solution="S2SApplicationRoles (1.0.0.132)" id="{36491c22-df5c-4155-927c-b1d8d2848e3b}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Omnichannel CDS Flush Role" solution="S2SApplicationRoles (1.0.0.134)" id="{36491c22-df5c-4155-927c-b1d8d2848e3b}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -703,7 +706,7 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Microsoft Copilot User" solution="msft_AIPlatformExtensionsCore (1.0.0.98)" id="{3d110294-4481-42bc-9882-ec2d526aa369}">
+        <Required type="20" displayName="Microsoft Copilot User" solution="msft_AIPlatformExtensionsCore (1.0.0.102)" id="{3d110294-4481-42bc-9882-ec2d526aa369}">
           <package appName="AIPlatformExtensionss Package" version="1.0.0.8">msft_AIPlatformExtensionsCoreData (1.0.0.8)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
@@ -715,14 +718,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Process Mining User" solution="ProcessMining (1.14.11.0)" id="{474523e6-dff7-46f1-9072-ff30802d3eb3}">
-          <package appName="PowerPlatformProcessMining" version="1.14.11.0">ProcessMiningOOBTemplates (1.14.11.0)</package>
+        <Required type="20" displayName="Process Mining User" solution="ProcessMining (1.14.14.0)" id="{474523e6-dff7-46f1-9072-ff30802d3eb3}">
+          <package appName="PowerPlatformProcessMining" version="1.14.14.0">ProcessMiningOOBTemplates (1.14.14.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Export Customizations (Solution Checker)" solution="PowerVirtualAgentsPrivilegeOverrides (2026.6.3.21205269)" id="{4931681d-8163-e811-a965-000d3a11fe32}">
-          <package appName="CCI Bots" version="2026.6.3.21205269">msdynce_CustomerCareIntelligenceBots_Anchor (2026.6.3.21205269)</package>
+        <Required type="20" displayName="Export Customizations (Solution Checker)" solution="PowerVirtualAgentsPrivilegeOverrides (2026.7.4.21345069)" id="{4931681d-8163-e811-a965-000d3a11fe32}">
+          <package appName="CCI Bots" version="2026.7.4.21345069">msdynce_CustomerCareIntelligenceBots_Anchor (2026.7.4.21345069)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -733,14 +736,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="SupportUserCustomAPI Role" solution="S2SApplicationRoles (1.0.0.132)" id="{4a434894-a4a4-48bf-b939-7b6327529e2e}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="SupportUserCustomAPI Role" solution="S2SApplicationRoles (1.0.0.134)" id="{4a434894-a4a4-48bf-b939-7b6327529e2e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="ContextualAIS2SRole" solution="S2SApplicationRoles (1.0.0.132)" id="{4f9dbfce-f797-40d8-a8ac-902e441e371b}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="ContextualAIS2SRole" solution="S2SApplicationRoles (1.0.0.134)" id="{4f9dbfce-f797-40d8-a8ac-902e441e371b}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -752,8 +755,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3484.1)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
-          <package appName="Source Control Integration Package" version="9.1.3484.1">SourceControlIntegration_Anchor (9.1.3484.1)</package>
+        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3490.2)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
+          <package appName="Source Control Integration Package" version="9.1.3490.2">SourceControlIntegration_Anchor (9.1.3490.2)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -770,14 +773,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Global Active Metrics Monitoring Alerting Custom Role" solution="S2SApplicationRoles (1.0.0.132)" id="{60b66ae1-fd75-44ca-b494-10169bb07998}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Global Active Metrics Monitoring Alerting Custom Role" solution="S2SApplicationRoles (1.0.0.134)" id="{60b66ae1-fd75-44ca-b494-10169bb07998}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Non-Relational Data App Access" solution="S2SApplicationRoles (1.0.0.132)" id="{6543ef96-37ab-4add-8c31-6dcd7cfa12ab}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Non-Relational Data App Access" solution="S2SApplicationRoles (1.0.0.134)" id="{6543ef96-37ab-4add-8c31-6dcd7cfa12ab}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -788,99 +791,99 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flow Machine Configuration Admin" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{6b860c71-0e4e-ec11-b1b5-000d3a6ed5b3}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flow Machine Configuration Admin" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{6b860c71-0e4e-ec11-b1b5-000d3a6ed5b3}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="RPE Role" solution="S2SApplicationRoles (1.0.0.132)" id="{6e33f75d-802e-4d79-b9e7-1fcdd2b3122e}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="RPE Role" solution="S2SApplicationRoles (1.0.0.134)" id="{6e33f75d-802e-4d79-b9e7-1fcdd2b3122e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability all - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3501.1)" id="{72322043-f211-ed11-b83e-00224832b6bb}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3501.1">InsightsAppPlatformApp_Anchor (1.0.3501.1)</package>
+        <Required type="20" displayName="Sustainability all - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{72322043-f211-ed11-b83e-00224832b6bb}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows AI Application User" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{726d11d6-d9cf-4503-ade9-d6a4be7fa095}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flows AI Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{726d11d6-d9cf-4503-ade9-d6a4be7fa095}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Process Mining Application" solution="ProcessMining (1.14.11.0)" id="{737c8c79-7411-4eef-8f7d-e2abe7e7faec}">
-          <package appName="PowerPlatformProcessMining" version="1.14.11.0">ProcessMiningOOBTemplates (1.14.11.0)</package>
+        <Required type="20" displayName="Process Mining Application" solution="ProcessMining (1.14.14.0)" id="{737c8c79-7411-4eef-8f7d-e2abe7e7faec}">
+          <package appName="PowerPlatformProcessMining" version="1.14.14.0">ProcessMiningOOBTemplates (1.14.14.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="EAC Reader App Access" solution="AdvancedAnalyticsInfra (1.0.12.2)" id="{7be5a395-6b58-4f8c-908f-97dc8810fc50}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.18">msdyn_SynapseLink (1.0.7.18)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Knowledge Quality Service" solution="msdyn_PowerAIExtensionsBase (1.1.3496.2)" id="{7ca59d1b-b547-f011-877a-6045bd0653f0}">
-          <package appName="PowerAIExtensions Package" version="1.1.3496.2">PowerAIExtensions_Anchor (1.1.3496.2)</package>
+        <Required type="20" displayName="Knowledge Quality Service" solution="msdyn_PowerAIExtensionsBase (1.1.3531.1)" id="{7ca59d1b-b547-f011-877a-6045bd0653f0}">
+          <package appName="PowerAIExtensions Package" version="1.1.3531.1">PowerAIExtensions_Anchor (1.1.3531.1)</package>
           <package appName="PowerAIExtensions Package" version="1.1.3407.3">msdyn_PowerAIExtensionsSC (1.1.3407.3)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Power BI Embedded App Access" solution="S2SApplicationRoles (1.0.0.132)" id="{8278be3d-dd12-4187-aac6-69a0543ebd85}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Power BI Embedded App Access" solution="S2SApplicationRoles (1.0.0.134)" id="{8278be3d-dd12-4187-aac6-69a0543ebd85}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Power Automate AI Flows Application User" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{84012ef2-00bd-412e-8654-b1e3a90feafc}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Power Automate AI Flows Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{84012ef2-00bd-412e-8654-b1e3a90feafc}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Approvals Administrator" solution="msdyn_FlowApprovalsCore (2.2.16.0)" id="{854af338-f3c5-e711-8122-000d3aa01c52}">
-          <package appName="msdyn_FlowApprovals" version="2.2.16.0">msdyn_FlowApprovals (2.2.16.0)</package>
+        <Required type="20" displayName="Approvals Administrator" solution="msdyn_FlowApprovalsCore (2.2.17.0)" id="{854af338-f3c5-e711-8122-000d3aa01c52}">
+          <package appName="msdyn_FlowApprovals" version="2.2.17.0">msdyn_FlowApprovals (2.2.17.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="BizQAApp" solution="S2SApplicationRoles (1.0.0.132)" id="{88b87c37-1472-4798-ac48-d56509eb6e1d}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="BizQAApp" solution="S2SApplicationRoles (1.0.0.134)" id="{88b87c37-1472-4798-ac48-d56509eb6e1d}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="DataProcessingConfigTableAppAccess" solution="datalakeworkspaces (1.0.84.0)" id="{896a28e5-678d-4fa8-ad59-c606d1aa98ce}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.18">msdyn_SynapseLink (1.0.7.18)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bulk Archival Role" solution="S2SApplicationRoles (1.0.0.132)" id="{8a2f35d9-e447-4285-974c-81382317ca21}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Bulk Archival Role" solution="S2SApplicationRoles (1.0.0.134)" id="{8a2f35d9-e447-4285-974c-81382317ca21}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Flow-CDS Native Connector Role" solution="S2SApplicationRoles (1.0.0.132)" id="{8be3e3ca-a304-451f-9dc1-2478d224ea0e}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Flow-CDS Native Connector Role" solution="S2SApplicationRoles (1.0.0.134)" id="{8be3e3ca-a304-451f-9dc1-2478d224ea0e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Microsoft Copilot Administrator" solution="msft_AIPlatformExtensionsCore (1.0.0.98)" id="{947229e9-e868-45cf-a361-5635eaf35ee2}">
+        <Required type="20" displayName="Microsoft Copilot Administrator" solution="msft_AIPlatformExtensionsCore (1.0.0.102)" id="{947229e9-e868-45cf-a361-5635eaf35ee2}">
           <package appName="AIPlatformExtensionss Package" version="1.0.0.8">msft_AIPlatformExtensionsCoreData (1.0.0.8)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability all - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3501.1)" id="{96aa4895-5ac2-ec11-a7b6-00224830446f}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3501.1">InsightsAppPlatformApp_Anchor (1.0.3501.1)</package>
+        <Required type="20" displayName="Sustainability all - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{96aa4895-5ac2-ec11-a7b6-00224830446f}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -891,14 +894,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="ApolloServiceRole" solution="S2SApplicationRoles (1.0.0.132)" id="{99b7f9c4-5c1e-4b9a-b756-fdfa137b6f85}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="ApolloServiceRole" solution="S2SApplicationRoles (1.0.0.134)" id="{99b7f9c4-5c1e-4b9a-b756-fdfa137b6f85}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine Application User" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{9f572d55-6090-493b-904a-3956bdc55343}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{9f572d55-6090-493b-904a-3956bdc55343}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -909,32 +912,32 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Dataverse Search Role" solution="S2SApplicationRoles (1.0.0.132)" id="{a0a59a4a-b5a8-4e6f-a094-a866573c17d4}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Dataverse Search Role" solution="S2SApplicationRoles (1.0.0.134)" id="{a0a59a4a-b5a8-4e6f-a094-a866573c17d4}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="CCI admin" solution="msdynce_CustomerCareIntelligenceBots (2026.6.3.21205269)" id="{a1801436-efd6-e811-a96e-000d3a3ab886}">
-          <package appName="CCI Bots" version="2026.6.3.21205269">msdynce_CustomerCareIntelligenceBots_Anchor (2026.6.3.21205269)</package>
+        <Required type="20" displayName="CCI admin" solution="msdynce_CustomerCareIntelligenceBots (2026.7.4.21345069)" id="{a1801436-efd6-e811-a96e-000d3a3ab886}">
+          <package appName="CCI Bots" version="2026.7.4.21345069">msdynce_CustomerCareIntelligenceBots_Anchor (2026.7.4.21345069)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="SuggestedActionS2SRole" solution="S2SApplicationRoles (1.0.0.132)" id="{a543aafd-bd67-463d-9ef6-721bb8e471b1}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="SuggestedActionS2SRole" solution="S2SApplicationRoles (1.0.0.134)" id="{a543aafd-bd67-463d-9ef6-721bb8e471b1}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Portal Application User" solution="S2SApplicationRoles (1.0.0.132)" id="{a75a6d67-1730-4298-8fc7-af7e93064fa1}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Portal Application User" solution="S2SApplicationRoles (1.0.0.134)" id="{a75a6d67-1730-4298-8fc7-af7e93064fa1}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Global Discovery Service Role" solution="S2SApplicationRoles (1.0.0.132)" id="{a855e539-7253-43d3-9ee5-43ea042b7823}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Global Discovery Service Role" solution="S2SApplicationRoles (1.0.0.134)" id="{a855e539-7253-43d3-9ee5-43ea042b7823}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -945,26 +948,26 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Data Sync Framework Role" solution="S2SApplicationRoles (1.0.0.132)" id="{b21a7144-299d-4c21-a116-30f60e9c159a}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Data Sync Framework Role" solution="S2SApplicationRoles (1.0.0.134)" id="{b21a7144-299d-4c21-a116-30f60e9c159a}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Insights Apps Platform Role" solution="S2SApplicationRoles (1.0.0.132)" id="{b8299fc3-f7a2-4655-a2d9-48ca2dec0346}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Insights Apps Platform Role" solution="S2SApplicationRoles (1.0.0.134)" id="{b8299fc3-f7a2-4655-a2d9-48ca2dec0346}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Approvals User" solution="msdyn_FlowApprovalsCore (2.2.16.0)" id="{b9b08637-acf6-e711-a95a-000d3a11f5ee}">
-          <package appName="msdyn_FlowApprovals" version="2.2.16.0">msdyn_FlowApprovals (2.2.16.0)</package>
+        <Required type="20" displayName="Approvals User" solution="msdyn_FlowApprovalsCore (2.2.17.0)" id="{b9b08637-acf6-e711-a95a-000d3a11f5ee}">
+          <package appName="msdyn_FlowApprovals" version="2.2.17.0">msdyn_FlowApprovals (2.2.17.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.26073.3007)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26073.3007">msdynce_KnowledgeManagementAnchor (9.0.26073.3007)</package>
+        <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.26083.3004)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26083.3004">msdynce_KnowledgeManagementAnchor (9.0.26083.3004)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -975,14 +978,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Report Service Role" solution="S2SApplicationRoles (1.0.0.132)" id="{c8f8c510-2421-4d63-965b-91a7e722d6a0}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Report Service Role" solution="S2SApplicationRoles (1.0.0.134)" id="{c8f8c510-2421-4d63-965b-91a7e722d6a0}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Deflection Service Role" solution="S2SApplicationRoles (1.0.0.132)" id="{c95980b3-97dc-4762-a037-c15fe02dae8c}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Deflection Service Role" solution="S2SApplicationRoles (1.0.0.134)" id="{c95980b3-97dc-4762-a037-c15fe02dae8c}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1017,26 +1020,26 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Power Apps Checker Service Role" solution="S2SApplicationRoles (1.0.0.132)" id="{d6b2bb0d-8b41-41ba-86ee-a0c6e5954b30}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Power Apps Checker Service Role" solution="S2SApplicationRoles (1.0.0.134)" id="{d6b2bb0d-8b41-41ba-86ee-a0c6e5954b30}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Fabric AI Skill Role" solution="msdyn_InsightsAppPlatform (1.0.3501.1)" id="{d6e926ad-4afc-42fb-97f1-6e50c2ef174e}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3501.1">InsightsAppPlatformApp_Anchor (1.0.3501.1)</package>
+        <Required type="20" displayName="Fabric AI Skill Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{d6e926ad-4afc-42fb-97f1-6e50c2ef174e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.26073.3007)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26073.3007">msdynce_KnowledgeManagementAnchor (9.0.26073.3007)</package>
+        <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.26083.3004)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26083.3004">msdynce_KnowledgeManagementAnchor (9.0.26083.3004)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Purview Label Role" solution="S2SApplicationRoles (1.0.0.132)" id="{df3185a3-3141-4361-fb29-6eaa33dd0169}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Purview Label Role" solution="S2SApplicationRoles (1.0.0.134)" id="{df3185a3-3141-4361-fb29-6eaa33dd0169}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1047,8 +1050,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Bot Author" solution="msdynce_CustomerCareIntelligenceBots (2026.6.3.21205269)" id="{e0d2794e-82f3-e811-a951-000d3a1bcf17}">
-          <package appName="CCI Bots" version="2026.6.3.21205269">msdynce_CustomerCareIntelligenceBots_Anchor (2026.6.3.21205269)</package>
+        <Required type="20" displayName="Bot Author" solution="msdynce_CustomerCareIntelligenceBots (2026.7.4.21345069)" id="{e0d2794e-82f3-e811-a951-000d3a1bcf17}">
+          <package appName="CCI Bots" version="2026.7.4.21345069">msdynce_CustomerCareIntelligenceBots_Anchor (2026.7.4.21345069)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1071,50 +1074,50 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Synapse Link Service Access" solution="msdyn_SynapseLink (1.0.7.17)" id="{eaeff5e8-8e5b-ec11-b1b6-0022487b9f36}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
+        <Required type="20" displayName="Synapse Link Service Access" solution="msdyn_SynapseLink (1.0.7.18)" id="{eaeff5e8-8e5b-ec11-b1b6-0022487b9f36}">
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.18">msdyn_SynapseLink (1.0.7.18)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="DataLakeWorkspaceAppAccess" solution="datalakeworkspaces (1.0.84.0)" id="{edfcbfd2-358f-ea11-a81f-000d3a6eafd3}">
-          <package appName="ManagedDataLakeApp Package" version="1.0.7.17">msdyn_SynapseLink (1.0.7.17)</package>
+          <package appName="ManagedDataLakeApp Package" version="1.0.7.18">msdyn_SynapseLink (1.0.7.18)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability BusinessUnit - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3501.1)" id="{ee0bc8b2-4bfe-ec11-82e5-0022482d500e}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3501.1">InsightsAppPlatformApp_Anchor (1.0.3501.1)</package>
+        <Required type="20" displayName="Sustainability BusinessUnit - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{ee0bc8b2-4bfe-ec11-82e5-0022482d500e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine User Can Share" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{ee18dcf2-6f83-4cd7-aa5c-1d8a88947d51}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine User Can Share" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{ee18dcf2-6f83-4cd7-aa5c-1d8a88947d51}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Runtime Application User" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{ee2c8e11-6d57-4c5d-9f84-659c0db132bb}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flows Runtime Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{ee2c8e11-6d57-4c5d-9f84-659c0db132bb}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Module Developer" solution="MicrosoftFlowExtensionsCore (1.10.13.0)" id="{ee7bc749-3dd6-45ac-b95d-a3031463380b}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.13.0">MicrosoftFlowExtensionsAnchor (1.10.13.0)</package>
+        <Required type="20" displayName="Desktop Flows Module Developer" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{ee7bc749-3dd6-45ac-b95d-a3031463380b}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Power Platform Dataflows Service Role" solution="S2SApplicationRoles (1.0.0.132)" id="{f2550a3a-f9c6-4409-bf77-8d4ceadb27ab}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Power Platform Dataflows Service Role" solution="S2SApplicationRoles (1.0.0.134)" id="{f2550a3a-f9c6-4409-bf77-8d4ceadb27ab}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="PowerPlatformInsightsRole" solution="S2SApplicationRoles (1.0.0.132)" id="{f2e9feb0-adc5-47e5-8dc1-d0e4529befe7}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="PowerPlatformInsightsRole" solution="S2SApplicationRoles (1.0.0.134)" id="{f2e9feb0-adc5-47e5-8dc1-d0e4529befe7}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1137,20 +1140,20 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Data Sync Service Role" solution="S2SApplicationRoles (1.0.0.132)" id="{fc3e65d9-450a-4301-933b-f9bcaee20521}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Data Sync Service Role" solution="S2SApplicationRoles (1.0.0.134)" id="{fc3e65d9-450a-4301-933b-f9bcaee20521}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Teams Chat Sync App Access" solution="S2SApplicationRoles (1.0.0.132)" id="{fe46802a-88ae-4c6d-b452-7a024d8c294e}">
-          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.29">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.29)</package>
+        <Required type="20" displayName="Teams Chat Sync App Access" solution="S2SApplicationRoles (1.0.0.134)" id="{fe46802a-88ae-4c6d-b452-7a024d8c294e}">
+          <package appName="Microsoft S2SCDSCoreApplication Package" version="1.0.1.31">MicrosoftS2SApplicationIdentitiesCoreTst (1.0.1.31)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Federated Knowledge Role" solution="msdyn_PowerAIExtensionsBase (1.1.3496.2)" id="{ffadce64-3542-4bf1-a83a-ac9941104680}">
-          <package appName="PowerAIExtensions Package" version="1.1.3496.2">PowerAIExtensions_Anchor (1.1.3496.2)</package>
+        <Required type="20" displayName="Federated Knowledge Role" solution="msdyn_PowerAIExtensionsBase (1.1.3531.1)" id="{ffadce64-3542-4bf1-a83a-ac9941104680}">
+          <package appName="PowerAIExtensions Package" version="1.1.3531.1">PowerAIExtensions_Anchor (1.1.3531.1)</package>
           <package appName="PowerAIExtensions Package" version="1.1.3407.3">msdyn_PowerAIExtensionsSC (1.1.3407.3)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
@@ -1181,61 +1184,61 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="account contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.26074.10001)" id="{449faa0e-f471-48ec-87d0-4719909546d2}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+        <Required type="60" displayName="Live Persona Card Form" parentDisplayName="Contact" solution="msdynce_AppCommonPatch201904 (9.0.26083.10001)" id="{449faa0e-f471-48ec-87d0-4719909546d2}">
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Quick Create" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Social Profiles" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{7bb87dfd-ec3e-4ed9-8e3e-5725d3067295}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Quick Form" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Reference Panel" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Recent Cases and Entitlements" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{f3b707fb-3b5f-45f9-9c6b-5e573bb5d19e}">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (2.2.3489.1)">
-          <package appName="PowerPlatformEnvironmentSettingsApp" version="2.2.3489.1">PowerPlatformEnvironmentSettingsApp_Anchor (2.2.3489.1)</package>
+        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (2.2.3503.2)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="2.2.3503.2">PowerPlatformEnvironmentSettingsApp_Anchor (2.2.3503.2)</package>
         </Required>
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="cc_MscrmControls.AppCommon.AppManagement.ApplicationManagementControl/ApplicationManagementControl.js" displayName="cc_MscrmControls.AppCommon.AppManagement.ApplicationManagementControl/ApplicationManagementControl.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package appName="msdynce_AppCommon" version="9.0.26074.10001">msdynce_AppCommonAnchor (9.0.26074.10001)</package>
+          <package appName="msdynce_AppCommon" version="9.0.26083.10001">msdynce_AppCommonAnchor (9.0.26083.10001)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
@@ -1272,14 +1275,14 @@
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2607.4005)">
-          <package appName="Base Custom Controls" version="9.0.2607.4005">BaseCustomControlsCore (9.0.2607.4005)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2608.3006)">
+          <package appName="Base Custom Controls" version="9.0.2608.3006">BaseCustomControlsCore (9.0.2608.3006)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2607.4005)">
-          <package appName="Base Custom Controls" version="9.0.2607.4005">BaseCustomControlsCore (9.0.2607.4005)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2608.3006)">
+          <package appName="Base Custom Controls" version="9.0.2608.3006">BaseCustomControlsCore (9.0.2608.3006)</package>
         </Required>
         <Dependent type="68" id="{0ccc4cd6-c969-4486-b426-bf8b19402e53}" />
       </MissingDependency>
@@ -1343,6 +1346,12 @@
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.CopilotClientApi!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.CopilotClientApi!1" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="appactionrule" displayName="msdyn_Mscrm.DeleteSelectedEntityPermission!1" solution="msdyn_SystemAppActions (9.1.0.57)" id.uniquename="msdyn_Mscrm.DeleteSelectedEntityPermission!1">
+          <package appName="PowerAppsActions Package" version="9.1.0.57">PowerAppsActions_Anchor (9.1.0.57)</package>
+        </Required>
+        <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__Mscrm.SubGrid.%7B!EntityLogicalName%7D.Delete!gap_DEMO!gap_application!2,appactionruleid.uniquename=msdyn_Mscrm.DeleteSelectedEntityPermission!1" id.appactionid.uniquename="gap__Mscrm.SubGrid.{!EntityLogicalName}.Delete!gap_DEMO!gap_application!2" id.appactionruleid.uniquename="msdyn_Mscrm.DeleteSelectedEntityPermission!1" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
@@ -1382,6 +1391,36 @@
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.IsAppCopilotEnabled!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="appactionrule" displayName="msdyn_Mscrm.IsEntityAvailableForUserInMocaOffline!0" solution="msdyn_SystemAppActions (9.1.0.57)" id.uniquename="msdyn_Mscrm.IsEntityAvailableForUserInMocaOffline!0">
+          <package appName="PowerAppsActions Package" version="9.1.0.57">PowerAppsActions_Anchor (9.1.0.57)</package>
+        </Required>
+        <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__Mscrm.SubGrid.%7B!EntityLogicalName%7D.Delete!gap_DEMO!gap_application!2,appactionruleid.uniquename=msdyn_Mscrm.IsEntityAvailableForUserInMocaOffline!0" id.appactionid.uniquename="gap__Mscrm.SubGrid.{!EntityLogicalName}.Delete!gap_DEMO!gap_application!2" id.appactionruleid.uniquename="msdyn_Mscrm.IsEntityAvailableForUserInMocaOffline!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="appactionrule" displayName="msdyn_Mscrm.NotShowForManyToManyGrids!1" solution="msdyn_SystemAppActions (9.1.0.57)" id.uniquename="msdyn_Mscrm.NotShowForManyToManyGrids!1">
+          <package appName="PowerAppsActions Package" version="9.1.0.57">PowerAppsActions_Anchor (9.1.0.57)</package>
+        </Required>
+        <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__Mscrm.SubGrid.%7B!EntityLogicalName%7D.Delete!gap_DEMO!gap_application!2,appactionruleid.uniquename=msdyn_Mscrm.NotShowForManyToManyGrids!1" id.appactionid.uniquename="gap__Mscrm.SubGrid.{!EntityLogicalName}.Delete!gap_DEMO!gap_application!2" id.appactionruleid.uniquename="msdyn_Mscrm.NotShowForManyToManyGrids!1" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="appactionrule" displayName="msdyn_Mscrm.SelectionCountAtLeastOne!0" solution="msdyn_SystemAppActions (9.1.0.57)" id.uniquename="msdyn_Mscrm.SelectionCountAtLeastOne!0">
+          <package appName="PowerAppsActions Package" version="9.1.0.57">PowerAppsActions_Anchor (9.1.0.57)</package>
+        </Required>
+        <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__Mscrm.SubGrid.%7B!EntityLogicalName%7D.Delete!gap_DEMO!gap_application!2,appactionruleid.uniquename=msdyn_Mscrm.SelectionCountAtLeastOne!0" id.appactionid.uniquename="gap__Mscrm.SubGrid.{!EntityLogicalName}.Delete!gap_DEMO!gap_application!2" id.appactionruleid.uniquename="msdyn_Mscrm.SelectionCountAtLeastOne!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="appactionrule" displayName="msdyn_Mscrm.ShowOnlyInOutlookExplorerOrInspector!0" solution="msdyn_SystemAppActions (9.1.0.57)" id.uniquename="msdyn_Mscrm.ShowOnlyInOutlookExplorerOrInspector!0">
+          <package appName="PowerAppsActions Package" version="9.1.0.57">PowerAppsActions_Anchor (9.1.0.57)</package>
+        </Required>
+        <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__Mscrm.HomepageGrid.%7B!EntityLogicalName%7D.RefreshButton!gap_DEMO!gap_application!1,appactionruleid.uniquename=msdyn_Mscrm.ShowOnlyInOutlookExplorerOrInspector!0" id.appactionid.uniquename="gap__Mscrm.HomepageGrid.{!EntityLogicalName}.RefreshButton!gap_DEMO!gap_application!1" id.appactionruleid.uniquename="msdyn_Mscrm.ShowOnlyInOutlookExplorerOrInspector!0" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="appactionrule" displayName="msdyn_Mscrm.VisualizationPaneNotMaximized!0" solution="msdyn_SystemAppActions (9.1.0.57)" id.uniquename="msdyn_Mscrm.VisualizationPaneNotMaximized!0">
+          <package appName="PowerAppsActions Package" version="9.1.0.57">PowerAppsActions_Anchor (9.1.0.57)</package>
+        </Required>
+        <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__Mscrm.SubGrid.%7B!EntityLogicalName%7D.Delete!gap_DEMO!gap_application!2,appactionruleid.uniquename=msdyn_Mscrm.VisualizationPaneNotMaximized!0" id.appactionid.uniquename="gap__Mscrm.SubGrid.{!EntityLogicalName}.Delete!gap_DEMO!gap_application!2" id.appactionruleid.uniquename="msdyn_Mscrm.VisualizationPaneNotMaximized!0" />
       </MissingDependency>
       <MissingDependency>
         <Required type="EnvironmentVariableDefinition" displayName="gap_DVLAEndpointURL" solution="Active" id.schemaname="gap_DVLAEndpointURL" />

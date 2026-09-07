@@ -1,0 +1,41 @@
+<appaction uniquename="gap__Delete!3974f2778954418b89bb961e3154ebe8!gap_DEMO!gap_application!0">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Trigger full Application Deletion">
+    <label description="Trigger full Application Deletion" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Delete">
+    <label description="Delete" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="This Triggers the Application deletion flow by setting the Current stage to DELETION which results in all Application records to be sequentially deleted.">
+    <label description="This Triggers the Application deletion flow by setting the Current stage to DELETION which results in all Application records to be sequentially deleted." languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Trigger full Application Deletion">
+    <label description="Trigger full Application Deletion" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Delete</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>Delete!3974f2778954418b89bb961e3154ebe8</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>a742dddb3a2343478517dea8311f1e9b</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100105043.5000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilitytype>0</visibilitytype>
+</appaction>

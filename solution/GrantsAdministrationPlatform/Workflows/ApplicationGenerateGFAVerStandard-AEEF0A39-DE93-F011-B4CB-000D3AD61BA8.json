@@ -2,7 +2,6 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps-1": {
-        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "gap_Dataverse"
@@ -25,13 +24,13 @@
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$authentication": {
-          "defaultValue": {},
-          "type": "SecureObject"
-        },
         "$connections": {
           "defaultValue": {},
           "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
         }
       },
       "triggers": {
@@ -41,17 +40,16 @@
           },
           "type": "OpenApiConnectionWebhook",
           "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "gap_application",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "gap_populategfatemplateon",
-              "subscriptionRequest/name": "aeef0a39-de93-f011-b4cb-000d3ad61ba8:MTA"
-            },
-            "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-              "connectionName": "shared_commondataserviceforapps-1",
-              "operationId": "SubscribeWebhookTrigger"
+              "subscriptionRequest/filteringattributes": "gap_populategfatemplateon"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -96,21 +94,22 @@
         "Error_Handling": {
           "actions": {
             "Create_Error_Note": {
+              "runAfter": {},
               "metadata": {
                 "operationMetadataId": "15c1da55-291f-4b69-964b-250772455840"
               },
               "type": "OpenApiConnection",
               "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps-1",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
                 "parameters": {
                   "entityName": "annotations",
                   "item/subject": "FAIL: Generating GFA",
                   "item/notetext": "Generating a GFA has failed. Please check the Scheme has a GFA Template configuration assigned, and application contains responses. Else, contact an administrator.",
                   "item/objectid_gap_application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})"
-                },
-                "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                  "connectionName": "shared_commondataserviceforapps-1",
-                  "operationId": "CreateRecord"
                 },
                 "authentication": "@parameters('$authentication')"
               }
@@ -133,19 +132,20 @@
             "Data_Init": {
               "actions": {
                 "Get_Applicant_Information": {
+                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "77cea032-464c-4d17-838a-ac071703e0e0"
                   },
                   "type": "OpenApiConnection",
                   "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
                     "parameters": {
                       "entityName": "contacts",
                       "recordId": "@triggerOutputs()?['body/_gap_applicant_value']"
-                    },
-                    "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps-1",
-                      "operationId": "GetItem"
                     },
                     "authentication": "@parameters('$authentication')"
                   }
@@ -161,14 +161,14 @@
                   },
                   "type": "OpenApiConnection",
                   "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
                     "parameters": {
                       "entityName": "accounts",
                       "recordId": "@triggerOutputs()?['body/_gap_organization_value']"
-                    },
-                    "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps-1",
-                      "operationId": "GetItem"
                     },
                     "authentication": "@parameters('$authentication')"
                   }
@@ -184,14 +184,14 @@
                   },
                   "type": "OpenApiConnection",
                   "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
                     "parameters": {
                       "entityName": "gap_schemes",
                       "recordId": "@triggerOutputs()?['body/_gap_scheme_value']"
-                    },
-                    "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps-1",
-                      "operationId": "GetItem"
                     },
                     "authentication": "@parameters('$authentication')"
                   }
@@ -207,19 +207,20 @@
                   },
                   "type": "OpenApiConnection",
                   "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
                     "parameters": {
                       "entityName": "gap_gfaschemetemplates",
                       "recordId": "@outputs('Get_Scheme')?['body/_gap_gfatemplateconfiguration_value']"
-                    },
-                    "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps-1",
-                      "operationId": "GetItem"
                     },
                     "authentication": "@parameters('$authentication')"
                   }
                 }
               },
+              "runAfter": {},
               "metadata": {
                 "operationMetadataId": "ff06b919-edc3-4fa0-801a-cd7178918a9b"
               },
@@ -228,20 +229,21 @@
             "Retrieve_required_data": {
               "actions": {
                 "Get_Applicant_Responses": {
+                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "835fee20-e6c3-4707-bde3-6bd07bc241f7"
                   },
                   "type": "OpenApiConnection",
                   "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "PerformBoundAction",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
                     "parameters": {
                       "entityName": "gap_applications",
                       "actionName": "Microsoft.Dynamics.CRM.gap_ReformatApplicantResponses",
                       "recordId": "@triggerOutputs()?['body/gap_applicationid']"
-                    },
-                    "host": {
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                      "connectionName": "shared_commondataserviceforapps-1",
-                      "operationId": "PerformBoundAction"
                     },
                     "authentication": "@parameters('$authentication')"
                   }
@@ -249,6 +251,7 @@
                 "Extract_Question_Data": {
                   "actions": {
                     "Lead_Contact": {
+                      "runAfter": {},
                       "metadata": {
                         "operationMetadataId": "da790b0b-a07d-49e8-8e7f-eeefc15023f7"
                       },
@@ -448,15 +451,15 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
                           "entityName": "gap_documents",
                           "item/gap_title": "Populated GFA for @{outputs('Get_Applicant_Information')?['body/fullname']}",
                           "item/cr982_Application@odata.bind": "applications(@{triggerOutputs()?['body/gap_applicationid']})"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps-1",
-                          "operationId": "CreateRecord"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -472,28 +475,34 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "UpdateEntityFileImageFieldContent",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
-                          "x-ms-file-name": "@{utcNow()} Populated Template for @{outputs('Get_Applicant_Information')?['body/fullname']}.docx",
                           "entityName": "gap_documents",
                           "recordId": "@outputs('Add_a_new_row')?['body/gap_documentid']",
                           "fileImageFieldName": "gap_documentupload",
-                          "item": "@body('Populate_Short_Form')"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps-1",
-                          "operationId": "UpdateEntityFileImageFieldContent"
+                          "item": "@body('Populate_Short_Form')",
+                          "x-ms-file-name": "@{utcNow()} Populated Template for @{outputs('Get_Applicant_Information')?['body/fullname']}.docx"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
                     },
                     "Populate_Short_Form": {
+                      "runAfter": {},
                       "metadata": {
                         "01UOVQJHRZGF6P3ARCIBFZ76FQJC3WUOCK": "/GFA Templates/Short Form Content Control Final.docx",
                         "operationMetadataId": "33b0221f-76af-4f8f-892d-de920c3ab95f"
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_wordonlinebusiness-1",
+                          "operationId": "CreateFileItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_wordonlinebusiness"
+                        },
                         "parameters": {
                           "source": "sites/govgrantsmanagedservice.sharepoint.com,62ec62da-f265-428c-88e5-b9501eb3d766,2a304166-f11e-47a1-b63d-506da8e4815d",
                           "drive": "b!2mLsYmXyjEKI5blQHrPXZmZBMCoe8aFHtj1QbajkgV3d0ZgxOgwVT5Dj6CZvLVg8",
@@ -539,11 +548,6 @@
                           "dynamicFileSchema/-587616698": "@outputs('Get_Organization')?['body/address1_postalcode']",
                           "dynamicFileSchema/-906302779": "@outputs('Applicant_Responses_Object')"
                         },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_wordonlinebusiness",
-                          "connectionName": "shared_wordonlinebusiness-1",
-                          "operationId": "CreateFileItem"
-                        },
                         "authentication": "@parameters('$authentication')"
                       }
                     }
@@ -563,15 +567,15 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
                           "entityName": "gap_documents",
                           "item/gap_title": "Populated Grant Offer Letter for @{outputs('Get_Applicant_Information')?['body/fullname']}",
                           "item/cr982_Application@odata.bind": "applications(@{triggerOutputs()?['body/gap_applicationid']})"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps-1",
-                          "operationId": "CreateRecord"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -587,17 +591,17 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "UpdateEntityFileImageFieldContent",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
-                          "x-ms-file-name": "@{outputs('Get_Organization')?['body/name']} - @{formatDateTime(utcNow(), 'dd-MM-yy HH:MM')} - GRANT LETTER.docx",
                           "entityName": "gap_documents",
                           "recordId": "@outputs('Create_Long_Document')?['body/gap_documentid']",
                           "fileImageFieldName": "gap_documentupload",
-                          "item": "@body('Populate_Long_Form_2')"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps-1",
-                          "operationId": "UpdateEntityFileImageFieldContent"
+                          "item": "@body('Populate_Long_Form_2')",
+                          "x-ms-file-name": "@{outputs('Get_Organization')?['body/name']} - @{formatDateTime(utcNow(), 'dd-MM-yy HH:MM')} - GRANT LETTER.docx"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -613,15 +617,15 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
                           "entityName": "gap_documents",
                           "item/gap_title": "Grant Application for @{outputs('Get_Applicant_Information')?['body/fullname']}",
                           "item/cr982_Application@odata.bind": "applications(@{triggerOutputs()?['body/gap_applicationid']})"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps-1",
-                          "operationId": "CreateRecord"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -637,22 +641,23 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "UpdateEntityFileImageFieldContent",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
                         "parameters": {
-                          "x-ms-file-name": "@{outputs('Get_Organization')?['body/name']} - @{formatDateTime(utcNow(), 'dd-MM-yy HH:MM')} - Schedule B .docx",
                           "entityName": "gap_documents",
                           "recordId": "@outputs('Add_a_new_row_2')?['body/gap_documentid']",
                           "fileImageFieldName": "gap_documentupload",
-                          "item": "@body('Create_Grant_Application_2')"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-                          "connectionName": "shared_commondataserviceforapps-1",
-                          "operationId": "UpdateEntityFileImageFieldContent"
+                          "item": "@body('Create_Grant_Application_2')",
+                          "x-ms-file-name": "@{outputs('Get_Organization')?['body/name']} - @{formatDateTime(utcNow(), 'dd-MM-yy HH:MM')} - Schedule B .docx"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
                     },
                     "Populate_Long_Form_2": {
+                      "runAfter": {},
                       "metadata": {
                         "01UOVQJHVDNL6VQRUPUBHK7UYCG4AWD6RA": "/GFA Templates/Grant Funding Letter Content Control.docx",
                         "operationMetadataId": "9147267d-d41d-4c8d-ae4a-9411c6443762",
@@ -660,6 +665,11 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_wordonlinebusiness-1",
+                          "operationId": "CreateFileItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_wordonlinebusiness"
+                        },
                         "parameters": {
                           "source": "groups/c29aecea-3d71-40d2-90f7-0aeebb7ebc69",
                           "drive": "b!2mLsYmXyjEKI5blQHrPXZmZBMCoe8aFHtj1QbajkgV3d0ZgxOgwVT5Dj6CZvLVg8",
@@ -671,16 +681,16 @@
                           "dynamicFileSchema/703521992": "@outputs('Get_GFA_Config')?['body/gap_financialstartyear']",
                           "dynamicFileSchema/782854639": "@outputs('Get_Scheme')?['body/gap_title']",
                           "dynamicFileSchema/861245424": "@outputs('Get_GFA_Config')?['body/gap_departmentsignatoryname']",
-                          "dynamicFileSchema/910968401": "@toUpper(outputs('Get_Organization')?['body/name'])",
+                          "dynamicFileSchema/910968401": "@toUpper(\r\n    coalesce(\r\n        outputs('Get_Organization')?['body/name'],\r\n        ''\r\n    )\r\n)",
                           "dynamicFileSchema/1082714971": "@outputs('Get_GFA_Config')?['body/gap_fundedactivitieschangedaysnotice']",
                           "dynamicFileSchema/1094912698": "@outputs('Get_GFA_Config')?['body/gap_departmentsignatorytitle']",
                           "dynamicFileSchema/1111013295": "@variables('ResponsesExtracts')?[0]",
                           "dynamicFileSchema/1134985566": "@outputs('Get_GFA_Config')?['body/gap_authorityname']",
                           "dynamicFileSchema/1144551896": "@if(empty(outputs('Get_GFA_Config')?['body/gap_secretaryofstatename']),'',concat(outputs('Get_GFA_Config')?['body/gap_secretaryofstatename'],', '))",
                           "dynamicFileSchema/1305890825": "@if(equals(outputs('Get_GFA_Config')?['body/gap_majorassetvalue'],0), 'N/A Please Remove', concat('Major Asset means an Asset being used for the Funded Activities which is not a Fixed Asset but has a value as at the date of this Grant Funding Agreement of at least £', outputs('Get_GFA_Config')?['body/gap_majorassetvalue']))",
-                          "dynamicFileSchema/1465087125": "@formatDateTime(outputs('Get_GFA_Config')?['body/gap_fundingenddate'], 'dd MMMM yyyy')",
+                          "dynamicFileSchema/1465087125": "@if(\r\n    empty(outputs('Get_GFA_Config')?['body/gap_fundingenddate']),\r\n    '',\r\n    formatDateTime(\r\n        outputs('Get_GFA_Config')?['body/gap_fundingenddate'],\r\n        'dd MMMM yyyy'\r\n    )\r\n)",
                           "dynamicFileSchema/1565366397": "@outputs('Get_GFA_Config')?['body/gap_financialendyear']",
-                          "dynamicFileSchema/1742296560": "@toUpper(outputs('Get_GFA_Config')?['body/gap_authorityname'])",
+                          "dynamicFileSchema/1742296560": "@toUpper(\r\n    coalesce(\r\n        outputs('Get_GFA_Config')?['body/gap_authorityname'],\r\n        ''\r\n    )\r\n)",
                           "dynamicFileSchema/1842352835": "N/A Please Remove",
                           "dynamicFileSchema/1918281994": "@{outputs('Get_GFA_Config')?['body/gap_futurecorrespondencename']}, @{outputs('Get_GFA_Config')?['body/gap_futurecorrespondenceaddress']}",
                           "dynamicFileSchema/1929075012": "@{outputs('Get_Organization')?['body/address1_line1']}, @{if(empty(outputs('Get_Organization')?['body/address1_line2']), null, concat(outputs('Get_Organization')?['body/address1_line2'], ', '))}@{outputs('Get_Organization')?['body/address1_city']}, @{outputs('Get_Organization')?['body/address1_postalcode']}",
@@ -693,19 +703,14 @@
                           "dynamicFileSchema/-226292822": "@outputs('Get_Scheme')?['body/gap_title']",
                           "dynamicFileSchema/-1397821338": "@outputs('Get_Scheme')?['body/gap_title']",
                           "dynamicFileSchema/-1785720821": "@outputs('Get_GFA_Config')?['body/gap_departmentsignatoryname']",
-                          "dynamicFileSchema/-59871596": "@toUpper(outputs('Get_GFA_Config')?['body/gap_authorityaddress'])",
+                          "dynamicFileSchema/-59871596": "@toUpper(\r\n    coalesce(\r\n        outputs('Get_GFA_Config')?['body/gap_authorityaddress'],\r\n        ''\r\n    )\r\n)",
                           "dynamicFileSchema/-484251098": "@variables('ResponsesExtracts')?[4]",
-                          "dynamicFileSchema/-1691367651": "@formatDateTime(outputs('Get_GFA_Config')?['body/gap_fundingstartdate'], 'dd MMMM yyyy')",
-                          "dynamicFileSchema/-1748171990": "@formatDateTime(outputs('Get_GFA_Config')?['body/gap_fundedactivitiesstartdate'], 'dd MMMM yyyy')",
+                          "dynamicFileSchema/-1691367651": "@if(\r\n    empty(outputs('Get_GFA_Config')?['body/gap_fundingstartdate']),\r\n    '',\r\n    formatDateTime(\r\n        outputs('Get_GFA_Config')?['body/gap_fundingstartdate'],\r\n        'dd MMMM yyyy'\r\n    )\r\n)",
+                          "dynamicFileSchema/-1748171990": "@if(\r\n    empty(outputs('Get_GFA_Config')?['body/gap_fundedactivitiesstartdate']),\r\n    '',\r\n    formatDateTime(\r\n        outputs('Get_GFA_Config')?['body/gap_fundedactivitiesstartdate'],\r\n        'dd MMMM yyyy'\r\n    )\r\n)",
                           "dynamicFileSchema/-2106728686": "@if(outputs('Get_GFA_Config')?['body/gap_clause35provisionofevidence'], 'The Grant Recipient will provide the Authority with evidence [of the costs/payments, which are classified as Eligible Expenditure in section 4 of Schedule A , which may include (but will not be limited to) receipts and invoices or any other documentary evidence specified by the Authority].', 'N/A Please Remove')",
                           "dynamicFileSchema/-1134564743": "@outputs('Get_GFA_Config')?['body/gap_authorityname']",
-                          "dynamicFileSchema/-2070105999": "@formatDateTime(outputs('Get_GFA_Config')?['body/gap_departmentsignatorydate'], 'dd MMMM yyyy')",
+                          "dynamicFileSchema/-2070105999": "@if(\r\n    empty(outputs('Get_GFA_Config')?['body/gap_departmentsignatorydate']),\r\n    '',\r\n    formatDateTime(\r\n        outputs('Get_GFA_Config')?['body/gap_departmentsignatorydate'],\r\n        'dd MMMM yyyy'\r\n    )\r\n)",
                           "dynamicFileSchema/-232933060": "@variables('ResponsesExtracts')?[0]"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_wordonlinebusiness",
-                          "connectionName": "shared_wordonlinebusiness-1",
-                          "operationId": "CreateFileItem"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -722,6 +727,11 @@
                       },
                       "type": "OpenApiConnection",
                       "inputs": {
+                        "host": {
+                          "connectionName": "shared_wordonlinebusiness-1",
+                          "operationId": "CreateFileItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_wordonlinebusiness"
+                        },
                         "parameters": {
                           "source": "sites/govgrantsmanagedservice.sharepoint.com,62ec62da-f265-428c-88e5-b9501eb3d766,2a304166-f11e-47a1-b63d-506da8e4815d",
                           "drive": "b!2mLsYmXyjEKI5blQHrPXZmZBMCoe8aFHtj1QbajkgV3d0ZgxOgwVT5Dj6CZvLVg8",
@@ -746,11 +756,6 @@
                           "dynamicFileSchema/-814489464": "@outputs('Get_Applicant_Information')?['body/address1_county']",
                           "dynamicFileSchema/-587616698": "@outputs('Get_Organization')?['body/address1_postalcode']",
                           "dynamicFileSchema/-906302779": "@outputs('Applicant_Responses_Object')"
-                        },
-                        "host": {
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_wordonlinebusiness",
-                          "connectionName": "shared_wordonlinebusiness-1",
-                          "operationId": "CreateFileItem"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -780,7 +785,7 @@
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

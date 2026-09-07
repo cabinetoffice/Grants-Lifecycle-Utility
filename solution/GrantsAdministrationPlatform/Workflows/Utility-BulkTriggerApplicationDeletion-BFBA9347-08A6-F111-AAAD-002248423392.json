@@ -1,0 +1,363 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "62b950a3-c102-41d4-a86d-5b1c63e543bc"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "boolean": {
+                  "title": "TestRun",
+                  "type": "boolean",
+                  "x-ms-dynamically-added": true,
+                  "description": "Yes",
+                  "x-ms-content-hint": "BOOLEAN"
+                },
+                "boolean_1": {
+                  "title": "List Of IDs",
+                  "type": "boolean",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please select yes or no",
+                  "x-ms-content-hint": "BOOLEAN"
+                }
+              },
+              "required": [
+                "boolean",
+                "boolean_1"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "List_Applications": {
+          "runAfter": {
+            "If_using_List_of_IDs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "40f75e73-97bd-406c-9c99-87ab02a0feb4"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "fetchXml": "<fetch version=\"1.0\" output-format=\"xml-platform\" mapping=\"logical\" distinct=\"false\">\n  <entity name=\"gap_application\">\n    <attribute name=\"gap_applicationid\" />\n    <attribute name=\"gap_id\" />\n    <attribute name=\"createdon\" />\n    <attribute name=\"gap_gapid\" />\n    <attribute name=\"gap_googledrivefolderid\" />\n\n    <order attribute=\"gap_id\" descending=\"false\" />\n\n    <filter type=\"or\">\n\n      <filter type=\"and\">\n        <condition\n          attribute=\"gap_googledrivefolderid\"\n          operator=\"null\"\n        />\n        <condition\n          attribute=\"gap_gapid\"\n          operator=\"not-null\"\n        />\n        <condition\n          attribute=\"gap_id\"\n          operator=\"not-like\"\n          value=\"%Connect Fund%\"\n        />\n      </filter>\n\n      <filter type=\"and\">\n        <condition\n          attribute=\"createdon\"\n          operator=\"on-or-after\"\n          value=\"2026-08-28T08:46:00Z\"\n        />\n        <condition\n          attribute=\"createdon\"\n          operator=\"on-or-before\"\n          value=\"2026-09-01T11:54:00Z\"\n        />\n      </filter>\n\n    </filter>\n  </entity>\n</fetch>"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Compose": {
+          "runAfter": {
+            "List_Applications": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8db24ce4-8e77-4aee-96f5-62f9e72319ce"
+          },
+          "type": "Compose",
+          "inputs": "@length(outputs('List_Applications')?['body/value'])"
+        },
+        "If_Not_Test_Run": {
+          "actions": {
+            "Trigger_Delete_Applications": {
+              "foreach": "@outputs('List_Applications')?['body/value']",
+              "actions": {
+                "Update_a_row": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "121ea22e-a180-4eb8-843e-71f3700dda6c"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@items('Trigger_Delete_Applications')?['gap_applicationid']",
+                      "item/gap_currentstage": "TODELETE"
+                    },
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
+                  }
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "82acba56-2fdc-4d74-b3e7-eb953aae28f8"
+              },
+              "type": "Foreach",
+              "runtimeConfiguration": {
+                "concurrency": {
+                  "repetitions": 5
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@equals(\r\n    triggerBody()?['TestRun'],\r\n    false\r\n)",
+              "@true"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1f7758de-0b2f-47fd-a5ab-cb04f92f2d22"
+          },
+          "type": "If"
+        },
+        "Initialize_variable": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "a4025583-049b-415a-ad5b-4ba25fe6d309"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FetchXMLValues",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "If_using_List_of_IDs": {
+          "actions": {
+            "build_fetch_xml": {
+              "actions": {
+                "GAP_IDs": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "fc1bb0bc-205c-4916-b0f6-371fdc4fa1bd"
+                  },
+                  "type": "Compose",
+                  "inputs": [
+                    "GAP-PRD-202608280820-286281-47365",
+                    "GAP-PRD-202608280820-286281-47365",
+                    "GAP-PRD-202608280820-286281-47365",
+                    "GAP-PRD-202608280820-286281-47365",
+                    "GAP-PRD-202608280826-286282-122543",
+                    "GAP-PRD-202608280744-286276-121044",
+                    "GAP-PRD-202608280810-286280-122542",
+                    "GAP-PRD-202608280614-286266-122529",
+                    "GAP-PRD-202608272246-286258-117340",
+                    "GAP-PRD-202608261234-285767-122144",
+                    "GAP-PRD-202608261234-285767-122144",
+                    "GAP-PRD-202608261234-285767-122144",
+                    "GAP-PRD-20250910-225881-37420",
+                    "GAP-PRD-20250910-225917-60418",
+                    "GAP-PRD-20250909-225620-55042",
+                    "GAP-PRD-202608272138-286249-122503",
+                    "GAP-PRD-202608262034-285937-118788",
+                    "GAP-PRD-202608272023-286236-90021",
+                    "GAP-PRD-20250910-225894-55797",
+                    "GAP-PRD-202608272013-286234-119102",
+                    "GAP-PRD-202607282136-277787-114240",
+                    "GAP-PRD-202608271959-286233-120469",
+                    "GAP-PRD-202608271919-286224-121999",
+                    "GAP-PRD-202608271744-286201-119121",
+                    "GAP-PRD-202608271729-286195-122460",
+                    "GAP-PRD-202608271800-286207-121493",
+                    "GAP-PRD-202607151341-273268-112255",
+                    "GAP-PRD-202608271741-286199-104778",
+                    "GAP-PRD-202608271656-286185-122455",
+                    "GAP-PRD-202608271336-286119-122401",
+                    "GAP-PRD-202608271753-286206-122453",
+                    "GAP-PRD-202608271646-286184-122453",
+                    "GAP-PRD-202608271604-286175-121252",
+                    "GAP-PRD-202608271539-286168-119514",
+                    "GAP-PRD-202608271627-286179-118379",
+                    "GAP-PRD-202608271511-286155-122434",
+                    "GAP-PRD-202608271531-286165-100492",
+                    "GAP-PRD-202608271458-286152-89638",
+                    "GAP-PRD-202608271518-286157-122085",
+                    "GAP-PRD-202608271424-286142-122422",
+                    "GAP-PRD-202608271410-286137-122416",
+                    "GAP-PRD-202608271413-286138-121588",
+                    "GAP-PRD-202608271339-286124-122404",
+                    "GAP-PRD-202608271356-286131-118671",
+                    "GAP-PRD-202608271347-286127-102779",
+                    "GAP-PRD-202608271427-286143-120117",
+                    "GAP-PRD-202608271328-286115-122397",
+                    "GAP-PRD-202608271256-286109-117821",
+                    "GAP-PRD-202608271243-286101-119791",
+                    "GAP-PRD-202608271146-286079-90480",
+                    "GAP-PRD-202608271453-286149-119727",
+                    "GAP-PRD-202608271154-286084-105261",
+                    "GAP-PRD-202608271147-286079-119454",
+                    "GAP-PRD-202608271145-286078-115301",
+                    "GAP-PRD-202608271137-286073-122369",
+                    "GAP-PRD-202608271142-286075-118639",
+                    "GAP-PRD-202608271112-286063-121218",
+                    "GAP-PRD-202608271151-286082-122371",
+                    "GAP-PRD-202608271119-286066-94752",
+                    "GAP-PRD-202608271131-286070-122366",
+                    "GAP-PRD-202608271059-286060-122357",
+                    "GAP-PRD-202608271103-286061-119010",
+                    "GAP-PRD-202608271023-286045-118743",
+                    "GAP-PRD-202608271005-286034-122341",
+                    "GAP-PRD-202608261503-285831-108568",
+                    "GAP-PRD-202608271008-286036-122195",
+                    "GAP-PRD-202607261857-276908-114970",
+                    "GAP-PRD-202608270928-286021-122332",
+                    "GAP-PRD-202608270928-286021-107637",
+                    "GAP-PRD-20250909-225550-61588",
+                    "GAP-PRD-202608271016-286041-118962",
+                    "GAP-PRD-202608270942-286025-121231",
+                    "GAP-PRD-202608270919-286016-120625",
+                    "GAP-PRD-202608270912-286013-122322",
+                    "GAP-PRD-202608270858-286003-121019",
+                    "GAP-PRD-202608271010-286039-113184",
+                    "GAP-PRD-202608270913-286014-107949",
+                    "GAP-PRD-202608270827-285989-121356",
+                    "GAP-PRD-202608270812-285983-118099",
+                    "GAP-PRD-202608270807-285981-87001",
+                    "GAP-PRD-202608270825-285986-121199",
+                    "GAP-PRD-202608270747-285974-118624",
+                    "GAP-PRD-202608270739-285972-119239",
+                    "GAP-PRD-202608270750-285975-118069",
+                    "GAP-PRD-202608270718-285968-119309",
+                    "GAP-PRD-202608270646-285962-120909",
+                    "GAP-PRD-202608262020-285932-122263",
+                    "GAP-PRD-202608271547-286171-122029",
+                    "GAP-PRD-202608261953-285927-122256",
+                    "GAP-PRD-202608261924-285920-122251",
+                    "GAP-PRD-202608261721-285889-94107",
+                    "GAP-PRD-202608261728-285893-98419",
+                    "GAP-PRD-202608261425-285818-122177",
+                    "GAP-PRD-202608271733-286197-122450",
+                    "GAP-PRD-202608261440-285822-120520",
+                    "GAP-PRD-202608271015-286041-95251",
+                    "GAP-PRD-202608271007-286035-121994",
+                    "GAP-PRD-202608271335-286118-121976",
+                    "GAP-PRD-202608251551-285545-121965",
+                    "GAP-PRD-202608270842-285998-94890"
+                  ]
+                },
+                "Unique_GAP_IDs": {
+                  "runAfter": {
+                    "GAP_IDs": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "b5eaa42f-c433-4378-8ece-a1fc64b076e5"
+                  },
+                  "type": "Compose",
+                  "inputs": "@union(\r\n    outputs('GAP_IDs'),\r\n    outputs('GAP_IDs')\r\n)"
+                },
+                "Build_FetchXML_Values": {
+                  "foreach": "@outputs('Unique_GAP_IDs')",
+                  "actions": {
+                    "Append_to_string_variable": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "a2b3f93c-3127-43f8-9b3e-7235eb194946"
+                      },
+                      "type": "AppendToStringVariable",
+                      "inputs": {
+                        "name": "FetchXMLValues",
+                        "value": "@concat(\r\n    '<value>',\r\n    item(),\r\n    '</value>'\r\n)"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Unique_GAP_IDs": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a4ed3f86-16df-4049-8860-3ecbb83ba7c2"
+                  },
+                  "type": "Foreach"
+                },
+                "FetchXML": {
+                  "runAfter": {
+                    "Build_FetchXML_Values": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "ebf920e4-bdfe-43d7-891e-d5f082fc932b"
+                  },
+                  "type": "Compose",
+                  "inputs": "@concat(\r\n    '<fetch>',\r\n        '<entity name=\"gap_application\">',\r\n            '<attribute name=\"gap_applicationid\" />',\r\n            '<attribute name=\"gap_gapid\" />',\r\n            '<attribute name=\"gap_googledrivefolderid\" />',\r\n            '<attribute name=\"createdon\" />',\r\n            '<filter type=\"or\">',\r\n                '<filter type=\"and\">',\r\n                    '<condition attribute=\"gap_gapid\" operator=\"in\">',\r\n                        variables('FetchXMLValues'),\r\n                    '</condition>',\r\n                    '<condition attribute=\"gap_googledrivefolderid\" operator=\"null\" />',\r\n                '</filter>',\r\n                '<condition attribute=\"createdon\" operator=\"on-or-after\" value=\"2026-08-28T08:46:00Z\" />',\r\n            '</filter>',\r\n        '</entity>',\r\n    '</fetch>'\r\n)"
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "2543923d-176f-4cb3-b0fb-08cba4f00e6d"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@equals(\r\n    triggerBody()?['List Of IDs'],\r\n    true\r\n)",
+              true
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d1bc1778-5c57-461d-b4ee-415cf844c13d"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

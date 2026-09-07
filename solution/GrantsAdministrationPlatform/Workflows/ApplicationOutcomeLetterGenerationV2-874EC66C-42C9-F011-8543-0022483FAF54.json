@@ -325,7 +325,7 @@
                           "recordId": "@triggerOutputs()?['body/gap_applicationid']",
                           "item/gap_outcomelettergeneratedon": "@utcNow()",
                           "item/gap_outcomelettergenerationerror": "Generation in Progress",
-                          "item/gap_OutcomeLetterTemplate@odata.bind": "@outputs('Get_Scheme')?['body/_gap_outcomeletterawardedtemplate_value']"
+                          "item/gap_OutcomeLetterTemplate@odata.bind": "@concat(\r\n    'gap_documents(',\r\n    outputs('Get_Scheme')?['body/_gap_outcomeletterawardedtemplate_value'],\r\n    ')'\r\n)"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
@@ -374,7 +374,7 @@
                                 "recordId": "@triggerOutputs()?['body/gap_applicationid']",
                                 "item/gap_outcomelettergeneratedon": "@utcNow()",
                                 "item/gap_outcomelettergenerationerror": "Generation in Progress",
-                                "item/gap_OutcomeLetterTemplate@odata.bind": "@outputs('Get_Scheme')?['body/_gap_outcomeletterrefusedtemplate_value']"
+                                "item/gap_OutcomeLetterTemplate@odata.bind": "@concat(\n    'gap_documents(',\n    outputs('Get_Scheme')?['body/_gap_outcomeletterrefusedtemplate_value'],\n    ')'\n)"
                               },
                               "authentication": "@parameters('$authentication')"
                             }
@@ -398,7 +398,7 @@
                     "runAfter": {},
                     "expression": {
                       "equals": [
-                        "@outputs('Dataverse_|_Update_Application')?['body/gap_departmentdecision']",
+                        "@triggerOutputs()?['body/gap_departmentdecision']",
                         803260000
                       ]
                     },
@@ -411,7 +411,7 @@
               },
               "expression": {
                 "equals": [
-                  "@outputs('Dataverse_|_Update_Application')?['body/gap_departmentdecision']",
+                  "@triggerOutputs()?['body/gap_departmentdecision']",
                   803260001
                 ]
               },

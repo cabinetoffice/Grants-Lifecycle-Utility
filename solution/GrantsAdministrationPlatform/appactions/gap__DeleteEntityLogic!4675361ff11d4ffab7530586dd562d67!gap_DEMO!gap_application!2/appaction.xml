@@ -1,0 +1,46 @@
+<appaction uniquename="gap__DeleteEntityLogic!4675361ff11d4ffab7530586dd562d67!gap_DEMO!gap_application!2">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Delete">
+    <label description="Delete" languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Delete {EntityLogicalNameMarker}">
+    <label description="Delete {EntityLogicalNameMarker}" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="Queue these {EntityLogicalNameCollectionMarker} for DELETION. This action cannot be undone.">
+    <label description="Queue these {EntityLogicalNameCollectionMarker} for DELETION. This action cannot be undone." languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Delete {EntityLogicalNameMarker}">
+    <label description="Delete {EntityLogicalNameMarker}" languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Delete</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>2</location>
+  <name>DeleteEntityLogic!4675361ff11d4ffab7530586dd562d67</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>235b63ae156a4b4ba0b5d93f1be500f3</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100105048.5000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>235b63ae156a4b4ba0b5d93f1be500f3</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
+</appaction>

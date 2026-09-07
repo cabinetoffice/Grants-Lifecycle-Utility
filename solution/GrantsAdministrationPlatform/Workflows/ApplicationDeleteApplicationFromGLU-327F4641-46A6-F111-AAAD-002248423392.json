@@ -1,0 +1,1228 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_googledrive_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_GoogleDrive"
+        },
+        "api": {
+          "name": "shared_googledrive"
+        }
+      },
+      "shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_GoogleDriveAPIConnectionRef"
+        },
+        "api": {
+          "name": "shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d",
+          "logicalName": "gap_5Fgoogle-20drive-20api"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_modified": {
+          "metadata": {
+            "operationMetadataId": "e1b9d908-cb28-4bed-8a62-06b25da9038f"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_application",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_currentstage,gap_initializedstage",
+              "subscriptionRequest/filterexpression": "gap_currentstage eq 'DELETION' and gap_initializedstage ne 'DELETION'"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_|_Checklist_Sections": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ede4436f-28af-4029-921a-217f751b1b00"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Checklist Sections",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_|_Existing_Sections": {
+          "runAfter": {
+            "Initialize_variable_|_SubjectiveChecklistSections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "556da017-f9b7-4368-b2c1-bd99cea9cfd8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Existing Sections",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Try": {
+          "actions": {
+            "Condition_|_Is_there_an_objective_checklist": {
+              "actions": {
+                "Update_Application_to_remove_Objective_Checklist": {
+                  "runAfter": {
+                    "Try_get_Objective_Checklist": [
+                      "Succeeded",
+                      "Failed"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5138959f-3c2f-46b8-8b85-61aa4e525040"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_ObjectiveScoringChecklist@odata.bind": "@null"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Try_get_Objective_Checklist": {
+                  "actions": {
+                    "Get_Objective_Scoring_Checklist": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "baa8f213-92d7-47e5-b9df-965aebe21394"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "GetItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklists",
+                          "recordId": "@triggerOutputs()?['body/_gap_objectivescoringchecklist_value']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "List_Objective_Sections": {
+                      "runAfter": {
+                        "Get_Objective_Scoring_Checklist": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "6a22fb7a-507e-49d8-b3f9-8ad02f54f96a"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklistsections",
+                          "$filter": "_gap_checklist_value eq @{outputs('Get_Objective_Scoring_Checklist')?['body/gap_scoringchecklistid']}"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Apply_to_each_3": {
+                      "foreach": "@outputs('List_Objective_Sections')?['body/value']",
+                      "actions": {
+                        "Append_to_Checklist_Sections": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "af671f9a-eb4a-45d0-bc26-c6143b1018f0"
+                          },
+                          "type": "AppendToArrayVariable",
+                          "inputs": {
+                            "name": "Checklist Sections",
+                            "value": {
+                              "Name": "@items('Apply_to_each_3')?['gap_scoringchecklistsectionname']",
+                              "GUID": "@items('Apply_to_each_3')?['gap_scoringchecklistsectionid']"
+                            }
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "List_Objective_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "5c5465e1-b916-4ffe-8f97-11131655dd74"
+                      },
+                      "type": "Foreach"
+                    },
+                    "Select_Checklist_Section_Name_with_GUID": {
+                      "runAfter": {
+                        "Apply_to_each_3": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "d70ad6f0-4129-4569-9b0d-2a6a3c927100"
+                      },
+                      "type": "Select",
+                      "inputs": {
+                        "from": "@variables('Checklist Sections')",
+                        "select": {
+                          "Name": "@toLower(trim(coalesce(item()?['Name'], '')))",
+                          "GUID": "@item()?['GUID']"
+                        }
+                      }
+                    },
+                    "Condition_|_Existing_Sections": {
+                      "actions": {
+                        "Apply_to_each_8": {
+                          "foreach": "@variables('Existing Sections')",
+                          "actions": {
+                            "List_Scoring_Checklist_Questions": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "3889107d-70f7-445f-8492-2b572976e7c8"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps_1",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_scoringchecklistquestions",
+                                  "$filter": "_gap_section_value eq @{replace(replace(items('Apply_to_each_8')?['ChecklistGUID'], '{', ''), '}', '')} and _gap_application_value eq @{triggerOutputs()?['body/gap_id']}"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Select_Scoring_Checklist_Questions_with_GUID": {
+                              "runAfter": {
+                                "Get_SectionGUID_2": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "0b60f09c-bda1-4117-85f3-5bce7806fddc"
+                              },
+                              "type": "Select",
+                              "inputs": {
+                                "from": "@body('List_Scoring_Checklist_Questions')?['value']",
+                                "select": {
+                                  "Name": "@toLower(trim(coalesce(item()?['gap_title'], '')))",
+                                  "GUID": "@item()?['gap_scoringchecklistquestionid']"
+                                }
+                              }
+                            },
+                            "Delete_Questions": {
+                              "foreach": "@body('Select_Scoring_Checklist_Questions_with_GUID')",
+                              "actions": {
+                                "Delete_Checklist_Question": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "6907d747-fac8-4f21-93c6-c739aaf189b3"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps_1",
+                                      "operationId": "DeleteRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_scoringchecklistquestions",
+                                      "recordId": "@items('Delete_Questions')?['GUID']"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                }
+                              },
+                              "runAfter": {
+                                "Select_Scoring_Checklist_Questions_with_GUID": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "9cd3f83d-fc16-44a2-add0-f3b5cbaa27a9"
+                              },
+                              "type": "Foreach"
+                            },
+                            "Delete_Section": {
+                              "runAfter": {
+                                "Delete_Questions": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "9f119005-362f-4be5-93bd-dd253779bfda"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps_1",
+                                  "operationId": "DeleteRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "Scoring Checklist Sections",
+                                  "recordId": "@outputs('Get_SectionGUID_2')"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Get_SectionGUID_2": {
+                              "runAfter": {
+                                "List_Scoring_Checklist_Questions": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "acdfb909-41ce-4e4f-9777-6d5aa76dfa24"
+                              },
+                              "type": "Compose",
+                              "inputs": "@replace(replace(items('Apply_to_each_8')?['ChecklistGUID'], '{', ''), '}', '')"
+                            }
+                          },
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "8c2f1e9e-3040-4b2a-8c58-1a020a418f77"
+                          },
+                          "type": "Foreach"
+                        }
+                      },
+                      "runAfter": {
+                        "Select_Checklist_Section_Name_with_GUID": [
+                          "Succeeded"
+                        ]
+                      },
+                      "expression": {
+                        "greaterOrEquals": [
+                          "@length(variables('Existing Sections'))",
+                          1
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "5360b8bd-eddf-4856-bb79-30e16b9e9f03"
+                      },
+                      "type": "If"
+                    },
+                    "Delete_Objective_Checklist": {
+                      "runAfter": {
+                        "Condition_|_Existing_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "d6db5203-2418-4a19-813e-c8be8d078c76"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "DeleteRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklists",
+                          "recordId": "@outputs('Get_Objective_Scoring_Checklist')?['body/gap_scoringchecklistid']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "368daf52-d497-4be8-84e1-0e81d1a241df"
+                  },
+                  "type": "Scope"
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@outputs('Get_Application')?['body/_gap_objectivescoringchecklist_value']",
+                    "@null"
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "da411a59-0c57-410e-baea-0f24c8ad3c6a"
+              },
+              "type": "If"
+            },
+            "Condition_|_Is_there_a_Subjective_checklist": {
+              "actions": {
+                "Condition_|_Existing_Subjective_Sections": {
+                  "actions": {
+                    "Apply_to_each_2": {
+                      "foreach": "@variables('ExistingSubjectiveSections')",
+                      "actions": {
+                        "Select_Scoring_Checklist_Questions_with_GUID_2": {
+                          "runAfter": {
+                            "List_Scoring_Checklist_Questions_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "0b60f09c-bda1-4117-85f3-5bce7806fddc"
+                          },
+                          "type": "Select",
+                          "inputs": {
+                            "from": "@body('List_Scoring_Checklist_Questions')?['value']",
+                            "select": {
+                              "Name": "@{toLower(trim(coalesce(item()?['gap_title'], '')))}",
+                              "GUID": "@item()?['gap_scoringchecklistquestionid']"
+                            }
+                          }
+                        },
+                        "Delete_Questions_2": {
+                          "foreach": "@item()",
+                          "actions": {
+                            "Delete_Checklist_Question_2": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "6907d747-fac8-4f21-93c6-c739aaf189b3"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps_1",
+                                  "operationId": "DeleteRecord",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_scoringchecklistquestions",
+                                  "recordId": "@items('Delete_Questions_2')?['GUID']"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Select_Scoring_Checklist_Questions_with_GUID_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "9cd3f83d-fc16-44a2-add0-f3b5cbaa27a9"
+                          },
+                          "type": "Foreach"
+                        },
+                        "Delete_Subjective_Section": {
+                          "runAfter": {
+                            "Delete_Questions_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "aa016ae2-98ae-4ba4-a79c-1b2bd50f132b"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "DeleteRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistsections",
+                              "recordId": "@outputs('Get_SectionGUID')"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Get_SectionGUID": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "56dceb6d-0a30-46c7-90d0-7bdf7ac3f988"
+                          },
+                          "type": "Compose",
+                          "inputs": "@replace(replace(items('Apply_to_each_2')?['ChecklistGUID'], '{', ''), '}', '')"
+                        },
+                        "List_Scoring_Checklist_Questions_2": {
+                          "runAfter": {
+                            "Get_SectionGUID": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "3889107d-70f7-445f-8492-2b572976e7c8"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "ListRecords",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_scoringchecklistquestions",
+                              "$filter": "_gap_section_value eq @{outputs('Get_SectionGUID')} and _gap_application_value eq @{outputs('Get_SectionGUID')}"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "dd081e55-bfd6-4815-aab8-fde5655e23af"
+                      },
+                      "type": "Foreach"
+                    }
+                  },
+                  "runAfter": {
+                    "Update_Application_to_Remove_Subjective_Checklist": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "greaterOrEquals": [
+                      "@length(variables('ExistingSubjectiveSections'))",
+                      1
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6d2cb6b4-ce3c-4065-9aa3-cd37488fbfbe"
+                  },
+                  "type": "If"
+                },
+                "Try_Get_Subjective_Checklst": {
+                  "actions": {
+                    "Get_Subjective_Scoring_Checklist": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "baa8f213-92d7-47e5-b9df-965aebe21394"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "GetItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklists",
+                          "recordId": "@triggerOutputs()?['body/_gap_subjectivescoringchecklist_value']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "List_Subjective_Sections": {
+                      "runAfter": {
+                        "Get_Subjective_Scoring_Checklist": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "6a22fb7a-507e-49d8-b3f9-8ad02f54f96a"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklistsections",
+                          "$filter": "_gap_checklist_value eq @{ outputs('Get_Subjective_Scoring_Checklist')?['body/gap_scoringchecklistid']}"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Apply_to_each": {
+                      "foreach": "@outputs('List_Subjective_Sections')?['body/value']",
+                      "actions": {
+                        "Append_to_Checklist_Sections_2": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "af671f9a-eb4a-45d0-bc26-c6143b1018f0"
+                          },
+                          "type": "AppendToArrayVariable",
+                          "inputs": {
+                            "name": "SubjectiveChecklistSections",
+                            "value": {
+                              "Name": "@items('Apply_to_each')?['gap_scoringchecklistsectionname']",
+                              "GUID": "@items('Apply_to_each')?['gap_scoringchecklistsectionid']"
+                            }
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "List_Subjective_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "5c5465e1-b916-4ffe-8f97-11131655dd74"
+                      },
+                      "type": "Foreach"
+                    },
+                    "Select_Subj_Checklist_Section_Name_with_GUID": {
+                      "runAfter": {
+                        "Apply_to_each": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "d9da29eb-7242-4ad2-8ee2-5d82d1d7a21b"
+                      },
+                      "type": "Select",
+                      "inputs": {
+                        "from": "@variables('SubjectiveChecklistSections')",
+                        "select": {
+                          "Name": "@toLower(trim(coalesce(item()?['Name'], '')))",
+                          "GUID": "@item()?['GUID']"
+                        }
+                      }
+                    },
+                    "Delete_Subjective_Checklist": {
+                      "runAfter": {
+                        "Select_Subj_Checklist_Section_Name_with_GUID": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "5779ef32-a0c0-4cfa-b7f4-f013c2291153"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "DeleteRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_scoringchecklists",
+                          "recordId": "@outputs('Get_Subjective_Scoring_Checklist')?['body/gap_scoringchecklistid']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "469a6491-6824-4a32-be68-e01098359bb3"
+                  },
+                  "type": "Scope"
+                },
+                "Update_Application_to_Remove_Subjective_Checklist": {
+                  "runAfter": {
+                    "Try_Get_Subjective_Checklst": [
+                      "Succeeded",
+                      "Failed"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "5f2149de-11a6-4431-a9bb-4858871e863d"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_SubjectiveScoringChecklist@odata.bind": "@null"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Condition_|_Is_there_an_objective_checklist": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@outputs('Get_Application')?['body/_gap_subjectivescoringchecklist_value']",
+                    "@null"
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "a453031e-9d53-4eba-9693-d310afd1ac67"
+              },
+              "type": "If"
+            },
+            "Condition_|_If_Google_Folder_exists": {
+              "actions": {
+                "List_Documents": {
+                  "runAfter": {
+                    "Update_Application_to_remove_Google_Folder_ID": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "39c1bf21-f30c-49a7-803c-ef4d233b4bc4"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_documents",
+                      "$filter": "_cr982_application_value eq @{outputs('Application_GUID')}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Apply_to_each_4": {
+                  "foreach": "@outputs('List_Documents')?['body/value']",
+                  "actions": {
+                    "Delete_Document_row": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "4e213a93-da4b-4dea-88da-e39e9b0f7fe8"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "DeleteRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_documents",
+                          "recordId": "@items('Apply_to_each_4')?['gap_documentid']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "If_files_need_deleting_from_Google": {
+                      "actions": {
+                        "Delete_file": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "5c5d25c5-ee95-4723-919c-f0a0a7b0b650"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_googledrive_1",
+                              "operationId": "DeleteFile",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
+                            },
+                            "parameters": {
+                              "id": "@items('Apply_to_each_4')?['gap_fileid']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Delete_Document_row": [
+                          "Succeeded"
+                        ]
+                      },
+                      "expression": {
+                        "equals": [
+                          "@variables('FilesNeedDeleting')",
+                          "@true"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "c26ae010-38d3-4d28-9790-7e7ca1fed4fe"
+                      },
+                      "type": "If"
+                    }
+                  },
+                  "runAfter": {
+                    "List_Documents": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "a54e13ab-096c-42ac-910b-9c5b0a33e831"
+                  },
+                  "type": "Foreach"
+                },
+                "Try_delete_Google_Folder": {
+                  "actions": {
+                    "Create_Folder_in_Google_Drive": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "c715d7dc-26d8-4616-9b6e-4a4a8af0be5d"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d",
+                          "operationId": "CreateFolder",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d"
+                        },
+                        "parameters": {
+                          "body/name": "DELETE",
+                          "body/mimeType": "application/vnd.google-apps.folder",
+                          "body/parents": [
+                            "@triggerOutputs()?['body/gap_googledrivefolderid']"
+                          ],
+                          "supportsAllDrives": true,
+                          "fields": "id,name,mimeType,parents"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Safely_Delete_a_Folder_from_Google_Drive": {
+                      "runAfter": {
+                        "Create_Folder_in_Google_Drive": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "45c98631-5b07-4628-9610-f7497bf5f10d"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d",
+                          "operationId": "DeleteFolder",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d"
+                        },
+                        "parameters": {
+                          "fileId": "@triggerOutputs()?['body/gap_googledrivefolderid']",
+                          "supportsAllDrives": true
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "1b1701ce-fd9d-44d0-a9bb-cfd957456074"
+                  },
+                  "type": "Scope"
+                },
+                "Update_Application_to_remove_Google_Folder_ID": {
+                  "runAfter": {
+                    "If_Delete_Fails_Configure_Individual_files_to_be_deleted_from_Google": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "70683099-6fe5-4875-8a9c-41115ff9de9c"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_applications",
+                      "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+                      "item/gap_googledrivefolderid": "@null"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "If_Delete_Fails_Configure_Individual_files_to_be_deleted_from_Google": {
+                  "actions": {
+                    "Set_Files_to_be_deleted_to_True": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "377b487e-0621-44d9-96dd-63fb6fde09d0"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "FilesNeedDeleting",
+                        "value": "@true"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Try_delete_Google_Folder": [
+                      "Failed",
+                      "Skipped",
+                      "TimedOut"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "4a2adf3e-3387-464e-9ed7-af0ef4bee612"
+                  },
+                  "type": "Scope"
+                }
+              },
+              "runAfter": {
+                "Delete_Responses": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@triggerOutputs()?['body/gap_googledrivefolderid']",
+                    "@null"
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "9bc0bd60-d73f-455b-ae19-ab13f05ad98b"
+              },
+              "type": "If"
+            },
+            "Delete_Responses": {
+              "actions": {
+                "List_Application_Responses": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "c0dd1b82-92d2-41e6-a7bf-e5088f695506"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_responses",
+                      "$filter": "_gap_application_value eq @{outputs('Application_GUID')}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Delete_Each_Response": {
+                  "foreach": "@outputs('List_Application_Responses')?['body/value']",
+                  "actions": {
+                    "Delete_Response": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "2950575f-d472-40cc-91d3-2e6d8236a49f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "DeleteRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_responses",
+                          "recordId": "@items('Delete_Each_Response')?['gap_responseid']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_Application_Responses": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "7e8709e6-ada1-4887-bd79-907177944dc5"
+                  },
+                  "type": "Foreach"
+                },
+                "List_Application_Response_Sections": {
+                  "runAfter": {
+                    "Delete_Each_Response": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "ed2cace6-9a96-4aa1-a4a4-2a40209ce1bc"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_sections",
+                      "$filter": "_gap_application_value eq @{outputs('Application_GUID')}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Delete_Each_Section": {
+                  "foreach": "@outputs('List_Application_Response_Sections')?['body/value']",
+                  "actions": {
+                    "Delete_Response_Section": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "29799be3-19f8-4b83-b428-de6aa8552134"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "DeleteRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_sections",
+                          "recordId": "@items('Delete_Each_Section')?['gap_sectionid']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_Application_Response_Sections": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "26af0c09-e5f3-43b4-84c0-39ec5f5d5a36"
+                  },
+                  "type": "Foreach"
+                }
+              },
+              "runAfter": {
+                "Condition_|_Is_there_a_Subjective_checklist": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1da0dff2-785a-47c1-81f4-5d1e1cf36124"
+              },
+              "type": "Scope"
+            },
+            "Update_Application_to_complete_Deletion": {
+              "runAfter": {
+                "Condition_|_If_Google_Folder_exists": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "826414e5-155a-4e57-83ee-c68f9c2cfffb"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "UpdateOnlyRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@outputs('Application_GUID')",
+                  "item/gap_currentstage": "DELETION COMPLETE"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Application": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6e8fc73f-e6a2-4e64-a73c-2aac9b5c1956"
+          },
+          "type": "Scope"
+        },
+        "Initialize_variable_|_ExistingSubjectiveSections": {
+          "runAfter": {
+            "Initialize_variable_|_Existing_Sections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "57ef58e6-1b9b-4013-8382-849ff265471a"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ExistingSubjectiveSections",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_|_SubjectiveChecklistSections": {
+          "runAfter": {
+            "Initialize_variable_|_Checklist_Sections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ede4436f-28af-4029-921a-217f751b1b00"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SubjectiveChecklistSections",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Application_GUID": {
+          "runAfter": {
+            "Initialize_FilesNeedDeleting": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d8e6a703-3a07-47c8-9b04-5eed9122a66f"
+          },
+          "type": "Compose",
+          "inputs": "@triggerOutputs()?['body/gap_applicationid']"
+        },
+        "Initialize_DeletionSummary": {
+          "runAfter": {
+            "Initialize_variable_|_ExistingSubjectiveSections": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "136e4b15-6900-4f87-a26f-d23e091aef74"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DeletionSummary",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Get_Application": {
+          "runAfter": {
+            "Update_Application_to_be_initialised": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b038a4a8-447a-428a-a230-73e415be7bc2"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "recordId": "@outputs('Application_GUID')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_FilesNeedDeleting": {
+          "runAfter": {
+            "Initialize_DeletionSummary": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "62bbfcf7-64df-4641-91b1-44b9b2b4943c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FilesNeedDeleting",
+                "type": "boolean",
+                "value": "@false"
+              }
+            ]
+          }
+        },
+        "Update_Application_to_be_initialised": {
+          "runAfter": {
+            "Application_GUID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "50a552d4-9e22-4f79-81b8-1c20468015e0"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateOnlyRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "recordId": "@triggerOutputs()?['body/gap_applicationid']",
+              "item/gap_initializedstage": "DELETION"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

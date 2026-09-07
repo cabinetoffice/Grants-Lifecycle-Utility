@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Connector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <connectorid>a40a84b2-24f9-4860-b063-63338714ea84</connectorid>
+  <description>Custom connector used by GLU to create, rename and delete folders directly within Google Drive. This is required because the standard Power Automate Google Drive connector does not expose native Create Folder or Delete Folder operations.</description>
+  <displayname>Google Drive API</displayname>
+  <iconbrandcolor>#007ee5</iconbrandcolor>
+  <name>gap_5Fgoogle-20drive-20api</name>
+  <connectortype>1</connectortype>
+  <scriptoperations>["DeleteFolder"]</scriptoperations>
+  <openapidefinition>/Connector/gap_5Fgoogle-20drive-20api_openapidefinition.json</openapidefinition>
+  <connectionparameters>/Connector/gap_5Fgoogle-20drive-20api_connectionparameters.json</connectionparameters>
+  <policytemplateinstances>/Connector/gap_5Fgoogle-20drive-20api_policytemplateinstances.json</policytemplateinstances>
+  <customcodeblobcontent>/Connector/gap_5Fgoogle-20drive-20api_customcodeblobcontent.csx</customcodeblobcontent>
+  <iconblob>/Connector/gap_5Fgoogle-20drive-20api_iconblob.Png</iconblob>
+</Connector>

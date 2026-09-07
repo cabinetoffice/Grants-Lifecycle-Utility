@@ -1,0 +1,41 @@
+<appaction uniquename="gap__FullAppDeletion!5ef3fb68973f4faea09c0c1c71812b84!gap_DEMO!gap_application!1">
+  <appmoduleid>
+    <uniquename>gap_DEMO</uniquename>
+  </appmoduleid>
+  <buttonaccessibilitytext default="Trigger full Deletion of all selected Applications and related documents or records ">
+    <label description="Trigger full Deletion of all selected Applications and related documents or records " languagecode="1033" />
+  </buttonaccessibilitytext>
+  <buttonlabeltext default="Full App Deletion">
+    <label description="Full App Deletion" languagecode="1033" />
+  </buttonlabeltext>
+  <buttontooltipdescription default="This Triggers the selected Application(s) deletion flow by setting the Current stage to DELETION which results in all related Application records and documents to be sequentially deleted. This action cannot be un-done.">
+    <label description="This Triggers the selected Application(s) deletion flow by setting the Current stage to DELETION which results in all related Application records and documents to be sequentially deleted. This action cannot be un-done." languagecode="1033" />
+  </buttontooltipdescription>
+  <buttontooltiptitle default="Trigger full Deletion of all selected Applications and related documents or records ">
+    <label description="Trigger full Deletion of all selected Applications and related documents or records " languagecode="1033" />
+  </buttontooltiptitle>
+  <context>1</context>
+  <contextentity>
+    <logicalname>gap_application</logicalname>
+  </contextentity>
+  <contextvalue>gap_application</contextvalue>
+  <fonticon>$clientsvg:Delete</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>1</location>
+  <name>FullAppDeletion!5ef3fb68973f4faea09c0c1c71812b84</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>341ecb367b13443c9c7a967c3f2a4579</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>1000100046.2500000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilitytype>0</visibilitytype>
+</appaction>

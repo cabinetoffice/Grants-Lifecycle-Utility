@@ -18,6 +18,16 @@
         "api": {
           "name": "shared_googledrive"
         }
+      },
+      "shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_GoogleDriveAPIConnectionRef"
+        },
+        "api": {
+          "name": "shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d",
+          "logicalName": "gap_5Fgoogle-20drive-20api"
+        }
       }
     },
     "definition": {
@@ -375,7 +385,7 @@
             },
             "Get_Folder": {
               "runAfter": {
-                "Create_Dummy_File": [
+                "Create_Folder_in_Google_Drive": [
                   "Succeeded"
                 ]
               },
@@ -391,30 +401,6 @@
                 },
                 "parameters": {
                   "id": "@outputs('Get_Scheme')?['body/gap_googledrivefolderid']"
-                },
-                "authentication": "@parameters('$authentication')"
-              }
-            },
-            "Create_Dummy_File": {
-              "runAfter": {
-                "Condition_3": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "6d4820d6-c6ee-4a91-abc9-10ffb54e42b5"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_googledrive-1",
-                  "operationId": "CreateFile",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
-                },
-                "parameters": {
-                  "folderPath": "@{body('Google_Drive_Root_Configuration')?['path']}@{outputs('Get_Scheme')?['body/gap_googledrivefolderpath']}/@{outputs('Name')}",
-                  "name": "@{rand(0,99)}-README.txt",
-                  "body": "@body('Get_Dummy_File')"
                 },
                 "authentication": "@parameters('$authentication')"
               }
@@ -576,6 +562,30 @@
                       "message": "Scheme @{outputs('Get_Scheme')?['body/gap_title']} has no Google Drive folder available"
                     }
                   }
+                },
+                "Create_Dummy_File": {
+                  "runAfter": {
+                    "Terminate_2": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6d4820d6-c6ee-4a91-abc9-10ffb54e42b5"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_googledrive-1",
+                      "operationId": "CreateFile",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
+                    },
+                    "parameters": {
+                      "folderPath": "@{body('Google_Drive_Root_Configuration')?['path']}@{outputs('Get_Scheme')?['body/gap_googledrivefolderpath']}/@{outputs('Name')}",
+                      "name": "@{rand(0,99)}-README.txt",
+                      "body": "@body('Get_Dummy_File')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
                 }
               },
               "runAfter": {
@@ -603,6 +613,34 @@
                 "operationMetadataId": "69288d7b-241b-44e0-860c-4d09c608208c"
               },
               "type": "If"
+            },
+            "Create_Folder_in_Google_Drive": {
+              "runAfter": {
+                "Condition_3": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "02910143-8c63-463e-a065-1eda040eb1b8"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d",
+                  "operationId": "CreateFolder",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_gap-5fgoogle-20drive-20api-5fd78db9986efe513d"
+                },
+                "parameters": {
+                  "body/name": "@outputs('Name')",
+                  "body/mimeType": "application/vnd.google-apps.folder",
+                  "body/parents": [
+                    "@outputs('Get_Scheme')?['body/gap_googledrivefolderid']"
+                  ],
+                  "supportsAllDrives": true,
+                  "fields": "id,name,mimeType,parents"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
             }
           },
           "runAfter": {
