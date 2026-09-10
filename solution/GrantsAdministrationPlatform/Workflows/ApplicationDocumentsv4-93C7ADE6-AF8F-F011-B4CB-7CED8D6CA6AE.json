@@ -118,92 +118,145 @@
                     "uri": "@items('Apply_to_each')?['gap_answer']"
                   }
                 },
-                "Extract_Name": {
+                "Condition_3": {
+                  "actions": {
+                    "Update_Error_Message_2": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "eced18db-af29-44da-a2a2-e3633945aef7"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "Error Message",
+                        "value": "The file with the name @{first(\r\n  split(\r\n    last(\r\n      split(\r\n        items('Apply_to_each')?['gap_answer'],\r\n        '/'\r\n      )\r\n    ),\r\n    '?'\r\n  )\r\n)}exceeds our limit of 50MiB and cannot be uploaded to our document storage.\nGUID of response: \n@{items('Apply_to_each')?['gap_responseid']}"
+                      }
+                    },
+                    "Add_Custom_Error_Message_3": {
+                      "runAfter": {
+                        "Update_Error_Message_2": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "b61715e4-7116-4fde-ad54-4eed45f4696b"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "annotations",
+                          "item/subject": "An error occurred.",
+                          "item/notetext": "@variables('Error Message')",
+                          "item/objectid_gap_application@odata.bind": "gap_applications(@{outputs('Get_Latest_Application')?['body/gap_applicationid']})"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
                   "runAfter": {
                     "HTTP": [
                       "Succeeded"
                     ]
                   },
-                  "metadata": {
-                    "operationMetadataId": "d9eff7e7-88c8-4d09-94e7-4ac772328f1e"
+                  "else": {
+                    "actions": {
+                      "Extract_Name": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "d9eff7e7-88c8-4d09-94e7-4ac772328f1e"
+                        },
+                        "type": "Compose",
+                        "inputs": "@{formatNumber(rand(0,99999),'00000')}-@{decodeUriComponent(substring(split(replace(items('Apply_to_each')?['gap_answer'], 'https://', ''), '/')[4], 0, indexOf(split(replace(items('Apply_to_each')?['gap_answer'], 'https://', ''), '/')[4], '?')))}"
+                      },
+                      "Create_file_(V2)": {
+                        "runAfter": {
+                          "Extract_Name": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "9d72b1a8-4ec0-44e2-8072-282eaa35976f"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_googledrive-1",
+                            "operationId": "CreateFileV2",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
+                          },
+                          "parameters": {
+                            "folderId": "@outputs('Get_Latest_Application')?['body/gap_googledrivefolderid']",
+                            "name": "@outputs('Extract_Name')",
+                            "body": "@body('HTTP')"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      },
+                      "Create_Document": {
+                        "runAfter": {
+                          "Create_file_(V2)": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "feced792-330e-47e2-b53c-8384988efde9"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps_1",
+                            "operationId": "CreateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "gap_documents",
+                            "item/gap_title": "@outputs('Extract_Name')",
+                            "item/cr982_Application@odata.bind": "gap_applications(@{outputs('Get_Latest_Application')?['body/gap_applicationid']})"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      },
+                      "Update_Responses": {
+                        "runAfter": {
+                          "Create_Document": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "0a32917b-d457-4bf5-a3d8-d44bc00370dc"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps_1",
+                            "operationId": "UpdateOnlyRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "gap_responses",
+                            "recordId": "@items('Apply_to_each')?['gap_responseid']",
+                            "item/gap_Document@odata.bind": "gap_documents(@{outputs('Create_Document')?['body/gap_documentid']})"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
                   },
-                  "type": "Compose",
-                  "inputs": "@{formatNumber(rand(0,99999),'00000')}-@{decodeUriComponent(substring(split(replace(items('Apply_to_each')?['gap_answer'], 'https://', ''), '/')[4], 0, indexOf(split(replace(items('Apply_to_each')?['gap_answer'], 'https://', ''), '/')[4], '?')))}"
-                },
-                "Create_Document_File": {
-                  "runAfter": {
-                    "Extract_Name": [
-                      "Succeeded"
+                  "expression": {
+                    "equals": [
+                      "@greater(\r\n  int(outputs('HTTP')?['headers']?['Content-Length']),\r\n  52428800\r\n)",
+                      "@true"
                     ]
                   },
                   "metadata": {
-                    "operationMetadataId": "0a60f108-e676-4a1c-aed7-d97c284d45af"
+                    "operationMetadataId": "69288d7b-241b-44e0-860c-4d09c608208c"
                   },
-                  "type": "OpenApiConnection",
-                  "inputs": {
-                    "host": {
-                      "connectionName": "shared_googledrive-1",
-                      "operationId": "CreateFile",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_googledrive"
-                    },
-                    "parameters": {
-                      "folderPath": "@{body('Google_Drive_Root_Configuration')?['path']}@{outputs('Get_Scheme')?['body/gap_googledrivefolderpath']}@{outputs('Get_Latest_Application')?['body/gap_googledrivefolderpath']}",
-                      "name": "@outputs('Extract_Name')",
-                      "body": "@body('HTTP')"
-                    },
-                    "authentication": "@parameters('$authentication')"
-                  }
-                },
-                "Create_Document": {
-                  "runAfter": {
-                    "Create_Document_File": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "feced792-330e-47e2-b53c-8384988efde9"
-                  },
-                  "type": "OpenApiConnection",
-                  "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "CreateRecord",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
-                    "parameters": {
-                      "entityName": "gap_documents",
-                      "item/gap_title": "@outputs('Extract_Name')",
-                      "item/cr982_Application@odata.bind": "gap_applications(@{outputs('Get_Latest_Application')?['body/gap_applicationid']})",
-                      "item/gap_drivemodifieddate": "@outputs('Create_Document_File')?['body/LastModified']",
-                      "item/gap_fileid": "@outputs('Create_Document_File')?['body/Id']",
-                      "item/gap_size": "@outputs('Create_Document_File')?['body/Size']"
-                    },
-                    "authentication": "@parameters('$authentication')"
-                  }
-                },
-                "Update_Responses": {
-                  "runAfter": {
-                    "Create_Document": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "0a32917b-d457-4bf5-a3d8-d44bc00370dc"
-                  },
-                  "type": "OpenApiConnection",
-                  "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "UpdateOnlyRecord",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
-                    "parameters": {
-                      "entityName": "gap_responses",
-                      "recordId": "@items('Apply_to_each')?['gap_responseid']",
-                      "item/gap_Document@odata.bind": "gap_documents(@{outputs('Create_Document')?['body/gap_documentid']})"
-                    },
-                    "authentication": "@parameters('$authentication')"
-                  }
+                  "type": "If",
+                  "description": "If HTTP content greater than 50MiB then error that we don't support files that big - the Google connection will reject."
                 }
               },
               "runAfter": {
@@ -460,7 +513,7 @@
             },
             "Create_Folder_in_Google_Drive": {
               "runAfter": {
-                "Condition_3": [
+                "Condition_4": [
                   "Succeeded"
                 ]
               },
@@ -486,20 +539,60 @@
                 "authentication": "@parameters('$authentication')"
               }
             },
-            "Condition_3": {
+            "Condition_4": {
               "actions": {
-                "Terminate_2": {
+                "Update_Error_Message_3": {
                   "runAfter": {},
                   "metadata": {
-                    "operationMetadataId": "8411ea40-b1d7-4102-99b8-60b6a239c293"
+                    "operationMetadataId": "eced18db-af29-44da-a2a2-e3633945aef7"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Error Message",
+                    "value": "The Google folder ID for the Scheme @{outputs('Get_Scheme')?['body/gap_title']}is missing, Application folder not able to be created, please check with an admin "
+                  }
+                },
+                "Terminate_2": {
+                  "runAfter": {
+                    "Add_Custom_Error_Message_2": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6c18d9e4-3c4e-454e-b1f9-13da3c87bc2c"
                   },
                   "type": "Terminate",
                   "inputs": {
                     "runStatus": "Failed",
                     "runError": {
-                      "code": "500",
-                      "message": "Scheme @{outputs('Get_Scheme')?['body/gap_title']} has no Google Drive folder ID"
+                      "code": "404",
+                      "message": "The Google folder ID for the Scheme @{outputs('Get_Scheme')?['body/gap_title']}is missing, Application Document storage folder is not able to be created, please check with an admin. "
                     }
+                  }
+                },
+                "Add_Custom_Error_Message_2": {
+                  "runAfter": {
+                    "Update_Error_Message_3": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "b61715e4-7116-4fde-ad54-4eed45f4696b"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "annotations",
+                      "item/subject": "An error occurred.",
+                      "item/notetext": "@variables('Error Message')",
+                      "item/objectid_gap_application@odata.bind": "gap_applications(@{triggerOutputs()?['body/gap_applicationid']})"
+                    },
+                    "authentication": "@parameters('$authentication')"
                   }
                 }
               },
@@ -509,7 +602,7 @@
                 ]
               },
               "expression": {
-                "or": [
+                "and": [
                   {
                     "equals": [
                       "@outputs('Get_Scheme')?['body/gap_googledrivefolderid']",
@@ -525,7 +618,7 @@
                 ]
               },
               "metadata": {
-                "operationMetadataId": "a2010b29-c562-4fb7-b324-6b6196c7b015"
+                "operationMetadataId": "2e72a393-dc02-44fa-a69b-7d8cb3ea1f03"
               },
               "type": "If"
             }
