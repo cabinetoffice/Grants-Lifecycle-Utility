@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26083.157" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26083.157" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26083.00157">
+<ImportExportXml version="9.2.26084.149" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26084.149" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26084.00149">
   <SolutionManifest>
     <UniqueName>GrantsAdministrationPlatform</UniqueName>
     <LocalizedNames>
@@ -291,6 +291,7 @@
       <RootComponent type="29" id="{ac03af31-b6ce-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{ad06cede-5e98-f011-b41b-000d3a7e960c}" behavior="0" />
       <RootComponent type="29" id="{aeef0a39-de93-f011-b4cb-000d3ad61ba8}" behavior="0" />
+      <RootComponent type="29" id="{af0af70b-b1ad-f111-aaac-000d3ad684d9}" behavior="0" />
       <RootComponent type="29" id="{afc3d90f-2e9d-f011-bbd3-6045bdf1c7e5}" behavior="0" />
       <RootComponent type="29" id="{b09bc76e-fdc9-f011-8543-0022483faf54}" behavior="0" />
       <RootComponent type="29" id="{b1dedeb0-a167-f011-bec2-0022483ff195}" behavior="0" />
@@ -628,14 +629,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{169ead94-a7e8-42c5-9ae8-d81205dfee77}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine User" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{169ead94-a7e8-42c5-9ae8-d81205dfee77}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability BusinessUnit - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{180b3494-0503-ed11-82e6-000d3a33db7e}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
+        <Required type="20" displayName="Sustainability BusinessUnit - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3526.1)" id="{180b3494-0503-ed11-82e6-000d3a33db7e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3526.1">InsightsAppPlatformApp_Anchor (1.0.3526.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -646,8 +647,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Dataflow Maker" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{1f6c957f-9851-4dbe-ab1c-508c06faa8be}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
+        <Required type="20" displayName="Dataflow Maker" solution="msdyn_InsightsAppPlatform (1.0.3526.1)" id="{1f6c957f-9851-4dbe-ab1c-508c06faa8be}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3526.1">InsightsAppPlatformApp_Anchor (1.0.3526.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -688,8 +689,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine Owner" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{313995f9-4a4a-4d4a-afd1-c892da78e13e}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine Owner" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{313995f9-4a4a-4d4a-afd1-c892da78e13e}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -755,8 +756,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3490.2)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
-          <package appName="Source Control Integration Package" version="9.1.3490.2">SourceControlIntegration_Anchor (9.1.3490.2)</package>
+        <Required type="20" displayName="PowerAppsRPRole" solution="msdyn_SourceControlIntegration (9.1.3510.1)" id="{527c7b12-e5ac-4408-9f46-ecc762397544}">
+          <package appName="Source Control Integration Package" version="9.1.3510.1">SourceControlIntegration_Anchor (9.1.3510.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -791,8 +792,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flow Machine Configuration Admin" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{6b860c71-0e4e-ec11-b1b5-000d3a6ed5b3}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flow Machine Configuration Admin" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{6b860c71-0e4e-ec11-b1b5-000d3a6ed5b3}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -803,14 +804,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability all - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{72322043-f211-ed11-b83e-00224832b6bb}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
+        <Required type="20" displayName="Sustainability all - ingest - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3526.1)" id="{72322043-f211-ed11-b83e-00224832b6bb}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3526.1">InsightsAppPlatformApp_Anchor (1.0.3526.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows AI Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{726d11d6-d9cf-4503-ade9-d6a4be7fa095}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flows AI Application User" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{726d11d6-d9cf-4503-ade9-d6a4be7fa095}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -840,8 +841,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Power Automate AI Flows Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{84012ef2-00bd-412e-8654-b1e3a90feafc}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Power Automate AI Flows Application User" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{84012ef2-00bd-412e-8654-b1e3a90feafc}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -882,8 +883,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability all - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{96aa4895-5ac2-ec11-a7b6-00224830446f}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
+        <Required type="20" displayName="Sustainability all - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3526.1)" id="{96aa4895-5ac2-ec11-a7b6-00224830446f}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3526.1">InsightsAppPlatformApp_Anchor (1.0.3526.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -900,8 +901,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{9f572d55-6090-493b-904a-3956bdc55343}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine Application User" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{9f572d55-6090-493b-904a-3956bdc55343}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1026,8 +1027,8 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Fabric AI Skill Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{d6e926ad-4afc-42fb-97f1-6e50c2ef174e}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
+        <Required type="20" displayName="Fabric AI Skill Role" solution="msdyn_InsightsAppPlatform (1.0.3526.1)" id="{d6e926ad-4afc-42fb-97f1-6e50c2ef174e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3526.1">InsightsAppPlatformApp_Anchor (1.0.3526.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1086,26 +1087,26 @@
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Sustainability BusinessUnit - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3512.1)" id="{ee0bc8b2-4bfe-ec11-82e5-0022482d500e}">
-          <package appName="InsightsAppPlatformApp Package" version="1.0.3512.1">InsightsAppPlatformApp_Anchor (1.0.3512.1)</package>
+        <Required type="20" displayName="Sustainability BusinessUnit - full access Role" solution="msdyn_InsightsAppPlatform (1.0.3526.1)" id="{ee0bc8b2-4bfe-ec11-82e5-0022482d500e}">
+          <package appName="InsightsAppPlatformApp Package" version="1.0.3526.1">InsightsAppPlatformApp_Anchor (1.0.3526.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Machine User Can Share" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{ee18dcf2-6f83-4cd7-aa5c-1d8a88947d51}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flows Machine User Can Share" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{ee18dcf2-6f83-4cd7-aa5c-1d8a88947d51}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Runtime Application User" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{ee2c8e11-6d57-4c5d-9f84-659c0db132bb}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flows Runtime Application User" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{ee2c8e11-6d57-4c5d-9f84-659c0db132bb}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="20" displayName="Desktop Flows Module Developer" solution="MicrosoftFlowExtensionsCore (1.10.16.0)" id="{ee7bc749-3dd6-45ac-b95d-a3031463380b}">
-          <package appName="MicrosoftFlowExtensionsCore" version="1.10.16.0">MicrosoftFlowExtensionsAnchor (1.10.16.0)</package>
+        <Required type="20" displayName="Desktop Flows Module Developer" solution="MicrosoftFlowExtensionsCore (1.10.18.1)" id="{ee7bc749-3dd6-45ac-b95d-a3031463380b}">
+          <package appName="MicrosoftFlowExtensionsCore" version="1.10.18.1">MicrosoftFlowExtensionsAnchor (1.10.18.1)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1231,8 +1232,8 @@
         <Dependent type="80" schemaName="gap_DEMO" displayName="Grant Life-cycle Utility (GLU) - Beta Service" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (2.2.3503.2)">
-          <package appName="PowerPlatformEnvironmentSettingsApp" version="2.2.3503.2">PowerPlatformEnvironmentSettingsApp_Anchor (2.2.3503.2)</package>
+        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (2.2.3517.1)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="2.2.3517.1">PowerPlatformEnvironmentSettingsApp_Anchor (2.2.3517.1)</package>
         </Required>
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
@@ -1243,14 +1244,14 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_CopilotIcon.svg" displayName="msdyn_CopilotIcon.svg" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)">
+        <Required type="61" schemaName="msdyn_CopilotIcon.svg" displayName="msdyn_CopilotIcon.svg" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction" displayName="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_CopilotSummarizeLibrary.js" displayName="msdyn_CopilotSummarizeLibrary.js" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)">
+        <Required type="61" schemaName="msdyn_CopilotSummarizeLibrary.js" displayName="msdyn_CopilotSummarizeLibrary.js" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
@@ -1275,14 +1276,14 @@
         <Dependent type="62" schemaName="gap_DEMO" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2608.3006)">
-          <package appName="Base Custom Controls" version="9.0.2608.3006">BaseCustomControlsCore (9.0.2608.3006)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2608.4008)">
+          <package appName="Base Custom Controls" version="9.0.2608.4008">BaseCustomControlsCore (9.0.2608.4008)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Application" id="{d4761a72-a2ea-455d-ab23-bc351348e350}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2608.3006)">
-          <package appName="Base Custom Controls" version="9.0.2608.3006">BaseCustomControlsCore (9.0.2608.3006)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2608.4008)">
+          <package appName="Base Custom Controls" version="9.0.2608.4008">BaseCustomControlsCore (9.0.2608.4008)</package>
         </Required>
         <Dependent type="68" id="{0ccc4cd6-c969-4486-b426-bf8b19402e53}" />
       </MissingDependency>
@@ -1339,7 +1340,7 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Scheme" id="{e65dde12-7277-4f67-97f8-a1d137513ab2}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.CopilotClientApi!1" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)" id.uniquename="msdyn_Mscrm.CopilotClientApi!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.CopilotClientApi!1" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)" id.uniquename="msdyn_Mscrm.CopilotClientApi!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
@@ -1352,14 +1353,14 @@
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__Mscrm.SubGrid.%7B!EntityLogicalName%7D.Delete!gap_DEMO!gap_application!2,appactionruleid.uniquename=msdyn_Mscrm.DeleteSelectedEntityPermission!1" id.appactionid.uniquename="gap__Mscrm.SubGrid.{!EntityLogicalName}.Delete!gap_DEMO!gap_application!2" id.appactionruleid.uniquename="msdyn_Mscrm.DeleteSelectedEntityPermission!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.EnableCopilotSummarizeCommandButton!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)" id.uniquename="msdyn_Mscrm.EnableCopilotSummarizeFeatures!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
@@ -1372,21 +1373,21 @@
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.FormStateNotNew!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.FormStateNotNew!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.HideOnMobile!0" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)" id.uniquename="msdyn_Mscrm.HideOnMobile!0">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.HideOnMobile!0" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)" id.uniquename="msdyn_Mscrm.HideOnMobile!0">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.HideOnMobile!0" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.HideOnMobile!0" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)" id.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)" id.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
         <Dependent type="appaction_appactionrule_classicrules" displayName="appactionid.uniquename=gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0,appactionruleid.uniquename=msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" id.appactionid.uniquename="gap__msdyn_Mscrm.Form.Copilot.Summarize!gap_DEMO!gap_application!0" id.appactionruleid.uniquename="msdyn_Mscrm.InitializeCopilotSidePaneOnBoot!1" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="appactionrule" displayName="msdyn_Mscrm.IsAppCopilotEnabled!0" solution="msdyn_AppCopilotFeatures (9.2.2026074.260721068)" id.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0">
+        <Required type="appactionrule" displayName="msdyn_Mscrm.IsAppCopilotEnabled!0" solution="msdyn_AppCopilotFeatures (9.2.2026084.260813071)" id.uniquename="msdyn_Mscrm.IsAppCopilotEnabled!0">
           <package appName="PowerAppsAppCopilotApp Package" version="1.0.0.2">msdyn_SuggestedAction (1.0.0.2)</package>
           <package appName="PowerAppsAppCopilotApp Package" version="9.2.0.5">msdyn_M365CopilotAppInfraSettings (9.2.0.5)</package>
         </Required>
@@ -1443,13 +1444,13 @@
         <Dependent type="372" schemaName="gap_mot-20history-20api" displayName="MOT History API" id="{e015c558-ef73-4985-945f-4d030402250d}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.19)" id.uniquename="AppChannel">
+        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.20)" id.uniquename="AppChannel">
           <package appName="PowerAppsAppFramework Package" version="1.0.0.25">PowerAppsAppFramework_Anchor (1.0.0.25)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=gap_DEMO,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="gap_DEMO" id.settingdefinitionid.uniquename="AppChannel" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="SettingDefinition" displayName="NewLookModernExperienceOct2023" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.19)" id.uniquename="NewLookModernExperienceOct2023">
+        <Required type="SettingDefinition" displayName="NewLookModernExperienceOct2023" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.20)" id.uniquename="NewLookModernExperienceOct2023">
           <package appName="PowerAppsAppFramework Package" version="1.0.0.25">PowerAppsAppFramework_Anchor (1.0.0.25)</package>
         </Required>
         <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=gap_DEMO,settingdefinitionid.uniquename=NewLookModernExperienceOct2023" id.parentappmoduleid.uniquename="gap_DEMO" id.settingdefinitionid.uniquename="NewLookModernExperienceOct2023" />

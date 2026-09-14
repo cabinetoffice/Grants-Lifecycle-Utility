@@ -20,7 +20,7 @@
   </contextentity>
   <contextvalue>gap_application</contextvalue>
   <fonticon>$clientsvg:Delete</fonticon>
-  <hidden>0</hidden>
+  <hidden>1</hidden>
   <iscustomizable>1</iscustomizable>
   <isdisabled>0</isdisabled>
   <isgrouptitlehidden>0</isgrouptitlehidden>
@@ -37,5 +37,10 @@
   <statecode>0</statecode>
   <statuscode>1</statuscode>
   <type>0</type>
-  <visibilitytype>0</visibilitytype>
+  <visibilityformulacomponentlibraryid>
+    <name>gap_demodefaultcommandlibrary_7c943</name>
+  </visibilityformulacomponentlibraryid>
+  <visibilityformulacomponentname>341ecb367b13443c9c7a967c3f2a4579</visibilityformulacomponentname>
+  <visibilityformulafunctionname>Visible</visibilityformulafunctionname>
+  <visibilitytype>1</visibilitytype>
 </appaction>

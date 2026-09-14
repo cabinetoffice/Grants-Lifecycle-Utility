@@ -1032,10 +1032,11 @@
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{c1bd2ef6-5fe9-4393-886d-6369b81c6d4a}" showlabel="false">
+                      <cell id="{c894c231-af02-4102-8d9b-9e53d97e238c}" locklevel="1" colspan="1" rowspan="1">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Google Drive Folder" languagecode="1033" />
                         </labels>
+                        <control id="gap_googledrivefolderpath" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="gap_googledrivefolderpath" disabled="true" />
                       </cell>
                     </row>
                     <row>

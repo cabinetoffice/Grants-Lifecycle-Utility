@@ -1072,6 +1072,29 @@
                 },
                 "authentication": "@parameters('$authentication')"
               }
+            },
+            "Delete_a_row": {
+              "runAfter": {
+                "Update_Application_to_complete_Deletion": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "21f118f5-9f4f-44d9-9683-ff3b1735b9dd"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "DeleteRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_applications",
+                  "recordId": "@outputs('Application_GUID')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
             }
           },
           "runAfter": {
