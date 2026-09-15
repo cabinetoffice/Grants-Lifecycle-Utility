@@ -228,32 +228,9 @@
                     "authentication": "@parameters('$authentication')"
                   }
                 },
-                "Get_Organization": {
-                  "runAfter": {
-                    "Get_Applicant_Information": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "6481a3b6-6c1f-40c2-be8a-39af1dff1a30"
-                  },
-                  "type": "OpenApiConnection",
-                  "inputs": {
-                    "host": {
-                      "connectionName": "shared_commondataserviceforapps_1",
-                      "operationId": "GetItem",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                    },
-                    "parameters": {
-                      "entityName": "accounts",
-                      "recordId": "@triggerOutputs()?['body/_gap_organization_value']"
-                    },
-                    "authentication": "@parameters('$authentication')"
-                  }
-                },
                 "Get_Scheme": {
                   "runAfter": {
-                    "Get_Organization": [
+                    "Condition_2": [
                       "Succeeded"
                     ]
                   },
@@ -473,6 +450,46 @@
                   },
                   "type": "Compose",
                   "inputs": "@body('Filter_array_-_Working_Days_Only')[\r\n    sub(\r\n        int(parameters('OutcomeLetterDaysToReply (gap_OutcomeLetterDaysToReply)')),\r\n        1\r\n    )\r\n]?['Date']"
+                },
+                "Condition_2": {
+                  "actions": {
+                    "Get_Organization": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "6481a3b6-6c1f-40c2-be8a-39af1dff1a30"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "GetItem",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "accounts",
+                          "recordId": "@triggerOutputs()?['body/_gap_organization_value']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Get_Applicant_Information": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "not": {
+                      "equals": [
+                        "@triggerOutputs()?['body/_gap_organization_value']",
+                        "@null"
+                      ]
+                    }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "887d077f-6d38-4b78-ad57-06a8f84f362e"
+                  },
+                  "type": "If"
                 }
               },
               "runAfter": {},
@@ -563,29 +580,29 @@
                           "drive": "b!PH51KfwMYEyyd_y15elLKYVrgh11DepEiWs57buTJw0cw2z_KSFRTqE3tdHpFWGP",
                           "file": "/GLU - Document Library (DEV)/Templates/@{outputs('Create_file')?['body/Name']}",
                           "dynamicFileSchema": {
-                            "275292372": "@{outputs('Get_Applicant_Information')?['body/address1_city']}",
-                            "415671089": "@{outputs('Get_Organization')?['body/address1_city']}",
-                            "646939243": "@{outputs('Get_Applicant_Information')?['body/fullname']}",
-                            "898868864": "@{outputs('Get_Applicant_Information')?['body/address1_postalcode']}",
-                            "1496999327": "£@{triggerOutputs()?['body/gap_amountallocated']}",
-                            "1525288439": "@{outputs('Get_Applicant_Information')?['body/address1_line1']}",
-                            "1765418939": "@{outputs('Get_Applicant_Information')?['body/fullname']}",
-                            "1773126097": "@{parameters('OwningOrganisationName (gap_OwningOrganisationName)')}",
-                            "1853066596": "@{outputs('Get_Scheme')?['body/gap_title']}",
-                            "1935550701": "@{outputs('Get_Scheme')?['body/gap_title']}",
-                            "-222987038": "@{outputs('Get_Organization')?['body/name']}",
-                            "-29799878": "@{outputs('Get_Organization')?['body/address1_name']}",
-                            "-222602358": "@{outputs('Get_Organization')?['body/address1_line1']}",
-                            "-689291122": "@{outputs('Get_Organization')?['body/address1_postalcode']}",
-                            "-1059860716": "@{outputs('Get_Applicant_Information')?['body/adx_organizationname']}",
-                            "-359505603": "@{outputs('Get_Applicant_Information')?['body/address1_line2']}",
+                            "275292372": "@{coalesce(outputs('Get_Applicant_Information')?['body/address1_city'], '')}",
+                            "415671089": "@{coalesce(outputs('Get_Organization')?['body/address1_city'], '')}",
+                            "646939243": "@{coalesce(outputs('Get_Applicant_Information')?['body/fullname'], '')}",
+                            "898868864": "@{coalesce(outputs('Get_Applicant_Information')?['body/address1_postalcode'], '')}",
+                            "1496999327": "@{if(empty(triggerOutputs()?['body/gap_amountallocated']), '', concat('£', string(triggerOutputs()?['body/gap_amountallocated'])))}",
+                            "1525288439": "@{coalesce(outputs('Get_Applicant_Information')?['body/address1_line1'], '')}",
+                            "1765418939": "@{coalesce(outputs('Get_Applicant_Information')?['body/fullname'], '')}",
+                            "1773126097": "@{coalesce(parameters('OwningOrganisationName (gap_OwningOrganisationName)'), '')}",
+                            "1853066596": "@{coalesce(outputs('Get_Scheme')?['body/gap_title'], '')}",
+                            "1935550701": "@{coalesce(outputs('Get_Scheme')?['body/gap_title'], '')}",
+                            "-222987038": "@{coalesce(outputs('Get_Organization')?['body/name'], '')}",
+                            "-29799878": "@{coalesce(outputs('Get_Organization')?['body/address1_name'], '')}",
+                            "-222602358": "@{coalesce(outputs('Get_Organization')?['body/address1_line1'], '')}",
+                            "-689291122": "@{coalesce(outputs('Get_Organization')?['body/address1_postalcode'], '')}",
+                            "-1059860716": "@{coalesce(outputs('Get_Applicant_Information')?['body/adx_organizationname'], '')}",
+                            "-359505603": "@{coalesce(outputs('Get_Applicant_Information')?['body/address1_line2'], '')}",
                             "-2070101600": "@{if(empty(triggerOutputs()?['body/gap_outcomelettergeneratedon']), '', formatDateTime(triggerOutputs()?['body/gap_outcomelettergeneratedon'], 'dd/MM/yyyy'))}",
-                            "-935289989": "@{outputs('Get_Applicant_Information')?['body/address1_name']}",
-                            "-896362602": "@{triggerOutputs()?['body/gap_gapid']}",
+                            "-935289989": "@{coalesce(outputs('Get_Applicant_Information')?['body/address1_name'], '')}",
+                            "-896362602": "@{coalesce(triggerOutputs()?['body/gap_gapid'], '')}",
                             "-1085062831": "@{if(empty(triggerOutputs()?['body/gap_outcomelettergeneratedon']), '', formatDateTime(triggerOutputs()?['body/gap_outcomelettergeneratedon'], 'dd/MM/yyyy'))}",
-                            "-1003046543": "£@{triggerOutputs()?['body/gap_amountallocated']}",
-                            "-1671473762": "@{if(\r\n    empty(triggerOutputs()?['body/gap_outcomelettergeneratedon']),\r\n    '',\r\n    formatDateTime(\r\n        outputs('Compose_-_Reply_Date'),\r\n        'dd/MM/yyyy'\r\n    )\r\n)}",
-                            "-154225863": "@{outputs('Get_Organization')?['body/name']}"
+                            "-1003046543": "@{if(empty(triggerOutputs()?['body/gap_amountallocated']), '', concat('£', string(triggerOutputs()?['body/gap_amountallocated'])))}",
+                            "-1671473762": "@{if(empty(outputs('Compose_-_Reply_Date')), '', formatDateTime(outputs('Compose_-_Reply_Date'), 'dd/MM/yyyy'))}",
+                            "-154225863": "@{coalesce(outputs('Get_Organization')?['body/name'], '')}"
                           }
                         },
                         "authentication": "@parameters('$authentication')"
