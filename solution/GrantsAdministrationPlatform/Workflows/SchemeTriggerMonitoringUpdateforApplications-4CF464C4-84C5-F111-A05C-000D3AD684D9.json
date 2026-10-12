@@ -1,0 +1,253 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_14207"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_Scheme_is_triggered_for_Monitoring_update": {
+          "metadata": {
+            "operationMetadataId": "2d99bab3-7a9f-4532-a121-191c5a7d81c2"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_scheme",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_monitoringsyncrequestedon",
+              "subscriptionRequest/filterexpression": "gap_monitoringsyncrequestedon ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "List_Applications_that_need_Monitoring_Updates": {
+          "runAfter": {
+            "If_Monitoring_Structure_Template_exists": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3c393180-9791-4e58-b5a6-7a5e937ca4df"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_applications",
+              "fetchXml": "<fetch distinct=\"true\">\n  <entity name=\"gap_application\">\n\n    <attribute name=\"gap_applicationid\" />\n    <attribute name=\"gap_gapid\" />\n    <attribute name=\"gap_currentstage\" />\n\n    <filter type=\"and\">\n\n      <condition\n        attribute=\"gap_scheme\"\n        operator=\"eq\"\n        value=\"@{triggerOutputs()?['body/gap_schemeid']}\" />\n\n      <filter type=\"or\">\n        <condition attribute=\"gap_currentstage\" operator=\"eq\" value=\"Monitoring Draft\" />\n        <condition attribute=\"gap_currentstage\" operator=\"eq\" value=\"Error (Monitoring Draft)\" />\n        <condition attribute=\"gap_currentstage\" operator=\"eq\" value=\"Monitoring\" />\n      </filter>\n\n      <filter type=\"or\">\n\n        <!-- No Monitoring Structure -->\n        <condition\n          entityname=\"ms\"\n          attribute=\"gap_monitoringstructureid\"\n          operator=\"null\" />\n\n        <!-- Monitoring Structure exists but has never been versioned -->\n        <condition\n          entityname=\"ms\"\n          attribute=\"gap_sourcetemplateversion\"\n          operator=\"null\" />\n\n        <!-- Monitoring Structure exists but is stale -->\n        <condition\n          entityname=\"ms\"\n          attribute=\"gap_sourcetemplateversion\"\n          operator=\"ne\"\n          value=\"@{outputs('Get_Monitoring_Template')?['body/gap_templateversion']}\" />\n\n      </filter>\n\n    </filter>\n\n    <link-entity\n      name=\"gap_monitoringstructure\"\n      from=\"gap_monitoringstructureid\"\n      to=\"gap_monitoringstructure\"\n      alias=\"ms\"\n      link-type=\"outer\">\n\n      <attribute name=\"gap_monitoringstructureid\" />\n      <attribute name=\"gap_sourcetemplateversion\" />\n\n    </link-entity>\n\n  </entity>\n</fetch>"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "For_each_Application": {
+          "foreach": "@outputs('List_Applications_that_need_Monitoring_Updates')?['body/value']",
+          "actions": {
+            "Try": {
+              "actions": {
+                "If_Monitoring_Structure_exists": {
+                  "actions": {
+                    "Trigger_Monitoring_Structure_Update": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "3ed323bc-f221-4870-be36-e8152685cbe6"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateOnlyRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_monitoringstructures",
+                          "recordId": "@items('For_each_Application')?['_gap_monitoringstructure_value']",
+                          "item/gap_monitoringsyncrequestedon": "@utcNow()"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "else": {
+                    "actions": {
+                      "Update_Application_to_trigger_Monitoring_Structure_creation": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "2f1c3984-553c-4d71-b747-4bcdade6fe22"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "UpdateOnlyRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "gap_applications",
+                            "recordId": "@items('For_each_Application')?['gap_applicationid']",
+                            "item/gap_currentstage": "Error(Monitoring Draft)"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      },
+                      "Update_Application_to_trigger_Monitoring_Structure_creation_2": {
+                        "runAfter": {
+                          "Update_Application_to_trigger_Monitoring_Structure_creation": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "2f1c3984-553c-4d71-b747-4bcdade6fe22"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "UpdateOnlyRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "gap_applications",
+                            "recordId": "@items('For_each_Application')?['gap_applicationid']",
+                            "item/gap_currentstage": "Monitoring Draft"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "not": {
+                      "equals": [
+                        "@items('For_each_Application')?['_gap_monitoringstructure_value']",
+                        "@null"
+                      ]
+                    }
+                  },
+                  "metadata": {
+                    "operationMetadataId": "e647b25c-844c-477f-aefd-535b815a0cf6"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "a992e747-d03a-4104-b771-49550c14246e"
+              },
+              "type": "Scope"
+            },
+            "Catch": {
+              "actions": {},
+              "runAfter": {
+                "Try": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4e157b56-4fa2-4cde-aa78-2531e90ae6f7"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "List_Applications_that_need_Monitoring_Updates": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1a16da60-dcec-47d8-8e85-2afe2a32f943"
+          },
+          "type": "Foreach"
+        },
+        "If_Monitoring_Structure_Template_exists": {
+          "actions": {
+            "Get_Monitoring_Template": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ddae342e-a40b-402b-b10f-6407ef3ba0f5"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "gap_monitoringstructuretemplates",
+                  "recordId": "@triggerOutputs()?['body/_gap_monitoringstructuretemplate_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "else": {
+            "actions": {
+              "Terminate": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "11936c7f-4611-45e5-ab2d-076bdb3da0d9"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed",
+                  "runError": {
+                    "code": "500",
+                    "message": "Monitoring Template does not exist on this Scheme, please add one before Triggering the sync."
+                  }
+                }
+              }
+            }
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@triggerOutputs()?['body/_gap_monitoringstructuretemplate_value']",
+                "@null"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "3bfaf5c9-3871-4d80-ab15-6f419988dd9f"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

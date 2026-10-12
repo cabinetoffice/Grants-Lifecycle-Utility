@@ -1,0 +1,1202 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "gap_Dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Monitoring_Sync_Triggered_for_this_Structure": {
+          "metadata": {
+            "operationMetadataId": "7d3f4745-3a29-47e8-924c-bd8ec01bf8bb"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "gap_monitoringstructure",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "gap_monitoringsyncrequestedon",
+              "subscriptionRequest/filterexpression": "gap_monitoringsyncrequestedon ne null"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Initialize_Error_Message": {
+          "runAfter": {
+            "List_activities_that_need_an_update": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "13788d85-882e-4f6a-8963-771b3d63490a"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Error Message",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Initialize_QuestionsToDelete": {
+          "runAfter": {
+            "Initialize_Error_Message": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "11288df6-412d-4ba0-8985-f36c0801830e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "QuestionsToDelete",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_SectionsToDelete": {
+          "runAfter": {
+            "Initialize_QuestionsToDelete": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7c20f3b1-3352-416f-bc22-604a78e62f62"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SectionsToDelete",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Initialize_Admin_Team": {
+          "runAfter": {
+            "Initialize_SectionsToDelete": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8b99aa8c-511a-448e-8212-5ce52ae70503"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Admin Team",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "List_activities_that_need_an_update": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e5af103a-9e53-4c8e-9e40-b9433697ef6b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps-1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "gap_monitoringactivities",
+              "fetchXml": "<fetch distinct=\"true\">\n  <entity name=\"gap_monitoringactivity\">\n\n    <attribute name=\"gap_monitoringactivityid\" />\n    <attribute name=\"gap_sourcetemplateversion\" />\n    <attribute name=\"gap_currentstage\" />\n\n    <filter type=\"and\">\n\n      <!-- Restrict to the relevant Monitoring Structure / Application -->\n      <condition\n        attribute=\"gap_monitoringstructure\"\n        operator=\"eq\"\n        value=\"@{triggerOutputs()?['body/gap_monitoringstructureid']}\" />\n\n      <filter type=\"or\">\n\n        <condition\n          attribute=\"gap_sourcetemplateversion\"\n          operator=\"null\" />\n\n        <condition\n          attribute=\"gap_sourcetemplateversion\"\n          operator=\"ne\"\n          valueof=\"mat.gap_templateversion\" />\n\n      </filter>\n\n    </filter>\n\n    <link-entity\n      name=\"gap_monitoringactivitytemplate\"\n      from=\"gap_monitoringactivitytemplateid\"\n      to=\"gap_monitoringactivitytemplate\"\n      alias=\"mat\"\n      link-type=\"inner\">\n\n      <attribute name=\"gap_templateversion\" />\n\n    </link-entity>\n\n  </entity>\n</fetch>"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "For_each_Activity": {
+          "foreach": "@outputs('List_activities_that_need_an_update')?['body/value']",
+          "actions": {
+            "Try": {
+              "actions": {
+                "Get_Latest_Monitoring_Activity": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "7973bbcc-6dee-4147-8bbb-88bd8914d3f6"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "GetItem",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_monitoringactivities",
+                      "recordId": "@items('For_each_Activity')?['gap_monitoringactivityid']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Update_Activity": {
+                  "actions": {
+                    "Condition_|_Is_there_a_Monitoring_Activity_template": {
+                      "actions": {
+                        "Get_Monitoring_Activity_Temmplate": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "ae410683-8faf-415d-a9c2-6e7e4e09aeb9"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps-1",
+                              "operationId": "GetItem",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_monitoringactivitytemplates",
+                              "recordId": "@outputs('Get_Latest_Monitoring_Activity')?['body/_gap_monitoringactivitytemplate_value']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Get_Monitoring_Checklist_Section_Templates_2": {
+                          "runAfter": {
+                            "Get_Monitoring_Activity_Temmplate": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "c83d3dcb-229d-4bcc-b672-67c48bbf4de5"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps-1",
+                              "operationId": "ListRecords",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_monitoringchecklistsectiontemplates",
+                              "$filter": "gap_monitoringchecklisttemplate eq @{outputs('Get_Monitoring_Activity_Temmplate')?['body/_gap_monitoringchecklisttemplate_value']}"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "If_Checklist_Exists_2": {
+                          "actions": {
+                            "If_Name_is_wrong_-_Update": {
+                              "actions": {
+                                "Update_Checklist": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "3fbd792e-44e7-41d0-9db1-e6e89f7faa34"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps-1",
+                                      "operationId": "UpdateOnlyRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_monitoringchecklists",
+                                      "recordId": "@outputs('Get_Current_Monitoring_Checklist')?['body/gap_monitoringchecklistid']",
+                                      "item/gap_name": "@outputs('Get_Monitoring_Checklist_Template_2')?['body/gap_name']"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                }
+                              },
+                              "runAfter": {
+                                "Get_Current_Monitoring_Checklist": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "expression": {
+                                "not": {
+                                  "equals": [
+                                    "@outputs('Get_Current_Monitoring_Checklist')?['body/gap_name']",
+                                    "@outputs('Get_Monitoring_Checklist_Template_2')?['body/gap_name']"
+                                  ]
+                                }
+                              },
+                              "metadata": {
+                                "operationMetadataId": "d0e11734-5d67-4c6a-8c52-ceec6102196f"
+                              },
+                              "type": "If"
+                            },
+                            "Get_Current_Monitoring_Checklist": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "1bfb69fd-c2b9-44dd-841f-98b44046abc8"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-1",
+                                  "operationId": "GetItem",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_monitoringchecklists",
+                                  "recordId": "@outputs('Get_Latest_Monitoring_Activity')?['body/_gap_monitoringchecklist_value']"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Get_Monitoring_Checklist_Template_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Create_Monitoring_Checklist_2": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "49236a48-0963-49f6-b525-574072935adb"
+                                },
+                                "type": "OpenApiConnection",
+                                "inputs": {
+                                  "host": {
+                                    "connectionName": "shared_commondataserviceforapps-1",
+                                    "operationId": "CreateRecord",
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                  },
+                                  "parameters": {
+                                    "entityName": "gap_monitoringchecklists",
+                                    "item/gap_name": "@outputs('Get_Monitoring_Checklist_Template_2')?['body/gap_name']",
+                                    "item/gap_Application@odata.bind": "gap_applications(@{triggerOutputs()?['body/_gap_application_value']})",
+                                    "item/ownerid@odata.bind": "systemusers(@{outputs('Get_Latest_Monitoring_Activity')?['body/_ownerid_value']})"
+                                  },
+                                  "authentication": "@parameters('$authentication')"
+                                }
+                              }
+                            }
+                          },
+                          "expression": {
+                            "not": {
+                              "equals": [
+                                "@outputs('Get_Latest_Monitoring_Activity')?['body/_gap_monitoringchecklist_value']",
+                                "@null"
+                              ]
+                            }
+                          },
+                          "metadata": {
+                            "operationMetadataId": "5fcf83c6-5df2-4cba-bdf1-cbb12ef4b00a"
+                          },
+                          "type": "If"
+                        },
+                        "Get_Monitoring_Checklist_Template_2": {
+                          "runAfter": {
+                            "Get_Monitoring_Checklist_Section_Templates_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "467e02fd-0cc9-458a-a3dc-cb5ac6854405"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps-1",
+                              "operationId": "GetItem",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_monitoringchecklisttemplates",
+                              "recordId": "@outputs('Get_Monitoring_Activity_Temmplate')?['body/_gap_monitoringchecklisttemplate_value']"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "For_each_Section_2": {
+                          "foreach": "@outputs('Get_Monitoring_Checklist_Section_Templates_2')?['body/value']",
+                          "actions": {
+                            "Get_Monitoring_Checklist_Question_Templates": {
+                              "runAfter": {
+                                "Get_latest_Section": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "7173a8eb-f377-47f6-8b60-1fb25fe30c7a"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-1",
+                                  "operationId": "ListRecords",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_monitoringchecklistquestiontemplates",
+                                  "$filter": "gap_monitoringchecklistsectiontemplate eq @{items('For_each_Section_2')?['gap_monitoringchecklistsectiontemplateid']}"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Apply_to_each_3": {
+                              "foreach": "@outputs('Get_Monitoring_Checklist_Question_Templates')?['body/value']",
+                              "actions": {
+                                "If_Question_exists": {
+                                  "actions": {
+                                    "If_Question_is_different": {
+                                      "actions": {
+                                        "Update_question": {
+                                          "runAfter": {},
+                                          "metadata": {
+                                            "operationMetadataId": "05f59371-e0be-4646-af35-082c0473899c"
+                                          },
+                                          "type": "OpenApiConnection",
+                                          "inputs": {
+                                            "host": {
+                                              "connectionName": "shared_commondataserviceforapps-1",
+                                              "operationId": "UpdateOnlyRecord",
+                                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                            },
+                                            "parameters": {
+                                              "entityName": "gap_monitoringchecklistquestions",
+                                              "recordId": "@first(body('Filter_Matching_Current_Question'))?['guid']",
+                                              "item/gap_choiceoptions": "@items('Apply_to_each_3')?['gap_choiceoptions']",
+                                              "item/gap_datatype": "@items('Apply_to_each_3')?['gap_type']",
+                                              "item/gap_description": "@items('Apply_to_each_3')?['gap_description']",
+                                              "item/gap_order": "@items('Apply_to_each_3')?['gap_order']"
+                                            },
+                                            "authentication": "@parameters('$authentication')"
+                                          }
+                                        }
+                                      },
+                                      "runAfter": {},
+                                      "expression": {
+                                        "or": [
+                                          {
+                                            "not": {
+                                              "equals": [
+                                                "@int(coalesce(first(body('Filter_Matching_Current_Question'))?['questionOrder'], 0))",
+                                                "@items('Apply_to_each_3')?['gap_order']"
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "not": {
+                                              "equals": [
+                                                "@first(body('Filter_Matching_Current_Question'))?['questionType']",
+                                                "@items('Apply_to_each_3')?['gap_type']"
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "not": {
+                                              "equals": [
+                                                "@coalesce(first(body('Filter_Matching_Current_Question'))?['answers'], '')",
+                                                "@items('Apply_to_each_3')?['gap_choiceoptions']"
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "metadata": {
+                                        "operationMetadataId": "a5b0a823-4b21-4bdf-9a61-fe7d0e42e29e"
+                                      },
+                                      "type": "If"
+                                    },
+                                    "Filter_Questions_To_Keep": {
+                                      "runAfter": {
+                                        "If_Question_is_different": [
+                                          "Succeeded"
+                                        ]
+                                      },
+                                      "metadata": {
+                                        "operationMetadataId": "194b458a-a987-4f97-9b67-01f44875797d"
+                                      },
+                                      "type": "Query",
+                                      "inputs": {
+                                        "from": "@variables('QuestionsToDelete')",
+                                        "where": "@not(equals(item()?['guid'], first(body('Filter_Matching_Current_Question'))?['guid']))"
+                                      }
+                                    },
+                                    "Set_variable": {
+                                      "runAfter": {
+                                        "Filter_Questions_To_Keep": [
+                                          "Succeeded"
+                                        ]
+                                      },
+                                      "metadata": {
+                                        "operationMetadataId": "c4efac93-0bb2-49de-be9e-9cbfab6e496d"
+                                      },
+                                      "type": "SetVariable",
+                                      "inputs": {
+                                        "name": "QuestionsToDelete",
+                                        "value": "@body('Filter_Questions_To_Keep')"
+                                      }
+                                    }
+                                  },
+                                  "runAfter": {
+                                    "Filter_Matching_Current_Question": [
+                                      "Succeeded"
+                                    ]
+                                  },
+                                  "else": {
+                                    "actions": {
+                                      "Create_Monitoring_Checklist_Questions": {
+                                        "runAfter": {},
+                                        "metadata": {
+                                          "operationMetadataId": "35e557f5-0789-42c7-aef1-cb4826c6b95d"
+                                        },
+                                        "type": "OpenApiConnection",
+                                        "inputs": {
+                                          "host": {
+                                            "connectionName": "shared_commondataserviceforapps-1",
+                                            "operationId": "CreateRecord",
+                                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                          },
+                                          "parameters": {
+                                            "entityName": "gap_monitoringchecklistquestions",
+                                            "item/gap_question": "@items('Apply_to_each_3')?['gap_question']",
+                                            "item/gap_Application@odata.bind": "gap_applications(@{outputs('Get_Latest_Monitoring_Activity')?['body/_gap_application_value']})",
+                                            "item/gap_choiceoptions": "@items('Apply_to_each_3')?['gap_choiceoptions']",
+                                            "item/gap_datatype": "@items('Apply_to_each_3')?['gap_type']",
+                                            "item/gap_description": "@items('Apply_to_each_3')?['gap_description']",
+                                            "item/gap_MonitoringChecklist@odata.bind": "gap_monitoringchecklists(@{outputs('Get_latest_Monitoring_Checklist')?['body/gap_monitoringchecklistid']})",
+                                            "item/gap_order": "@items('Apply_to_each_3')?['gap_order']",
+                                            "item/ownerid@odata.bind": "systemusers(@{outputs('Get_Latest_Monitoring_Activity')?['body/_ownerid_value']})",
+                                            "item/gap_Section@odata.bind": "gap_monitoringchecklistsections(@{outputs('Get_latest_Section')?['body/gap_monitoringchecklistsectionid']})"
+                                          },
+                                          "authentication": "@parameters('$authentication')"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "expression": {
+                                    "greater": [
+                                      "@length(body('Filter_Matching_Current_Question'))",
+                                      0
+                                    ]
+                                  },
+                                  "metadata": {
+                                    "operationMetadataId": "e39a3619-56c5-42a5-b95a-30ca8a214239"
+                                  },
+                                  "type": "If"
+                                },
+                                "Filter_Matching_Current_Question": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "a8e88f9b-37a7-4142-b119-0540c280b7e5"
+                                  },
+                                  "type": "Query",
+                                  "inputs": {
+                                    "from": "@body('Filter_for_section_questions')",
+                                    "where": "@equals(item()?['question'], items('Apply_to_each_3')?['gap_question'])"
+                                  }
+                                }
+                              },
+                              "runAfter": {
+                                "Filter_for_section_questions": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "bc78d7af-ba40-4f47-9219-96be4c7f35ea"
+                              },
+                              "type": "Foreach"
+                            },
+                            "Filter_Current_Section_Map": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "d25b054a-feff-40f9-8732-63c2c5b43a7f"
+                              },
+                              "type": "Query",
+                              "inputs": {
+                                "from": "@outputs('Compose_Unique_Sections')",
+                                "where": "@equals(item()?['sectionName'], items('For_each_Section_2')?['gap_section'])"
+                              }
+                            },
+                            "If_Section_does_not_exist_|_create": {
+                              "actions": {
+                                "Create_Monitoring_Checklist_Sections": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "2782f62e-62d5-46ad-9093-5723c458d7d0"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps-1",
+                                      "operationId": "CreateRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_monitoringchecklistsections",
+                                      "item/gap_section": "@items('For_each_Section_2')?['gap_section']",
+                                      "item/gap_Checklist@odata.bind": "gap_monitoringchecklists(@{outputs('Get_latest_Monitoring_Checklist')?['body/gap_monitoringchecklistid']})",
+                                      "item/gap_order": "@items('For_each_Section_2')?['gap_order']",
+                                      "item/ownerid@odata.bind": "systemusers(@{outputs('Get_Latest_Monitoring_Activity')?['body/_ownerid_value']})"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                }
+                              },
+                              "runAfter": {
+                                "Filter_Current_Section_Map": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "else": {
+                                "actions": {
+                                  "List_Matching_Section": {
+                                    "runAfter": {},
+                                    "metadata": {
+                                      "operationMetadataId": "2dcdc08e-3d5b-4723-98ba-914459233507"
+                                    },
+                                    "type": "OpenApiConnection",
+                                    "inputs": {
+                                      "host": {
+                                        "connectionName": "shared_commondataserviceforapps-1",
+                                        "operationId": "ListRecords",
+                                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                      },
+                                      "parameters": {
+                                        "entityName": "gap_monitoringchecklistsections",
+                                        "$filter": "gap_checklist eq @{outputs('Get_latest_Monitoring_Checklist')?['body/gap_monitoringchecklistid']} and gap_section eq @{items('For_each_Section_2')?['gap_section']}",
+                                        "$top": 1
+                                      },
+                                      "authentication": "@parameters('$authentication')"
+                                    }
+                                  },
+                                  "If_the_order_is_incorrect_|_Update": {
+                                    "actions": {
+                                      "Update_the_checklist_order": {
+                                        "runAfter": {},
+                                        "metadata": {
+                                          "operationMetadataId": "f9bab26b-9b6d-4057-b0ee-cadb729b5779"
+                                        },
+                                        "type": "OpenApiConnection",
+                                        "inputs": {
+                                          "host": {
+                                            "connectionName": "shared_commondataserviceforapps-1",
+                                            "operationId": "UpdateOnlyRecord",
+                                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                          },
+                                          "parameters": {
+                                            "entityName": "gap_monitoringchecklistsections",
+                                            "recordId": "@first(outputs('List_Matching_Section')?['body/value'])?['gap_monitoringchecklistsection']",
+                                            "item/gap_order": "@items('For_each_Section_2')?['gap_order']"
+                                          },
+                                          "authentication": "@parameters('$authentication')"
+                                        }
+                                      }
+                                    },
+                                    "runAfter": {
+                                      "List_Matching_Section": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "expression": {
+                                      "not": {
+                                        "equals": [
+                                          "@int(coalesce(first(body('Filter_Current_Section_Map'))?['sectionOrder'], 0))",
+                                          "@items('For_each_Section_2')?['gap_order']"
+                                        ]
+                                      }
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "15bd9d0e-06b8-4451-9434-7665347900da"
+                                    },
+                                    "type": "If"
+                                  },
+                                  "Filter_Sections_To_Keep": {
+                                    "runAfter": {
+                                      "If_the_order_is_incorrect_|_Update": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "a0eb6725-2386-4d12-9c14-08bbd11497b2"
+                                    },
+                                    "type": "Query",
+                                    "inputs": {
+                                      "from": "@variables('SectionsToDelete')",
+                                      "where": "@not(equals(item()?['sectionGuid'], first(body('Filter_Current_Section_Map'))?['sectionGuid']))"
+                                    }
+                                  },
+                                  "Remove_Section_from_Sections_to_Delete": {
+                                    "runAfter": {
+                                      "Filter_Sections_To_Keep": [
+                                        "Succeeded"
+                                      ]
+                                    },
+                                    "metadata": {
+                                      "operationMetadataId": "f2d8fc55-c386-4b8d-97c4-963af7ed5cac"
+                                    },
+                                    "type": "SetVariable",
+                                    "inputs": {
+                                      "name": "SectionsToDelete",
+                                      "value": "@body('Filter_Sections_To_Keep')"
+                                    }
+                                  }
+                                }
+                              },
+                              "expression": {
+                                "not": {
+                                  "contains": [
+                                    "@body('Select_Current_Questions')",
+                                    "@concat('sectionName:\"',items('For_each_Section_2')?['gap_section'],'\"')"
+                                  ]
+                                }
+                              },
+                              "metadata": {
+                                "operationMetadataId": "6a7d73bd-87c8-49a3-8d59-e1b6314fa9f7"
+                              },
+                              "type": "If"
+                            },
+                            "Get_latest_Section": {
+                              "runAfter": {
+                                "If_Section_does_not_exist_|_create": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "7d40b27b-c5ea-4de8-beca-57f38acf8b77"
+                              },
+                              "type": "OpenApiConnection",
+                              "inputs": {
+                                "host": {
+                                  "connectionName": "shared_commondataserviceforapps-1",
+                                  "operationId": "GetItem",
+                                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                },
+                                "parameters": {
+                                  "entityName": "gap_monitoringchecklistsections",
+                                  "recordId": "@coalesce(outputs('Create_Monitoring_Checklist_Sections')?['body/gap_monitoringchecklistsectionid'], outputs('Update_the_checklist_order')?['body/gap_monitoringchecklistsectionid'], first(outputs('List_Matching_Section')?['body/value'])?['gap_monitoringchecklistsection'])"
+                                },
+                                "authentication": "@parameters('$authentication')"
+                              }
+                            },
+                            "Filter_for_section_questions": {
+                              "runAfter": {
+                                "Get_Monitoring_Checklist_Question_Templates": [
+                                  "Succeeded"
+                                ]
+                              },
+                              "metadata": {
+                                "operationMetadataId": "0d263470-8a6e-4f24-9141-58275cfd8d2d"
+                              },
+                              "type": "Query",
+                              "inputs": {
+                                "from": "@body('Select_Current_Questions')",
+                                "where": "@equals(item()?['sectionName'], outputs('Get_latest_Section')?['body/gap_section'])"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Get_latest_Monitoring_Checklist": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "9ac26714-dcb6-4383-806a-259b537b3fa7"
+                          },
+                          "type": "Foreach"
+                        },
+                        "Get_latest_Monitoring_Checklist": {
+                          "runAfter": {
+                            "If_Checklist_Exists_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "86062184-fb0f-4708-b102-ebca802ca571"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps-1",
+                              "operationId": "GetItem",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "gap_monitoringchecklists",
+                              "recordId": "@coalesce(outputs('Get_Current_Monitoring_Checklist')?['body/gap_monitoringchecklistid'],outputs('Create_Monitoring_Checklist_2')?['body/gap_monitoringchecklistid'])"
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "If_Questions_to_delete": {
+                          "actions": {
+                            "For_Each_Question_to_delete": {
+                              "foreach": "@variables('QuestionsToDelete')",
+                              "actions": {
+                                "Delete_Question": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "c976046b-f4b1-43c8-ad2f-b2ba6880c897"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps-1",
+                                      "operationId": "DeleteRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_monitoringchecklistquestions",
+                                      "recordId": "@items('For_Each_Question_to_delete')?['guid']"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                }
+                              },
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "8ec63fb6-4c75-4d82-b41a-9e86996a1b1c"
+                              },
+                              "type": "Foreach"
+                            }
+                          },
+                          "runAfter": {
+                            "For_each_Section_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "expression": {
+                            "greater": [
+                              "@length(variables('QuestionsToDelete'))",
+                              0
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "f6d5684a-464e-406c-84e4-1dcce0f4490b"
+                          },
+                          "type": "If"
+                        },
+                        "If_Sections_to_delete": {
+                          "actions": {
+                            "For_Each_Section_to_delete": {
+                              "foreach": "@variables('SectionsToDelete')",
+                              "actions": {
+                                "Delete_Section": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "acfd66b8-0fc4-4215-af39-f69824a5b21d"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps-1",
+                                      "operationId": "DeleteRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "gap_monitoringchecklistsections",
+                                      "recordId": "@items('For_Each_Section_to_delete')?['guid']"
+                                    },
+                                    "authentication": "@parameters('$authentication')"
+                                  }
+                                }
+                              },
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "5d06eb84-0d06-4316-96ac-558ea6279129"
+                              },
+                              "type": "Foreach"
+                            }
+                          },
+                          "runAfter": {
+                            "If_Questions_to_delete": [
+                              "Succeeded"
+                            ]
+                          },
+                          "expression": {
+                            "greater": [
+                              "@length(variables('SectionsToDelete'))",
+                              0
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "cb298505-6f6e-465c-ab89-b0a21d3ee5b9"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {},
+                      "expression": {
+                        "not": {
+                          "equals": [
+                            "@outputs('Get_Latest_Monitoring_Activity')?['body/_gap_monitoringactivitytemplate_value']",
+                            "@null"
+                          ]
+                        }
+                      },
+                      "metadata": {
+                        "operationMetadataId": "710a4a6d-0736-4cf2-aedf-064c67228813"
+                      },
+                      "type": "If"
+                    }
+                  },
+                  "runAfter": {
+                    "Calculate_Map": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "fd5e51c2-b884-424b-bada-36fd042c6d77"
+                  },
+                  "type": "Scope"
+                },
+                "Calculate_Map": {
+                  "actions": {
+                    "List_Template_Activity_Questions": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "0b4b94e7-43ff-4594-bf91-9840e9b9961f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_monitoringchecklistquestiontemplates",
+                          "fetchXml": "<fetch>\n  <entity name=\"gap_monitoringchecklistquestiontemplate\">\n\n    <attribute name=\"gap_monitoringchecklistquestiontemplateid\" />\n    <attribute name=\"gap_order\" />\n    <attribute name=\"gap_name\" />\n    <attribute name=\"gap_type\" />\n    <attribute name=\"gap_choiceoptions\" />\n\n    <link-entity\n      name=\"gap_monitoringchecklistsectiontemplate\"\n      from=\"gap_monitoringchecklistsectiontemplateid\"\n      to=\"gap_monitoringchecklistsectiontemplate\"\n      alias=\"section\"\n      link-type=\"inner\">\n\n      <attribute name=\"gap_monitoringchecklistsectiontemplateid\" />\n      <attribute name=\"gap_section\" />\n      <attribute name=\"gap_order\" />\n\n      <link-entity\n        name=\"gap_monitoringchecklisttemplate\"\n        from=\"gap_monitoringchecklisttemplateid\"\n        to=\"gap_monitoringchecklisttemplate\"\n        alias=\"checklist\"\n        link-type=\"inner\">\n\n        <attribute name=\"gap_monitoringchecklisttemplateid\" />\n        <attribute name=\"gap_name\" />\n\n      </link-entity>\n\n    </link-entity>\n\n    <order attribute=\"gap_order\" descending=\"false\" />\n\n  </entity>\n</fetch>"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Select_Template_Questions": {
+                      "runAfter": {
+                        "List_Template_Activity_Questions": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "dbb7659c-dc8a-468a-acef-5db1dd098707"
+                      },
+                      "type": "Select",
+                      "inputs": {
+                        "from": "@outputs('List_Template_Activity_Questions')?['body/value']",
+                        "select": {
+                          "checklistTemplateId": "@{item()?['checklist.gap_monitoringchecklisttemplateid']}",
+                          "checklistName": "@{item()?['checklist.gap_name']}",
+                          "sectionTemplateId": "@{item()?['section.gap_monitoringchecklistsectiontemplateid']}",
+                          "sectionName": "@{item()?['section.gap_section']}",
+                          "sectionOrder": "@{item()?['section.gap_order']}",
+                          "questionTemplateId": "@{item()?['gap_monitoringchecklistquestiontemplateid']}",
+                          "questionOrder": "@{item()?['gap_order']}",
+                          "question": "@{item()?['gap_question']}",
+                          "questionType": "@{item()?['gap_type']}",
+                          "answers": "@{item()?['gap_choiceoptions']}"
+                        }
+                      }
+                    },
+                    "List_Activity_Questions": {
+                      "runAfter": {
+                        "Compose_Unique_Template_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "9b2ea3ad-00b8-458f-9322-99dfe68b3072"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "gap_monitoringchecklistquestions",
+                          "fetchXml": "<fetch>\n  <entity name=\"gap_monitoringchecklistquestion\">\n\n    <attribute name=\"gap_order\" />\n    <attribute name=\"gap_name\" />\n    <attribute name=\"gap_type\" />\n    <attribute name=\"gap_choiceoptions\" />\n\n    <link-entity\n      name=\"gap_monitoringchecklistsection\"\n      from=\"gap_monitoringchecklistsectionid\"\n      to=\"gap_monitoringchecklistsection\"\n      alias=\"section\"\n      link-type=\"inner\">\n\n      <attribute name=\"gap_section\" />\n      <attribute name=\"gap_order\" />\n      <attribute name=\"gap_monitoringchecklistsectionid\" />\n\n      <link-entity\n        name=\"gap_monitoringchecklist\"\n        from=\"gap_monitoringchecklistid\"\n        to=\"gap_monitoringchecklist\"\n        alias=\"checklist\"\n        link-type=\"inner\">\n\n        <attribute name=\"gap_name\" />\n\n        <link-entity\n          name=\"gap_monitoringactivity\"\n          from=\"gap_monitoringchecklist\"\n          to=\"gap_monitoringchecklistid\"\n          alias=\"activity\"\n          link-type=\"inner\">\n\n          <filter>\n            <condition\n              attribute=\"gap_monitoringactivityid\"\n              operator=\"eq\"\n              value=\"@{outputs('Get_Latest_Monitoring_Activity')?['body/gap_monitoringactivityid']}\" />\n          </filter>\n\n        </link-entity>\n\n      </link-entity>\n\n    </link-entity>\n\n    <order attribute=\"gap_order\" descending=\"false\" />\n\n  </entity>\n</fetch>"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Select_Current_Questions": {
+                      "runAfter": {
+                        "List_Activity_Questions": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "803dbf87-7a3f-46d7-9c7f-c3f2b3a21236"
+                      },
+                      "type": "Select",
+                      "inputs": {
+                        "from": "@outputs('List_Activity_Questions')?['body/value']",
+                        "select": {
+                          "checklistName": "@{item()?['checklist.gap_name']}",
+                          "sectionName": "@{item()?['section.gap_section']}",
+                          "sectionOrder": "@{item()?['section.gap_order']}",
+                          "questionOrder": "@{item()?['gap_order']}",
+                          "question": "@{item()?['gap_question']}",
+                          "questionType": "@{item()?['gap_datatype']}",
+                          "answers": "@{item()?['gap_choiceoptions']}",
+                          "guid": "@item()?['gap_monitoringchecklistquestionid']",
+                          "sectionGuid": "@item()?['section.gap_monitoringchecklistsectionid']"
+                        }
+                      }
+                    },
+                    "Select_Current_Sections": {
+                      "runAfter": {
+                        "Select_Current_Questions": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "803dbf87-7a3f-46d7-9c7f-c3f2b3a21236"
+                      },
+                      "type": "Select",
+                      "inputs": {
+                        "from": "@outputs('List_Activity_Questions')?['body/value']",
+                        "select": {
+                          "sectionName": "@{item()?['section.gap_section']}",
+                          "sectionOrder": "@{item()?['section.gap_order']}",
+                          "sectionGuid": "@item()?['section.gap_monitoringchecklistsectionid']"
+                        }
+                      }
+                    },
+                    "Compose_Unique_Sections": {
+                      "runAfter": {
+                        "Select_Current_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "b0e17bee-1cf3-42dd-a3f4-5d033b4d7c47"
+                      },
+                      "type": "Compose",
+                      "inputs": "union(\n    @{body('Select_Current_Sections')},\n    @{body('Select_Current_Sections')}\n)"
+                    },
+                    "Select_Template_Sections": {
+                      "runAfter": {
+                        "Select_Template_Questions": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "dbb7659c-dc8a-468a-acef-5db1dd098707"
+                      },
+                      "type": "Select",
+                      "inputs": {
+                        "from": "@outputs('List_Template_Activity_Questions')?['body/value']",
+                        "select": {
+                          "sectionName": "@{item()?['section.gap_section']}",
+                          "sectionOrder": "@{item()?['section.gap_order']}"
+                        }
+                      }
+                    },
+                    "Compose_Unique_Template_Sections": {
+                      "runAfter": {
+                        "Select_Template_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "dea0af2f-418f-4641-ba3e-a026c4504140"
+                      },
+                      "type": "Compose",
+                      "inputs": "union(\n    @{body('Select_Template_Sections')},\n    @{body('Select_Template_Sections')}\n)"
+                    },
+                    "Set_initial_questions_to_delete": {
+                      "runAfter": {
+                        "Compose_Unique_Sections": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "bb4f3b13-1b06-4ce3-ba22-fc857e8bb964"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "QuestionsToDelete",
+                        "value": "@body('Select_Current_Questions')"
+                      }
+                    },
+                    "Set_initial_sections_to_delete": {
+                      "runAfter": {
+                        "Set_initial_questions_to_delete": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "622d155a-f3fb-4384-980d-0faad149621b"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "SectionsToDelete",
+                        "value": "@outputs('Compose_Unique_Sections')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Get_Latest_Monitoring_Activity": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "406035c0-4920-400d-a09a-8592845b31f6"
+                  },
+                  "type": "Scope"
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "8719f430-2082-4121-a44e-cddab0cad2aa"
+              },
+              "type": "Scope"
+            },
+            "Catch": {
+              "actions": {
+                "Update_Application_Stage": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "c01f1ba5-098e-4639-b581-0e8ae54f71db"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps-1",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "gap_monitoringactivities",
+                      "recordId": "@outputs('Get_Latest_Monitoring_Activity')?['body/gap_monitoringactivityid']",
+                      "item/gap_currentstage": "Error (Drafting)"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Error_Message_Exists": {
+                  "actions": {
+                    "Add_Custom_Error_Message": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "c76bc398-f213-4e81-acc4-59791fd16d5d"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps-1",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "annotations",
+                          "item/subject": "An error occurred.",
+                          "item/notetext": "@variables('Error Message')",
+                          "item/objectid_gap_monitoringactivity@odata.bind": "gap_monitoringactivities(@{outputs('Get_Latest_Monitoring_Activity')?['body/gap_monitoringactivityid']})"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Update_Application_Stage": [
+                      "Succeeded"
+                    ]
+                  },
+                  "else": {
+                    "actions": {
+                      "Add_Standard_Error_Message": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "90bd4d26-1726-4575-b1ba-b09f64e66df7"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps-1",
+                            "operationId": "CreateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "annotations",
+                            "item/subject": "An error occurred.",
+                            "item/notetext": "Flow Name: @{workflow()['name']}\nRun ID: @{workflow()['run']['name']}\nDate & Time: @{utcNow()}\nLink: @{concat('https://make.powerautomate.com/environments/', workflow()['tags']['environmentName'], '/solutions/', split(workflow()['tags']['environmentWorkflowId'], '-')[1], '/flows/', workflow()['tags']['xrmWorkflowId'])\r\n}",
+                            "item/objectid_gap_monitoringactivity@odata.bind": "gap_monitoringactivities(@{outputs('Get_Latest_Monitoring_Activity')?['body/gap_monitoringactivityid']})"
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "and": [
+                      {
+                        "greater": [
+                          "@length(variables('Error Message'))",
+                          0
+                        ]
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6ae4dde1-4d6a-4268-8150-208f150398d8"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "Try": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8ac34324-2c49-4143-b42c-5b2454743b62"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "Initialize_Admin_Team": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3dedfc81-d9a9-4c27-b061-fcdbf90bf3c5"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
