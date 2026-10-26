@@ -5,8 +5,8 @@
   <buttonaccessibilitytext default="Update Subjective Checklist button">
     <label description="Update Subjective Checklist button" languagecode="1033" />
   </buttonaccessibilitytext>
-  <buttonlabeltext default="Update Monitoring">
-    <label description="Update Monitoring" languagecode="1033" />
+  <buttonlabeltext default="Update Monitoring Structures">
+    <label description="Update Monitoring Structures" languagecode="1033" />
   </buttonlabeltext>
   <buttontooltipdescription default="Button to update subjective checklists for applications under the scheme">
     <label description="Button to update subjective checklists for applications under the scheme" languagecode="1033" />
