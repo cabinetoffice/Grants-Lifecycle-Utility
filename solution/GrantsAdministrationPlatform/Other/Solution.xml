@@ -972,7 +972,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="IntegratedSearchApp" solution="msdynce_KnowledgeManagementPatch (9.0.26094.3005)" id="{bd33526c-3668-4f81-9045-cb70c6156dc6}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26092.3003">msdynce_KnowledgeManagementAnchor (9.0.26092.3003)</package>
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26094.3005">msdynce_KnowledgeManagementAnchor (9.0.26094.3005)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
@@ -1038,7 +1038,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="20" displayName="Knowledge Manager" solution="msdynce_KnowledgeManagementPatch (9.0.26094.3005)" id="{d9b35b88-37fb-49b2-bb16-39f63a748b48}" parentId="{b4b40b17-cf37-4ea8-b2c5-b580f2f48654}">
-          <package appName="msdynce_KnowledgeManagement" version="9.0.26092.3003">msdynce_KnowledgeManagementAnchor (9.0.26092.3003)</package>
+          <package appName="msdynce_KnowledgeManagement" version="9.0.26094.3005">msdynce_KnowledgeManagementAnchor (9.0.26094.3005)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="FAQ Document" id="{f55dadbe-f84e-421a-b8e1-a338edcf9123}" />
       </MissingDependency>
