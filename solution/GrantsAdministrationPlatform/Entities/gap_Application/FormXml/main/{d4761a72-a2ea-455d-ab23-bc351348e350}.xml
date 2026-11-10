@@ -398,7 +398,7 @@
                     <row>
                       <cell id="{dd774cbe-4829-4b3d-8570-0a52cbdfb865}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="GGMS Recommended" languagecode="1033" />
+                          <label description="Recommended" languagecode="1033" />
                         </labels>
                         <control id="gap_ggmsrecommended" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_ggmsrecommended" disabled="false" />
                       </cell>
@@ -668,7 +668,7 @@
                 </section>
                 <section name="tab_12_section_7" id="db769d9c-7896-4ede-bbca-0989b901d3f8" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
                   <labels>
-                    <label description="Department Confirmation" languagecode="1033" />
+                    <label description="Confirmation" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
@@ -681,7 +681,7 @@
                     <row>
                       <cell locklevel="0" id="{2d3efac4-a06b-4eb4-87ce-aad7da7ea06b}" colspan="1" rowspan="1" showlabel="false">
                         <labels>
-                          <label description="GGMS Recommendation Reasoning" languagecode="1033" />
+                          <label description="Recommendation Rationale" languagecode="1033" />
                         </labels>
                         <control id="gap_ggmsrecommendationreasoning" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="gap_ggmsrecommendationreasoning" uniqueid="{cb03698c-fb3f-4c3e-b04c-a509643df689}" disabled="true" />
                       </cell>
@@ -689,7 +689,7 @@
                     <row>
                       <cell id="{44f97b5f-1f9d-4349-b401-e208952806c3}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="GGMS Recommended" languagecode="1033" />
+                          <label description="Recommended" languagecode="1033" />
                         </labels>
                         <control id="gap_ggmsrecommended" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_ggmsrecommended" disabled="false" />
                       </cell>
@@ -705,7 +705,7 @@
                     <row>
                       <cell id="{d9de9c71-71d4-41af-bdcc-ffdcebb195d0}" locklevel="0" colspan="1" rowspan="5">
                         <labels>
-                          <label description="GGMS Recommendation Reasoning" languagecode="1033" />
+                          <label description="Recommendation Rationale" languagecode="1033" />
                         </labels>
                         <control id="gap_ggmsrecommendationreasoning" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="gap_ggmsrecommendationreasoning" disabled="false" />
                       </cell>
@@ -717,7 +717,7 @@
                     <row>
                       <cell id="{8b71fc8b-7418-4dcc-87d5-4575fc38d56d}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
-                          <label description="Department Decision" languagecode="1033" />
+                          <label description="Decision to Award" languagecode="1033" />
                         </labels>
                         <control id="gap_departmentdecision" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="gap_departmentdecision" disabled="false" />
                       </cell>

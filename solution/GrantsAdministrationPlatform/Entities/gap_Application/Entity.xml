@@ -919,7 +919,7 @@
           <AppDefaultValue>-1</AppDefaultValue>
           <OptionSetName>gap_decisionoptions</OptionSetName>
           <displaynames>
-            <displayname description="Department Decision" languagecode="1033" />
+            <displayname description="Decision to Award" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Drop-down to confirm department decision on the application" languagecode="1033" />
@@ -2295,7 +2295,7 @@
             <displayname description="GGIS Award Reference" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="An optional field that is filled out if the organisation has a specific Award Reference number for this specific award." languagecode="1033" />
+            <Description description="An optional field that is filled out if the organisation has a specific Award Reference number for this specific award. This may not be relevant to non GGIS users." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_GGISRecordReference">
@@ -2335,7 +2335,7 @@
             <displayname description="GGIS Record Reference" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Award Reference Number for the Award record that has been generated on the GGIS API." languagecode="1033" />
+            <Description description="Award Reference Number for the Award record that has been generated on the GGIS API. This may not be relevant to GGIS users." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_GGMSRecommendationReasoning">
@@ -2372,7 +2372,7 @@
           <MaxLength>4000</MaxLength>
           <Length>8000</Length>
           <displaynames>
-            <displayname description="GGMS Recommendation Reasoning" languagecode="1033" />
+            <displayname description="Recommendation Rationale" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="To provide a reason for the decision made by GGMS." languagecode="1033" />
@@ -2411,7 +2411,7 @@
           <AppDefaultValue>-1</AppDefaultValue>
           <OptionSetName>gap_recommendationoptions</OptionSetName>
           <displaynames>
-            <displayname description="GGMS Recommended" languagecode="1033" />
+            <displayname description="Recommended" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Drop-down to confirm GGMS decision on the application" languagecode="1033" />

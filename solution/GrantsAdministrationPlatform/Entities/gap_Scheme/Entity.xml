@@ -687,10 +687,10 @@
           <LookupStyle>single</LookupStyle>
           <LookupTypes />
           <displaynames>
-            <displayname description="Department" languagecode="1033" />
+            <displayname description="Organisation" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The Government Department associated with the scheme." languagecode="1033" />
+            <Description description="The Government Organisation associated with the scheme." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_DocumentsFolderPath">
@@ -1406,7 +1406,7 @@
             <displayname description="GGIS Award End Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The date for the scheme end date on GGIS API. This date will be auto populated to the date retrieved" languagecode="1033" />
+            <Description description="The date for the scheme end date on GGIS API. This date will be auto populated to the date retrieved. This may not be relevant to non GGIS users." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_GGISAwardStartDate">
@@ -1446,7 +1446,7 @@
             <displayname description="GGIS Award Start Date" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="The date for the scheme start date on GGIS API. This date will be auto populated to the date retrieved" languagecode="1033" />
+            <Description description="The date for the scheme start date on GGIS API. This date will be auto populated to the date retrieved. This may not be relevant to non GGIS users." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_GGISReferenceNumber">
@@ -1534,18 +1534,18 @@
             <options>
               <option value="1" ExternalValue="" IsHidden="0">
                 <labels>
-                  <label description="Yes" languagecode="1033" />
+                  <label description="GGMS" languagecode="1033" />
                 </labels>
               </option>
               <option value="0" ExternalValue="" IsHidden="0">
                 <labels>
-                  <label description="No" languagecode="1033" />
+                  <label description="In-house" languagecode="1033" />
                 </labels>
               </option>
             </options>
           </optionset>
           <displaynames>
-            <displayname description="GGMS Delivered" languagecode="1033" />
+            <displayname description="Delivery Route" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="Indication that Scheme was delivered by Government Grants Managed Service (GGMS)" languagecode="1033" />
@@ -1729,7 +1729,7 @@
             <displayname description="ID Validation Outcome" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Field to store the outcomes from the ID Validation Process. Content will state if Names and other information are matching." languagecode="1033" />
+            <Description description="Field to store the outcomes from the ID Validation Process. Content will state if Names and other information are matching. This may not be relevant to non GGIS users." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="gap_MobilisationCompletedOn">
@@ -3197,15 +3197,7 @@
               </option>
               <option value="803260002" ExternalValue="" IsHidden="0">
                 <labels>
-                  <label description="Approved by Quality Control" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-              <option value="803260003" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Approved by Department" languagecode="1033" />
+                  <label description="Approved" languagecode="1033" />
                 </labels>
                 <Descriptions>
                   <Description description="" languagecode="1033" />
@@ -3289,15 +3281,7 @@
               </option>
               <option value="803260003" ExternalValue="" IsHidden="0">
                 <labels>
-                  <label description="Approved by Quality Control" languagecode="1033" />
-                </labels>
-                <Descriptions>
-                  <Description description="" languagecode="1033" />
-                </Descriptions>
-              </option>
-              <option value="803260004" ExternalValue="" IsHidden="0">
-                <labels>
-                  <label description="Approved by Department" languagecode="1033" />
+                  <label description="Approved" languagecode="1033" />
                 </labels>
                 <Descriptions>
                   <Description description="" languagecode="1033" />
@@ -3586,6 +3570,14 @@
                   <Description description="" languagecode="1033" />
                 </Descriptions>
               </option>
+              <option value="803260003" IsHidden="0">
+                <labels>
+                  <label description="Not Required" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
             </options>
           </optionset>
           <displaynames>
@@ -3701,6 +3693,14 @@
                   <Description description="" languagecode="1033" />
                 </Descriptions>
               </option>
+              <option value="803260003" IsHidden="0">
+                <labels>
+                  <label description="Not Required" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
             </options>
           </optionset>
           <displaynames>
@@ -3785,6 +3785,14 @@
                   <Description description="" languagecode="1033" />
                 </Descriptions>
               </option>
+              <option value="803260004" IsHidden="0">
+                <labels>
+                  <label description="Not Required" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
             </options>
           </optionset>
           <displaynames>
@@ -3864,6 +3872,14 @@
               <option value="803260003" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="Completed" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="803260004" IsHidden="0">
+                <labels>
+                  <label description="Not Required" languagecode="1033" />
                 </labels>
                 <Descriptions>
                   <Description description="" languagecode="1033" />
@@ -3977,6 +3993,14 @@
                   <Description description="" languagecode="1033" />
                 </Descriptions>
               </option>
+              <option value="803260007" IsHidden="0">
+                <labels>
+                  <label description="Not Required" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
             </options>
           </optionset>
           <displaynames>
@@ -4056,6 +4080,14 @@
               <option value="803260003" ExternalValue="" IsHidden="0">
                 <labels>
                   <label description="Completed" languagecode="1033" />
+                </labels>
+                <Descriptions>
+                  <Description description="" languagecode="1033" />
+                </Descriptions>
+              </option>
+              <option value="803260004" IsHidden="0">
+                <labels>
+                  <label description="Not Required" languagecode="1033" />
                 </labels>
                 <Descriptions>
                   <Description description="" languagecode="1033" />

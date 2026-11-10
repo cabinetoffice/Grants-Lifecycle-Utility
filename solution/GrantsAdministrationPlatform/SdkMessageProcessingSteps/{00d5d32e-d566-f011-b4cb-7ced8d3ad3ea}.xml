@@ -27,6 +27,7 @@
 }</Configuration>
   <Description>PermissionsPlugin: Create of gap_scoringchecklist</Description>
   <FilteringAttributes>gap_application,createdon</FilteringAttributes>
+  <ImpersonatingUserIdName></ImpersonatingUserIdName>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>

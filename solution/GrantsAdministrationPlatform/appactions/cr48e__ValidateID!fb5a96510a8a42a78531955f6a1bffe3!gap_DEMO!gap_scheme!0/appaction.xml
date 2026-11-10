@@ -8,8 +8,8 @@
   <buttonlabeltext default="Validate GGIS ID">
     <label description="Validate GGIS ID" languagecode="1033" />
   </buttonlabeltext>
-  <buttontooltipdescription default="Validate GGIS ID">
-    <label description="Validate GGIS ID" languagecode="1033" />
+  <buttontooltipdescription default="Validate GGIS ID. This may not be relevant to non GGIS users.">
+    <label description="Validate GGIS ID. This may not be relevant to non GGIS users." languagecode="1033" />
   </buttontooltipdescription>
   <buttontooltiptitle default="Validate GGIS ID button">
     <label description="Validate GGIS ID button" languagecode="1033" />

@@ -27,6 +27,7 @@
 }</Configuration>
   <Description>PermissionsPlugin: Create of gap_monitoringactivity</Description>
   <FilteringAttributes>createdon,gap_monitoringstructure</FilteringAttributes>
+  <ImpersonatingUserIdName></ImpersonatingUserIdName>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>

@@ -2,17 +2,17 @@
   <appmoduleid>
     <uniquename>gap_DEMO</uniquename>
   </appmoduleid>
-  <buttonaccessibilitytext default="Submit GGMS Recommendation">
-    <label description="Submit GGMS Recommendation" languagecode="1033" />
+  <buttonaccessibilitytext default="Submit Recommendation">
+    <label description="Submit Recommendation" languagecode="1033" />
   </buttonaccessibilitytext>
-  <buttonlabeltext default="Submit GGMS Recommendation">
-    <label description="Submit GGMS Recommendation" languagecode="1033" />
+  <buttonlabeltext default="Submit Recommendation">
+    <label description="Submit Recommendation" languagecode="1033" />
   </buttonlabeltext>
-  <buttontooltipdescription default="Button to submit GGMS recommendation">
-    <label description="Button to submit GGMS recommendation" languagecode="1033" />
+  <buttontooltipdescription default="Button to submit recommendation">
+    <label description="Button to submit recommendation" languagecode="1033" />
   </buttontooltipdescription>
-  <buttontooltiptitle default="Submit GGMS Recommendation">
-    <label description="Submit GGMS Recommendation" languagecode="1033" />
+  <buttontooltiptitle default="Submit Recommendation">
+    <label description="Submit Recommendation" languagecode="1033" />
   </buttontooltiptitle>
   <context>1</context>
   <contextentity>

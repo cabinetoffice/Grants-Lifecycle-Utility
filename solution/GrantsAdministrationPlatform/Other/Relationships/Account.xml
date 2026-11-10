@@ -130,7 +130,7 @@
     <ReferencingAttributeName>gap_Department</ReferencingAttributeName>
     <RelationshipDescription>
       <Descriptions>
-        <Description description="The Government Department associated with the scheme." languagecode="1033" />
+        <Description description="The Government Organisation associated with the scheme." languagecode="1033" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
